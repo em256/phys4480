@@ -1,0 +1,1051 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Integration Follow-up &#8212; PHYS 4480-7680 Computational Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Integration Followup';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dynamics" href="Pendulum%20dynamics.html" />
+    <link rel="prev" title="Lab – Period of a Pendulum" href="LAB%20Period%20of%20a%20Pendulum.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/atransfer.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
+    <script>document.write(`<img src="_static/atransfer.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physics 4480 / 7680 / Astronomy 7690
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Period%20of%20a%20pendulum.html">Period of a Pendulum</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="LAB%20Period%20of%20a%20Pendulum.html">Lab – Period of a Pendulum</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Integration Follow-up</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving Ordinary Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pendulum%20dynamics.html">Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LAB%20--%20Projectile%20Motion.html">LAB – Projectile Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Automatic%20Differentiation.html">Automatic Differentiation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FIntegration Followup.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Integration Followup.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Integration Follow-up</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Integration Follow-up</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages-for-integration">Packages for Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadratures">Gaussian Quadratures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-behind-gaussian-quadratures">Magic behind Gaussian Quadratures</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-quadratures">Adaptive Quadratures</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-files-and-notebooks-at-the-same-time">Working with files and notebooks at the same time</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#path-integrals">Path Integrals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contour-integrals">Contour Integrals</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-dimensional-integrals">Higher dimensional integrals</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="integration-follow-up">
+<h1>Integration Follow-up<a class="headerlink" href="#integration-follow-up" title="Permalink to this heading">#</a></h1>
+<p>Take-aways from the Period of the pendulum lab:</p>
+<ol class="arabic simple">
+<li><p>Although the period diverges as <span class="math notranslate nohighlight">\(\theta_m\to\pi/2\)</span>, the divergence is very weak:  It is logarithmic.  That is slower than any power law.  In practice this means it is that you need relatively precise measurements to detect the amplitude dependence of a pendulum’s frequency.</p></li>
+<li><p>For numerical integration it is very important to rescale your variables to get rid of singularities.  Although we didn’t encounter any, singularities in the middle of the region are even worse.</p></li>
+</ol>
+<section id="packages-for-integration">
+<h2>Packages for Integration<a class="headerlink" href="#packages-for-integration" title="Permalink to this heading">#</a></h2>
+<p>There are a number of different Julia packages for doing numerical integration.  The default is <a class="reference external" href="https://juliamath.github.io/QuadGK.jl/stable/">QuadGK</a> which implements the <a class="reference external" href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Kronrod_quadrature_formula">Gauss-Kronrod algorithm</a>.  This is an algorithm which subdivides the integration interval in a non-uniform way, adding more points where the function is changing fastest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">QuadGK</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">quadgk</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c"># returns the integral and the error estimate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.3333333333333333, 0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="p">,</span><span class="o">=</span><span class="n">quadgk</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c"># just extract the integral, and throw away the error estimate</span>
+<span class="n">i</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets see if out-of-the-box it can do our integral for the period</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">PeriodIntegrand</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">thm</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="nb">pi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">thm</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">thm</span><span class="p">)</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">thm</span><span class="p">)))</span>
+<span class="n">quadgk</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">PeriodIntegrand</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1803405931478603, 1.537190156500909e-8)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note, it has problems when <span class="math notranslate nohighlight">\(\theta_m\)</span> becomes small</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">PeriodIntegrand</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">thm</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="nb">pi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">thm</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">thm</span><span class="p">)</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">thm</span><span class="p">)))</span>
+<span class="n">quadgk</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">PeriodIntegrand</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">DomainError</span> <span class="k">with</span> <span class="mf">0.9999999999990905</span><span class="p">:</span>
+<span class="nn">integrand produced Inf</span> in <span class="ni">the interval </span><span class="nt">(0.999999999998181, 1.0)</span>
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">evalrule</span><span class="p">(</span><span class="n">f</span><span class="p">::</span><span class="n">var</span><span class="s2">&quot;#9#10&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">b</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">w</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">gw</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">nrm</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">LinearAlgebra</span><span class="o">.</span><span class="n">norm</span><span class="p">))</span>
+   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">evalrule</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">37</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">refine</span><span class="p">(</span><span class="n">f</span><span class="p">::</span><span class="n">var</span><span class="s2">&quot;#9#10&quot;</span><span class="p">,</span> <span class="n">segs</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">QuadGK</span><span class="o">.</span><span class="n">Segment</span><span class="p">{</span><span class="n">Float64</span><span class="p">,</span> <span class="n">Float64</span><span class="p">,</span> <span class="n">Float64</span><span class="p">}},</span> <span class="n">I</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">E</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">numevals</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">w</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">gw</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">n</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">atol</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">rtol</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">maxevals</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">nrm</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">LinearAlgebra</span><span class="o">.</span><span class="n">norm</span><span class="p">))</span>
+   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">71</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">adapt</span>
+   <span class="o">@</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">52</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">do_quadgk</span><span class="p">(</span><span class="n">f</span><span class="p">::</span><span class="n">var</span><span class="s2">&quot;#9#10&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">::</span><span class="n">Tuple</span><span class="p">{</span><span class="n">Int64</span><span class="p">,</span> <span class="n">Int64</span><span class="p">},</span> <span class="n">n</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">atol</span><span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">rtol</span><span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">maxevals</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">nrm</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">LinearAlgebra</span><span class="o">.</span><span class="n">norm</span><span class="p">),</span> <span class="n">segbuf</span><span class="p">::</span><span class="n">Nothing</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">44</span>
+ <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="c1">#50</span>
+   <span class="o">@</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">253</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="n">handle_infinities</span><span class="p">(</span><span class="n">workfunc</span><span class="p">::</span><span class="n">QuadGK</span><span class="o">.</span><span class="n">var</span><span class="s2">&quot;#50#51&quot;</span><span class="p">{</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">Nothing</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">typeof</span><span class="p">(</span><span class="n">LinearAlgebra</span><span class="o">.</span><span class="n">norm</span><span class="p">),</span> <span class="n">Nothing</span><span class="p">},</span> <span class="n">f</span><span class="p">::</span><span class="n">var</span><span class="s2">&quot;#9#10&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">::</span><span class="n">Tuple</span><span class="p">{</span><span class="n">Int64</span><span class="p">,</span> <span class="n">Int64</span><span class="p">})</span>
+   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">145</span>
+ <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="n">quadgk</span><span class="p">(::</span><span class="n">Function</span><span class="p">,</span> <span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="p">::</span><span class="n">Vararg</span><span class="p">{</span><span class="n">Int64</span><span class="p">};</span> <span class="n">atol</span><span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">rtol</span><span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">maxevals</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">order</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">norm</span><span class="p">::</span><span class="n">Function</span><span class="p">,</span> <span class="n">segbuf</span><span class="p">::</span><span class="n">Nothing</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">252</span>
+ <span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="n">quadgk</span><span class="p">(::</span><span class="n">Function</span><span class="p">,</span> <span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="p">::</span><span class="n">Vararg</span><span class="p">{</span><span class="n">Int64</span><span class="p">})</span>
+   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">250</span>
+ <span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
+   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To fix this we need to do one of our variable transformations</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">integrandz</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">θₘ</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="nb">pi</span><span class="p">)</span><span class="o">*</span><span class="n">θₘ</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">θₘ</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">θₘ</span><span class="p">))</span>
+<span class="n">quadgk</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">integrandz</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">0.01</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.0000062500030935, 4.559330690767638e-11)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see how many points in evaluated the function at with <code class="docutils literal notranslate"><span class="pre">quadgk_count</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">quadgk_count</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">integrandz</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1803405990160678, 6.177591771461266e-11, 15)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Somehow it only needed 15 function evaluations to get better than 1 part in <span class="math notranslate nohighlight">\(10^{10}\)</span> accuracy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">quadgk_print</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">integrandz</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f(0.7853981633974483) = 0.7503618964944812
+f(0.6222042413526234) = 0.7360569409044027
+f(0.9485920854422731) = 0.7651046397803608
+f(0.03997055217745943) = 0.7072387362441486
+f(1.530825774617437) = 0.797725328707192
+f(0.006710935828626571) = 0.7071105023277536
+f(1.56408539096627) = 0.7978800691316444
+f(0.20300093212575152) = 0.7104775229449133
+f(1.367795394669145) = 0.7938468713028066
+f(0.10613523370289246) = 0.7080349790999789
+f(1.464661093092004) = 0.7967665218061539
+f(0.4666481268818812) = 0.724140350702566
+f(1.1041481999130154) = 0.7780929488228913
+f(0.32508632507043583) = 0.7156133946572139
+f(1.2457100017244607) = 0.7878119401635267
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1803405990160678, 6.177591771461266e-11, 15)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note:  without our transformation it needed many more points</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">quadgk_count</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">PeriodIntegrand</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1803405931478603, 1.537190156500909e-8, 1305)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="gaussian-quadratures">
+<h3>Gaussian Quadratures<a class="headerlink" href="#gaussian-quadratures" title="Permalink to this heading">#</a></h3>
+<p>How on Earth can the integration routine be so effective?</p>
+<p>There are two pieces of magic:</p>
+<ol class="arabic simple">
+<li><p>Gaussian Quadratures</p></li>
+<li><p>Adaptive Quadratures</p></li>
+</ol>
+<section id="magic-behind-gaussian-quadratures">
+<h4>Magic behind Gaussian Quadratures<a class="headerlink" href="#magic-behind-gaussian-quadratures" title="Permalink to this heading">#</a></h4>
+<p>The idea is that if one evaluates the function at <strong>non-equally spaced</strong> points, one can accelerate convergence</p>
+<p>For example, suppose we want to calculate <span class="math notranslate nohighlight">\(\int_{-1}^1 f(x) dx\)</span> using only three function evaluations.  In trapezoid rule those evaluations would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>.  For midpoint rule they would be at <span class="math notranslate nohighlight">\(x=-2/3,0,2/3\)</span>.  In Simpson’s rule the would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>, but we would weight them unequally.  The most general quadrature rule is
+$<span class="math notranslate nohighlight">\(
+I\approx \sum_j w_j f(x_j).
+\)</span><span class="math notranslate nohighlight">\(
+The most general 3-point symmetric quadrature rule would be 
+\)</span><span class="math notranslate nohighlight">\(
+I=a f(0) + b f(s)+ b f(-s)
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>a,b,s$ are parameters.</p>
+<p>We will choose these parameters so that we get the correct integral for various polynomials</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ac860e99-5ea9-40ee-b6c7-452f2f12c537">
+<span class="eqno">(15)<a class="headerlink" href="#equation-ac860e99-5ea9-40ee-b6c7-452f2f12c537" title="Permalink to this equation">#</a></span>\[\begin{align}
+\int_{-1}^1 x^0 dx &amp;\to a+2b &amp;=2\\
+\int_{-1}^1 x^1 dx &amp;\to 0 &amp;= 0\\
+\int_{-1}^1 x^2 dx &amp;\to 2b s^2 &amp;= 2/3\\
+\int_{-1}^1 x^3 dx &amp;\to 0 &amp;= 0\\
+\int_{-1}^1 x^4 dx &amp;\to 2b s^4 &amp;= 2/5\\
+\int_{-1}^1 x^5 dx &amp;\to 0 &amp;= 0\\
+\end{align}\]</div>
+<p>We can solve these to find <span class="math notranslate nohighlight">\(s=\sqrt{3/5}, a=8/9, b=5/9\)</span>.  With these 3 function evaluations we can exactly integrate any polynomial up to 5th order.</p>
+<p>There is some beautiful mathematics behind deriving higher ourder Gaussian Quadrature methods, using the properties of orthogonal polynomials.  We will not get into it here, but they have led to efficient ways to calculate the nodes and weights for very <a class="reference external" href="https://pi.math.cornell.edu/~ajt/papers/QuadratureEssay.pdf">high orders</a>.</p>
+</section>
+<section id="adaptive-quadratures">
+<h4>Adaptive Quadratures<a class="headerlink" href="#adaptive-quadratures" title="Permalink to this heading">#</a></h4>
+<p>The other trick that <code class="docutils literal notranslate"><span class="pre">quadgk</span></code> does is it uses <em>adaptive quadratures</em>.  This means it subdivides only the parts of the domain where the function is varying fastest.</p>
+<p>We could code our own Adaptive Gaussian Quadrature routine, but there is not much need.  It makes more sense to just use the packaged version.</p>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="working-with-files-and-notebooks-at-the-same-time">
+<h1>Working with files and notebooks at the same time<a class="headerlink" href="#working-with-files-and-notebooks-at-the-same-time" title="Permalink to this heading">#</a></h1>
+<p>At this point in the lecture, I’ll illustrate how to shift to JupyterLab – opening this notebook and the file “trapezoid.jl” at the same time</p>
+<ol class="arabic simple">
+<li><p>click the “Open in..” button in the upper right</p></li>
+<li><p>click the “Simple” slider on the bottom left, to turn off simple mode</p></li>
+<li><p>click the file browser icon on the left to open a file browser.</p></li>
+<li><p>double click on the file “trapezoid.jl”</p></li>
+<li><p>Drag the tab to show the text file side-by side with the notebook</p></li>
+</ol>
+<p>You can now freely copy and paste betweeen the notebook and the file</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="p">(</span><span class="s">&quot;trapezoid.jl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nrtrap
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nrtrap</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3333333333721384
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use create new text files, edit them, and then run them with <code class="docutils literal notranslate"><span class="pre">include</span></code>.  You can change the file and then <code class="docutils literal notranslate"><span class="pre">include</span></code> them again.  This is really useful if you are building tools that you will use in multiple projects.</p>
+<p>At this point in the lecture I will demonstrate creating a new text file, adding some code to it, and including it.</p>
+<p>I will then illustrate opening a terminal, and running the script using Julia from the command line.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="path-integrals">
+<h1>Path Integrals<a class="headerlink" href="#path-integrals" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">LinearAlgebra</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note:  I made one very small change in our trapezoid integrator when I put it in “trapezoid.jl”.  When we compare the integral’s value for different order, I changed the <code class="docutils literal notranslate"><span class="pre">abs</span></code> to <code class="docutils literal notranslate"><span class="pre">norm</span></code>.  For real (or complex) numbers this works the same, but norm can also work on vectors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="nd">@show</span><span class="w"> </span><span class="n">norm</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nd">@show</span><span class="w"> </span><span class="n">norm</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nd">@show</span><span class="w"> </span><span class="n">norm</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="nb">im</span><span class="p">)</span>
+<span class="nd">@show</span><span class="w"> </span><span class="n">norm</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">^</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norm(-1) = 1.0
+norm(1) = 1.0
+norm(1 + 2im) = 2.23606797749979
+norm([2, 3, 1]) ^ 2 = 14.0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could then calculate something like
+$<span class="math notranslate nohighlight">\(
+\int_{\vec{a}}^{\vec{b}} \vec{F}\cdot d{\vec r}
+\)</span>$
+along a straight line path</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">transpose</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">^</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F (generic function with 2 methods)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="nd">@show</span><span class="w"> </span><span class="n">F</span><span class="p">([</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">])</span>
+<span class="nd">@show</span><span class="w"> </span><span class="n">F</span><span class="p">([</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">])</span>
+<span class="nd">@show</span><span class="w"> </span><span class="n">F</span><span class="p">([</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">])</span>
+<span class="nd">@show</span><span class="w"> </span><span class="n">F</span><span class="p">([</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F([1; 0; 0]) = [-1.0 0.0 0.0]
+F([2; 0; 0]) = [-0.25 0.0 0.0]
+F([0; 1; 0]) = [0.0 -1.0 0.0]
+F([0; 2; 0]) = [0.0 -0.25 0.0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nrtrap</span><span class="p">(</span><span class="n">F</span><span class="p">,([</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5000000000084912
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">([</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">V</span><span class="p">([</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nrtrap</span><span class="p">(</span><span class="n">F</span><span class="p">,([</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="mi">5</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.858578643752598
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">([</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="mi">5</span><span class="p">])</span><span class="o">-</span><span class="n">V</span><span class="p">([</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.8585786437626906
+</pre></div>
+</div>
+</div>
+</div>
+<section id="contour-integrals">
+<h2>Contour Integrals<a class="headerlink" href="#contour-integrals" title="Permalink to this heading">#</a></h2>
+<p>Similarly we can do straight-line integrals in the complex plane</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nrtrap</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="mi">1</span><span class="o">/</span><span class="n">z</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="nb">im</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3465735902605708 + 0.7853981633877467im
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">quadgk</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="mi">1</span><span class="o">/</span><span class="n">z</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="nb">im</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.3465735902799727 + 0.7853981633974483im, 6.712470243266902e-10)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Closed contours:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="nb">im</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="nb">im</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="nb">im</span><span class="o">*</span><span class="nb">pi</span><span class="p">)</span><span class="o">*</span><span class="n">sum</span><span class="p">([</span><span class="n">nrtrap</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="mi">1</span><span class="o">/</span><span class="n">z</span><span class="p">,(</span><span class="n">nodes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">nodes</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999999999876426 + 1.8860385562280946e-17im
+</pre></div>
+</div>
+</div>
+</div>
+<p>The same command with quadgk.  The <code class="docutils literal notranslate"><span class="pre">...</span></code> notation is referred to as a <code class="docutils literal notranslate"><span class="pre">splat</span></code>.  It takes the elements of a list, and inserts them into the function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="nb">im</span><span class="o">*</span><span class="nb">pi</span><span class="p">)</span><span class="o">*</span><span class="n">quadgk</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="mi">1</span><span class="o">/</span><span class="n">z</span><span class="p">,</span><span class="n">nodes</span><span class="o">...</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0 + 1.766974823035287e-17im
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">quadgk</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="mi">1</span><span class="o">/</span><span class="n">z</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="nb">im</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="nb">im</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.1102230246251565e-16 + 6.283185307179586im, 5.3699761946135216e-9)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This takes the integral from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(i\)</span> – then to <span class="math notranslate nohighlight">\(-1\)</span> – then to <span class="math notranslate nohighlight">\(-i\)</span> – then to <span class="math notranslate nohighlight">\(1\)</span> – all with straight line paths between them.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="higher-dimensional-integrals">
+<h1>Higher dimensional integrals<a class="headerlink" href="#higher-dimensional-integrals" title="Permalink to this heading">#</a></h1>
+<p>Higher dimensional integrals are hard.  Grids are hopeless once you get beyond 2 or 3 dimensions.  Say you have a 10 dimensional integral, and you break each dimension into 10 points.  That would then requre <span class="math notranslate nohighlight">\(10^{10}\)</span> function evaluations.</p>
+<p>To do high dimensional integrals efficiently you often need to do some changes of variables, or breaking up the domain.</p>
+<p>A good starting point is the canned routine <code class="docutils literal notranslate"><span class="pre">hcubature</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">HCubature</span><span class="w">  </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="n">y</span><span class="o">^</span><span class="mi">2</span>
+<span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="o">...</span><span class="p">)</span><span class="w">  </span><span class="c"># f accepts a vector</span>
+<span class="n">a0</span><span class="p">,</span><span class="w"> </span><span class="n">b0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="n">hcubature</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a0</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">b0</span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(14.0, 1.7763568394002505e-15)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.9"
+        },
+        kernelOptions: {
+            name: "julia-1.9",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.9'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="LAB%20Period%20of%20a%20Pendulum.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab – Period of a Pendulum</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Pendulum%20dynamics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dynamics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Integration Follow-up</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages-for-integration">Packages for Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadratures">Gaussian Quadratures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-behind-gaussian-quadratures">Magic behind Gaussian Quadratures</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-quadratures">Adaptive Quadratures</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-files-and-notebooks-at-the-same-time">Working with files and notebooks at the same time</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#path-integrals">Path Integrals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contour-integrals">Contour Integrals</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-dimensional-integrals">Higher dimensional integrals</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erich Mueller
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

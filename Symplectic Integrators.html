@@ -1,0 +1,862 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Symmetry Constraints &#8212; PHYS 4480-7680 Computational Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Symplectic Integrators';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Automatic Differentiation" href="Automatic%20Differentiation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/atransfer.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
+    <script>document.write(`<img src="_static/atransfer.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physics 4480 / 7680 / Astronomy 7690
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Period%20of%20a%20pendulum.html">Period of a Pendulum</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="LAB%20Period%20of%20a%20Pendulum.html">Lab – Period of a Pendulum</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Integration%20Followup.html">Integration Follow-up</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving Ordinary Differential Equations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pendulum%20dynamics.html">Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LAB%20--%20Projectile%20Motion.html">LAB – Projectile Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Automatic%20Differentiation.html">Automatic Differentiation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Symmetry Constraints</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSymplectic Integrators.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Symplectic Integrators.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Symmetry Constraints</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-of-classical-mechanics">Geometry of Classical Mechanics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-conservation-and-phase-space-volume">Energy Conservation and phase space volume</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplectic-structure">Symplectic Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplectic-integrators">Symplectic Integrators</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="symmetry-constraints">
+<h1>Symmetry Constraints<a class="headerlink" href="#symmetry-constraints" title="Permalink to this heading">#</a></h1>
+<section id="geometry-of-classical-mechanics">
+<h2>Geometry of Classical Mechanics<a class="headerlink" href="#geometry-of-classical-mechanics" title="Permalink to this heading">#</a></h2>
+<p>It turns out that we can use the geometric structure of classic mechanics to make a better differential equation solver.  Note, it will only work for mechanics problems, since we are using that structure.  These are referred to as <em>Symplectic Methods</em>.</p>
+<p>To understand that phrase, we need to dive into some advanced classical mechanics – sometimes referred to as <em>Analytical Mechanics</em>.  You are probably aware that Newton’s equations can be expressed as a variational method.  We define the action
+$<span class="math notranslate nohighlight">\(
+S=\int \mathcal{L}(x,\dot{x},t)\,dt
+\)</span><span class="math notranslate nohighlight">\(
+where the Lagrangian is the difference between the kinetic and potential energy,
+\)</span><span class="math notranslate nohighlight">\(
+\mathcal{L} = T-V.
+\)</span><span class="math notranslate nohighlight">\(
+Newton's equations correspond to finding the paths \)</span>(x(t),v(t))$ which make the action stationary.</p>
+<p>We will not work directly with <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>.  Rather we work with the Hamiltonian.  The Hamiltonian is defined in terms of the coordinates and the Cannonical Momenta.  The latter are defined by
+$<span class="math notranslate nohighlight">\(
+p=\frac{\delta S}{\delta \dot{x}}
+\)</span><span class="math notranslate nohighlight">\(
+The Hamiltonian is then constructed as
+\)</span><span class="math notranslate nohighlight">\(
+H=p\dot{x}-\mathcal{L},
+\)</span><span class="math notranslate nohighlight">\(
+written in terms of \)</span>x<span class="math notranslate nohighlight">\( and \)</span>p$.</p>
+<p>For example, consider a pendulum.  In phase space coordinates the kinetic energy is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6c6cab5a-7d15-43de-8974-0fc4a195b308">
+<span class="eqno">(30)<a class="headerlink" href="#equation-6c6cab5a-7d15-43de-8974-0fc4a195b308" title="Permalink to this equation">#</a></span>\[\begin{align}
+T &amp;= \frac{1}{2}m v^2\\
+  &amp;= \frac{1}{2}m L^2 \dot{\theta}^2
+\end{align}\]</div>
+<p>The potential energy is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9056fdc5-2b96-4a1b-b997-ce39b3123a7e">
+<span class="eqno">(31)<a class="headerlink" href="#equation-9056fdc5-2b96-4a1b-b997-ce39b3123a7e" title="Permalink to this equation">#</a></span>\[\begin{align}
+V &amp;= m g h\\
+  &amp;= -m g L \cos(\theta).
+\end{align}\]</div>
+<p>The coordinate is <span class="math notranslate nohighlight">\(\theta\)</span>, so the canonical momentum is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0a612781-2410-44f2-bec4-f1db984baedd">
+<span class="eqno">(32)<a class="headerlink" href="#equation-0a612781-2410-44f2-bec4-f1db984baedd" title="Permalink to this equation">#</a></span>\[\begin{align}
+p_\theta &amp;= \frac{\partial \mathcal{L}}{\partial \theta}\\
+&amp;=m L^2 \dot{\theta}
+\end{align}\]</div>
+<p>The Hamilonian is then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1d6450f2-e9f7-4c01-a670-b5f0a04843ee">
+<span class="eqno">(33)<a class="headerlink" href="#equation-1d6450f2-e9f7-4c01-a670-b5f0a04843ee" title="Permalink to this equation">#</a></span>\[\begin{align}
+H=\frac{1}{2 m L^2} p_\theta^2 -m g L \cos(\theta),
+\end{align}\]</div>
+<p>which is simply the energy, written in the cannonical variables.</p>
+<p>The utility of the Hamiltonian is that Newton’s laws take on a highly structures form</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ef851254-17fa-4b85-9f63-58ef3a9db2e4">
+<span class="eqno">(34)<a class="headerlink" href="#equation-ef851254-17fa-4b85-9f63-58ef3a9db2e4" title="Permalink to this equation">#</a></span>\[\begin{align}
+\partial_t x &amp;= \partial_p H\\
+\partial_t p &amp;= -\partial_x H
+\end{align}\]</div>
+<p>The equations of motion in this form are often referred to as <em>Hamilton’s Equations</em>.  They imply a number of important properties – most notably, energy conservation and the conservation of canonical phase space volume (Liouville’s theorem).  One can think of this as a symmetry, and try to produce a numerical integrator which respects the symmetry.</p>
+<p>Note – I wrote this as if <span class="math notranslate nohighlight">\(x\)</span> was a scalar – but in general it is a vector containing all of the dynamical variables.</p>
+<section id="energy-conservation-and-phase-space-volume">
+<h3>Energy Conservation and phase space volume<a class="headerlink" href="#energy-conservation-and-phase-space-volume" title="Permalink to this heading">#</a></h3>
+<p>Within the Hamiltonian framework, energy conservation is trivial</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e3deffa5-aba7-4c5c-81f0-be9941b1ea89">
+<span class="eqno">(35)<a class="headerlink" href="#equation-e3deffa5-aba7-4c5c-81f0-be9941b1ea89" title="Permalink to this equation">#</a></span>\[\begin{align}
+\partial_t H = \partial_x H \partial_t x + \partial_p H \partial_t p
+\end{align}\]</div>
+<p>which vanishes by Hamilton’s equations.</p>
+<p>To understand the conservation of phase space volume, lets begin with a 1-dimensional case, where <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(p\)</span> are scalars.  In that case imagine the small triangle in phase space, with corners <span class="math notranslate nohighlight">\((x_1,p_1)=(x,p)\)</span>, <span class="math notranslate nohighlight">\((x_2,p_2)=(x+dx,p)\)</span>, <span class="math notranslate nohighlight">\((x_3,p_3)=(x,p+dp)\)</span>.  That patch of phase space has area <span class="math notranslate nohighlight">\(A=dx\times dp/2\)</span>.  If we define <span class="math notranslate nohighlight">\(\vec{R}=(x,p)\)</span>, then that area can also be written as a cross product, ie <span class="math notranslate nohighlight">\(A=|(\vec{R_3}-\vec{R_1})\times(\vec{R_2}-\vec{R_1})|/2\)</span>.  Liouville’s theorem states that the area of that triangle is preserved under time evolution.  Any geometric shape can be made by piecing together triangles – so any phase space volume is preserved.  Moreover, when generalized to higher dimensions the same feature persists.  The hypervolume of any geometric shape is preserved.</p>
+<p>In the 1D case we can prove this by imagining that we numerically evolve our differential equation via the Euler method.
+After evolving for some small time <span class="math notranslate nohighlight">\(\delta t\)</span>, the first corner will have moved as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3406615d-8240-447e-9c60-612855ae574b">
+<span class="eqno">(36)<a class="headerlink" href="#equation-3406615d-8240-447e-9c60-612855ae574b" title="Permalink to this equation">#</a></span>\[\begin{align}
+x&amp;\to x+\frac{\partial H}{\partial p} \delta t\\
+p&amp;\to p-\frac{\partial H}{\partial x} \delta t.
+\end{align}\]</div>
+<p>Here we have evaluated <span class="math notranslate nohighlight">\(H\)</span> at the point <span class="math notranslate nohighlight">\((x,p)\)</span>.
+The second corner moves as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-154382aa-4e09-4237-ba23-a658046939fa">
+<span class="eqno">(37)<a class="headerlink" href="#equation-154382aa-4e09-4237-ba23-a658046939fa" title="Permalink to this equation">#</a></span>\[\begin{align}
+x+dx&amp;\to x+ dx+\frac{\partial H}{\partial p} \delta t+\frac{\partial^2 H}{\partial x\partial p} dx \delta t\\
+p &amp;\to p-\frac{\partial H}{\partial x} \delta t-\frac{\partial^2 H}{\partial x^2} dx \delta t.
+\end{align}\]</div>
+<p>Again, we are evaluating <span class="math notranslate nohighlight">\(H\)</span> at the first point – and hence the extra terms.
+The third corner moves as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-46fd5bb8-f6d3-46ca-8a49-0f66abaaae4b">
+<span class="eqno">(38)<a class="headerlink" href="#equation-46fd5bb8-f6d3-46ca-8a49-0f66abaaae4b" title="Permalink to this equation">#</a></span>\[\begin{align}
+x&amp;\to x+\frac{\partial H}{\partial p} \delta t+\frac{\partial^2 H}{\partial p^2} dp \delta t\\
+p+dp &amp;\to p+dp-\frac{\partial H}{\partial x}  \delta t-\frac{\partial^2 H}{\partial x\partial p}  dp \delta t
+\end{align}\]</div>
+<p>The differences between the points are then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8458dfc1-942b-4513-a90c-09f3d3fd8241">
+<span class="eqno">(39)<a class="headerlink" href="#equation-8458dfc1-942b-4513-a90c-09f3d3fd8241" title="Permalink to this equation">#</a></span>\[\begin{align}
+x_2-x_1&amp;= dx\left(1+ \frac{\partial^2 H}{\partial x\partial p} \delta t\right)\\
+p_2-p_1&amp;= -dx \frac{\partial^2 H}{\partial x^2} \delta t\\
+x_3-x_1&amp;= dp \frac{\partial^2 H}{\partial x\partial p} \delta t\\
+p_2-p_1&amp;= -dp \left(1+\frac{\partial^2 H}{\partial x\partial p} \delta t\right)
+\end{align}\]</div>
+<p>You can then take the cross-product, and you will see that to order <span class="math notranslate nohighlight">\(\delta t\)</span>, the phase space volume is preserved.</p>
+<p>Note that for the Euler method, this area preservation is only true to leading order in <span class="math notranslate nohighlight">\(\delta t\)</span>.  For analytic work, you then imagine taking the limit <span class="math notranslate nohighlight">\(\delta t \to 0\)</span>.</p>
+</section>
+</section>
+<section id="symplectic-structure">
+<h2>Symplectic Structure<a class="headerlink" href="#symplectic-structure" title="Permalink to this heading">#</a></h2>
+<p>I probably will not go over this in class – but you might be curious about why we refer to the structure of Hamilton’s equations as Symplectic.</p>
+<p>To get at this structure we make a vector <span class="math notranslate nohighlight">\(\vec{R}=(x,p)\)</span>.  Hamilton’s equations are then
+$<span class="math notranslate nohighlight">\(
+\partial_t R= J \frac{\partial H}{\partial R}
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>J$ is a block matrix</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9976006d-dffd-44ac-bff4-94168d1000b9">
+<span class="eqno">(40)<a class="headerlink" href="#equation-9976006d-dffd-44ac-bff4-94168d1000b9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+J=\left(
+\begin{array}{cc}
+0&amp;1\\
+-1&amp;0\end{array}
+\right)
+\end{equation}\]</div>
+<p>If I apply a linear transformation, defining <span class="math notranslate nohighlight">\(\bar R_i=\sum_j K_{ij} R_j\)</span>, then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3a1302c6-20a4-41c9-b003-8d9c32bd784c">
+<span class="eqno">(41)<a class="headerlink" href="#equation-3a1302c6-20a4-41c9-b003-8d9c32bd784c" title="Permalink to this equation">#</a></span>\[\begin{align}
+\partial_t \bar R_i &amp;=\sum_{jk} K_{ij} J_{jk} \frac{\partial H}{\partial R_k}\\
+&amp;= \sum_{jkl} K_{ij} J_{jk} \frac{\partial{\bar R}_l}{\partial R_k} \frac{\partial H}{\partial {\bar R}_l}\\
+&amp;= \sum_{jkl} K_{ij} J_{jk} K^{t}_{kl} \frac{\partial H}{\partial {\bar R}_l}
+\end{align}\]</div>
+<p>This will have the same form as the original equation if
+$<span class="math notranslate nohighlight">\(
+J=KJK^t
+\)</span><span class="math notranslate nohighlight">\(
+which defines \)</span>K<span class="math notranslate nohighlight">\( to be a Symplectic matrix.  This is a generalization of an Orthogonal matrix (which has this same form, but with \)</span>J=I$.</p>
+<p>Thus the form of Hamilton’s equations is invarient under a symplectic transformation.  A special case of this is time-evolution, which is a map <span class="math notranslate nohighlight">\((x(t),p(t))\to (x(t'),p(t'))\)</span>.  This map must be symplectic.</p>
+</section>
+<section id="symplectic-integrators">
+<h2>Symplectic Integrators<a class="headerlink" href="#symplectic-integrators" title="Permalink to this heading">#</a></h2>
+<p>The simplest symplectic integrator is the leapfrog method.  It is based upon using a different grid for the x-points and the p-points.  We use central differences for the derivatives, so</p>
+<div class="amsmath math notranslate nohighlight" id="equation-25371751-4203-4cc7-bc40-26f15c02f64a">
+<span class="eqno">(42)<a class="headerlink" href="#equation-25371751-4203-4cc7-bc40-26f15c02f64a" title="Permalink to this equation">#</a></span>\[\begin{align}
+\partial_t x&amp;= \partial_p H\\
+\partial_t x&amp;= -\partial_x H
+\end{align}\]</div>
+<p>becomes</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8274f5b3-7757-4883-8294-40a92d875e8d">
+<span class="eqno">(43)<a class="headerlink" href="#equation-8274f5b3-7757-4883-8294-40a92d875e8d" title="Permalink to this equation">#</a></span>\[\begin{align}
+x_{i+1}-x_i&amp;= \left(\partial_p H\right)_{i+1/2} \delta t\\
+p_{i+1/2}-p_{i-1/2}&amp;= -\left(\partial_x H\right)_{i} \delta t
+\end{align}\]</div>
+<p>I’ll prove that this is symplectic later, but here is a simple implementation, where we assume <span class="math notranslate nohighlight">\(\partial_p H\)</span> is only a function of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\partial_x H\)</span> is only a function of <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Stepping Rules</span>
+<span class="n">xstep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">dHdp</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">deltat</span><span class="p">)</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="w"> </span><span class="n">dHdp</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">deltat</span>
+<span class="n">pstep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">dHdx</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">deltat</span><span class="p">)</span><span class="o">=</span><span class="n">p</span><span class="o">-</span><span class="w"> </span><span class="n">dHdx</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">deltat</span>
+
+<span class="c"># Allows calling by keywords</span>
+<span class="n">xstep</span><span class="p">(;</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">dHdp</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">deltat</span><span class="p">)</span><span class="o">=</span><span class="n">xstep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">dHdp</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">deltat</span><span class="p">)</span>
+<span class="n">pstep</span><span class="p">(;</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">dHdx</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">deltat</span><span class="p">)</span><span class="o">=</span><span class="n">pstep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">dHdx</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">deltat</span><span class="p">)</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">leapfrogevolve</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">dHdx</span><span class="p">,</span><span class="n">dHdp</span><span class="p">,</span><span class="n">timerange</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ti</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="n">dt</span><span class="o">=</span><span class="n">timerange</span>
+<span class="w">    </span><span class="n">numsteps</span><span class="o">=</span><span class="n">floor</span><span class="p">(</span><span class="kt">Int</span><span class="p">,(</span><span class="n">tf</span><span class="o">-</span><span class="n">ti</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+<span class="w">    </span><span class="n">x</span><span class="o">=</span><span class="n">collect</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span><span class="w"> </span><span class="c">#converts to a vector</span>
+<span class="w">                  </span><span class="c">#works fine without &quot;collect&quot; if you restrict input to vectors</span>
+<span class="w">    </span><span class="n">p</span><span class="o">=</span><span class="n">collect</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">xresult</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">typeof</span><span class="p">(</span><span class="kt">x</span><span class="p">)}(</span><span class="nb">undef</span><span class="p">,</span><span class="n">numsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">presult</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">typeof</span><span class="p">(</span><span class="kt">p</span><span class="p">)}(</span><span class="nb">undef</span><span class="p">,</span><span class="n">numsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">xresult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">x</span>
+<span class="w">    </span><span class="n">presult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">p</span>
+<span class="w">    </span><span class="n">t</span><span class="o">=</span><span class="n">ti</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">numsteps</span>
+<span class="w">        </span><span class="n">x</span><span class="o">=</span><span class="n">xstep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">dHdp</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">deltat</span><span class="p">)</span>
+<span class="w">        </span><span class="n">xresult</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">x</span>
+<span class="w">        </span><span class="n">p</span><span class="o">=</span><span class="n">pstep</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">dHdx</span><span class="p">,</span><span class="n">t</span><span class="o">+</span><span class="n">deltat</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">deltat</span><span class="p">)</span>
+<span class="w">        </span><span class="n">presult</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">p</span>
+<span class="w">        </span><span class="n">t</span><span class="o">+=</span><span class="n">dt</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xresult</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="n">presult</span><span class="p">,</span><span class="n">xt</span><span class="o">=</span><span class="n">xtimes</span><span class="p">,</span><span class="n">pt</span><span class="o">=</span><span class="n">ptimes</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">leapfrogevolve</span><span class="p">(;</span><span class="n">x0</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">dHdx</span><span class="p">,</span><span class="n">dHdp</span><span class="p">,</span><span class="n">timerange</span><span class="p">)</span><span class="o">=</span><span class="n">leapfrogevolve</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">dHdx</span><span class="p">,</span><span class="n">dHdp</span><span class="p">,</span><span class="n">timerange</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>leapfrogevolve (generic function with 2 methods)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note, the output of our function is a <code class="docutils literal notranslate"><span class="pre">NamedTuple</span></code>.  This is a data structure which is convenient for shuffling information around.  Here is an example of how it works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="c"># create the NamedTuple</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(a = 10, b = 5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="c"># Access entries like you would a normal Tuple</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span><span class="w"> </span><span class="c"># Access entries as a look-up table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">a</span><span class="w"> </span><span class="c"># Access entries as a `struct`</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">keys</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="c"># Get the names of the elements</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(:a, :b)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can demonstrate this with our pendulum Hamiltonian.  Here the canonical position is θ, and the conjugate momentum is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">pendulum_dHdx</span><span class="p">(</span><span class="n">θ</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">ParseError</span>:
+<span class="c1"># Error @ ]8;;file:///Users/emueller/Documents/Work Laptop 2011-2012/PHYS 4480-7680 Computational Physics/book/In[7]#1:16\In[7]:1:16]8;;\</span>
+<span class="n">pendulum_dHdx</span><span class="p">(</span><span class="n">θ</span>
+<span class="c1">#              └ ── Expected `)`</span>
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
+   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="n">j</span><span class="p">,</span><span class="n">mod</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">2</span><span class="o">:</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10-element Vector{Tuple{Int64, Int64}}:
+ (1, 3)
+ (2, 2)
+ (3, 3)
+ (4, 2)
+ (5, 3)
+ (6, 2)
+ (7, 3)
+ (8, 2)
+ (9, 3)
+ (10, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="n">j</span><span class="p">,</span><span class="n">mod1</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10-element Vector{Tuple{Int64, Int64}}:
+ (1, 1)
+ (2, 2)
+ (3, 3)
+ (4, 1)
+ (5, 2)
+ (6, 3)
+ (7, 1)
+ (8, 2)
+ (9, 3)
+ (10, 1)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.10"
+        },
+        kernelOptions: {
+            name: "julia-1.10",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.10'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Automatic%20Differentiation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Automatic Differentiation</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-of-classical-mechanics">Geometry of Classical Mechanics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-conservation-and-phase-space-volume">Energy Conservation and phase space volume</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplectic-structure">Symplectic Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplectic-integrators">Symplectic Integrators</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erich Mueller
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
