@@ -29,10 +29,14 @@ jobs:
       with:
         python-version: 3.11
 
-    - name: Check Dicrectory
+    - name: Check Directory
       run: |
         pwd
 
+    - name: Clean
+      run: |
+        rm -rf ${{github.workspace}}
+        
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
