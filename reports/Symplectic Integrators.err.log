@@ -20,7 +20,7 @@ pendulum_dHdx(θ
 
 
 ParseError:
-[90m# Error @ [0;0m]8;;file:///Users/emueller/Documents/Work Laptop 2011-2012/PHYS 4480-7680 Computational Physics/book/In[7]#1:16\[90mIn[7]:1:16[0;0m]8;;\
+[90m# Error @ [0;0m]8;;file:///Users/emueller/Documents/Work Laptop 2011-2012/PHYS 4480-7680 Computational Physics/git/phys4480/In[7]#1:16\[90mIn[7]:1:16[0;0m]8;;\
 pendulum_dHdx(θ[48;2;120;70;70m[0;0m
 [90m#              └ ── [0;0m[91mExpected `)`[0;0m
 
