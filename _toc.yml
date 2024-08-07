@@ -18,7 +18,7 @@ parts:
   chapters:
   - file: Pendulum dynamics
   - file: LAB -- Projectile Motion
-#  - file: Automatic Differentiation
+  - file: Automatic Differentiation
   - file: Symplectic Integrators
 #- caption: Dynamical Systems
 #  - file: Billiards
