@@ -32,10 +32,6 @@ jobs:
     - name: Check Directory
       run: |
         pwd
-
-    - name: Clean
-      run: |
-        rm -rf ${{github.workspace}}
         
     - name: Install dependencies
       run: |
