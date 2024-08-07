@@ -33,7 +33,6 @@ jobs:
       uses: julia-actions/setup-julia@v2
       with:
         version: '1.9'
-        arch: ''
         show-versioninfo: ''
 
     - name: Check Directory
