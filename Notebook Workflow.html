@@ -152,8 +152,8 @@
       
     
     
-    <img src="_static/atransfer.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
-    <script>document.write(`<img src="_static/atransfer.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
   
   
 </a></div>
@@ -185,26 +185,13 @@
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Notebook Workflow</a></li>
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Period%20of%20a%20pendulum.html">Period of a Pendulum</a></li>
-
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="LAB%20Period%20of%20a%20Pendulum.html">Lab – Period of a Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Period%20of%20a%20Pendulum.html">Lab – Period of a Pendulum</a></li>
 
 
 
@@ -217,7 +204,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving Ordinary Differential Equations</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Pendulum%20dynamics.html">Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LAB%20--%20Projectile%20Motion.html">LAB – Projectile Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Projectile%20Motion.html">LAB – Projectile Motion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Automatic%20Differentiation.html">Automatic Differentiation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
 </ul>
@@ -368,14 +355,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Notebook Workflow</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#development-notebooks">Development notebooks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-notebooks">Presentation notebooks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#production-notebooks">Production notebooks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">Scripts</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">Jupyterlab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-notebooks">Development notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-notebooks">Presentation notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-notebooks">Production notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">Scripts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">Jupyterlab</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -389,32 +374,32 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="notebook-workflow">
 <h1>Notebook Workflow<a class="headerlink" href="#notebook-workflow" title="Permalink to this heading">#</a></h1>
 <p>In this course I set things up using <strong>Jupyter Notebooks</strong>.  I will use these for lectures and assignments.  I find that this is a good workflow for scientific computing.  For a big project I will use notebooks in several different ways.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="development-notebooks">
-<h1>Development notebooks<a class="headerlink" href="#development-notebooks" title="Permalink to this heading">#</a></h1>
+<section id="development-notebooks">
+<h2>Development notebooks<a class="headerlink" href="#development-notebooks" title="Permalink to this heading">#</a></h2>
 <p>These are like lab notebooks.  You use them as scratch space to try out ideas.  Once you have working code, you encapsulate it in functions.  You then leave a record of testing the functions.</p>
 <p>After the development is complete, and you are ready for production, you either copy the code into a new production notebook, or you copy it into a text file “whatever.jl”.  You can load that code into your production notebook with <code class="docutils literal notranslate"><span class="pre">include(&quot;whatever.jl&quot;)</span></code>.  If it is a more sophisticated set of tools, you can turn it into a <a href="https://docs.julialang.org/en/v1/manual/modules/#modules">package</a> and import using <code class="docutils literal notranslate"><span class="pre">typing</span> <span class="pre">whatever</span></code>.</p>
 <p>You can extract the code from a development notebook by clicking on <code class="docutils literal notranslate"><span class="pre">File</span></code>, and selecting <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">as</span> <span class="pre">.jl</span></code>.</p>
 <p>Some people like to have both a text editor and a notebook open at one time.  They make edits to the <code class="docutils literal notranslate"><span class="pre">.jl</span></code> file, and lode it in with <code class="docutils literal notranslate"><span class="pre">include</span></code>.  They then do all of their interactive debugging in the notebook.</p>
 <p>Every once and a while you need to clean up your development notebook – or even copy it over to a completely new notebook to get rid of all the dead ends.  It is good practice, however, to leave in place the work you did to verify that everything is working correctly.  That way if you make a change you can run the same tests.  This is an informal version of the “unit test” paradigm.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="presentation-notebooks">
-<h1>Presentation notebooks<a class="headerlink" href="#presentation-notebooks" title="Permalink to this heading">#</a></h1>
+<section id="presentation-notebooks">
+<h2>Presentation notebooks<a class="headerlink" href="#presentation-notebooks" title="Permalink to this heading">#</a></h2>
 <p>You often want to share your code and results with collaborators.  One strategy is to use <strong>presentation notebooks</strong>.  This is similar to my lectures.  You put fully debugged code (or <code class="docutils literal notranslate"><span class="pre">include</span></code> it from text files), and run the relevant parts of it to illustrate the physics.  One can tweak it on the fly to do further explorations.</p>
 <p>Static views of the notebook can be shared by using <a href="https://nbviewer.org">nbviewer</a>.  Dynamic views can be shared using web services like <a href="https://mybinder.org">binder</a>.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="production-notebooks">
-<h1>Production notebooks<a class="headerlink" href="#production-notebooks" title="Permalink to this heading">#</a></h1>
+<section id="production-notebooks">
+<h2>Production notebooks<a class="headerlink" href="#production-notebooks" title="Permalink to this heading">#</a></h2>
 <p>Once you have working code, you often want to keep the production runs separate from the development work.  For code that runs relatively quickly (minutes to hours), you can comfortably do this from notebooks.  Make sure that any data which takes more than a couple minutes to produce is saved to disk.  Don’t rely on the notebook’s record as a way to save data.</p>
 <p>Either copy your development code to the production notebook, or load it in with <code class="docutils literal notranslate"><span class="pre">include</span></code>.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="scripts">
-<h1>Scripts<a class="headerlink" href="#scripts" title="Permalink to this heading">#</a></h1>
+<section id="scripts">
+<h2>Scripts<a class="headerlink" href="#scripts" title="Permalink to this heading">#</a></h2>
 <p>If you are going to be running code overnight, or you might be running on multiple machines, then it is convenient to use scripts instead of a notebook.  Put all of the code in a <code class="docutils literal notranslate"><span class="pre">whatever.jl</span></code> file, and run it with <code class="docutils literal notranslate"><span class="pre">julia</span> <span class="pre">whatever.jl</span></code>.  Make sure that any data is saved to a file.  If you are using a Unix environment (including linux or Mac OSX), you can redirect standard output and standard error into text files by <code class="docutils literal notranslate"><span class="pre">julia</span> <span class="pre">code.jl</span> <span class="pre">&gt;code.out</span> <span class="pre">2&gt;code.err</span></code>.  I would recommend against using standard output for results.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="jupyterlab">
-<h1>Jupyterlab<a class="headerlink" href="#jupyterlab" title="Permalink to this heading">#</a></h1>
-<p>You may also want to explore the environment called “Jupyterlab”.  It provides a graphical interface with Jupyter notebooks, text files, interactive sessions and output windows.  It can be used as part of the workflow.</p>
+<section id="jupyterlab">
+<h2>Jupyterlab<a class="headerlink" href="#jupyterlab" title="Permalink to this heading">#</a></h2>
+<p>We will often work with our notebooks within the environment called “Jupyterlab”.  It provides a graphical interface with Jupyter notebooks, text files, interactive sessions and output windows.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -481,14 +466,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Notebook Workflow</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#development-notebooks">Development notebooks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-notebooks">Presentation notebooks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#production-notebooks">Production notebooks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">Scripts</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">Jupyterlab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-notebooks">Development notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-notebooks">Presentation notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-notebooks">Production notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">Scripts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">Jupyterlab</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

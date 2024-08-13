@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Dynamics" href="Pendulum%20dynamics.html" />
-    <link rel="prev" title="Lab – Period of a Pendulum" href="LAB%20Period%20of%20a%20Pendulum.html" />
+    <link rel="prev" title="Lab – Period of a Pendulum" href="blankLAB%20Period%20of%20a%20Pendulum.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,8 +154,8 @@
       
     
     
-    <img src="_static/atransfer.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
-    <script>document.write(`<img src="_static/atransfer.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
   
   
 </a></div>
@@ -187,26 +187,13 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Period%20of%20a%20pendulum.html">Period of a Pendulum</a></li>
-
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="LAB%20Period%20of%20a%20Pendulum.html">Lab – Period of a Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Period%20of%20a%20Pendulum.html">Lab – Period of a Pendulum</a></li>
 
 
 
@@ -219,7 +206,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving Ordinary Differential Equations</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Pendulum%20dynamics.html">Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LAB%20--%20Projectile%20Motion.html">LAB – Projectile Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Projectile%20Motion.html">LAB – Projectile Motion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Automatic%20Differentiation.html">Automatic Differentiation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
 </ul>
@@ -382,7 +369,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-files-and-notebooks-at-the-same-time">Working with files and notebooks at the same time</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#path-integrals">Path Integrals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#line-integrals">Line Integrals</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contour-integrals">Contour Integrals</a></li>
 </ul>
 </li>
@@ -458,34 +445,10 @@ document.write(`
 <p>Note, it has problems when <span class="math notranslate nohighlight">\(\theta_m\)</span> becomes small</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">PeriodIntegrand</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">thm</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="nb">pi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">thm</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">thm</span><span class="p">)</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">thm</span><span class="p">)))</span>
-<span class="n">quadgk</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">PeriodIntegrand</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">DomainError</span> <span class="k">with</span> <span class="mf">0.9999999999990905</span><span class="p">:</span>
-<span class="nn">integrand produced Inf</span> in <span class="ni">the interval </span><span class="nt">(0.999999999998181, 1.0)</span>
-
-<span class="ne">Stacktrace</span>:
- <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">evalrule</span><span class="p">(</span><span class="n">f</span><span class="p">::</span><span class="n">var</span><span class="s2">&quot;#9#10&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">b</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">w</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">gw</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">nrm</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">LinearAlgebra</span><span class="o">.</span><span class="n">norm</span><span class="p">))</span>
-   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">evalrule</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">37</span>
- <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">refine</span><span class="p">(</span><span class="n">f</span><span class="p">::</span><span class="n">var</span><span class="s2">&quot;#9#10&quot;</span><span class="p">,</span> <span class="n">segs</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">QuadGK</span><span class="o">.</span><span class="n">Segment</span><span class="p">{</span><span class="n">Float64</span><span class="p">,</span> <span class="n">Float64</span><span class="p">,</span> <span class="n">Float64</span><span class="p">}},</span> <span class="n">I</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">E</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">numevals</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">w</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">gw</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">n</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">atol</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">rtol</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">maxevals</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">nrm</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">LinearAlgebra</span><span class="o">.</span><span class="n">norm</span><span class="p">))</span>
-   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">71</span>
- <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">adapt</span>
-   <span class="o">@</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">52</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">do_quadgk</span><span class="p">(</span><span class="n">f</span><span class="p">::</span><span class="n">var</span><span class="s2">&quot;#9#10&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">::</span><span class="n">Tuple</span><span class="p">{</span><span class="n">Int64</span><span class="p">,</span> <span class="n">Int64</span><span class="p">},</span> <span class="n">n</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">atol</span><span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">rtol</span><span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">maxevals</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">nrm</span><span class="p">::</span><span class="n">typeof</span><span class="p">(</span><span class="n">LinearAlgebra</span><span class="o">.</span><span class="n">norm</span><span class="p">),</span> <span class="n">segbuf</span><span class="p">::</span><span class="n">Nothing</span><span class="p">)</span>
-   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">44</span>
- <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="c1">#50</span>
-   <span class="o">@</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">253</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="n">handle_infinities</span><span class="p">(</span><span class="n">workfunc</span><span class="p">::</span><span class="n">QuadGK</span><span class="o">.</span><span class="n">var</span><span class="s2">&quot;#50#51&quot;</span><span class="p">{</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">Nothing</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">typeof</span><span class="p">(</span><span class="n">LinearAlgebra</span><span class="o">.</span><span class="n">norm</span><span class="p">),</span> <span class="n">Nothing</span><span class="p">},</span> <span class="n">f</span><span class="p">::</span><span class="n">var</span><span class="s2">&quot;#9#10&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">::</span><span class="n">Tuple</span><span class="p">{</span><span class="n">Int64</span><span class="p">,</span> <span class="n">Int64</span><span class="p">})</span>
-   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">145</span>
- <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="n">quadgk</span><span class="p">(::</span><span class="n">Function</span><span class="p">,</span> <span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="p">::</span><span class="n">Vararg</span><span class="p">{</span><span class="n">Int64</span><span class="p">};</span> <span class="n">atol</span><span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">rtol</span><span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="n">maxevals</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">order</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">norm</span><span class="p">::</span><span class="n">Function</span><span class="p">,</span> <span class="n">segbuf</span><span class="p">::</span><span class="n">Nothing</span><span class="p">)</span>
-   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">252</span>
- <span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="n">quadgk</span><span class="p">(::</span><span class="n">Function</span><span class="p">,</span> <span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="p">::</span><span class="n">Vararg</span><span class="p">{</span><span class="n">Int64</span><span class="p">})</span>
-   <span class="o">@</span> <span class="n">QuadGK</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">QuadGK</span><span class="o">/</span><span class="n">OtnWt</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">adapt</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">250</span>
- <span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
-   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span><span class="mi">2</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c">#Uncomment to run cells and get error message</span>
+<span class="c">#</span>
+<span class="c">#PeriodIntegrand(x,thm)=(sqrt(2)/pi)*(thm/sqrt(cos(x*thm)-cos(thm)))</span>
+<span class="c">#quadgk(x-&gt;PeriodIntegrand(x,0.1),0,1)</span>
 </pre></div>
 </div>
 </div>
@@ -571,18 +534,20 @@ f(1.2457100017244607) = 0.7878119401635267
 <section id="magic-behind-gaussian-quadratures">
 <h4>Magic behind Gaussian Quadratures<a class="headerlink" href="#magic-behind-gaussian-quadratures" title="Permalink to this heading">#</a></h4>
 <p>The idea is that if one evaluates the function at <strong>non-equally spaced</strong> points, one can accelerate convergence</p>
-<p>For example, suppose we want to calculate <span class="math notranslate nohighlight">\(\int_{-1}^1 f(x) dx\)</span> using only three function evaluations.  In trapezoid rule those evaluations would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>.  For midpoint rule they would be at <span class="math notranslate nohighlight">\(x=-2/3,0,2/3\)</span>.  In Simpson’s rule the would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>, but we would weight them unequally.  The most general quadrature rule is
-$<span class="math notranslate nohighlight">\(
+<p>For example, suppose we want to calculate <span class="math notranslate nohighlight">\(\int_{-1}^1 f(x) dx\)</span> using only three function evaluations.  In trapezoid rule those evaluations would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>.  For midpoint rule they would be at <span class="math notranslate nohighlight">\(x=-2/3,0,2/3\)</span>.  In Simpson’s rule the would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>, but we would weight them unequally.  The most general quadrature rule is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7f905422-0897-44fa-97d4-fc8f99470829">
+<span class="eqno">(26)<a class="headerlink" href="#equation-7f905422-0897-44fa-97d4-fc8f99470829" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I\approx \sum_j w_j f(x_j).
-\)</span><span class="math notranslate nohighlight">\(
-The most general 3-point symmetric quadrature rule would be 
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation}\]</div>
+<p>The most general 3-point symmetric quadrature rule would be</p>
+<div class="amsmath math notranslate nohighlight" id="equation-84636901-6876-4891-a864-ab6435d6fa8d">
+<span class="eqno">(27)<a class="headerlink" href="#equation-84636901-6876-4891-a864-ab6435d6fa8d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=a f(0) + b f(s)+ b f(-s)
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>a,b,s$ are parameters.</p>
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a,b,s\)</span> are parameters.</p>
 <p>We will choose these parameters so that we get the correct integral for various polynomials</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78e11bd8-6d09-415d-8417-25601b2cabb1">
-<span class="eqno">(15)<a class="headerlink" href="#equation-78e11bd8-6d09-415d-8417-25601b2cabb1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-26ed5f65-5fdc-468e-9356-e2a1f26a55f9">
+<span class="eqno">(28)<a class="headerlink" href="#equation-26ed5f65-5fdc-468e-9356-e2a1f26a55f9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_{-1}^1 x^0 dx &amp;\to a+2b &amp;=2\\
 \int_{-1}^1 x^1 dx &amp;\to 0 &amp;= 0\\
 \int_{-1}^1 x^2 dx &amp;\to 2b s^2 &amp;= 2/3\\
@@ -596,7 +561,7 @@ where \)</span>a,b,s$ are parameters.</p>
 <section id="adaptive-quadratures">
 <h4>Adaptive Quadratures<a class="headerlink" href="#adaptive-quadratures" title="Permalink to this heading">#</a></h4>
 <p>The other trick that <code class="docutils literal notranslate"><span class="pre">quadgk</span></code> does is it uses <em>adaptive quadratures</em>.  This means it subdivides only the parts of the domain where the function is varying fastest.</p>
-<p>We could code our own Adaptive Gaussian Quadrature routine, but there is not much need.  It makes more sense to just use the packaged version.</p>
+<p>We could code our own Adaptive Gaussian Quadrature routine, but there is not much need.  It makes more sense to just use the packaged version.  Numerical Recipies has a nice discussion of the algorithm if you want to play with it.</p>
 </section>
 </section>
 </section>
@@ -640,8 +605,8 @@ where \)</span>a,b,s$ are parameters.</p>
 <p>At this point in the lecture I will demonstrate creating a new text file, adding some code to it, and including it.</p>
 <p>I will then illustrate opening a terminal, and running the script using Julia from the command line.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="path-integrals">
-<h1>Path Integrals<a class="headerlink" href="#path-integrals" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="line-integrals">
+<h1>Line Integrals<a class="headerlink" href="#line-integrals" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">LinearAlgebra</span>
@@ -663,7 +628,10 @@ where \)</span>a,b,s$ are parameters.</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norm(-1) = 1.0
 norm(1) = 1.0
 norm(1 + 2im) = 2.23606797749979
-norm([2, 3, 1]) ^ 2 = 14.0
+norm([2, 3, 1]) ^ 2 = 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.0
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.0
@@ -683,7 +651,7 @@ along a straight line path</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F (generic function with 2 methods)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F (generic function with 1 method)
 </pre></div>
 </div>
 </div>
@@ -822,12 +790,8 @@ F([0; 2; 0]) = [0.0 -0.25 0.0]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">quadgk</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="mi">1</span><span class="o">/</span><span class="n">z</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="nb">im</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="nb">im</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.1102230246251565e-16 + 6.283185307179586im, 5.3699761946135216e-9)
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c">#Uncomment to run</span>
+<span class="c">#1/(2im*pi)*quadgk(z-&gt;1/z,1,1im,-1,-1im,1)</span>
 </pre></div>
 </div>
 </div>
@@ -896,7 +860,7 @@ F([0; 2; 0]) = [0.0 -0.25 0.0]
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="LAB%20Period%20of%20a%20Pendulum.html"
+       href="blankLAB%20Period%20of%20a%20Pendulum.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -941,7 +905,7 @@ F([0; 2; 0]) = [0.0 -0.25 0.0]
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-files-and-notebooks-at-the-same-time">Working with files and notebooks at the same time</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#path-integrals">Path Integrals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#line-integrals">Line Integrals</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contour-integrals">Contour Integrals</a></li>
 </ul>
 </li>

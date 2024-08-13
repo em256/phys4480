@@ -153,8 +153,8 @@
       
     
     
-    <img src="_static/atransfer.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
-    <script>document.write(`<img src="_static/atransfer.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
   
   
 </a></div>
@@ -186,26 +186,13 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Period%20of%20a%20pendulum.html">Period of a Pendulum</a></li>
-
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="LAB%20Period%20of%20a%20Pendulum.html">Lab – Period of a Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Period%20of%20a%20Pendulum.html">Lab – Period of a Pendulum</a></li>
 
 
 
@@ -218,7 +205,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving Ordinary Differential Equations</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Pendulum%20dynamics.html">Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LAB%20--%20Projectile%20Motion.html">LAB – Projectile Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Projectile%20Motion.html">LAB – Projectile Motion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Automatic%20Differentiation.html">Automatic Differentiation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Symmetry Constraints</a></li>
 </ul>
@@ -391,51 +378,55 @@ document.write(`
 <section id="geometry-of-classical-mechanics">
 <h2>Geometry of Classical Mechanics<a class="headerlink" href="#geometry-of-classical-mechanics" title="Permalink to this heading">#</a></h2>
 <p>It turns out that we can use the geometric structure of classic mechanics to make a better differential equation solver.  Note, it will only work for mechanics problems, since we are using that structure.  These are referred to as <em>Symplectic Methods</em>.</p>
-<p>To understand that phrase, we need to dive into some advanced classical mechanics – sometimes referred to as <em>Analytical Mechanics</em>.  You are probably aware that Newton’s equations can be expressed as a variational method.  We define the action
-$<span class="math notranslate nohighlight">\(
+<p>To understand that phrase, we need to dive into some advanced classical mechanics – sometimes referred to as <em>Analytical Mechanics</em>.  You are probably aware that Newton’s equations can be expressed as a variational method.  We define the action</p>
+<div class="math notranslate nohighlight">
+\[
 S=\int \mathcal{L}(x,\dot{x},t)\,dt
-\)</span><span class="math notranslate nohighlight">\(
-where the Lagrangian is the difference between the kinetic and potential energy,
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>where the Lagrangian is the difference between the kinetic and potential energy,</p>
+<div class="math notranslate nohighlight">
+\[
 \mathcal{L} = T-V.
-\)</span><span class="math notranslate nohighlight">\(
-Newton's equations correspond to finding the paths \)</span>(x(t),v(t))$ which make the action stationary.</p>
-<p>We will not work directly with <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>.  Rather we work with the Hamiltonian.  The Hamiltonian is defined in terms of the coordinates and the Cannonical Momenta.  The latter are defined by
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>Newton’s equations correspond to finding the paths <span class="math notranslate nohighlight">\((x(t),v(t))\)</span> which make the action stationary.</p>
+<p>We will not work directly with <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>.  Rather we work with the Hamiltonian.  The Hamiltonian is defined in terms of the coordinates and the Cannonical Momenta.  The latter are defined by</p>
+<div class="math notranslate nohighlight">
+\[
 p=\frac{\delta S}{\delta \dot{x}}
-\)</span><span class="math notranslate nohighlight">\(
-The Hamiltonian is then constructed as
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>The Hamiltonian is then constructed as</p>
+<div class="math notranslate nohighlight">
+\[
 H=p\dot{x}-\mathcal{L},
-\)</span><span class="math notranslate nohighlight">\(
-written in terms of \)</span>x<span class="math notranslate nohighlight">\( and \)</span>p$.</p>
+\]</div>
+<p>written in terms of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>For example, consider a pendulum.  In phase space coordinates the kinetic energy is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1504a573-cb86-44e6-a984-bd4ef0250fef">
-<span class="eqno">(30)<a class="headerlink" href="#equation-1504a573-cb86-44e6-a984-bd4ef0250fef" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-59d6fe9b-07e2-4b52-8f50-a29bf57a129a">
+<span class="eqno">(64)<a class="headerlink" href="#equation-59d6fe9b-07e2-4b52-8f50-a29bf57a129a" title="Permalink to this equation">#</a></span>\[\begin{align}
 T &amp;= \frac{1}{2}m v^2\\
   &amp;= \frac{1}{2}m L^2 \dot{\theta}^2
 \end{align}\]</div>
 <p>The potential energy is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-235e223d-b75c-4952-8d8d-13d98e6e6c0c">
-<span class="eqno">(31)<a class="headerlink" href="#equation-235e223d-b75c-4952-8d8d-13d98e6e6c0c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aa2c4d6d-626f-4891-be89-d56f88edd17b">
+<span class="eqno">(65)<a class="headerlink" href="#equation-aa2c4d6d-626f-4891-be89-d56f88edd17b" title="Permalink to this equation">#</a></span>\[\begin{align}
 V &amp;= m g h\\
   &amp;= -m g L \cos(\theta).
 \end{align}\]</div>
 <p>The coordinate is <span class="math notranslate nohighlight">\(\theta\)</span>, so the canonical momentum is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ec511372-dd35-42ed-ba5c-39e85d4239f2">
-<span class="eqno">(32)<a class="headerlink" href="#equation-ec511372-dd35-42ed-ba5c-39e85d4239f2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-57d120fc-dcf7-4d80-9b6d-a5f27116c2f8">
+<span class="eqno">(66)<a class="headerlink" href="#equation-57d120fc-dcf7-4d80-9b6d-a5f27116c2f8" title="Permalink to this equation">#</a></span>\[\begin{align}
 p_\theta &amp;= \frac{\partial \mathcal{L}}{\partial \theta}\\
 &amp;=m L^2 \dot{\theta}
 \end{align}\]</div>
 <p>The Hamilonian is then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-76df7157-e22a-406d-a944-43b93f80d032">
-<span class="eqno">(33)<a class="headerlink" href="#equation-76df7157-e22a-406d-a944-43b93f80d032" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6759b5a1-a40e-4e3f-b3c6-6c6a6d1db082">
+<span class="eqno">(67)<a class="headerlink" href="#equation-6759b5a1-a40e-4e3f-b3c6-6c6a6d1db082" title="Permalink to this equation">#</a></span>\[\begin{align}
 H=\frac{1}{2 m L^2} p_\theta^2 -m g L \cos(\theta),
 \end{align}\]</div>
 <p>which is simply the energy, written in the cannonical variables.</p>
 <p>The utility of the Hamiltonian is that Newton’s laws take on a highly structures form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52f7b2b8-4ac5-457c-b41c-243983791dd2">
-<span class="eqno">(34)<a class="headerlink" href="#equation-52f7b2b8-4ac5-457c-b41c-243983791dd2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-700da682-30d1-4d2f-a416-28609db2131e">
+<span class="eqno">(68)<a class="headerlink" href="#equation-700da682-30d1-4d2f-a416-28609db2131e" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t x &amp;= \partial_p H\\
 \partial_t p &amp;= -\partial_x H
 \end{align}\]</div>
@@ -444,36 +435,36 @@ H=\frac{1}{2 m L^2} p_\theta^2 -m g L \cos(\theta),
 <section id="energy-conservation-and-phase-space-volume">
 <h3>Energy Conservation and phase space volume<a class="headerlink" href="#energy-conservation-and-phase-space-volume" title="Permalink to this heading">#</a></h3>
 <p>Within the Hamiltonian framework, energy conservation is trivial</p>
-<div class="amsmath math notranslate nohighlight" id="equation-915775ec-a521-4cbe-823e-c77f2764bec6">
-<span class="eqno">(35)<a class="headerlink" href="#equation-915775ec-a521-4cbe-823e-c77f2764bec6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8de636c4-1078-4547-acbf-cfa90f39ec2d">
+<span class="eqno">(69)<a class="headerlink" href="#equation-8de636c4-1078-4547-acbf-cfa90f39ec2d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t H = \partial_x H \partial_t x + \partial_p H \partial_t p
 \end{align}\]</div>
 <p>which vanishes by Hamilton’s equations.</p>
 <p>To understand the conservation of phase space volume, lets begin with a 1-dimensional case, where <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(p\)</span> are scalars.  In that case imagine the small triangle in phase space, with corners <span class="math notranslate nohighlight">\((x_1,p_1)=(x,p)\)</span>, <span class="math notranslate nohighlight">\((x_2,p_2)=(x+dx,p)\)</span>, <span class="math notranslate nohighlight">\((x_3,p_3)=(x,p+dp)\)</span>.  That patch of phase space has area <span class="math notranslate nohighlight">\(A=dx\times dp/2\)</span>.  If we define <span class="math notranslate nohighlight">\(\vec{R}=(x,p)\)</span>, then that area can also be written as a cross product, ie <span class="math notranslate nohighlight">\(A=|(\vec{R_3}-\vec{R_1})\times(\vec{R_2}-\vec{R_1})|/2\)</span>.  Liouville’s theorem states that the area of that triangle is preserved under time evolution.  Any geometric shape can be made by piecing together triangles – so any phase space volume is preserved.  Moreover, when generalized to higher dimensions the same feature persists.  The hypervolume of any geometric shape is preserved.</p>
 <p>In the 1D case we can prove this by imagining that we numerically evolve our differential equation via the Euler method.
 After evolving for some small time <span class="math notranslate nohighlight">\(\delta t\)</span>, the first corner will have moved as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-335a7066-222a-49ce-bbdc-9dd4cba28484">
-<span class="eqno">(36)<a class="headerlink" href="#equation-335a7066-222a-49ce-bbdc-9dd4cba28484" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7bf869a7-8200-47cd-9384-ca93947d8a84">
+<span class="eqno">(70)<a class="headerlink" href="#equation-7bf869a7-8200-47cd-9384-ca93947d8a84" title="Permalink to this equation">#</a></span>\[\begin{align}
 x&amp;\to x+\frac{\partial H}{\partial p} \delta t\\
 p&amp;\to p-\frac{\partial H}{\partial x} \delta t.
 \end{align}\]</div>
 <p>Here we have evaluated <span class="math notranslate nohighlight">\(H\)</span> at the point <span class="math notranslate nohighlight">\((x,p)\)</span>.
 The second corner moves as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-071094d0-a479-40bb-803b-50b17b27f8e1">
-<span class="eqno">(37)<a class="headerlink" href="#equation-071094d0-a479-40bb-803b-50b17b27f8e1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3637d664-b700-42bc-b5b6-8591ba7fb3d6">
+<span class="eqno">(71)<a class="headerlink" href="#equation-3637d664-b700-42bc-b5b6-8591ba7fb3d6" title="Permalink to this equation">#</a></span>\[\begin{align}
 x+dx&amp;\to x+ dx+\frac{\partial H}{\partial p} \delta t+\frac{\partial^2 H}{\partial x\partial p} dx \delta t\\
 p &amp;\to p-\frac{\partial H}{\partial x} \delta t-\frac{\partial^2 H}{\partial x^2} dx \delta t.
 \end{align}\]</div>
 <p>Again, we are evaluating <span class="math notranslate nohighlight">\(H\)</span> at the first point – and hence the extra terms.
 The third corner moves as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29035cc8-4a88-451a-8bc8-590a25859654">
-<span class="eqno">(38)<a class="headerlink" href="#equation-29035cc8-4a88-451a-8bc8-590a25859654" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3870937d-f409-4c4b-8c0e-0f287dfa60f1">
+<span class="eqno">(72)<a class="headerlink" href="#equation-3870937d-f409-4c4b-8c0e-0f287dfa60f1" title="Permalink to this equation">#</a></span>\[\begin{align}
 x&amp;\to x+\frac{\partial H}{\partial p} \delta t+\frac{\partial^2 H}{\partial p^2} dp \delta t\\
 p+dp &amp;\to p+dp-\frac{\partial H}{\partial x}  \delta t-\frac{\partial^2 H}{\partial x\partial p}  dp \delta t
 \end{align}\]</div>
 <p>The differences between the points are then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1899fc95-8558-44f2-8e89-8a9ba21febd4">
-<span class="eqno">(39)<a class="headerlink" href="#equation-1899fc95-8558-44f2-8e89-8a9ba21febd4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1a9ff84b-2cab-422f-b023-46fa1aec33e8">
+<span class="eqno">(73)<a class="headerlink" href="#equation-1a9ff84b-2cab-422f-b023-46fa1aec33e8" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_2-x_1&amp;= dx\left(1+ \frac{\partial^2 H}{\partial x\partial p} \delta t\right)\\
 p_2-p_1&amp;= -dx \frac{\partial^2 H}{\partial x^2} \delta t\\
 x_3-x_1&amp;= dp \frac{\partial^2 H}{\partial x\partial p} \delta t\\
@@ -486,13 +477,14 @@ p_2-p_1&amp;= -dp \left(1+\frac{\partial^2 H}{\partial x\partial p} \delta t\rig
 <section id="symplectic-structure">
 <h2>Symplectic Structure<a class="headerlink" href="#symplectic-structure" title="Permalink to this heading">#</a></h2>
 <p>I probably will not go over this in class – but you might be curious about why we refer to the structure of Hamilton’s equations as Symplectic.</p>
-<p>To get at this structure we make a vector <span class="math notranslate nohighlight">\(\vec{R}=(x,p)\)</span>.  Hamilton’s equations are then
-$<span class="math notranslate nohighlight">\(
+<p>To get at this structure we make a vector <span class="math notranslate nohighlight">\(\vec{R}=(x,p)\)</span>.  Hamilton’s equations are then</p>
+<div class="math notranslate nohighlight">
+\[
 \partial_t R= J \frac{\partial H}{\partial R}
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>J$ is a block matrix</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f82c283c-8fa0-449a-a6a8-468da5e0afcf">
-<span class="eqno">(40)<a class="headerlink" href="#equation-f82c283c-8fa0-449a-a6a8-468da5e0afcf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(J\)</span> is a block matrix</p>
+<div class="amsmath math notranslate nohighlight" id="equation-43f151c2-e69e-406b-9374-5a5fd8e76540">
+<span class="eqno">(74)<a class="headerlink" href="#equation-43f151c2-e69e-406b-9374-5a5fd8e76540" title="Permalink to this equation">#</a></span>\[\begin{equation}
 J=\left(
 \begin{array}{cc}
 0&amp;1\\
@@ -500,30 +492,31 @@ J=\left(
 \right)
 \end{equation}\]</div>
 <p>If I apply a linear transformation, defining <span class="math notranslate nohighlight">\(\bar R_i=\sum_j K_{ij} R_j\)</span>, then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4fe6eff-297a-4ffe-b8d8-f0f230f21e9d">
-<span class="eqno">(41)<a class="headerlink" href="#equation-c4fe6eff-297a-4ffe-b8d8-f0f230f21e9d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3e12529f-62c3-4c59-b27c-1cc1dfa7ee72">
+<span class="eqno">(75)<a class="headerlink" href="#equation-3e12529f-62c3-4c59-b27c-1cc1dfa7ee72" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t \bar R_i &amp;=\sum_{jk} K_{ij} J_{jk} \frac{\partial H}{\partial R_k}\\
 &amp;= \sum_{jkl} K_{ij} J_{jk} \frac{\partial{\bar R}_l}{\partial R_k} \frac{\partial H}{\partial {\bar R}_l}\\
 &amp;= \sum_{jkl} K_{ij} J_{jk} K^{t}_{kl} \frac{\partial H}{\partial {\bar R}_l}
 \end{align}\]</div>
-<p>This will have the same form as the original equation if
-$<span class="math notranslate nohighlight">\(
+<p>This will have the same form as the original equation if</p>
+<div class="math notranslate nohighlight">
+\[
 J=KJK^t
-\)</span><span class="math notranslate nohighlight">\(
-which defines \)</span>K<span class="math notranslate nohighlight">\( to be a Symplectic matrix.  This is a generalization of an Orthogonal matrix (which has this same form, but with \)</span>J=I$.</p>
+\]</div>
+<p>which defines <span class="math notranslate nohighlight">\(K\)</span> to be a Symplectic matrix.  This is a generalization of an Orthogonal matrix (which has this same form, but with <span class="math notranslate nohighlight">\(J=I\)</span>.</p>
 <p>Thus the form of Hamilton’s equations is invarient under a symplectic transformation.  A special case of this is time-evolution, which is a map <span class="math notranslate nohighlight">\((x(t),p(t))\to (x(t'),p(t'))\)</span>.  This map must be symplectic.</p>
 </section>
 <section id="symplectic-integrators">
 <h2>Symplectic Integrators<a class="headerlink" href="#symplectic-integrators" title="Permalink to this heading">#</a></h2>
 <p>The simplest symplectic integrator is the leapfrog method.  It is based upon using a different grid for the x-points and the p-points.  We use central differences for the derivatives, so</p>
-<div class="amsmath math notranslate nohighlight" id="equation-82fa4f8b-54e4-48f0-be07-247a113a525d">
-<span class="eqno">(42)<a class="headerlink" href="#equation-82fa4f8b-54e4-48f0-be07-247a113a525d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-45fc8b57-ec6f-49b3-8659-d3613f44e09c">
+<span class="eqno">(76)<a class="headerlink" href="#equation-45fc8b57-ec6f-49b3-8659-d3613f44e09c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t x&amp;= \partial_p H\\
 \partial_t x&amp;= -\partial_x H
 \end{align}\]</div>
 <p>becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2eae6bba-9fb4-4f1b-8f8d-95d24b1c70f7">
-<span class="eqno">(43)<a class="headerlink" href="#equation-2eae6bba-9fb4-4f1b-8f8d-95d24b1c70f7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f27d06ce-2a26-4e64-bcb4-8bd24c426ff4">
+<span class="eqno">(77)<a class="headerlink" href="#equation-f27d06ce-2a26-4e64-bcb4-8bd24c426ff4" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_{i+1}-x_i&amp;= \left(\partial_p H\right)_{i+1/2} \delta t\\
 p_{i+1/2}-p_{i-1/2}&amp;= -\left(\partial_x H\right)_{i} \delta t
 \end{align}\]</div>
