@@ -181,9 +181,6 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
@@ -360,19 +357,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-course">Overview of Course</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-role-of-computers-in-physics">What is the role of computers in physics?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-computer-language-should-one-use-for-learning-computational-physics">What computer language should one use for learning computational physics?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-basic-principles">Some basic principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#some-basic-principles">Some basic principles</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-course">Overview of Course</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -385,6 +378,65 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<section id="overview-of-course">
+<h2>Overview of Course<a class="headerlink" href="#overview-of-course" title="Permalink to this heading">#</a></h2>
+<p>This is a course on <strong>Computational Physics</strong>.  That is, learning how to use computers to do physics.  I am still working on the course materials, but here is my <strong>Vision</strong> of where we are going.  The idea is to put the physics first, but along the way learn about computation and the interplay of computation and physics.</p>
+<p><strong>Physics Topics</strong></p>
+<ul class="simple">
+<li><p>Mechanics</p>
+<ul>
+<li><p>Periodic Motion</p></li>
+<li><p>Projectiles</p></li>
+<li><p>Chaos</p></li>
+</ul>
+</li>
+<li><p>Statistical Mechanics</p>
+<ul>
+<li><p>Hard Spheres</p></li>
+<li><p>Magnetic Models</p></li>
+</ul>
+</li>
+<li><p>Electricity and Magnetism</p>
+<ul>
+<li><p>Fields</p></li>
+</ul>
+</li>
+<li><p>Quantum Mechanics</p>
+<ul>
+<li><p>Stationary States</p></li>
+<li><p>Dynamics</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Algorithms/Numerical Techniques</strong></p>
+<ul class="simple">
+<li><p>Quadratures (Numerical Integration)</p></li>
+<li><p>Integrating Ordinary Differential Equations</p></li>
+<li><p>Monte Carlo techniques</p></li>
+<li><p>Numerical Linear Algebra</p></li>
+<li><p>Finite Differences</p></li>
+<li><p>Finite Elements</p></li>
+</ul>
+<p><strong>Computer Science Topics</strong></p>
+<ul class="simple">
+<li><p>Thinking Computationally</p>
+<ul>
+<li><p>Converting models into algorithms</p></li>
+</ul>
+</li>
+<li><p>Computational Workflows</p>
+<ul>
+<li><p>Writing/Running Code</p></li>
+<li><p>Debugging</p></li>
+<li><p>Validating</p></li>
+<li><p>Benchmarking</p></li>
+<li><p>Refactoring</p></li>
+</ul>
+</li>
+<li><p>Visualization</p></li>
+<li><p>Machine Learning</p></li>
+</ul>
+</section>
 <section id="what-is-the-role-of-computers-in-physics">
 <h2>What is the role of computers in physics?<a class="headerlink" href="#what-is-the-role-of-computers-in-physics" title="Permalink to this heading">#</a></h2>
 <p>It is currently impossible to do physics without computers.  They play an essential role in all parts of the discipline.</p>
@@ -395,6 +447,8 @@ document.write(`
 <li><p><strong>Numerical Experiments</strong></p></li>
 <li><p><strong>Data Analysis</strong></p></li>
 </ul>
+<p>We hope to learn about how to do all of these.</p>
+<p>A key point is that computation is not about finding a number.  It is a process which gives us understanding.</p>
 </section>
 <section id="what-computer-language-should-one-use-for-learning-computational-physics">
 <h2>What computer language should one use for learning computational physics?<a class="headerlink" href="#what-computer-language-should-one-use-for-learning-computational-physics" title="Permalink to this heading">#</a></h2>
@@ -544,9 +598,8 @@ document.write(`
 </ul>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="some-basic-principles">
-<h1>Some basic principles<a class="headerlink" href="#some-basic-principles" title="Permalink to this heading">#</a></h1>
+<section id="some-basic-principles">
+<h2>Some basic principles<a class="headerlink" href="#some-basic-principles" title="Permalink to this heading">#</a></h2>
 <p>Premature optimization is the root of all evil – Donald Knuth</p>
 <ul class="simple">
 <li><p>don’t waste your time trying to get performance out of a subroutine that is not the rate-limiting step in your calculation</p></li>
@@ -577,8 +630,8 @@ document.write(`
 <p>Don’t be afraid to start over, and rewrite your program from scratch (even using a different language).  Scientific programming should be iterative.  Having a working code which is slow will make debugging the fast code easier.</p>
 <p>Throughout this, keep ease-of-use in mind.  A keystone idea in modern scientific programming is that you are not trying to adjust your thinking so that you can talk to the computer – rather you are trying to make the computer understand your language, so that you can effortlessly talk to the computer.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="packages">
-<h1>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h1>
+<section id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h2>
 <p>Modern scientific programming makes significant use of packages.  It is rare for anyone to write their own linear algebra routines, or graph plotting routines.</p>
 <ul class="simple">
 <li><p>don’t be afraid to use high-level packages</p></li>
@@ -594,64 +647,6 @@ document.write(`
 <p>Your scientific programming possibilities will be limited by over-reliance on black boxes that you do not understand.  Conversely, a refusal to use high-level routines would mean that you will perpetually be wasting your time reinventing the wheel (and quite possibly reinventing an inferior wheel).  Finding this balance is a challenge.</p>
 <p>Another important thing to consider is that someone needs to write the packages.  <strong>Maybe that is you!</strong></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="overview-of-course">
-<h1>Overview of Course<a class="headerlink" href="#overview-of-course" title="Permalink to this heading">#</a></h1>
-<p>I am still working on the course materials, but here is my <strong>Vision</strong> of where we are going</p>
-<p><strong>Physics Topics</strong></p>
-<ul class="simple">
-<li><p>Mechanics</p>
-<ul>
-<li><p>Periodic Motion</p></li>
-<li><p>Projectiles</p></li>
-<li><p>Chaos</p></li>
-</ul>
-</li>
-<li><p>Statistical Mechanics</p>
-<ul>
-<li><p>Hard Spheres</p></li>
-<li><p>Magnetic Models</p></li>
-</ul>
-</li>
-<li><p>Electricity and Magnetism</p>
-<ul>
-<li><p>Fields</p></li>
-</ul>
-</li>
-<li><p>Quantum Mechanics</p>
-<ul>
-<li><p>Stationary States</p></li>
-<li><p>Dynamics</p></li>
-</ul>
-</li>
-</ul>
-<p><strong>Algorithms/Numerical Techniques</strong></p>
-<ul class="simple">
-<li><p>Quadratures (Numerical Integration)</p></li>
-<li><p>Integrating Ordinary Differential Equations</p></li>
-<li><p>Monte Carlo techniques</p></li>
-<li><p>Numerical Linear Algebra</p></li>
-<li><p>Finite Differences</p></li>
-<li><p>Finite Elements</p></li>
-</ul>
-<p><strong>Computer Science Topics</strong></p>
-<ul class="simple">
-<li><p>Thinking Computationally</p>
-<ul>
-<li><p>Converting models into algorithms</p></li>
-</ul>
-</li>
-<li><p>Computational Workflows</p>
-<ul>
-<li><p>Writing/Running Code</p></li>
-<li><p>Debugging</p></li>
-<li><p>Validating</p></li>
-<li><p>Benchmarking</p></li>
-<li><p>Refactoring</p></li>
-</ul>
-</li>
-<li><p>Visualization</p></li>
-<li><p>Machine Learning</p></li>
-</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -718,19 +713,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-course">Overview of Course</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-role-of-computers-in-physics">What is the role of computers in physics?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-computer-language-should-one-use-for-learning-computational-physics">What computer language should one use for learning computational physics?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-basic-principles">Some basic principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#some-basic-principles">Some basic principles</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-course">Overview of Course</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
