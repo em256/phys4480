@@ -183,9 +183,6 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
@@ -214,6 +211,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Chaos.html">LAB – Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Duffing%20Oscillator%20Followup.html">Followup on Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Animating%20a%20Pendulum.html">Interactive Animation of Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Animating%20the%20Duffing%20Oscillator.html">Lab – Animating the Duffing Oscillator</a></li>
 </ul>
 
     </div>
@@ -540,19 +539,19 @@ f(1.2457100017244607) = 0.7878119401635267
 <h4>Magic behind Gaussian Quadratures<a class="headerlink" href="#magic-behind-gaussian-quadratures" title="Permalink to this heading">#</a></h4>
 <p>The idea is that if one evaluates the function at <strong>non-equally spaced</strong> points, one can accelerate convergence</p>
 <p>For example, suppose we want to calculate <span class="math notranslate nohighlight">\(\int_{-1}^1 f(x) dx\)</span> using only three function evaluations.  In trapezoid rule those evaluations would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>.  For midpoint rule they would be at <span class="math notranslate nohighlight">\(x=-2/3,0,2/3\)</span>.  In Simpson’s rule the would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>, but we would weight them unequally.  The most general quadrature rule is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-19776f95-90b4-462a-8ead-913d87d9c091">
-<span class="eqno">(26)<a class="headerlink" href="#equation-19776f95-90b4-462a-8ead-913d87d9c091" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5a781920-84b5-49e6-b096-bb829c0fbe67">
+<span class="eqno">(27)<a class="headerlink" href="#equation-5a781920-84b5-49e6-b096-bb829c0fbe67" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I\approx \sum_j w_j f(x_j).
 \end{equation}\]</div>
 <p>The most general 3-point symmetric quadrature rule would be</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cab40b87-4cda-44e9-ac08-a9f85771838c">
-<span class="eqno">(27)<a class="headerlink" href="#equation-cab40b87-4cda-44e9-ac08-a9f85771838c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-68bfc763-9bbd-4a4e-b151-84ce19c8198a">
+<span class="eqno">(28)<a class="headerlink" href="#equation-68bfc763-9bbd-4a4e-b151-84ce19c8198a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=a f(0) + b f(s)+ b f(-s)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a,b,s\)</span> are parameters.</p>
 <p>We will choose these parameters so that we get the correct integral for various polynomials</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89c5a623-3990-4f38-96ae-c5ce042dca40">
-<span class="eqno">(28)<a class="headerlink" href="#equation-89c5a623-3990-4f38-96ae-c5ce042dca40" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0bff6c85-b0b7-4424-84a7-bf198036c229">
+<span class="eqno">(29)<a class="headerlink" href="#equation-0bff6c85-b0b7-4424-84a7-bf198036c229" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_{-1}^1 x^0 dx &amp;\to a+2b &amp;=2\\
 \int_{-1}^1 x^1 dx &amp;\to 0 &amp;= 0\\
 \int_{-1}^1 x^2 dx &amp;\to 2b s^2 &amp;= 2/3\\
@@ -632,10 +631,11 @@ I=a f(0) + b f(s)+ b f(-s)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norm(-1) = 1.0
 norm(1) = 1.0
+norm(1 + 2im) = 2.23606797749979
+norm([2, 3, 1]) ^ 2 = 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norm(1 + 2im) = 2.23606797749979
-norm([2, 3, 1]) ^ 2 = 14.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.0
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.0

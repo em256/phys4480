@@ -1,0 +1,826 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab – Animating the Duffing Oscillator &#8212; PHYS 4480-7680 Computational Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blankLAB Animating the Duffing Oscillator';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Interactive Animation of Pendulum" href="Animating%20a%20Pendulum.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Physics 4480 / 7680 / Astronomy 7690
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Period%20of%20a%20pendulum.html">Period of a Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Period%20of%20a%20Pendulum.html">Lab – Period of a Pendulum</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Integration%20Followup.html">Integration Follow-up</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving Ordinary Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pendulum%20dynamics.html">Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Projectile%20Motion.html">LAB – Projectile Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Automatic%20Differentiation.html">Automatic Differentiation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Classical Mechanics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Chaos.html">LAB – Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Duffing%20Oscillator%20Followup.html">Followup on Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Animating%20a%20Pendulum.html">Interactive Animation of Pendulum</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab – Animating the Duffing Oscillator</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/blankLAB Animating the Duffing Oscillator.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab – Animating the Duffing Oscillator</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-animating-the-duffing-oscillator">
+<h1>Lab – Animating the Duffing Oscillator<a class="headerlink" href="#lab-animating-the-duffing-oscillator" title="Permalink to this heading">#</a></h1>
+<p><strong>Please write your name in this box</strong></p>
+<p><em>We encourage you to work together, and seek whatever help you need in completing this lab.  Please list all people who you worked with or received help from</em></p>
+<p><em>We encourage you to use any online resources that you find useful. Please list any URL’s that you consulted</em></p>
+<p><em>We encourage you to use AI resources if you find them useful.  If you made use of AI, please list the platform and the prompts which you made use of</em></p>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<p>In the last lab you explored the behavior of a chaotic driven nonlinear oscillator.  Here you are going to use <code class="docutils literal notranslate"><span class="pre">GLMakie</span></code> to create a live animation that shows the phase space position of the oscillator as a function of time.  It will have a Graphical User Interface (GUI) which will have a slider to adjust the frequency and amplitude of the drive.  It will also have the ability to click on the graphic to set the phase-space position of the oscillator.</p>
+<p>The Duffing oscillator is defined by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6e0e4201-1bc4-4ffd-b594-d380bdefd737">
+<span class="eqno">(88)<a class="headerlink" href="#equation-6e0e4201-1bc4-4ffd-b594-d380bdefd737" title="Permalink to this equation">#</a></span>\[\begin{align}
+\frac{dx}{dt}&amp;=v\\
+\frac{dv}{dt}&amp;=-2\gamma v-\alpha x-\beta x^3 +F \cos(\omega t).
+\end{align}\]</div>
+<p>Note, you will do a lot of copying and pasting in this Lab.  I recommend either having a text file open to be a repository, or have two copies of this notebook open.  To open a second copy in Jupyterlab, click on <strong>File</strong> and select <strong>New View for Notebook</strong>.</p>
+<p>A second useful trick is the <strong>Simple</strong> toggle on the bottom left of Jupyterlab.  If you click on it, your workspace is simplified to a single notebook.  Click on it again, and it expands back to the setup that you had.</p>
+<h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
+## Activity 1
+</h2><p>Load GLMakie</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">GLMakie</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our first step will be to create an object <code class="docutils literal notranslate"><span class="pre">duffing</span></code> which has the following attributes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Basic Scene info
+fig # the Makie Figure object
+ax # the Makie Axis object
+# Time evolution info
+u # the phase space position of the oscillator
+t # the current time
+dt # the step size
+step # our stepper -- we will use rk4step as the default
+dxdt # the derivitive rule
+F # the amplitude of the force
+ω # the frequency of the drive
+α # parameter 
+β # parameter 
+γ # parameter 
+# UI features
+delay # how long to wait between frames
+ball # the observable which will be plotted
+traj # stores past points for drawing a &quot;tail&quot;
+ptraj # not used in this lab
+sliders # UI elements
+run # button to turn on and off animation
+isrunning # is simulation running?
+</pre></div>
+</div>
+<p>We will make this a <code class="docutils literal notranslate"><span class="pre">mutable</span> <span class="pre">struct</span></code> – which means that we can change the entries after instantiation.  The bare-bones way to do this is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">mutable</span><span class="w"> </span><span class="k">struct</span> <span class="kt">duffing</span>
+<span class="w">    </span><span class="c"># Basic Scene info</span>
+<span class="w">    </span><span class="n">fig</span><span class="w"> </span><span class="c"># the Makie Figure object</span>
+<span class="w">    </span><span class="n">ax</span><span class="w"> </span><span class="c"># the Makie Axis object</span>
+<span class="w">    </span><span class="c"># Time evolution info</span>
+<span class="w">    </span><span class="n">xv</span><span class="w"> </span><span class="c"># the phase space position of the oscillator</span>
+<span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="c"># the current time</span>
+<span class="w">    </span><span class="n">dt</span><span class="w"> </span><span class="c"># the step size</span>
+<span class="w">    </span><span class="n">step</span><span class="w"> </span><span class="c"># our stepper -- we will use rk4step as the default</span>
+<span class="w">    </span><span class="n">dxdt</span><span class="w"> </span><span class="c"># the derivitive rule</span>
+<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="c"># parameters of the differential equation -- a struct</span>
+<span class="w">      </span><span class="c"># with field F,ω,α,β,γ</span>
+<span class="w">    </span><span class="c"># UI features</span>
+<span class="w">    </span><span class="n">delay</span><span class="w"> </span><span class="c"># how long to wait between frames</span>
+<span class="w">    </span><span class="n">ball</span><span class="w"> </span><span class="c"># the observable which will be plotted</span>
+<span class="w">    </span><span class="n">traj</span><span class="w"> </span><span class="c"># stores past points for drawing a &quot;tail&quot;</span>
+<span class="w">    </span><span class="n">ptraj</span><span class="w"> </span><span class="c"># not used</span>
+<span class="w">    </span><span class="n">sliders</span><span class="w"> </span><span class="c"># named tuple of UI elements to control force and frequency</span>
+<span class="w">            </span><span class="c"># Can again use the same struct that we used for p,</span>
+<span class="w">            </span><span class="c"># with attributes F,ω,α,β,γ</span>
+<span class="w">    </span><span class="n">run</span><span class="w"> </span><span class="c"># button to turn on and off animation</span>
+<span class="w">    </span><span class="n">isrunning</span><span class="w"> </span><span class="c"># is simulation running?</span>
+<span class="k">end</span>
+
+<span class="k">mutable</span><span class="w"> </span><span class="k">struct</span> <span class="kt">dp</span>
+<span class="w">    </span><span class="n">F</span>
+<span class="w">    </span><span class="n">ω</span>
+<span class="w">    </span><span class="n">α</span>
+<span class="w">    </span><span class="n">β</span>
+<span class="w">    </span><span class="n">γ</span>
+<span class="k">end</span>
+
+<span class="n">dp</span><span class="p">(;</span><span class="n">F</span><span class="p">,</span><span class="n">ω</span><span class="p">,</span><span class="n">α</span><span class="p">,</span><span class="n">β</span><span class="p">,</span><span class="n">γ</span><span class="p">)</span><span class="o">=</span><span class="n">dp</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">ω</span><span class="p">,</span><span class="n">α</span><span class="p">,</span><span class="n">β</span><span class="p">,</span><span class="n">γ</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dp
+</pre></div>
+</div>
+</div>
+</div>
+<p>We need default values for the <code class="docutils literal notranslate"><span class="pre">step</span></code> and the <code class="docutils literal notranslate"><span class="pre">dxdt</span></code>.  Here are the functions, coppied from previous work we did.  I made one small change – setting them up so they take the parameters as an argument.  This will be useful to us, as we will be changing the parameters on the fly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">rk4step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">dxdt</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">deltat</span><span class="p">)</span>
+<span class="w">    </span><span class="n">k1</span><span class="o">=</span><span class="n">dxdt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+<span class="w">    </span><span class="n">k2</span><span class="o">=</span><span class="n">dxdt</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">k1</span><span class="o">*</span><span class="p">(</span><span class="n">deltat</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="o">+</span><span class="n">deltat</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">k3</span><span class="o">=</span><span class="n">dxdt</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">k2</span><span class="o">*</span><span class="p">(</span><span class="n">deltat</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="o">+</span><span class="n">deltat</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">k4</span><span class="o">=</span><span class="n">dxdt</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">k3</span><span class="o">*</span><span class="n">deltat</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="o">+</span><span class="n">deltat</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="o">+</span><span class="p">(</span><span class="n">k1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k3</span><span class="o">+</span><span class="n">k4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">deltat</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">duf_dxvdt</span><span class="p">(</span><span class="n">xv</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+<span class="w">    </span><span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xv</span>
+<span class="w">    </span><span class="k">return</span><span class="p">[</span><span class="n">v</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="o">.</span><span class="n">γ</span><span class="o">*</span><span class="n">v</span><span class="o">-</span><span class="n">p</span><span class="o">.</span><span class="n">α</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">p</span><span class="o">.</span><span class="n">β</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">3</span><span class="o">+</span><span class="n">p</span><span class="o">.</span><span class="n">F</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">ω</span><span class="o">*</span><span class="n">t</span><span class="p">)]</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>duf_dxvdt (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now want to make a <code class="docutils literal notranslate"><span class="pre">constructor</span></code>, which is a function with the same name as our struct, which will create the duffing object, doing all of the necessary setup. Lets start with a bare-bones constructor, that just makes the scene and the ball object.  We will just leave the other attributes as empty lists.  We will make better constructors which fill things in as the lab progresses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">duffing</span><span class="p">(;</span>
+<span class="w">        </span><span class="n">xv</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.</span><span class="p">],</span>
+<span class="w">        </span><span class="n">p</span><span class="o">=</span><span class="n">dp</span><span class="p">(</span><span class="n">α</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span><span class="n">β</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span><span class="n">γ</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">F</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span><span class="n">ω</span><span class="o">=</span><span class="mf">1.</span><span class="p">),</span>
+<span class="w">        </span><span class="n">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
+<span class="w">        </span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">        </span><span class="n">delay</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+<span class="w">        </span><span class="n">step</span><span class="o">=</span><span class="n">rk4step</span><span class="p">,</span>
+<span class="w">        </span><span class="n">dxdt</span><span class="o">=</span><span class="n">duf_dxvdt</span><span class="p">)</span>
+<span class="w">    </span><span class="c"># Create Figure object</span>
+<span class="w">    </span><span class="c"># </span>
+<span class="w">    </span><span class="c"># Fill in details</span>
+<span class="w">    </span><span class="c"># must define `fig` and `ax`</span>
+<span class="w">    </span><span class="c">#</span>
+<span class="w">    </span><span class="n">xlims!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c"># set x axis range</span>
+<span class="w">    </span><span class="n">ylims!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c"># set y axis range</span>
+<span class="w">    </span><span class="c"># Create ball object, and add it to scene</span>
+<span class="w">    </span><span class="c">#</span>
+<span class="w">    </span><span class="c"># Fill in details</span>
+<span class="w">    </span><span class="c"># must define `ball`</span>
+<span class="w">    </span><span class="c"># this should be a Makie `observable`</span>
+<span class="w">    </span><span class="c"># it can be added to plot with `scatter!`</span>
+<span class="w">    </span><span class="c"># set its location to be the same as `xv`</span>
+<span class="w">    </span><span class="c">#</span>
+<span class="w">    </span><span class="n">d</span><span class="o">=</span><span class="w"> </span><span class="n">duffing</span><span class="p">(</span>
+<span class="w">        </span><span class="n">fig</span><span class="w"> </span><span class="cm">#= the Makie Figure object that you created=#</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ax</span><span class="w"> </span><span class="cm">#= the Makie Axis object that you created=#</span><span class="p">,</span>
+<span class="w">        </span><span class="n">xv</span><span class="w"> </span><span class="cm">#= initial conditions passed from constructor=#</span><span class="p">,</span>
+<span class="w">        </span><span class="n">t</span><span class="w"> </span><span class="cm">#= the current time passed from constructor=#</span><span class="p">,</span>
+<span class="w">        </span><span class="n">dt</span><span class="w"> </span><span class="cm">#= the step size passed from constructor=#</span><span class="p">,</span>
+<span class="w">        </span><span class="n">step</span><span class="w"> </span><span class="cm">#= our stepper passed from constructor=#</span><span class="p">,</span>
+<span class="w">        </span><span class="n">dxdt</span><span class="w"> </span><span class="cm">#= the derivitive rule passed from constructor=#</span><span class="p">,</span>
+<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="cm">#= passed from constructor=#</span><span class="p">,</span>
+<span class="w">        </span><span class="n">delay</span><span class="w"> </span><span class="cm">#= passed from constructor=#</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ball</span><span class="w"> </span><span class="cm">#= the observable that you created =#</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="cm">#=traj -- empty list =#</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="cm">#=ptraj -- empty list =#</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="cm">#=sliders -- empty list =#</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="cm">#=run -- empty list =#</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[]</span><span class="w"> </span><span class="cm">#=isrunning=#</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>duffing
+</pre></div>
+</div>
+</div>
+</div>
+<p>Test to see if it generates a window with a single “ball” shown.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span><span class="o">=</span><span class="n">duffing</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">UndefVarError</span>: `ax` not defined
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">duffing</span><span class="p">(;</span> <span class="n">xv</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="n">Float64</span><span class="p">},</span> <span class="n">p</span><span class="p">::</span><span class="n">dp</span><span class="p">,</span> <span class="n">t</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">dt</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">delay</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">step</span><span class="p">::</span><span class="n">Function</span><span class="p">,</span> <span class="n">dxdt</span><span class="p">::</span><span class="n">Function</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Main</span> <span class="o">./</span><span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="mi">14</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">duffing</span><span class="p">()</span>
+   <span class="o">@</span> <span class="n">Main</span> <span class="o">./</span><span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="mi">1</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
+   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, see if you can move the ball around with</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span><span class="o">.</span><span class="n">ball</span><span class="p">[]</span><span class="o">=</span><span class="n">Point2f</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
+## Activity 2
+</h2><p>We now need a <em>method</em> which updates <code class="docutils literal notranslate"><span class="pre">xv</span></code> and the ball object.  This is analogous to the <code class="docutils literal notranslate"><span class="pre">setangle!</span></code> method from the <em>Animating a Pendulum</em> lecture.  Test it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">setxv!</span><span class="p">(</span><span class="n">d</span><span class="o">::</span><span class="kt">duffing</span><span class="p">,</span><span class="n">xv</span><span class="p">)</span>
+<span class="w">    </span><span class="c"># fill in details</span>
+<span class="w">    </span><span class="c">#</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
+## Activity 3
+</h2><p>Now we want to modify our object so that we can click on the image to update <code class="docutils literal notranslate"><span class="pre">xv</span></code>.  Copy you constructor from above, and add the necessary code (using the <code class="docutils literal notranslate"><span class="pre">select_point</span></code> function) so that it listens for a mouse click, and does the appropriate updating.  Look in the <em>Animating the Pendulum</em> notes.</p>
+<p>Don’t forget to disable the <code class="docutils literal notranslate"><span class="pre">rectanglezoom</span></code> function.  Now might be a good time to add code that sets the x and y axis limits.</p>
+<p>Note: you want to use the <code class="docutils literal notranslate"><span class="pre">setxv!</span></code> command that you just wrote.  Thus you need to set up the interactive elements after you instantiate the object</p>
+<h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
+## Activity 4
+</h2><p>Now lets try to implement the timestepping.  Make a method <code class="docutils literal notranslate"><span class="pre">step!</span></code> which will use the integrator to take one timestep.  It should call <code class="docutils literal notranslate"><span class="pre">setxv!</span></code> – it should also update the time.  This is important, because we have a time dependent force.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">step!</span><span class="p">(</span><span class="n">d</span><span class="o">::</span><span class="kt">duffing</span><span class="p">)</span>
+<span class="w">    </span><span class="c"># fill in code</span>
+<span class="w">    </span><span class="c"># Careful -- look at the arguments of d.step</span>
+<span class="w">    </span><span class="c"># -- they are different from those in the pendulum case</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Debug, and see if it works for single steps.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">step!</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span><span class="w">  </span><span class="c"># or whatever else you called your instance</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then try a whole sequence of steps.  Click on a few points, and then run this loop a few times.  The trajectories should make sense.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">or</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">1000</span>
+<span class="w">    </span><span class="n">step!</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="n">d1</span><span class="o">.</span><span class="n">delay</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
+## Activity 5
+</h2><p>Now we want to add the run button.  Copy your constructor code to below here.  Add the code necessary to add a <em>run</em> button to the <code class="docutils literal notranslate"><span class="pre">duffing</span></code> object.  The key lines are:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>run = Button(fig[2,1]; label = &quot;run&quot;, tellwidth = false)
+isrunning = Observable(false)
+on(run.clicks) do clicks
+    isrunning[] = !isrunning[] 
+end
+startsim(d)
+</pre></div>
+</div>
+<p>You will also need the <code class="docutils literal notranslate"><span class="pre">startsim</span></code> method</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>function startsim(p::duffing)
+    on(p.run.clicks) do clicks
+         @async while p.isrunning[]
+            isopen(p.fig.scene) || break # ensures computations stop if closed window
+            step!(p)
+            sleep(p.delay) 
+        end
+    end 
+end
+</pre></div>
+</div>
+<p>Note: debugging this can be hard, as the code inside the <code class="docutils literal notranslate"><span class="pre">&#64;async</span></code> block does not throw very good error messages.   (Or any at all.)  If it doesn’t work, your best bet is to ask for some help with debugging, as it is hard to give generic advice here.  Make double-sure that <code class="docutils literal notranslate"><span class="pre">step!</span></code> works properly – as that is the most likely place where there is a bug.</p>
+<p>Add this code to your constructor, and store <code class="docutils literal notranslate"><span class="pre">run</span></code> and <code class="docutils literal notranslate"><span class="pre">isrunning</span></code> in your object.</p>
+<p>Test it out.  Click on different points, and watch the trajectory evolve.  Do the results make sense?  (Keep F=0 so that it is easy to interpret)</p>
+<h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
+## Activity 6
+</h2><p>We now want to add sliders to be able to adjust <code class="docutils literal notranslate"><span class="pre">F</span></code> and <code class="docutils literal notranslate"><span class="pre">ω</span></code>.  Here is an example of how to add sliders to an existing duffing object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">d3</span><span class="o">=</span><span class="n">duffing</span><span class="p">()</span>
+<span class="n">sg</span><span class="o">=</span><span class="n">SliderGrid</span><span class="p">(</span><span class="n">d3</span><span class="o">.</span><span class="n">fig</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+<span class="w">    </span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;F&quot;</span><span class="p">,</span><span class="n">range</span><span class="o">=</span><span class="mf">0.</span><span class="o">:</span><span class="mf">0.01</span><span class="o">:</span><span class="mf">1.</span><span class="p">,</span><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{:.2f}&quot;</span><span class="p">,</span><span class="n">startvalue</span><span class="o">=</span><span class="mf">0.</span><span class="p">),</span>
+<span class="w">    </span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s">&quot;ω&quot;</span><span class="p">,</span><span class="n">range</span><span class="o">=</span><span class="mf">0.01</span><span class="o">:</span><span class="mf">0.01</span><span class="o">:</span><span class="mi">2</span><span class="p">,</span><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{:.2f}&quot;</span><span class="p">,</span><span class="n">startvalue</span><span class="o">=</span><span class="mf">1.</span><span class="p">),</span>
+<span class="w">    </span><span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">tellheight</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We then need to make it so that when the sliders are adjusted, the attributes of the oscillator are updated</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Fobserver</span><span class="o">=</span><span class="n">sg</span><span class="o">.</span><span class="n">sliders</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
+<span class="n">ωobserver</span><span class="o">=</span><span class="n">sg</span><span class="o">.</span><span class="n">sliders</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">on</span><span class="p">(</span><span class="n">Fobserver</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">Fobserver</span>
+<span class="w">    </span><span class="n">d3</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">F</span><span class="o">=</span><span class="n">Fobserver</span><span class="p">[]</span>
+<span class="k">end</span>
+
+<span class="n">on</span><span class="p">(</span><span class="n">ωobserver</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">ωobserver</span>
+<span class="w">    </span><span class="n">d3</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">ω</span><span class="o">=</span><span class="n">ωobserver</span><span class="p">[]</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Play with the <code class="docutils literal notranslate"><span class="pre">F</span></code> slider.  If it runs too slow or too fast, you can adjust the speed by changing the timestep “on the fly” with something like the following line</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">d3</span><span class="o">.</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.04</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, copy your constructor, and edit it so that it automatically adds the sliders – and stores them in the object.  Test.  (Note:  You don’t need the <code class="docutils literal notranslate"><span class="pre">d3.p</span></code> or <code class="docutils literal notranslate"><span class="pre">d3.fig</span></code>.  Inside the constructor you have direct access to <code class="docutils literal notranslate"><span class="pre">p</span></code> or <code class="docutils literal notranslate"><span class="pre">fig</span></code>.  You do not want <code class="docutils literal notranslate"><span class="pre">d3</span></code> to appear anywhere – as that is a particular instance of the object, not the one we are creating.)</p>
+<p>Make sure to <strong>test</strong> your code.</p>
+<h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
+## Activity 7
+</h2><p>Lets now add the trails.  For this you will need to edit both the constructor, and the <code class="docutils literal notranslate"><span class="pre">step!</span></code> method.  Look up how we did this in <em>Animating a Pendulum</em>, and implement it.</p>
+<h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
+## Activity 8
+</h2><p>Copy your code here, so that in one cell you have the whole stand-alone program.  Restart the kernel and run the cell to make sure it work.  That way if you want to show anyone your simulation, you can just go to this one cell, and not have to run a bunch of different things.</p>
+<p>Play with your simulator.</p>
+<p>Find parameters where you have regular (non-chaotic) trajectories.  Watch the behavior.</p>
+<p>Find chaotic parameters. Watch the behavior.</p>
+<h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
+## Activity 9: Bonus
+</h2><p>This is a bonus activity, that you don’t need to do, but is fun.</p>
+<p>Modify your code so that it tracks two oscillators.  Make it so that when you click on the graph, one of them gets set to that point, and the other gets set to a slightly offset point.  That way you can observe how close the trajectories stay together.  Make the points and trails different colors.  If you really want to be fancy, you can make not just 2, but <span class="math notranslate nohighlight">\(n\)</span> oscillators, where <span class="math notranslate nohighlight">\(n\)</span> can be set at instantiation time.  When you click on a point, these get initiated to some random spread near that point.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.10"
+        },
+        kernelOptions: {
+            name: "julia-1.10",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.10'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Animating%20a%20Pendulum.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Interactive Animation of Pendulum</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Erich Mueller
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

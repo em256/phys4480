@@ -183,9 +183,6 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
@@ -214,6 +211,8 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Symmetry Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Chaos.html">LAB – Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Duffing%20Oscillator%20Followup.html">Followup on Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Animating%20a%20Pendulum.html">Interactive Animation of Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Animating%20the%20Duffing%20Oscillator.html">Lab – Animating the Duffing Oscillator</a></li>
 </ul>
 
     </div>
@@ -407,32 +406,32 @@ H=p\dot{x}-\mathcal{L},
 \]</div>
 <p>written in terms of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>For example, consider a pendulum.  In phase space coordinates the kinetic energy is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8b1b581-939e-4336-8d38-90a79308ff1c">
-<span class="eqno">(64)<a class="headerlink" href="#equation-f8b1b581-939e-4336-8d38-90a79308ff1c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a55ae9c5-1e36-46cc-a3d6-2350867c2fc3">
+<span class="eqno">(65)<a class="headerlink" href="#equation-a55ae9c5-1e36-46cc-a3d6-2350867c2fc3" title="Permalink to this equation">#</a></span>\[\begin{align}
 T &amp;= \frac{1}{2}m v^2\\
   &amp;= \frac{1}{2}m L^2 \dot{\theta}^2
 \end{align}\]</div>
 <p>The potential energy is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-38546f1a-670d-4b7b-82e8-a5887c720c5e">
-<span class="eqno">(65)<a class="headerlink" href="#equation-38546f1a-670d-4b7b-82e8-a5887c720c5e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5d864d19-7af1-472c-9c22-4fa84549486c">
+<span class="eqno">(66)<a class="headerlink" href="#equation-5d864d19-7af1-472c-9c22-4fa84549486c" title="Permalink to this equation">#</a></span>\[\begin{align}
 V &amp;= m g h\\
   &amp;= -m g L \cos(\theta).
 \end{align}\]</div>
 <p>The coordinate is <span class="math notranslate nohighlight">\(\theta\)</span>, so the canonical momentum is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0873821-eb40-4557-b9a9-fc3af0fac01d">
-<span class="eqno">(66)<a class="headerlink" href="#equation-e0873821-eb40-4557-b9a9-fc3af0fac01d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8f23fc47-486f-4c9a-a96c-3537c75ffd1a">
+<span class="eqno">(67)<a class="headerlink" href="#equation-8f23fc47-486f-4c9a-a96c-3537c75ffd1a" title="Permalink to this equation">#</a></span>\[\begin{align}
 p_\theta &amp;= \frac{\partial \mathcal{L}}{\partial \theta}\\
 &amp;=m L^2 \dot{\theta}
 \end{align}\]</div>
 <p>The Hamilonian is then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fdf794fc-9bb7-4373-bde5-2485e661e0e6">
-<span class="eqno">(67)<a class="headerlink" href="#equation-fdf794fc-9bb7-4373-bde5-2485e661e0e6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6f23c616-f469-4a0d-b9c2-88e6f4791c21">
+<span class="eqno">(68)<a class="headerlink" href="#equation-6f23c616-f469-4a0d-b9c2-88e6f4791c21" title="Permalink to this equation">#</a></span>\[\begin{align}
 H=\frac{1}{2 m L^2} p_\theta^2 -m g L \cos(\theta),
 \end{align}\]</div>
 <p>which is simply the energy, written in the cannonical variables.</p>
 <p>The utility of the Hamiltonian is that Newton’s laws take on a highly structures form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-508fc328-6cb5-4edd-a073-b841d3b9e196">
-<span class="eqno">(68)<a class="headerlink" href="#equation-508fc328-6cb5-4edd-a073-b841d3b9e196" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-080fcd9c-55c8-4aa4-85a3-533924d084f6">
+<span class="eqno">(69)<a class="headerlink" href="#equation-080fcd9c-55c8-4aa4-85a3-533924d084f6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t x &amp;= \partial_p H\\
 \partial_t p &amp;= -\partial_x H
 \end{align}\]</div>
@@ -441,36 +440,36 @@ H=\frac{1}{2 m L^2} p_\theta^2 -m g L \cos(\theta),
 <section id="energy-conservation-and-phase-space-volume">
 <h3>Energy Conservation and phase space volume<a class="headerlink" href="#energy-conservation-and-phase-space-volume" title="Permalink to this heading">#</a></h3>
 <p>Within the Hamiltonian framework, energy conservation is trivial</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e05afc2b-1a01-4337-be8e-5f2706ee294d">
-<span class="eqno">(69)<a class="headerlink" href="#equation-e05afc2b-1a01-4337-be8e-5f2706ee294d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-95eb40d9-d81d-4f95-a2fa-350cc2d8a7da">
+<span class="eqno">(70)<a class="headerlink" href="#equation-95eb40d9-d81d-4f95-a2fa-350cc2d8a7da" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t H = \partial_x H \partial_t x + \partial_p H \partial_t p
 \end{align}\]</div>
 <p>which vanishes by Hamilton’s equations.</p>
 <p>To understand the conservation of phase space volume, lets begin with a 1-dimensional case, where <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(p\)</span> are scalars.  In that case imagine the small triangle in phase space, with corners <span class="math notranslate nohighlight">\((x_1,p_1)=(x,p)\)</span>, <span class="math notranslate nohighlight">\((x_2,p_2)=(x+dx,p)\)</span>, <span class="math notranslate nohighlight">\((x_3,p_3)=(x,p+dp)\)</span>.  That patch of phase space has area <span class="math notranslate nohighlight">\(A=dx\times dp/2\)</span>.  If we define <span class="math notranslate nohighlight">\(\vec{R}=(x,p)\)</span>, then that area can also be written as a cross product, ie <span class="math notranslate nohighlight">\(A=|(\vec{R_3}-\vec{R_1})\times(\vec{R_2}-\vec{R_1})|/2\)</span>.  Liouville’s theorem states that the area of that triangle is preserved under time evolution.  Any geometric shape can be made by piecing together triangles – so any phase space volume is preserved.  Moreover, when generalized to higher dimensions the same feature persists.  The hypervolume of any geometric shape is preserved.</p>
 <p>In the 1D case we can prove this by imagining that we numerically evolve our differential equation via the Euler method.
 After evolving for some small time <span class="math notranslate nohighlight">\(\delta t\)</span>, the first corner will have moved as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6fe55f0-1163-4ae8-9bc2-0d4d8a9bd805">
-<span class="eqno">(70)<a class="headerlink" href="#equation-b6fe55f0-1163-4ae8-9bc2-0d4d8a9bd805" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-88711987-4d51-4f35-8437-3c783aacbbee">
+<span class="eqno">(71)<a class="headerlink" href="#equation-88711987-4d51-4f35-8437-3c783aacbbee" title="Permalink to this equation">#</a></span>\[\begin{align}
 x&amp;\to x+\frac{\partial H}{\partial p} \delta t\\
 p&amp;\to p-\frac{\partial H}{\partial x} \delta t.
 \end{align}\]</div>
 <p>Here we have evaluated <span class="math notranslate nohighlight">\(H\)</span> at the point <span class="math notranslate nohighlight">\((x,p)\)</span>.
 The second corner moves as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4f690989-3b64-40b5-abdc-64640de973d4">
-<span class="eqno">(71)<a class="headerlink" href="#equation-4f690989-3b64-40b5-abdc-64640de973d4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a3c39506-0dc9-4c30-9265-5ec2d060af38">
+<span class="eqno">(72)<a class="headerlink" href="#equation-a3c39506-0dc9-4c30-9265-5ec2d060af38" title="Permalink to this equation">#</a></span>\[\begin{align}
 x+dx&amp;\to x+ dx+\frac{\partial H}{\partial p} \delta t+\frac{\partial^2 H}{\partial x\partial p} dx \delta t\\
 p &amp;\to p-\frac{\partial H}{\partial x} \delta t-\frac{\partial^2 H}{\partial x^2} dx \delta t.
 \end{align}\]</div>
 <p>Again, we are evaluating <span class="math notranslate nohighlight">\(H\)</span> at the first point – and hence the extra terms.
 The third corner moves as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be3786cd-7266-4363-be61-a2ce675ae445">
-<span class="eqno">(72)<a class="headerlink" href="#equation-be3786cd-7266-4363-be61-a2ce675ae445" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2f13fdbd-3c94-41f2-9129-6ce474c8cbce">
+<span class="eqno">(73)<a class="headerlink" href="#equation-2f13fdbd-3c94-41f2-9129-6ce474c8cbce" title="Permalink to this equation">#</a></span>\[\begin{align}
 x&amp;\to x+\frac{\partial H}{\partial p} \delta t+\frac{\partial^2 H}{\partial p^2} dp \delta t\\
 p+dp &amp;\to p+dp-\frac{\partial H}{\partial x}  \delta t-\frac{\partial^2 H}{\partial x\partial p}  dp \delta t
 \end{align}\]</div>
 <p>The differences between the points are then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8afa1156-0d93-4913-be74-03782013c439">
-<span class="eqno">(73)<a class="headerlink" href="#equation-8afa1156-0d93-4913-be74-03782013c439" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-060bfa8e-4e7e-4460-9407-cb02a92aee0b">
+<span class="eqno">(74)<a class="headerlink" href="#equation-060bfa8e-4e7e-4460-9407-cb02a92aee0b" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_2-x_1&amp;= dx\left(1+ \frac{\partial^2 H}{\partial x\partial p} \delta t\right)\\
 p_2-p_1&amp;= -dx \frac{\partial^2 H}{\partial x^2} \delta t\\
 x_3-x_1&amp;= dp \frac{\partial^2 H}{\partial x\partial p} \delta t\\
@@ -489,8 +488,8 @@ p_2-p_1&amp;= -dp \left(1+\frac{\partial^2 H}{\partial x\partial p} \delta t\rig
 \partial_t R= J \frac{\partial H}{\partial R}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(J\)</span> is a block matrix</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d1ec2023-9916-4cae-a51a-84c568b3429f">
-<span class="eqno">(74)<a class="headerlink" href="#equation-d1ec2023-9916-4cae-a51a-84c568b3429f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e0e18638-222a-4348-951e-a222095b10c4">
+<span class="eqno">(75)<a class="headerlink" href="#equation-e0e18638-222a-4348-951e-a222095b10c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 J=\left(
 \begin{array}{cc}
 0&amp;1\\
@@ -498,8 +497,8 @@ J=\left(
 \right)
 \end{equation}\]</div>
 <p>If I apply a linear transformation, defining <span class="math notranslate nohighlight">\(\bar R_i=\sum_j K_{ij} R_j\)</span>, then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aeb6f00a-a04c-46ce-ba3e-df751884045a">
-<span class="eqno">(75)<a class="headerlink" href="#equation-aeb6f00a-a04c-46ce-ba3e-df751884045a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e93aae3b-9211-46c2-941d-2e784a4d82db">
+<span class="eqno">(76)<a class="headerlink" href="#equation-e93aae3b-9211-46c2-941d-2e784a4d82db" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t \bar R_i &amp;=\sum_{jk} K_{ij} J_{jk} \frac{\partial H}{\partial R_k}\\
 &amp;= \sum_{jkl} K_{ij} J_{jk} \frac{\partial{\bar R}_l}{\partial R_k} \frac{\partial H}{\partial {\bar R}_l}\\
 &amp;= \sum_{jkl} K_{ij} J_{jk} K^{t}_{kl} \frac{\partial H}{\partial {\bar R}_l}
@@ -515,14 +514,14 @@ J=KJK^t
 <section id="symplectic-integrators">
 <h2>Symplectic Integrators<a class="headerlink" href="#symplectic-integrators" title="Permalink to this heading">#</a></h2>
 <p>The simplest symplectic integrator is the leapfrog method.  It is based upon using a different grid for the x-points and the p-points.  We use central differences for the derivatives, so</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd124439-982f-41a2-94f0-76ac9046ff98">
-<span class="eqno">(76)<a class="headerlink" href="#equation-fd124439-982f-41a2-94f0-76ac9046ff98" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e45662f2-9374-4a66-ad89-6aec526ce715">
+<span class="eqno">(77)<a class="headerlink" href="#equation-e45662f2-9374-4a66-ad89-6aec526ce715" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t x&amp;= \partial_p H\\
 \partial_t x&amp;= -\partial_x H
 \end{align}\]</div>
 <p>becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8bceadba-e2ca-4242-a858-13117aa46ac3">
-<span class="eqno">(77)<a class="headerlink" href="#equation-8bceadba-e2ca-4242-a858-13117aa46ac3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f65dae73-4b7b-421f-95c6-d270ac985e27">
+<span class="eqno">(78)<a class="headerlink" href="#equation-f65dae73-4b7b-421f-95c6-d270ac985e27" title="Permalink to this equation">#</a></span>\[\begin{align}
 x_{i+1}-x_i&amp;= \left(\partial_p H\right)_{i+1/2} \delta t\\
 p_{i+1/2}-p_{i-1/2}&amp;= -\left(\partial_x H\right)_{i} \delta t
 \end{align}\]</div>
