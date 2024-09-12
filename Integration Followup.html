@@ -539,19 +539,19 @@ f(1.2457100017244607) = 0.7878119401635267
 <h4>Magic behind Gaussian Quadratures<a class="headerlink" href="#magic-behind-gaussian-quadratures" title="Permalink to this heading">#</a></h4>
 <p>The idea is that if one evaluates the function at <strong>non-equally spaced</strong> points, one can accelerate convergence</p>
 <p>For example, suppose we want to calculate <span class="math notranslate nohighlight">\(\int_{-1}^1 f(x) dx\)</span> using only three function evaluations.  In trapezoid rule those evaluations would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>.  For midpoint rule they would be at <span class="math notranslate nohighlight">\(x=-2/3,0,2/3\)</span>.  In Simpson’s rule the would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>, but we would weight them unequally.  The most general quadrature rule is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5a781920-84b5-49e6-b096-bb829c0fbe67">
-<span class="eqno">(27)<a class="headerlink" href="#equation-5a781920-84b5-49e6-b096-bb829c0fbe67" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7e59ed87-6364-4e85-b246-0496cb5cec36">
+<span class="eqno">()<a class="headerlink" href="#equation-7e59ed87-6364-4e85-b246-0496cb5cec36" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I\approx \sum_j w_j f(x_j).
 \end{equation}\]</div>
 <p>The most general 3-point symmetric quadrature rule would be</p>
-<div class="amsmath math notranslate nohighlight" id="equation-68bfc763-9bbd-4a4e-b151-84ce19c8198a">
-<span class="eqno">(28)<a class="headerlink" href="#equation-68bfc763-9bbd-4a4e-b151-84ce19c8198a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-94df5943-ee76-4aaa-9376-98e589bfb6a7">
+<span class="eqno">()<a class="headerlink" href="#equation-94df5943-ee76-4aaa-9376-98e589bfb6a7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=a f(0) + b f(s)+ b f(-s)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a,b,s\)</span> are parameters.</p>
 <p>We will choose these parameters so that we get the correct integral for various polynomials</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0bff6c85-b0b7-4424-84a7-bf198036c229">
-<span class="eqno">(29)<a class="headerlink" href="#equation-0bff6c85-b0b7-4424-84a7-bf198036c229" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-78921d87-b8d6-4b06-87f1-56a8affffdac">
+<span class="eqno">()<a class="headerlink" href="#equation-78921d87-b8d6-4b06-87f1-56a8affffdac" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_{-1}^1 x^0 dx &amp;\to a+2b &amp;=2\\
 \int_{-1}^1 x^1 dx &amp;\to 0 &amp;= 0\\
 \int_{-1}^1 x^2 dx &amp;\to 2b s^2 &amp;= 2/3\\
