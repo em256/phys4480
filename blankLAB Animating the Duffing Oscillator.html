@@ -382,8 +382,8 @@ document.write(`
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <p>In the last lab you explored the behavior of a chaotic driven nonlinear oscillator.  Here you are going to use <code class="docutils literal notranslate"><span class="pre">GLMakie</span></code> to create a live animation that shows the phase space position of the oscillator as a function of time.  It will have a Graphical User Interface (GUI) which will have a slider to adjust the frequency and amplitude of the drive.  It will also have the ability to click on the graphic to set the phase-space position of the oscillator.</p>
 <p>The Duffing oscillator is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41e692e8-40fc-4ba6-bcf4-e9e6a447552e">
-<span class="eqno">()<a class="headerlink" href="#equation-41e692e8-40fc-4ba6-bcf4-e9e6a447552e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-244fc33a-05d1-4205-bf83-59daf1e2550b">
+<span class="eqno">()<a class="headerlink" href="#equation-244fc33a-05d1-4205-bf83-59daf1e2550b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt}&amp;=v\\
 \frac{dv}{dt}&amp;=-2\gamma v-\alpha x-\beta x^3 +F \cos(\omega t).
 \end{align}\]</div>
@@ -628,27 +628,30 @@ isrunning # is simulation running?
 <h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
 ## Activity 5
 </h2><p>Now we want to add the run button.  Copy your constructor code to below here.  Add the code necessary to add a <em>run</em> button to the <code class="docutils literal notranslate"><span class="pre">duffing</span></code> object.  The key lines are:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>run = Button(fig[2,1]; label = &quot;run&quot;, tellwidth = false)
-isrunning = Observable(false)
-on(run.clicks) do clicks
-    isrunning[] = !isrunning[] 
-end
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>isrunning = Observable(false)
+label = map(cond -&gt; cond ? &quot;Stop&quot; : &quot;Run&quot;, isrunning)
+run = Button(fig[2,1]; label = label, tellwidth = false)
+on(run.clicks) do clicks; isrunning[] = !isrunning[]; end
 startsim(d)
 </pre></div>
 </div>
 <p>You will also need the <code class="docutils literal notranslate"><span class="pre">startsim</span></code> method</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>function startsim(p::duffing)
-    on(p.run.clicks) do clicks
-         @async while p.isrunning[]
-            isopen(p.fig.scene) || break # ensures computations stop if closed window
+    isrunning_notifier = Condition()
+    on(cond -&gt; cond &amp;&amp; notify(isrunning_notifier), p.isrunning)
+        errormonitor(@async while true
+        if p.isrunning[]
+            isopen(p.fig.scene) || break # stops if window is closed
             step!(p)
             sleep(p.delay) 
+        else
+            wait(isrunning_notifier)
         end
-    end 
+    end)
 end
 </pre></div>
 </div>
-<p>Note: debugging this can be hard, as the code inside the <code class="docutils literal notranslate"><span class="pre">&#64;async</span></code> block does not throw very good error messages.   (Or any at all.)  If it doesn’t work, your best bet is to ask for some help with debugging, as it is hard to give generic advice here.  Make double-sure that <code class="docutils literal notranslate"><span class="pre">step!</span></code> works properly – as that is the most likely place where there is a bug.</p>
+<p>Note: debugging this can be hard, as the code inside the <code class="docutils literal notranslate"><span class="pre">&#64;async</span></code> block does not throw very good error messages.   (Or any at all.  I think wrapping it in <code class="docutils literal notranslate"><span class="pre">errormonitor</span></code>, as I did, should turn the error messages back on, but I haven’t played with it enough to be sure.)  If it doesn’t work, your best bet is to ask for some help with debugging, as it is hard to give generic advice here.  Make double-sure that <code class="docutils literal notranslate"><span class="pre">step!</span></code> works properly – as that is the most likely place where there is a bug.</p>
 <p>Add this code to your constructor, and store <code class="docutils literal notranslate"><span class="pre">run</span></code> and <code class="docutils literal notranslate"><span class="pre">isrunning</span></code> in your object.</p>
 <p>Test it out.  Click on different points, and watch the trajectory evolve.  Do the results make sense?  (Keep F=0 so that it is easy to interpret)</p>
 <h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
