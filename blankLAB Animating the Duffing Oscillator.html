@@ -61,6 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'blankLAB Animating the Duffing Oscillator';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exploring Chaos with our Duffing Simulator" href="More%20Duffing.html" />
     <link rel="prev" title="Interactive Animation of Pendulum" href="Animating%20a%20Pendulum.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -212,6 +213,11 @@
 <li class="toctree-l1"><a class="reference internal" href="Duffing%20Oscillator%20Followup.html">Followup on Duffing Oscillator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Animating%20a%20Pendulum.html">Interactive Animation of Pendulum</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab – Animating the Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="More%20Duffing.html">Exploring Chaos with our Duffing Simulator</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamical Systems without differential equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Billiards.html">Billiards</a></li>
 </ul>
 
     </div>
@@ -382,8 +388,8 @@ document.write(`
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <p>In the last lab you explored the behavior of a chaotic driven nonlinear oscillator.  Here you are going to use <code class="docutils literal notranslate"><span class="pre">GLMakie</span></code> to create a live animation that shows the phase space position of the oscillator as a function of time.  It will have a Graphical User Interface (GUI) which will have a slider to adjust the frequency and amplitude of the drive.  It will also have the ability to click on the graphic to set the phase-space position of the oscillator.</p>
 <p>The Duffing oscillator is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-244fc33a-05d1-4205-bf83-59daf1e2550b">
-<span class="eqno">()<a class="headerlink" href="#equation-244fc33a-05d1-4205-bf83-59daf1e2550b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-88637b15-043b-4691-989f-f14a9667cff8">
+<span class="eqno">(93)<a class="headerlink" href="#equation-88637b15-043b-4691-989f-f14a9667cff8" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt}&amp;=v\\
 \frac{dv}{dt}&amp;=-2\gamma v-\alpha x-\beta x^3 +F \cos(\omega t).
 \end{align}\]</div>
@@ -451,12 +457,13 @@ isrunning # is simulation running?
 <span class="w">    </span><span class="n">isrunning</span><span class="w"> </span><span class="c"># is simulation running?</span>
 <span class="k">end</span>
 
+<span class="c"># Declaring the types of these attributes is optional</span>
 <span class="k">mutable</span><span class="w"> </span><span class="k">struct</span> <span class="kt">dp</span>
-<span class="w">    </span><span class="n">F</span>
-<span class="w">    </span><span class="n">ω</span>
-<span class="w">    </span><span class="n">α</span>
-<span class="w">    </span><span class="n">β</span>
-<span class="w">    </span><span class="n">γ</span>
+<span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">::</span><span class="kt">Float64</span>
+<span class="w">    </span><span class="n">ω</span><span class="w"> </span><span class="o">::</span><span class="kt">Float64</span>
+<span class="w">    </span><span class="n">α</span><span class="w"> </span><span class="o">::</span><span class="kt">Float64</span>
+<span class="w">    </span><span class="n">β</span><span class="w"> </span><span class="o">::</span><span class="kt">Float64</span>
+<span class="w">    </span><span class="n">γ</span><span class="w"> </span><span class="o">::</span><span class="kt">Float64</span>
 <span class="k">end</span>
 
 <span class="n">dp</span><span class="p">(;</span><span class="n">F</span><span class="p">,</span><span class="n">ω</span><span class="p">,</span><span class="n">α</span><span class="p">,</span><span class="n">β</span><span class="p">,</span><span class="n">γ</span><span class="p">)</span><span class="o">=</span><span class="n">dp</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">ω</span><span class="p">,</span><span class="n">α</span><span class="p">,</span><span class="n">β</span><span class="p">,</span><span class="n">γ</span><span class="p">)</span>
@@ -668,6 +675,7 @@ end
 </div>
 </div>
 </div>
+<p>Those sliders don’t do anything yet.  Feel free to drag them around, but it will not make any change to the simulation.</p>
 <p>We then need to make it so that when the sliders are adjusted, the attributes of the oscillator are updated</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -709,10 +717,12 @@ end
 <p>Play with your simulator.</p>
 <p>Find parameters where you have regular (non-chaotic) trajectories.  Watch the behavior.</p>
 <p>Find chaotic parameters. Watch the behavior.</p>
+<p>We will go over this a bit in class, and try to understand what is happening.</p>
 <h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
 ## Activity 9: Bonus
 </h2><p>This is a bonus activity, that you don’t need to do, but is fun.</p>
-<p>Modify your code so that it tracks two oscillators.  Make it so that when you click on the graph, one of them gets set to that point, and the other gets set to a slightly offset point.  That way you can observe how close the trajectories stay together.  Make the points and trails different colors.  If you really want to be fancy, you can make not just 2, but <span class="math notranslate nohighlight">\(n\)</span> oscillators, where <span class="math notranslate nohighlight">\(n\)</span> can be set at instantiation time.  When you click on a point, these get initiated to some random spread near that point.</p>
+<p>Modify your code so that it tracks two oscillators.  Make it so that when you click on the graph, one of them gets set to that point, and the other gets set to a slightly offset point.  That way you can observe how close the trajectories stay together.  Make the points and trails different colors.</p>
+<p>An even better way to get insite is to not just 2, but <span class="math notranslate nohighlight">\(n\)</span> oscillators, where <span class="math notranslate nohighlight">\(n\)</span> can be set at instantiation time.  When you click on a point, these get initiated to a ring of points around where you click.  Take <span class="math notranslate nohighlight">\(n~1000\)</span> to get an understanding of how chaos works in this system</p>
 </section>
 </section>
 
@@ -754,6 +764,15 @@ end
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Interactive Animation of Pendulum</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="More%20Duffing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exploring Chaos with our Duffing Simulator</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
