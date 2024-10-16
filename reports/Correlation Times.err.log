@@ -1,0 +1,54 @@
+Traceback (most recent call last):
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+function simulate(m::Int64,n::Int64,β::Float64,h::Float64,
+        innersweeps::Int64,outersweeps::Int64)
+    s=rand_ising2d(m,n)
+    simulate!(s,β,h,innersweeps,outersweeps)
+end
+
+function simulate!(s,β::Float64,h::Float64,
+        innersweeps::Int64,outersweeps::Int64)
+    # First generate the probability distribution
+
+
+    # Create empty lists for storing the energies and magnetizations
+
+
+    # next do the outer loop
+    for outer in 1:outersweeps
+        # 
+        # call randlocalupdate! -- passing the number of innersweeps
+        # then calculate/store E and m in the lists
+
+    end
+
+    return (Elist= ,maglist=, m= , dims= ,h= ,innersweeps=innersweeps)
+end
+------------------
+
+
+ParseError:
+[90m# Error @ [0;0m]8;;file:///Users/emueller/Documents/Work Laptop 2011-2012/PHYS 4480-7680 Computational Physics/git/phys4480/In[7]#23:20\[90mIn[7]:23:20[0;0m]8;;\
+
+    return (Elist= [48;2;120;70;70m,[0;0mmaglist=, m= , dims= ,h= ,innersweeps=innersweeps)
+[90m#                  ╙ ── [0;0m[91munexpected `,`[0;0m
+
+Stacktrace:
+ [1] top-level scope
+   @ In[7]:23
+
