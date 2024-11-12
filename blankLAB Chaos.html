@@ -227,7 +227,6 @@
 <li class="toctree-l1"><a class="reference internal" href="monte%20carlo%20integration.html">Stochastic approaches to integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Metropolis%20Ising%20Model.html">2D Ising Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Correlation%20Times.html">Correlation times</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
 </ul>
 
     </div>
@@ -712,15 +711,15 @@ document.write(`
 <h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
 ## Activity 1
 </h2><p>We will consider a non-linear oscillator described by the equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6b95e18-2a5a-48dd-a234-bc445c91334d">
-<span class="eqno">()<a class="headerlink" href="#equation-e6b95e18-2a5a-48dd-a234-bc445c91334d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f6fddaf7-7656-4361-bb59-e62d587d9eb4">
+<span class="eqno">(84)<a class="headerlink" href="#equation-f6fddaf7-7656-4361-bb59-e62d587d9eb4" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt}&amp;=v\\
 \frac{dv}{dt}&amp;=-2\gamma v-\alpha x-\beta x^3 +F \cos(\omega t).
 \end{align}\]</div>
 <p>Here <span class="math notranslate nohighlight">\(\gamma\)</span> is the damping rate, <span class="math notranslate nohighlight">\(F\)</span> is the strength of a periodic drive, with frequency <span class="math notranslate nohighlight">\(\omega\)</span>, and <span class="math notranslate nohighlight">\(\alpha,\beta\)</span> describe the potential.  For <span class="math notranslate nohighlight">\(\beta=0\)</span> we have a harmonic potential, resulting in a driven simple Harmonic Oscillator.</p>
 <p>An interesting case is when <span class="math notranslate nohighlight">\(\alpha&lt;0\)</span> and <span class="math notranslate nohighlight">\(\beta&gt;0\)</span>.  In that case the potential is a double well</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a298850-d8e5-427e-b3e9-6a6e89afe59a">
-<span class="eqno">()<a class="headerlink" href="#equation-4a298850-d8e5-427e-b3e9-6a6e89afe59a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-82ffba3a-5d7e-42ea-997d-6be87ccd7990">
+<span class="eqno">(85)<a class="headerlink" href="#equation-82ffba3a-5d7e-42ea-997d-6be87ccd7990" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V(x)=\frac{\alpha}{2} x^2+\frac{\beta}{4} x^4.
 \end{equation}\]</div>
 <p><strong>Write a function that takes the parameters <span class="math notranslate nohighlight">\(\alpha,\beta,\gamma,F,\omega\)</span> the initial conditions <span class="math notranslate nohighlight">\(x_0,v_0\)</span>, and the evolution time <span class="math notranslate nohighlight">\(T\)</span>.  It will return the solution to the differential equation, as found from <code class="docutils literal notranslate"><span class="pre">DifferentialEquations.jl</span></code>.</strong></p>

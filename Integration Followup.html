@@ -227,7 +227,6 @@
 <li class="toctree-l1"><a class="reference internal" href="monte%20carlo%20integration.html">Stochastic approaches to integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Metropolis%20Ising%20Model.html">2D Ising Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Correlation%20Times.html">Correlation times</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
 </ul>
 
     </div>
@@ -468,7 +467,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.059083 seconds (82.64 k allocations: 5.443 MiB, 94.90% compilation time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.059379 seconds (82.64 k allocations: 5.443 MiB, 94.93% compilation time)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1803405931478603, 1.537190156500909e-8)
@@ -586,19 +585,19 @@ document.write(`
 <h4>Magic behind Gaussian Quadratures<a class="headerlink" href="#magic-behind-gaussian-quadratures" title="Permalink to this heading">#</a></h4>
 <p>The idea is that if one evaluates the function at <strong>non-equally spaced</strong> points, one can accelerate convergence</p>
 <p>For example, suppose we want to calculate <span class="math notranslate nohighlight">\(\int_{-1}^1 f(x) dx\)</span> using only three function evaluations.  In trapezoid rule those evaluations would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>.  For midpoint rule they would be at <span class="math notranslate nohighlight">\(x=-2/3,0,2/3\)</span>.  In Simpson’s rule the would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>, but we would weight them unequally.  The most general quadrature rule is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b3d0f658-76f4-4be5-b4fb-d2924b763a65">
-<span class="eqno">()<a class="headerlink" href="#equation-b3d0f658-76f4-4be5-b4fb-d2924b763a65" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-240313ed-edb6-4460-987d-09bf09db3ecd">
+<span class="eqno">(27)<a class="headerlink" href="#equation-240313ed-edb6-4460-987d-09bf09db3ecd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I\approx \sum_j w_j f(x_j).
 \end{equation}\]</div>
 <p>The most general 3-point symmetric quadrature rule would be</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3082fc6b-3c12-4457-a513-3f23d5ef9522">
-<span class="eqno">()<a class="headerlink" href="#equation-3082fc6b-3c12-4457-a513-3f23d5ef9522" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-78eec59f-13ee-42cf-a0fe-32e9ad77aa0d">
+<span class="eqno">(28)<a class="headerlink" href="#equation-78eec59f-13ee-42cf-a0fe-32e9ad77aa0d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=a f(0) + b f(s)+ b f(-s)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a,b,s\)</span> are parameters.</p>
 <p>We will choose these parameters so that we get the correct integral for various polynomials</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c20809a7-ff89-48ff-bf50-44e06493eaae">
-<span class="eqno">()<a class="headerlink" href="#equation-c20809a7-ff89-48ff-bf50-44e06493eaae" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8e1f3b77-d99a-4f6d-bfa4-2603bdadf022">
+<span class="eqno">(29)<a class="headerlink" href="#equation-8e1f3b77-d99a-4f6d-bfa4-2603bdadf022" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_{-1}^1 x^0 dx &amp;\to a+2b &amp;=2\\
 \int_{-1}^1 x^1 dx &amp;\to 0 &amp;= 0\\
 \int_{-1}^1 x^2 dx &amp;\to 2b s^2 &amp;= 2/3\\
