@@ -544,29 +544,29 @@ global_logger(default_logger)
 <section id="physics">
 <h2>Physics<a class="headerlink" href="#physics" title="Permalink to this heading">#</a></h2>
 <p>A projectile obeys the second order differential equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e7b5b838-2973-457c-8718-2ea7dc9ea0f6">
-<span class="eqno">()<a class="headerlink" href="#equation-e7b5b838-2973-457c-8718-2ea7dc9ea0f6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1228c581-389f-4cd9-9ff0-5504bf305158">
+<span class="eqno">()<a class="headerlink" href="#equation-1228c581-389f-4cd9-9ff0-5504bf305158" title="Permalink to this equation">#</a></span>\[\begin{align}
 m\frac{d^2 {\bf \vec{r}}}{dt^2}&amp;=
 -m g {\bf\hat{y}}+{\bf\vec{F}}_d
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\({\bf\vec{F}}_d\)</span> is the drag force.
 In our approach to solving differential equations numerically, we need to write this as a set of coupled first order differential equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e7d5503e-41c4-4953-836a-0f5172a2bfaf">
-<span class="eqno">()<a class="headerlink" href="#equation-e7d5503e-41c4-4953-836a-0f5172a2bfaf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c0670661-1629-4458-8b9e-a7a2efe2f97a">
+<span class="eqno">()<a class="headerlink" href="#equation-c0670661-1629-4458-8b9e-a7a2efe2f97a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d {\bf \vec{r}}}{dt}&amp;= {\bf \vec{v}}\\
 \frac{d {\bf \vec{v}}}{dt}&amp;=
 -g {\bf\hat{y}}+\frac{{\bf\vec{F}}_d}{m}
 \end{align}\]</div>
 <p>We create a length 4 vector whose components are <span class="math notranslate nohighlight">\((x,y,vx,vy)\)</span>, and update this vector at each time step.</p>
 <p>In a typical introductory physics course one introduces two different models for <span class="math notranslate nohighlight">\({\bf\vec{F}}_d\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7cf598e3-8e21-47ea-8fc2-5ce1f102108f">
-<span class="eqno">()<a class="headerlink" href="#equation-7cf598e3-8e21-47ea-8fc2-5ce1f102108f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b332e77e-6ca4-481f-b843-e13691a67337">
+<span class="eqno">()<a class="headerlink" href="#equation-b332e77e-6ca4-481f-b843-e13691a67337" title="Permalink to this equation">#</a></span>\[\begin{align}
 {\bf\vec{F}}_d^{(1)}&amp;=-\alpha {\bf\vec{v}}\\
 {\bf\vec{F}}_d^{(2)}&amp;=-\beta |v|{\bf\vec{v}}.
 \end{align}\]</div>
 <p>Linear drag is typically a good model for laminar flow in highly viscous media.  Quadratic drag is typically a good model for turbulent flow.  Typical projectiles are better modelled by quadratic drag.  An ansatz which interpolates between these is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7892c380-3d23-41c4-9698-196e03720b66">
-<span class="eqno">()<a class="headerlink" href="#equation-7892c380-3d23-41c4-9698-196e03720b66" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-67305ea4-c22e-46e3-ab47-188f4dbcd52d">
+<span class="eqno">()<a class="headerlink" href="#equation-67305ea4-c22e-46e3-ab47-188f4dbcd52d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 {\bf\vec{F}}_d=-\gamma |v|^{\delta-1}{\bf\vec{v}}.
 \end{equation}\]</div>
 <p>The case <span class="math notranslate nohighlight">\(\delta=1\)</span> corresponds to linear drag, and <span class="math notranslate nohighlight">\(\delta=2\)</span> to quadratic drag.</p>
@@ -3868,15 +3868,15 @@ In our approach to solving differential equations numerically, we need to write 
 <h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
 ## Activity 2
 </h2><p>Lets now try to integrate the differential equation for the projectile.  Lets start with the easy case, where we have no drag.  The equations are then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f5be80f9-52f3-411c-8448-32c886719f82">
-<span class="eqno">()<a class="headerlink" href="#equation-f5be80f9-52f3-411c-8448-32c886719f82" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9bbf0edb-de49-42b3-bbe1-cb3b2ea1cbae">
+<span class="eqno">()<a class="headerlink" href="#equation-9bbf0edb-de49-42b3-bbe1-cb3b2ea1cbae" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d {\bf \vec{r}}}{dt}&amp;= {\bf \vec{v}}\\
 \frac{d {\bf \vec{v}}}{dt}&amp;=
 -g {\bf\hat{y}}
 \end{align}\]</div>
 <p>We can understand this as 4 equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37050724-fc75-4157-8efd-a1a9a54c4e7d">
-<span class="eqno">()<a class="headerlink" href="#equation-37050724-fc75-4157-8efd-a1a9a54c4e7d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4d696a0c-3e6d-43d2-a326-e24d0a6e7f65">
+<span class="eqno">()<a class="headerlink" href="#equation-4d696a0c-3e6d-43d2-a326-e24d0a6e7f65" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt}&amp;=v_x\\
 \frac{dy}{dt}&amp;=v_y\\
 \frac{dv_x}{dt}&amp;=0\\
@@ -4388,8 +4388,8 @@ In our approach to solving differential equations numerically, we need to write 
 </div>
 <p>Now they lie on top of the Mars Values.</p>
 <p>We want to do the same thing, but include drag.  Our 4 equations are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8409312a-a62c-43af-b63f-1dd560a5722f">
-<span class="eqno">()<a class="headerlink" href="#equation-8409312a-a62c-43af-b63f-1dd560a5722f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c308ac68-543d-46a5-8c5a-9fb24630cf43">
+<span class="eqno">()<a class="headerlink" href="#equation-c308ac68-543d-46a5-8c5a-9fb24630cf43" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt} &amp;= v_x\\
 \frac{dy}{dt} &amp;= v_y\\
 \frac{dv_x}{dt} &amp;= -\gamma |v|^{\delta-1} v_x\\
@@ -4495,13 +4495,13 @@ tstdvxdt3=make_dvxdt(0.,1.,2.)
 <section id="dropping-a-ball-bearing-in-glycerol">
 <h3>Dropping a ball bearing in glycerol<a class="headerlink" href="#dropping-a-ball-bearing-in-glycerol" title="Permalink to this heading">#</a></h3>
 <p>Start with initial conditions: <span class="math notranslate nohighlight">\((x,y,vx,vy)=(0,10,0,0)\)</span>, with parameters <span class="math notranslate nohighlight">\(m=1.g=1.,\gamma=1.,\delta=1.\)</span>.  This corresponds to the elementary problem of an object falling with viscous drag:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dbeb8086-c6dc-4cf1-bb67-96c35271effb">
-<span class="eqno">()<a class="headerlink" href="#equation-dbeb8086-c6dc-4cf1-bb67-96c35271effb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e5b02232-47e7-405b-90b4-6278c8c74312">
+<span class="eqno">()<a class="headerlink" href="#equation-e5b02232-47e7-405b-90b4-6278c8c74312" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{d v_y}{dt}=-g-\frac{\gamma}{m} v_y
 \end{equation}\]</div>
 <p>One can integrate this to get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d55c86fc-765d-4ac6-af81-3712dc2ed72e">
-<span class="eqno">()<a class="headerlink" href="#equation-d55c86fc-765d-4ac6-af81-3712dc2ed72e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-06c8d7b6-5556-4813-a610-cc9bc48fd2bc">
+<span class="eqno">()<a class="headerlink" href="#equation-06c8d7b6-5556-4813-a610-cc9bc48fd2bc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v_y(t) = \frac{-mg}{\gamma}+ A e^{-\gamma t/m}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> is a constant which is set by the initial conditions.</p>
@@ -4510,14 +4510,14 @@ v_y(t) = \frac{-mg}{\gamma}+ A e^{-\gamma t/m}
 <section id="parachuter">
 <h3>Parachuter<a class="headerlink" href="#parachuter" title="Permalink to this heading">#</a></h3>
 <p>Now start with initial conditions: <span class="math notranslate nohighlight">\((x,y,vx,vy)=(0.,10.,0.,0.)\)</span>, with parameters <span class="math notranslate nohighlight">\(g=1,\gamma=1,\delta=2\)</span>.  This corresponds to the elementary problem of an object falling with turbulent drag:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-142511a2-b741-4a34-9c60-46c138a760a4">
-<span class="eqno">()<a class="headerlink" href="#equation-142511a2-b741-4a34-9c60-46c138a760a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8990b960-8602-4bfa-8630-c158f9c32dba">
+<span class="eqno">()<a class="headerlink" href="#equation-8990b960-8602-4bfa-8630-c158f9c32dba" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{d v_y}{dt}=-g+\frac{\gamma}{m} v_y^2,
 \end{equation}\]</div>
 <p>where we have assumed that <span class="math notranslate nohighlight">\(v_y&lt;0\)</span>.</p>
 <p>This also can be integated, giving</p>
-<div class="amsmath math notranslate nohighlight" id="equation-51b8f169-7b0e-48f2-812d-64185ec15118">
-<span class="eqno">()<a class="headerlink" href="#equation-51b8f169-7b0e-48f2-812d-64185ec15118" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-670b4dce-ca70-4f4a-8e84-d4332b112f84">
+<span class="eqno">()<a class="headerlink" href="#equation-670b4dce-ca70-4f4a-8e84-d4332b112f84" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v_y(t)=-\sqrt{\frac{mg}{\gamma}}\tanh\left(\sqrt{\frac{\gamma g}{m}} t\right)
 \end{equation}\]</div>
 <p>See if your numerics gives this result</p>
@@ -4609,13 +4609,13 @@ v_y(t)=-\sqrt{\frac{mg}{\gamma}}\tanh\left(\sqrt{\frac{\gamma g}{m}} t\right)
 <p>Our strategy is that <code class="docutils literal notranslate"><span class="pre">distance</span></code> will take the input data, and use it to call <code class="docutils literal notranslate"><span class="pre">projectile_trajectory</span></code>.</p>
 <p>We will then take the last two points of the trajectory, and do a linear interpolation to find the value of of <span class="math notranslate nohighlight">\(x\)</span> at which <span class="math notranslate nohighlight">\(y=0\)</span>.  If you want, you can do a higher order interpolation (for example, using our knowledge of the velocities at those points).</p>
 <p>Lets first make a function which is called by those last two values: <code class="docutils literal notranslate"><span class="pre">xvp=(xp,yp,vxp,vyp)</span></code>,for “penultimate” and <code class="docutils literal notranslate"><span class="pre">xvf=</span> <span class="pre">(xp,yp,vxp,vyp)</span></code> for “final”.  The way I like to derive my linear interpolation formulas, is that I first make a function <span class="math notranslate nohighlight">\(x(y)\)</span> which passes through these points.  You should be able to convince yourself that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-01f8e234-18e7-4ba4-ac9c-5ff6392087ff">
-<span class="eqno">()<a class="headerlink" href="#equation-01f8e234-18e7-4ba4-ac9c-5ff6392087ff" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3f7eab12-359a-40a3-8862-b445efa3ff89">
+<span class="eqno">()<a class="headerlink" href="#equation-3f7eab12-359a-40a3-8862-b445efa3ff89" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x(y) = \frac{y-yp}{yf-yp} x_f +  \frac{y-yf}{yp-yf} x_p 
 \end{equation}\]</div>
 <p>This is obviously a linear function for <span class="math notranslate nohighlight">\(y\)</span> – and if you plug in the value <span class="math notranslate nohighlight">\(y=yp\)</span> or <span class="math notranslate nohighlight">\(y=yf\)</span> you get the desired result.  We then just set <span class="math notranslate nohighlight">\(y=0\)</span> to find that the projectile hits the ground at</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80c49a25-f880-4f0f-ab02-a9da9dca3b0d">
-<span class="eqno">()<a class="headerlink" href="#equation-80c49a25-f880-4f0f-ab02-a9da9dca3b0d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-40044630-6824-4bd5-a6e1-f5bf8f2e5783">
+<span class="eqno">()<a class="headerlink" href="#equation-40044630-6824-4bd5-a6e1-f5bf8f2e5783" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x(0)=\frac{x_f y_p-x_p y_f}{y_p-y_f}
 \end{equation}\]</div>
 <p>Make a function <code class="docutils literal notranslate"><span class="pre">interpx0(xvp,xvf)</span></code> which implements this formula.  Test to make sure it works.</p>
