@@ -230,6 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Cluster%20Algorithms.html">Cluster Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Wolff.html">Lab – Wolff Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Binder.html">Binder Cumulants and the Scaling Hypothesis</a></li>
 </ul>
 
     </div>
@@ -952,8 +953,8 @@ visualize(rb2)
 ## Activity 14
 </h2><p>Just like the Sinai Billiard, this system is chaotic. In fact, it is a specific type of chaotic system which is referred to as Ergodic.   If one runs the simulation for enough time, one expects to uniformly sample all possible configurations of the balls which are consistent with the initial conditions.</p>
 <p>In practice this means the only constraint is that the total energy is conserved.  As we will discuss in lecture, this means that if we have a large number of balls, and all the balls start out with velocity 1, then at long times we expect the velocity distribution of each ball to be drawn randomly from a Maxwell-Boltzmann distribution,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cfb57376-2901-4167-affa-951605c9c02e">
-<span class="eqno">(97)<a class="headerlink" href="#equation-cfb57376-2901-4167-affa-951605c9c02e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1387dced-e4d5-4f04-bc64-b8e9c1a4daea">
+<span class="eqno">(97)<a class="headerlink" href="#equation-1387dced-e4d5-4f04-bc64-b8e9c1a4daea" title="Permalink to this equation">#</a></span>\[\begin{equation}
 P(v)= 2 v \exp(-v^2).
 \end{equation}\]</div>
 <p>To test this out, what you want to do is run a simulation with ~100 Balls (so a 10x10 grid) for a large number of collisions (say 5000). The ball radius is not so critical here.  Something like <code class="docutils literal notranslate"><span class="pre">radius=0.01</span></code> works well if the box sides have length 1. Take the last state, and make a list of the speeds of all the particles.  Use the <code class="docutils literal notranslate"><span class="pre">histogram</span></code> function to plot them.  Given that there are only 100 speeds, the histogram will be pretty blocky.  Note, <code class="docutils literal notranslate"><span class="pre">histogram</span></code> takes an argument <code class="docutils literal notranslate"><span class="pre">normalize=true</span></code>, which will normalize it to make a probability distribution function.</p>
@@ -1005,8 +1006,8 @@ P(v)= 2 v \exp(-v^2).
 <a class="reference external" href="https://arxiv.org/pdf/2201.01100%5D">this link</a> for a practical review.  Another, slightly broader discussion can be found <a class="reference external" href="https://pubs.aip.org/aip/jcp/article/157/23/234111/2842446/Hard-disk-pressure-computations-a-historic">here</a>.</p>
 <p>The next improvements take a bit of work – and you only should do them if it interests you.  <strong>This is fully optional</strong></p>
 <p>The first trick is that we can do <em>asynchronous updates</em>.  Each ball can have its own clock.  In the <code class="docutils literal notranslate"><span class="pre">update!</span></code> step we only need to update the positions of the balls that were involved in the collision.  We then need to modify the <code class="docutils literal notranslate"><span class="pre">collision_time</span></code> method, so that it can act on balls whos positions are given at different time:  For example, suppose <code class="docutils literal notranslate"><span class="pre">ball1</span></code> is at position <code class="docutils literal notranslate"><span class="pre">x1</span></code> at time <code class="docutils literal notranslate"><span class="pre">t1</span></code>, and <code class="docutils literal notranslate"><span class="pre">ball2</span></code> is at position <code class="docutils literal notranslate"><span class="pre">x2</span></code> at time <code class="docutils literal notranslate"><span class="pre">t2</span></code>.  If these had vanishing radii, the collision time sattisfies</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8dcfbcea-e3b7-4c5d-9af7-fe9a62c31768">
-<span class="eqno">(98)<a class="headerlink" href="#equation-8dcfbcea-e3b7-4c5d-9af7-fe9a62c31768" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-626989b7-58b5-4b6e-8cb4-d70cd919ab8f">
+<span class="eqno">(98)<a class="headerlink" href="#equation-626989b7-58b5-4b6e-8cb4-d70cd919ab8f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \vec{x_1}+(t-t_1)\vec{v_1}=\vec{x_2}+(t-t_2)\vec{v_2}
 \end{equation}\]</div>
 <p>which is readily solved for <span class="math notranslate nohighlight">\(t\)</span>.  This is easily incorporated into our functions.</p>

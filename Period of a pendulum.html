@@ -230,6 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Cluster%20Algorithms.html">Cluster Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Wolff.html">Lab – Wolff Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Binder.html">Binder Cumulants and the Scaling Hypothesis</a></li>
 </ul>
 
     </div>
@@ -416,47 +417,47 @@ document.write(`
 <p>We begin our exploration of <em>computational physics</em> with an example from mechanics.  We will consider the motion of a pendulum.</p>
 <p>Imagine a pendulum of length <span class="math notranslate nohighlight">\(L\)</span> is pulled up to make an angle <span class="math notranslate nohighlight">\(\theta\)</span> with respect the the vertical.</p>
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vTwUJDECXEo0ZeyJ-i5zonaMAytMBHm8IfrIwfRnYMoiTKyvSUGirVm9lXpy63JJHaUsopfbYRRZ74J/pub?w=877&amp;h=718"><p>The component of the graviational force which is in the direction of motion is <span class="math notranslate nohighlight">\(F_\parallel=-m g \sin(\theta)\)</span>.  The speed of the bob is <span class="math notranslate nohighlight">\(v=L d\theta/dt\)</span>.  Thus we get equations of motion</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8acd3181-9b9a-43e0-a277-8fda660f1806">
-<span class="eqno">(1)<a class="headerlink" href="#equation-8acd3181-9b9a-43e0-a277-8fda660f1806" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-37ba8944-bc53-4bbf-8b72-9c6885156283">
+<span class="eqno">(1)<a class="headerlink" href="#equation-37ba8944-bc53-4bbf-8b72-9c6885156283" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d \theta}{dt}&amp;= \frac{v}{L} \\
 m \frac{d v}{dt}&amp;=-m g \sin(\theta)
 \end{align}\]</div>
 <p>We know the pendulum will swing back and forth.  We want to calculate its period.</p>
 <p>The classic approach is to use energy arguments.  The kinetic energy of the pendulum is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-39ca3e0c-c535-4579-a163-e1e21c6061d2">
-<span class="eqno">(2)<a class="headerlink" href="#equation-39ca3e0c-c535-4579-a163-e1e21c6061d2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3b0f9be7-5c58-4aba-8615-48d3ddee9ef0">
+<span class="eqno">(2)<a class="headerlink" href="#equation-3b0f9be7-5c58-4aba-8615-48d3ddee9ef0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T=\frac{1}{2}m v^2.
 \end{equation}\]</div>
 <p>The potential energy is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4e0e61b-8218-4157-84d5-dd08838fc736">
-<span class="eqno">(3)<a class="headerlink" href="#equation-c4e0e61b-8218-4157-84d5-dd08838fc736" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f96da81a-d7ec-4860-b530-e9d512acd50e">
+<span class="eqno">(3)<a class="headerlink" href="#equation-f96da81a-d7ec-4860-b530-e9d512acd50e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U=-mgL \cos(\theta).
 \end{equation}\]</div>
 <p>Then the total energy is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-700cda4d-0ccb-48fb-aa78-c4ba1a28423b">
-<span class="eqno">(4)<a class="headerlink" href="#equation-700cda4d-0ccb-48fb-aa78-c4ba1a28423b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9aa15c40-b2cc-4e2e-95e2-b3b5da6e1724">
+<span class="eqno">(4)<a class="headerlink" href="#equation-9aa15c40-b2cc-4e2e-95e2-b3b5da6e1724" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E=\frac{1}{2}m v^2-mgL \cos(\theta).
 \end{equation}\]</div>
 <p>Since the total energy is conserved we can solve this for the velocity:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ed3cf2f-b97f-4e64-a2bf-a0923f05e6e8">
-<span class="eqno">(5)<a class="headerlink" href="#equation-1ed3cf2f-b97f-4e64-a2bf-a0923f05e6e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7abcafc0-ad82-4040-8465-9308d41bcb9a">
+<span class="eqno">(5)<a class="headerlink" href="#equation-7abcafc0-ad82-4040-8465-9308d41bcb9a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v = \sqrt{\frac{2 E}{m} +2 gL \cos(\theta)}
 \end{equation}\]</div>
 <p>Our argument is slightly simpler if we note that the energy can be related to the maximum angle that the pendulum reaches, <span class="math notranslate nohighlight">\(\theta_m\)</span>, so:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9d907720-64da-4419-a6ec-2183fc7533a3">
-<span class="eqno">(6)<a class="headerlink" href="#equation-9d907720-64da-4419-a6ec-2183fc7533a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c62ba81e-8496-4796-8545-560208637438">
+<span class="eqno">(6)<a class="headerlink" href="#equation-c62ba81e-8496-4796-8545-560208637438" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v = \sqrt{2 g L}\sqrt{\cos(\theta)-\cos(\theta_m)}
 \end{equation}\]</div>
 <p>Next we note that <span class="math notranslate nohighlight">\(v=Ld\theta/dt\)</span> and hence</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9f96cbc0-2c90-4c34-b750-603547c62172">
-<span class="eqno">(7)<a class="headerlink" href="#equation-9f96cbc0-2c90-4c34-b750-603547c62172" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8f187b42-c83c-4ff5-b98d-9ec0a002813b">
+<span class="eqno">(7)<a class="headerlink" href="#equation-8f187b42-c83c-4ff5-b98d-9ec0a002813b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{d\theta}{dt}=
 \sqrt{\frac{2g}{L}}
 \sqrt{\cos(\theta)-\cos(\theta_m})
 \end{equation}\]</div>
 <p>We then note that a quarter period is the time it takes for the pendulum to rise from <span class="math notranslate nohighlight">\(\theta=0\)</span> to <span class="math notranslate nohighlight">\(\theta=\theta_m\)</span>, and hence</p>
-<div class="amsmath math notranslate nohighlight" id="equation-104afcef-f8f0-45fc-a116-656d34ae44ab">
-<span class="eqno">(8)<a class="headerlink" href="#equation-104afcef-f8f0-45fc-a116-656d34ae44ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-401edccc-aac4-495d-96c2-7f4c60556b31">
+<span class="eqno">(8)<a class="headerlink" href="#equation-401edccc-aac4-495d-96c2-7f4c60556b31" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{T}{4}=\int_{t_0}^{t_m}\!dt=\sqrt{\frac{L}{2g}}\int_0^{\theta_m}\frac{d\theta}{\sqrt{\cos(\theta)-\cos(\theta_m)}}
 \end{equation}\]</div>
 <p>This integral is an <em>elliptic integral</em>.  It has no closed form in terms of more elementary functions.  Thus we need to develop numerical methods to evaluate it.</p>
@@ -466,13 +467,13 @@ v = \sqrt{2 g L}\sqrt{\cos(\theta)-\cos(\theta_m)}
 <h2>Adimensionalizing<a class="headerlink" href="#adimensionalizing" title="Permalink to this heading">#</a></h2>
 <p>A good first step in any numerical calculation is to <em>adimensionalize</em> your equations.  This is actually a good step in analytic work as well.</p>
 <p>We will learn how to systematically do this, but here I know that for small amplitudes the period of a pendulum is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-04f270a5-6146-44ea-8a05-14fae391e4a9">
-<span class="eqno">(9)<a class="headerlink" href="#equation-04f270a5-6146-44ea-8a05-14fae391e4a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2857369d-14b0-47e8-ad33-3b1f3181deaf">
+<span class="eqno">(9)<a class="headerlink" href="#equation-2857369d-14b0-47e8-ad33-3b1f3181deaf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T_{0}=2\pi \sqrt{\frac{L}{g}}.
 \end{equation}\]</div>
 <p>This it makes sense for us to calculate</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8d2e09b-b74f-4f76-9fb3-b359de5c1cd0">
-<span class="eqno">(10)<a class="headerlink" href="#equation-f8d2e09b-b74f-4f76-9fb3-b359de5c1cd0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-980d149f-5b29-4993-8c3d-a786bd48cdb4">
+<span class="eqno">(10)<a class="headerlink" href="#equation-980d149f-5b29-4993-8c3d-a786bd48cdb4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \bar T =\frac{T}{T_0}=\frac{\sqrt{2}}{\pi}\int_0^{\theta_m}\frac{d\theta}{\sqrt{\cos(\theta)-\cos(\theta_m)}}
 \end{equation}\]</div>
 <p>The angle <span class="math notranslate nohighlight">\(\theta_m\)</span> is already dimensionless, so we can leave it as-is.</p>
@@ -1601,25 +1602,25 @@ T_{0}=2\pi \sqrt{\frac{L}{g}}.
 I_n=I_\infty+\epsilon n^{-2}
 \]</div>
 <p>We then multiply by <span class="math notranslate nohighlight">\(n^2\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b948a56-7309-46a3-99d7-f6ecdfd7fbf6">
-<span class="eqno">(11)<a class="headerlink" href="#equation-5b948a56-7309-46a3-99d7-f6ecdfd7fbf6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-16ad7097-241d-458d-9e98-afb6728fd647">
+<span class="eqno">(11)<a class="headerlink" href="#equation-16ad7097-241d-458d-9e98-afb6728fd647" title="Permalink to this equation">#</a></span>\[\begin{equation}
 n^2 I_n=n^2 I_\infty+\epsilon
 \end{equation}\]</div>
 <p>We then take two values of <span class="math notranslate nohighlight">\(n\)</span> – say
 <span class="math notranslate nohighlight">\(n=4\)</span> and <span class="math notranslate nohighlight">\(n=8\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58b814d5-0805-4580-9af7-738ae7b68d1a">
-<span class="eqno">(12)<a class="headerlink" href="#equation-58b814d5-0805-4580-9af7-738ae7b68d1a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cd029052-b9ec-4c0a-b5cb-52a34fddf106">
+<span class="eqno">(12)<a class="headerlink" href="#equation-cd029052-b9ec-4c0a-b5cb-52a34fddf106" title="Permalink to this equation">#</a></span>\[\begin{align}
 4^2 I_4 &amp;= 4^2 I_\infty+\epsilon\\
 8^2 I_8 &amp;= 8^2 I_\infty+\epsilon
 \end{align}\]</div>
 <p>Subtract these</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8ed21f7c-a0a7-494c-90ca-6863694cf1ee">
-<span class="eqno">(13)<a class="headerlink" href="#equation-8ed21f7c-a0a7-494c-90ca-6863694cf1ee" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b7c805d9-e592-4324-9c4d-78fd42a5a966">
+<span class="eqno">(13)<a class="headerlink" href="#equation-b7c805d9-e592-4324-9c4d-78fd42a5a966" title="Permalink to this equation">#</a></span>\[\begin{equation}
 8^2 I_8-4^2 I_4= (8^2-4^2) I_\infty
 \end{equation}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41527712-7569-43f9-9dba-7eb22afaaad7">
-<span class="eqno">(14)<a class="headerlink" href="#equation-41527712-7569-43f9-9dba-7eb22afaaad7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d7f98c75-4608-4661-8838-85cf492d8088">
+<span class="eqno">(14)<a class="headerlink" href="#equation-d7f98c75-4608-4661-8838-85cf492d8088" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I_\infty= \frac{8^2 I_8-4^2 I_4}{8^2-4^2} =\frac{2^2 I_8-I_4}{2^2-1}
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -1638,8 +1639,8 @@ I_\infty= \frac{8^2 I_8-4^2 I_4}{8^2-4^2} =\frac{2^2 I_8-I_4}{2^2-1}
 <h3>Euler-Maclaurin Summation formula<a class="headerlink" href="#euler-maclaurin-summation-formula" title="Permalink to this heading">#</a></h3>
 <p>A good framework for understanding these approximations in the <strong>Euler-Maclaurin Summation Formula</strong>.  Here is a somewhat formal derivation.  This is mostly for my own amusement – and this <em>derivation</em> contains one or two cheats.</p>
 <p>We will first remind you about series expansions.  Analytic functions can be written in series, such as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4affc3c-c4c7-4a0f-95e8-bfd1ae917eb2">
-<span class="eqno">(15)<a class="headerlink" href="#equation-e4affc3c-c4c7-4a0f-95e8-bfd1ae917eb2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-077874b6-5165-44e3-8047-edc0b8e445f4">
+<span class="eqno">(15)<a class="headerlink" href="#equation-077874b6-5165-44e3-8047-edc0b8e445f4" title="Permalink to this equation">#</a></span>\[\begin{align}
 e^x&amp;=\sum_j \frac{x^j}{j!}\\
 \frac{1}{1-x}&amp;=\sum_j x^j.
 \end{align}\]</div>
@@ -1685,48 +1686,48 @@ $<span class="math notranslate nohighlight">\(
 (\Sigma f)(x)=\sum_{n=0}^{x-1} f(n)
 \)</span>$</p>
 <p>I won’t write a function that does this, but you can imagine how to do it.  I claim that <span class="math notranslate nohighlight">\(\Delta\Sigma=I\)</span>, where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix.  To prove this one writes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90dd650b-c29c-431d-b8fa-20f5c716337b">
-<span class="eqno">(16)<a class="headerlink" href="#equation-90dd650b-c29c-431d-b8fa-20f5c716337b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3807bbe8-d22b-4e49-b4d1-7a3699f2b42e">
+<span class="eqno">(16)<a class="headerlink" href="#equation-3807bbe8-d22b-4e49-b4d1-7a3699f2b42e" title="Permalink to this equation">#</a></span>\[\begin{align}
 (\Delta\Sigma f)(x)&amp;=(\Sigma f)(x+1)-(\Sigma f)(x)\\
 &amp;=\sum_{n=0}^x f(n) - \sum_{n=0}^{x-1} f(x).
 \end{align}\]</div>
 <p>All of the terms cancel except the last, which gives, <span class="math notranslate nohighlight">\((\Delta\Sigma f)(x)=f(x)\)</span>, which shows that <span class="math notranslate nohighlight">\(\Delta\Sigma\)</span> is the identity operator.  This makes sense, <span class="math notranslate nohighlight">\(\Delta\)</span> and <span class="math notranslate nohighlight">\(\Sigma\)</span> are inverses of each-other.</p>
 <p>In the other order, however, we find <span class="math notranslate nohighlight">\((\Sigma\Delta f)(x)=f(x)-f(0)\)</span>, so the order matters.</p>
 <p>Next we introduce two more operators</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10286fad-6f5b-46bb-bbba-4d8d191cd2c9">
-<span class="eqno">(17)<a class="headerlink" href="#equation-10286fad-6f5b-46bb-bbba-4d8d191cd2c9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3eb0d6ca-9781-43f3-89da-cbbb4c9c925c">
+<span class="eqno">(17)<a class="headerlink" href="#equation-3eb0d6ca-9781-43f3-89da-cbbb4c9c925c" title="Permalink to this equation">#</a></span>\[\begin{align}
 (\partial f)(x)&amp;=f'(x)\\
 (\smallint  f)(x)&amp;=\int_0^x f(y)dy.
 \end{align}\]</div>
 <p>The fundamental theorem of calculus states that <span class="math notranslate nohighlight">\(\partial\smallint=  I.\)</span>  As with the <span class="math notranslate nohighlight">\(\Sigma\)</span> and <span class="math notranslate nohighlight">\(\Delta\)</span>, if we reverse the order we get <span class="math notranslate nohighlight">\((\smallint\partial f)(x)=f(x)-f(0)\)</span>.</p>
 <p>We now turn to Taylor’s theorem,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bfd399a3-8fd6-4fdc-a550-a0711e41737d">
-<span class="eqno">(18)<a class="headerlink" href="#equation-bfd399a3-8fd6-4fdc-a550-a0711e41737d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-de576072-676d-41f5-b0ed-4b7f741a9717">
+<span class="eqno">(18)<a class="headerlink" href="#equation-de576072-676d-41f5-b0ed-4b7f741a9717" title="Permalink to this equation">#</a></span>\[\begin{align}
 f(x+1)&amp;=f(x)+\sum_{n=1}^\infty \frac{(\partial^n f)(x)}{n!}\\
 &amp;= (e^\partial f)(x).
 \end{align}\]</div>
 <p>Thus Taylor’s theorem can be written as <span class="math notranslate nohighlight">\(\Delta=e^{\partial}-1\)</span></p>
 <p>Putting this together with our previous result, <span class="math notranslate nohighlight">\(\Delta\Sigma=I\)</span> yields</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b18029a-2cad-4de0-b652-1260e8167edc">
-<span class="eqno">(19)<a class="headerlink" href="#equation-5b18029a-2cad-4de0-b652-1260e8167edc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3e8ba4e9-56ca-4b48-8506-d10ab77d0eaf">
+<span class="eqno">(19)<a class="headerlink" href="#equation-3e8ba4e9-56ca-4b48-8506-d10ab77d0eaf" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Sigma=\frac{1}{e^\partial-1}.
 \end{align}\]</div>
 <p>We will now multiply the right hand side by <span class="math notranslate nohighlight">\(I=\smallint \partial \)</span> to find</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d5c0b00f-a417-4be4-8aa4-9d8620f35208">
-<span class="eqno">(20)<a class="headerlink" href="#equation-d5c0b00f-a417-4be4-8aa4-9d8620f35208" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cdff8cf3-59b4-427d-89a6-403e5f6bca6c">
+<span class="eqno">(20)<a class="headerlink" href="#equation-cdff8cf3-59b4-427d-89a6-403e5f6bca6c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Sigma=\smallint\frac{\partial}{e^\partial-1} .
 \end{align}\]</div>
 <p>Finally we expand the right hand side in a Taylor series:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2a532fe3-06ac-477c-959f-a6366672e6aa">
-<span class="eqno">(21)<a class="headerlink" href="#equation-2a532fe3-06ac-477c-959f-a6366672e6aa" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1d2e59c0-35b2-4581-8e71-233c578b4af9">
+<span class="eqno">(21)<a class="headerlink" href="#equation-1d2e59c0-35b2-4581-8e71-233c578b4af9" title="Permalink to this equation">#</a></span>\[\begin{align}
 (\Sigma f)(x)&amp;=\left(\smallint\sum_{j=0}^\infty \frac{B_j}{j!} \partial^j f\right)(x)\\
 &amp;=(\smallint f)(x) + \sum_{j=1}^\infty  \frac{B_j}{j!} \left[(\partial^{j-1} f)(x)-
 (\partial^{j-1} f)(0)
 \right]
 \end{align}\]</div>
 <p>which can be reorganized into the Euler-Maclauren summation formula</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6d33a68c-8aa9-4a6b-b940-18d0ddf57f49">
-<span class="eqno">(22)<a class="headerlink" href="#equation-6d33a68c-8aa9-4a6b-b940-18d0ddf57f49" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1c7cb2a9-25c8-4976-9242-45a44dd011c6">
+<span class="eqno">(22)<a class="headerlink" href="#equation-1c7cb2a9-25c8-4976-9242-45a44dd011c6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_0^x f(y) dy &amp;= \sum_{y=0}^{x-1} f(y) - \sum_{j=1}^\infty \frac{B_j}{j!} \left[(\partial^{j-1} f)(x)-
 (\partial^{j-1} f)(0)
 \right]\\
@@ -1735,8 +1736,8 @@ f(x+1)&amp;=f(x)+\sum_{n=1}^\infty \frac{(\partial^n f)(x)}{n!}\\
 <p>The first two terms give you the trapezoid rule.  Subsequent terms give you corrections in terms of derivatives of the function at the bounds.</p>
 <p>This may seem strange that knowledge about the behaviour of the function at the boundaries so strongly constrain the integral.  This is a peculiarity of analytic functions.</p>
 <p>Finally we rescale the axis, taking the bounds of the integral to go from <span class="math notranslate nohighlight">\(a\)</span> to <span class="math notranslate nohighlight">\(b\)</span>.  Thus we define <span class="math notranslate nohighlight">\(s=a+b y/n\)</span>, and <span class="math notranslate nohighlight">\(g(s)=f(n(s-a)/b)\)</span>.  Straightforward arithmetic then gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7965f9b7-4782-4288-9e9e-b24637b3c0b2">
-<span class="eqno">(23)<a class="headerlink" href="#equation-7965f9b7-4782-4288-9e9e-b24637b3c0b2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b571f07e-b7e6-4ecc-a11e-6e2b69f5dfdd">
+<span class="eqno">(23)<a class="headerlink" href="#equation-b571f07e-b7e6-4ecc-a11e-6e2b69f5dfdd" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_a^b g(s) ds &amp;= \frac{1}{n}\sum_{m=0}^{n-1} g(s_m) - \sum_{j=1}^\infty \frac{B_j}{j!}\frac{1}{n^j} \left[(\partial^{j-1} g)(b)-
 (\partial^{j-1} g)(a)
 \right]\\
