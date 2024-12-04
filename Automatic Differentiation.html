@@ -231,6 +231,8 @@
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Wolff.html">Lab – Wolff Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Binder.html">Binder Cumulants and the Scaling Hypothesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Renormalization.html">The Renormalization group</a></li>
+
 </ul>
 
     </div>
@@ -521,13 +523,13 @@ document.write(`
 </div></div>
 </div>
 <p>An obvious numerical approach, is to use finite differences</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c70f9c12-777f-46a3-8ff9-cc7ed4eb2521">
-<span class="eqno">(57)<a class="headerlink" href="#equation-c70f9c12-777f-46a3-8ff9-cc7ed4eb2521" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b256016a-4382-45b1-939c-31fc0bce175d">
+<span class="eqno">(57)<a class="headerlink" href="#equation-b256016a-4382-45b1-939c-31fc0bce175d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{df}{dx} \approx \frac{f(x+\delta)-f(x)}{\delta}+O(\delta^2)
 \end{equation}\]</div>
 <p>One just makes <span class="math notranslate nohighlight">\(\delta\)</span> small enough and one should approximate the derivative.  A better approximation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f619b6b-97b2-4f1b-8c2e-16ba2ca554ab">
-<span class="eqno">(58)<a class="headerlink" href="#equation-0f619b6b-97b2-4f1b-8c2e-16ba2ca554ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-63dc3cbf-4c45-4b43-840b-1d1a104c3d1c">
+<span class="eqno">(58)<a class="headerlink" href="#equation-63dc3cbf-4c45-4b43-840b-1d1a104c3d1c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{df}{dx} \approx \frac{f(x+\delta)-f(x-\delta)}{2\delta}+O(\delta^3)
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -828,8 +830,8 @@ real_or_int(3) = 1
 </div>
 </div>
 <p>We then teach the dual numbers how to update non only the value, but also the derivative.  For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4ac8cab-e84c-4a47-aa07-43f33fb409e3">
-<span class="eqno">(59)<a class="headerlink" href="#equation-e4ac8cab-e84c-4a47-aa07-43f33fb409e3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a61257e2-da86-4594-8118-1c060d872fb7">
+<span class="eqno">(59)<a class="headerlink" href="#equation-a61257e2-da86-4594-8118-1c060d872fb7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{d}{dx} (2*y)=2*\frac{dy}{dx}
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -854,8 +856,8 @@ real_or_int(3) = 1
 </div>
 </div>
 <p>We then introduce the product rule</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58130023-5d4f-4533-9b29-b582df7068d9">
-<span class="eqno">(60)<a class="headerlink" href="#equation-58130023-5d4f-4533-9b29-b582df7068d9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-61658be0-7123-4296-9b7a-06823446250c">
+<span class="eqno">(60)<a class="headerlink" href="#equation-61658be0-7123-4296-9b7a-06823446250c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{d}{dx}(y*z)=y*\frac{dz}{dx}+\frac{dy}{dx}*z
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -1448,13 +1450,13 @@ f(dual(x, 1)) = dual(-2.0, -1.0)
 <p>In forward pass we first calculate <span class="math notranslate nohighlight">\(dy/dx\)</span> as a number, and then <span class="math notranslate nohighlight">\(dz/dx=dz/dy*dy/dx\)</span>, and then <span class="math notranslate nohighlight">\(df/dx=df/dz*dz/dx\)</span>.  We work from left to right.</p>
 <p>In backward pass we first calculate <span class="math notranslate nohighlight">\(df/dz\)</span> as a number.  Then we get the numerical value of <span class="math notranslate nohighlight">\(df/dy=df/dz*dz/dy\)</span>.  Finally we calculate <span class="math notranslate nohighlight">\(df/dx=df/dy*dy/dx\)</span>.</p>
 <p>The end result is the same:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8cc384f4-fbb5-4589-be65-e1916701c5c8">
-<span class="eqno">(61)<a class="headerlink" href="#equation-8cc384f4-fbb5-4589-be65-e1916701c5c8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6e2b9da0-71ab-4e16-8e05-b69e568098e5">
+<span class="eqno">(61)<a class="headerlink" href="#equation-6e2b9da0-71ab-4e16-8e05-b69e568098e5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{df}{dx}&amp;=\frac{df}{dz}\left(\frac{dz}{dy}\frac{dy}{dx}\right)\quad&amp;\mbox{(forward)}\\
 \frac{df}{dx}&amp;=\left(\frac{df}{dz}\frac{dz}{dy}\right)\frac{dy}{dx}\quad&amp;\mbox{(backward)}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-0437125f-61d1-447a-a540-23e9080b31a7">
-<span class="eqno">(62)<a class="headerlink" href="#equation-0437125f-61d1-447a-a540-23e9080b31a7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2a4f5efb-b996-419e-a1cb-7bc1765de077">
+<span class="eqno">(62)<a class="headerlink" href="#equation-2a4f5efb-b996-419e-a1cb-7bc1765de077" title="Permalink to this equation">#</a></span>\[\begin{align}
 \end{align}\]</div>
 <p>The only difference is the order in which the numbers are calculated.  As you will see, the book-keeping is easier for the forward algorithm – thats what the dual number construction does.</p>
 <p>Suppose <span class="math notranslate nohighlight">\(x,y,z,f\)</span> are vectors of length <span class="math notranslate nohighlight">\(N_x,N_y,N_z,N_f\)</span>.  In the forward algorithm we will be storing</p>
@@ -1473,8 +1475,8 @@ f(dual(x, 1)) = dual(-2.0, -1.0)
 <p>Our case is a little more complicated, as we are not just doing a simple chain of unary operations – rather we are doing binary operations <span class="math notranslate nohighlight">\(+,-,*\)</span>.  Here is a sketch of what the Forward algorithm was doing when we calculated the derivative of <span class="math notranslate nohighlight">\(f(x)=(x+1)x(x-2)\)</span> at <span class="math notranslate nohighlight">\(x=1\)</span> – where I name all the intermediate results</p>
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vQaqU0DjOwLWcVgMLICbHpJp9z9pR8S5IPznZRjc2IpFGFHs8r3JuH4DMNJjDtl3KVg-fDltkZyecu4/pub?w=632&amp;h=718"><p>In that diagram, each operation is a box.  We track the derivative with respect to x of each intermediate result.<br />
 We want to calculate</p>
-<div class="amsmath math notranslate nohighlight" id="equation-76616b22-13a8-4a79-a6b3-da808b601054">
-<span class="eqno">(63)<a class="headerlink" href="#equation-76616b22-13a8-4a79-a6b3-da808b601054" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-79995eb1-6c87-4f72-8cb8-5f8ac2258ec2">
+<span class="eqno">(63)<a class="headerlink" href="#equation-79995eb1-6c87-4f72-8cb8-5f8ac2258ec2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f=(x+1)*x*(x-2).
 \end{equation}\]</div>
 <p>To do so we first calculate:</p>
@@ -1497,21 +1499,21 @@ f=y_3*y_2=-2\qquad \frac{df}{dx}=\frac{d y_3}{dx}y_2 + y_3 \frac{dy_2}{dx}-1.
 <p>For many physics problems, forward mode AD works better than backwards mode.</p>
 <p>For our problem, we will think of <span class="math notranslate nohighlight">\(f(x)=(x+1)x(x-2)\)</span> as <span class="math notranslate nohighlight">\(f=(x_1+c_1)x_2(x_3-c_2)\)</span>, with <span class="math notranslate nohighlight">\(x_1=x_2=x_3=1\)</span> and <span class="math notranslate nohighlight">\(c_1=1\)</span>, <span class="math notranslate nohighlight">\(c_2=2\)</span>.  In our forward pass we will generate a flowchart, keeping track of the derivatives of each operation with respect to its inputs:</p>
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vSQoVBopHlggGfWhN0QN5vGCx61i3digc54XFMaIDLr-oMQd3oRu_freVfG4Z8AtE5__dyLXSonD2TL/pub?w=567&amp;h=719"><p>Thus we store:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-434356f9-82cd-499d-a1cf-e714ef84d54b">
-<span class="eqno">(64)<a class="headerlink" href="#equation-434356f9-82cd-499d-a1cf-e714ef84d54b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-00461814-78a8-420f-9b48-b0b56ec1cf5b">
+<span class="eqno">(64)<a class="headerlink" href="#equation-00461814-78a8-420f-9b48-b0b56ec1cf5b" title="Permalink to this equation">#</a></span>\[\begin{align}
 y_1&amp;=x_1+c_1=2\quad &amp;dy_1/dx_1&amp;=1, &amp;dy_1/dc_1&amp;=1\\
 y_2&amp;=x_3-c_2=-1\quad &amp;dy_2/dx_3&amp;=1, &amp;dy_2/dc_2&amp;=-1\\
 y_3&amp;=y_1*x_3=2\quad &amp;dy_3/dy_1&amp;=1, &amp;dy_3/dx_2&amp;=2\\
 f&amp;=y_3*y_2=-1\quad &amp;df/dy_3&amp;=-1, &amp;df/fy_2&amp;=2
 \end{align}\]</div>
 <p>Next, we do a backward pass to generate <span class="math notranslate nohighlight">\(df/dz\)</span> on the bond where <span class="math notranslate nohighlight">\(z\)</span> is created.  This is a simple application of the chain rule.  Starting from the bottom, we know</p>
-<div class="amsmath math notranslate nohighlight" id="equation-13505d82-d5a5-4281-a06a-7567f4cb4699">
-<span class="eqno">(65)<a class="headerlink" href="#equation-13505d82-d5a5-4281-a06a-7567f4cb4699" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a48d79e9-aaa7-4aff-abd8-f52c65cccf8a">
+<span class="eqno">(65)<a class="headerlink" href="#equation-a48d79e9-aaa7-4aff-abd8-f52c65cccf8a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{df}{dy_3}=-1
 \end{equation}\]</div>
 <p>We then go backwards to the node that generated it and use</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba0ef974-1bf2-43c1-9600-c85a45b3f475">
-<span class="eqno">(66)<a class="headerlink" href="#equation-ba0ef974-1bf2-43c1-9600-c85a45b3f475" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8e947be6-ce03-4694-b153-b8cf8a17e171">
+<span class="eqno">(66)<a class="headerlink" href="#equation-8e947be6-ce03-4694-b153-b8cf8a17e171" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{df}{dy_1}=\frac{df}{dy_3}\frac{dy_3}{dy_1}=(-1)*1=-1.
 \end{equation}\]</div>
 <p>In that way we generate the following graph:</p>
