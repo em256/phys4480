@@ -15,14 +15,23 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# uses keyword arguments
-naive_trap(f=(x->x^2),range=(0,2),n=4) 
+x-0.25
 ------------------
 
 
-UndefKeywordError: keyword argument `g` not assigned
+MethodError: no method matching -(::Tuple{Int64, Int64, Int64}, ::Float64)
+
+[0mClosest candidates are:
+[0m  -([91m::Missing[39m, ::Number)
+[0m[90m   @[39m [90mBase[39m [90m[4mmissing.jl:123[24m[39m
+[0m  -([91m::BigFloat[39m, ::Union{Float16, Float32, Float64})
+[0m[90m   @[39m [90mBase[39m [90m[4mmpfr.jl:506[24m[39m
+[0m  -([91m::Complex{Bool}[39m, ::Real)
+[0m[90m   @[39m [90mBase[39m [90m[4mcomplex.jl:326[24m[39m
+[0m  ...
+
 
 Stacktrace:
  [1] top-level scope
-   @ In[19]:2
+[90m   @[39m [90m[4mIn[25]:1[24m[39m
 

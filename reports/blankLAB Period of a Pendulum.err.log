@@ -15,7 +15,7 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-(m1.val,naive_midpoint(m1.f,m1.range,3^(m1.m)),"m="*string(m1.m))
+(m1.val,naive_midpoint(m1.f,m1.range,3^(m1.m)),"m=$(m1.m)")
 ------------------
 
 
@@ -23,5 +23,5 @@ UndefVarError: `naive_midpoint` not defined
 
 Stacktrace:
  [1] top-level scope
-   @ In[16]:1
+[90m   @[39m [90m[4mIn[20]:1[24m[39m
 

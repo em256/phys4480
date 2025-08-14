@@ -182,8 +182,10 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Installing Julia</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
 <ul class="nav bd-sidenav">
@@ -379,8 +381,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Installing Julia</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode">VSCode</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#julia-package-manager">Julia Package Manager</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -419,6 +426,44 @@ document.write(`
 <h2>VSCode<a class="headerlink" href="#vscode" title="Permalink to this heading">#</a></h2>
 <p>You can also install Julia through VSCode.  I recommend against doing this for your main Julia interface for this course.  I set things up to work with Jupyter, and I can’t guarentee they will work with the VSCode notebook viewer.  (Of course – feel free to play with it.  It may work great, but it also may be frustrating.)</p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="julia-package-manager">
+<h1>Julia Package Manager<a class="headerlink" href="#julia-package-manager" title="Permalink to this heading">#</a></h1>
+<p>Julia has a robust package manager which automates the task of downloading and installing packages.  It does take some time to install some of the packages – so it is a good idea to do that before hand.  Sometime when you have an hour where you will not be using your laptop, run the following command, and it will install most of what we need</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># using Pkg</span>
+<span class="c"># Pkg.add(&quot;Plots&quot;)</span>
+<span class="c"># Pkg.add(&quot;LaTeXStrings&quot;)</span>
+<span class="c"># Pkg.add(&quot;BenchmarkTools&quot;)</span>
+<span class="c"># Pkg.add(&quot;Makie&quot;)</span>
+<span class="c"># Pkg.add(&quot;GLMakie&quot;)</span>
+<span class="c"># Pkg.add(&quot;CairoMakie&quot;)</span>
+<span class="c"># Pkg.add(&quot;Logging&quot;)</span>
+<span class="c"># Pkg.add(&quot;QuadGK&quot;)</span>
+<span class="c"># Pkg.add(&quot;ForwardDiff&quot;)</span>
+<span class="c"># Pkg.add(&quot;DifferentialEquations&quot;) # This is a big one -- takes a while to install</span>
+<span class="c"># Pkg.add(&quot;OrdinaryDiffEq&quot;)</span>
+<span class="c"># Pkg.add(&quot;OffsetArrays&quot;)</span>
+<span class="c"># Pkg.add(&quot;Random&quot;)</span>
+<span class="c"># Pkg.add(&quot;ProgressMeter&quot;)</span>
+<span class="c"># Pkg.add(&quot;Statistics&quot;)</span>
+<span class="c"># Pkg.add(&quot;LinearAlgebra&quot;)</span>
+<span class="c"># Pkg.add(&quot;HDF5&quot;)</span>
+<span class="c"># Pkg.add(&quot;CSV&quot;)</span>
+<span class="c"># Pkg.add(&quot;CSVFiles&quot;)</span>
+<span class="c"># Pkg.add(&quot;Tables&quot;)</span>
+<span class="c"># Pkg.add(&quot;DataFrames&quot;)</span>
+<span class="c"># Pkg.add(&quot;JLD2&quot;)</span>
+<span class="c"># Pkg.add(&quot;DataStructures&quot;)</span>
+<span class="c"># Pkg.add(&quot;Polynomials&quot;)</span>
+<span class="c"># Pkg.add(&quot;DataInterpolations&quot;)</span>
+<span class="c"># Pkg.add(&quot;Roots&quot;)</span>
+<span class="c"># Pkg.add(&quot;StatsBase&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -485,8 +530,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Installing Julia</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode">VSCode</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#julia-package-manager">Julia Package Manager</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
@@ -510,7 +560,7 @@ By Erich Mueller
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>

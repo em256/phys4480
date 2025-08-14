@@ -27,5 +27,5 @@ UndefVarError: `Wall` not defined
 
 Stacktrace:
  [1] top-level scope
-   @ In[2]:1
+[90m   @[39m [90m[4mIn[2]:1[24m[39m
 

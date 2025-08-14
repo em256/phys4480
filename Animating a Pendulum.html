@@ -182,8 +182,10 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
 <ul class="nav bd-sidenav">
@@ -415,7 +417,7 @@ document.write(`
 <p>So far all of our code has been <em>synchronous</em>, <em>procedural</em>, and <em>linear</em>.  The computer steps line-by-line through a program.  Executing one command after the next.  There can be branching and loops, but one thing leads to the next.</p>
 <p>In an asynchronous model, one instead has independent little mini-programs running, which <em>listen</em> for an event.  Whenever an event occurs they do something.  We will use this to make <em>user interfaces</em> – programs which interact with a user.  The interface waits around for human input, and when some occurs it starts some autonomous thread doing something.  While that thread is running it still accepts more input.</p>
 <p>These Jupyter notebooks are a good example.</p>
-<p>I was hoping to use <code class="docutils literal notranslate"><span class="pre">interact.jl</span></code> to demonstrate this concept, but since it is not working well with the latest Jupyter notebooks, we will instead use <code class="docutils literal notranslate"><span class="pre">GLMakie</span></code>.  This is a <code class="docutils literal notranslate"><span class="pre">OpenGL</span></code> backend for the <code class="docutils literal notranslate"><span class="pre">Makie</span></code> plotting program.  We earlier saw <code class="docutils literal notranslate"><span class="pre">CairoMakie</span></code>, which is a different backend.  <code class="docutils literal notranslate"><span class="pre">OpenGL</span></code> is a toolkit (API) for displaying graphics.</p>
+<p>We will use <code class="docutils literal notranslate"><span class="pre">GLMakie</span></code>, which is a <code class="docutils literal notranslate"><span class="pre">OpenGL</span></code> backend for the <code class="docutils literal notranslate"><span class="pre">Makie</span></code> plotting program.  We earlier saw <code class="docutils literal notranslate"><span class="pre">CairoMakie</span></code>, which is a different backend.  <code class="docutils literal notranslate"><span class="pre">OpenGL</span></code> is a toolkit (API) for displaying graphics.</p>
 <p>One downside of spending time on this is that the exact syntax is somewhat specialized.  If we learn the commands to use <code class="docutils literal notranslate"><span class="pre">GLMakie</span></code>, those same commands will not work in a <code class="docutils literal notranslate"><span class="pre">Python</span></code> or <code class="docutils literal notranslate"><span class="pre">Javascript</span></code>.  Nonethless the general architecture of all of these interfaces tend to be fairly similar.  Moreover concepts are transferable.</p>
 <p>If you want to make interactive interfaces which everyone can access using a web browser, you should look into <code class="docutils literal notranslate"><span class="pre">WGLMakie</span></code>.  You may also want to consider writing such things in <code class="docutils literal notranslate"><span class="pre">Javascript</span></code> – which is a programming language which runs on most web browsers.  <code class="docutils literal notranslate"><span class="pre">Javascript</span></code> is slow, and it is not as fun to program in as Julia.</p>
 </section>
@@ -591,7 +593,7 @@ document.write(`
 <span class="w">    </span><span class="c">#</span>
 <span class="w">    </span><span class="c"># The following two things we haven&#39;t used yet -- but we will need them for the animation</span>
 <span class="w">    </span><span class="n">step</span><span class="w">  </span><span class="c">#the stepper for our differential equation solver -- same syntax as rk4step</span>
-<span class="w">    </span><span class="n">dxdt</span><span class="w">  </span><span class="c">#the derivitive rule -- same systax as pendulum_dxdt</span>
+<span class="w">    </span><span class="n">dxdt</span><span class="w">  </span><span class="c">#the derivitive rule -- same syntax as pendulum_dxdt</span>
 <span class="w">    </span><span class="n">delay</span><span class="w"> </span><span class="c">#how long to wait between displaying frames</span>
 <span class="k">end</span>
 
@@ -644,10 +646,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pendulum_basic(Scene (600px, 450px):
-  0 Plots
-  1 Child Scene:
-    └ Scene (600px, 450px), Axis (2 plots), Observable(Float32[0.70710677, -0.70710677]), Observable(Point{2, Float32}[[0.0, 0.0], [0.70710677, -0.70710677]]), [0.7853981633974483, 0.0], 0.0, 0.01, rk4step, pendulum_dxdt, 0.001)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pendulum_basic(Scene(1 children, 0 plots), Axis (2 plots), Observable(Float32[0.70710677, -0.70710677]), Observable(Point{2, Float32}[[0.0, 0.0], [0.70710677, -0.70710677]]), [0.7853981633974483, 0.0], 0.0, 0.01, rk4step, pendulum_dxdt, 0.001)
 </pre></div>
 </div>
 </div>
@@ -659,10 +658,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pendulum_basic(Scene (600px, 450px):
-  0 Plots
-  1 Child Scene:
-    └ Scene (600px, 450px), Axis (2 plots), Observable(Float32[0.099833414, -0.9950042]), Observable(Point{2, Float32}[[0.0, 0.0], [0.099833414, -0.9950042]]), [0.1, 0.3], 0.0, 0.01, rk4step, pendulum_dxdt, 0.001)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pendulum_basic(Scene(1 children, 0 plots), Axis (2 plots), Observable(Float32[0.099833414, -0.9950042]), Observable(Point{2, Float32}[[0.0, 0.0], [0.099833414, -0.9950042]]), [0.1, 0.3], 0.0, 0.01, rk4step, pendulum_dxdt, 0.001)
 </pre></div>
 </div>
 </div>
@@ -780,10 +776,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pendulum_basic(Scene (600px, 450px):
-  0 Plots
-  1 Child Scene:
-    └ Scene (600px, 450px), Axis (3 plots), Observable(Float32[0.70710677, -0.70710677]), Observable(Point{2, Float32}[[0.0, 0.0], [0.70710677, -0.70710677]]), [0.7853981633974483, 0.0], 0, 0.01, rk4step, pendulum_dxdt, 0.001)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pendulum_basic(Scene(1 children, 0 plots), Axis (3 plots), Observable(Float32[0.70710677, -0.70710677]), Observable(Point{2, Float32}[[0.0, 0.0], [0.70710677, -0.70710677]]), [0.7853981633974483, 0.0], 0, 0.01, rk4step, pendulum_dxdt, 0.001)
 </pre></div>
 </div>
 </div>
@@ -802,14 +795,35 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">isrunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Observable</span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
-<span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">cond</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">cond</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;Stop&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Run&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">isrunning</span><span class="p">)</span>
+<span class="k">function</span><span class="w"> </span><span class="n">runlabel</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">condition</span>
+<span class="w">        </span><span class="s">&quot;Stop&quot;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="s">&quot;Run&quot;</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+<span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@lift</span><span class="w"> </span><span class="n">runlabel</span><span class="p">(</span><span class="o">$</span><span class="n">isrunning</span><span class="p">)</span>
 <span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Button</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">fig</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">tellwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span>
-<span class="n">on</span><span class="p">(</span><span class="n">run</span><span class="o">.</span><span class="n">clicks</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">clicks</span><span class="p">;</span><span class="w"> </span><span class="n">isrunning</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">isrunning</span><span class="p">[];</span><span class="w"> </span><span class="k">end</span>
+<span class="n">on</span><span class="p">(</span><span class="n">run</span><span class="o">.</span><span class="n">clicks</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">clicks</span>
+<span class="w">    </span><span class="n">isrunning</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">isrunning</span><span class="p">[]</span><span class="w"> </span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ObserverFunction defined at In[20]:4 operating on Observable{Any}(0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ObserverFunction defined at In[20]:12 operating on Observable{Any}(0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Here is a more compact version -- which is a bit less readible</span>
+<span class="c">#</span>
+<span class="c">#isrunning = Observable(false)</span>
+<span class="c">#label = map(cond -&gt; cond ? &quot;Stop&quot; : &quot;Run&quot;, isrunning)</span>
+<span class="c">#run = Button(p1.fig[2,1]; label = label, tellwidth = false)</span>
+<span class="c">#on(run.clicks) do clicks; isrunning[] = !isrunning[]; end</span>
 </pre></div>
 </div>
 </div>
@@ -832,7 +846,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Task (runnable) @0x0000000134b63210
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Task (runnable) @0x000000032d4bb530
 </pre></div>
 </div>
 </div>
@@ -982,11 +996,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pendulum(Scene (600px, 450px):
-  0 Plots
-  2 Child Scenes:
-    ├ Scene (600px, 450px)
-    └ Scene (600px, 450px), Axis (3 plots), Observable(Float32[0.70710677, -0.70710677]), Observable(Point{2, Float32}[[0.0, 0.0], [0.70710677, -0.70710677]]), [0.7853981633974483, 0.0], 0.0, 0.01, rk4step, pendulum_dxdt, 0.001, Button(), Observable(false))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pendulum(Scene(2 children, 0 plots), Axis (3 plots), Observable(Float32[0.70710677, -0.70710677]), Observable(Point{2, Float32}[[0.0, 0.0], [0.70710677, -0.70710677]]), [0.7853981633974483, 0.0], 0.0, 0.01, rk4step, pendulum_dxdt, 0.001, Button(), Observable(false))
 </pre></div>
 </div>
 </div>
@@ -1290,11 +1300,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pendulum_fancy(Scene (600px, 450px):
-  0 Plots
-  2 Child Scenes:
-    ├ Scene (600px, 450px)
-    └ Scene (600px, 450px), Axis (4 plots), Observable(Float32[0.70710677, -0.70710677]), Observable(Point{2, Float32}[[0.0, 0.0], [0.70710677, -0.70710677]]), Observable(Point{2, Float32}[[0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677]  …  [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677]]), [0.7853981633974483, 0.0], 0.0, 0.01, rk4step, pendulum_dxdt, 0.001, Button(), Observable(false))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pendulum_fancy(Scene(2 children, 0 plots), Axis (4 plots), Observable(Float32[0.70710677, -0.70710677]), Observable(Point{2, Float32}[[0.0, 0.0], [0.70710677, -0.70710677]]), Observable(Point{2, Float32}[[0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677]  …  [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677], [0.70710677, -0.70710677]]), [0.7853981633974483, 0.0], 0.0, 0.01, rk4step, pendulum_dxdt, 0.001, Button(), Observable(false))
 </pre></div>
 </div>
 </div>
@@ -1394,7 +1400,7 @@ By Erich Mueller
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>

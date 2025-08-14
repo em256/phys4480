@@ -50,5 +50,5 @@ ParseError:
 
 Stacktrace:
  [1] top-level scope
-   @ In[7]:23
+[90m   @[39m [90m[4mIn[7]:23[24m[39m
 

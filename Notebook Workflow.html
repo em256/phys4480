@@ -182,8 +182,10 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Notebook Workflow</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
 <ul class="nav bd-sidenav">
@@ -379,12 +381,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Notebook Workflow</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-notebooks">Development notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-notebooks">Presentation notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-notebooks">Production notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">Scripts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">Jupyterlab</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#other-ides">Other IDEs</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -401,14 +408,14 @@ document.write(`
 <section id="development-notebooks">
 <h2>Development notebooks<a class="headerlink" href="#development-notebooks" title="Permalink to this heading">#</a></h2>
 <p>These are like lab notebooks.  You use them as scratch space to try out ideas.  Once you have working code, you encapsulate it in functions.  You then leave a record of testing the functions.</p>
-<p>After the development is complete, and you are ready for production, you either copy the code into a new production notebook, or you copy it into a text file “whatever.jl”.  You can load that code into your production notebook with <code class="docutils literal notranslate"><span class="pre">include(&quot;whatever.jl&quot;)</span></code>.  If it is a more sophisticated set of tools, you can turn it into a <a href="https://docs.julialang.org/en/v1/manual/modules/#modules">package</a> and import using <code class="docutils literal notranslate"><span class="pre">typing</span> <span class="pre">whatever</span></code>.</p>
+<p>After the development is complete, and you are ready for production, you either copy the code into a new production notebook, or you copy it into a text file “whatever.jl”.  You can load that code into your production notebook with <code class="docutils literal notranslate"><span class="pre">include(&quot;whatever.jl&quot;)</span></code>.  If it is a more sophisticated set of tools, you can turn it into a <a href="https://docs.julialang.org/en/v1/manual/modules/#modules">package</a> and import by typing <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">whatever</span></code>.</p>
 <p>You can extract the code from a development notebook by clicking on <code class="docutils literal notranslate"><span class="pre">File</span></code>, and selecting <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">as</span> <span class="pre">.jl</span></code>.</p>
 <p>Some people like to have both a text editor and a notebook open at one time.  They make edits to the <code class="docutils literal notranslate"><span class="pre">.jl</span></code> file, and lode it in with <code class="docutils literal notranslate"><span class="pre">include</span></code>.  They then do all of their interactive debugging in the notebook.</p>
 <p>Every once and a while you need to clean up your development notebook – or even copy it over to a completely new notebook to get rid of all the dead ends.  It is good practice, however, to leave in place the work you did to verify that everything is working correctly.  That way if you make a change you can run the same tests.  This is an informal version of the “unit test” paradigm.</p>
 </section>
 <section id="presentation-notebooks">
 <h2>Presentation notebooks<a class="headerlink" href="#presentation-notebooks" title="Permalink to this heading">#</a></h2>
-<p>You often want to share your code and results with collaborators.  One strategy is to use <strong>presentation notebooks</strong>.  This is similar to my lectures.  You put fully debugged code (or <code class="docutils literal notranslate"><span class="pre">include</span></code> it from text files), and run the relevant parts of it to illustrate the physics.  One can tweak it on the fly to do further explorations.</p>
+<p>You often want to share your code and results with collaborators.  One strategy is to use <strong>presentation notebooks</strong>.  This is similar to my lectures.  You put fully debugged code (or <code class="docutils literal notranslate"><span class="pre">include</span></code> it from text files), and run the relevant parts of it to illustrate the physics.  One can tweak it on the fly to do further explorations – and include dynamical GUI’s where you push sliders around.</p>
 <p>Static views of the notebook can be shared by using <a href="https://nbviewer.org">nbviewer</a>.  Dynamic views can be shared using web services like <a href="https://mybinder.org">binder</a>.</p>
 </section>
 <section id="production-notebooks">
@@ -424,6 +431,11 @@ document.write(`
 <h2>Jupyterlab<a class="headerlink" href="#jupyterlab" title="Permalink to this heading">#</a></h2>
 <p>We will often work with our notebooks within the environment called “Jupyterlab”.  It provides a graphical interface with Jupyter notebooks, text files, interactive sessions and output windows.</p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="other-ides">
+<h1>Other IDEs<a class="headerlink" href="#other-ides" title="Permalink to this heading">#</a></h1>
+<p>There are another of other ways to interact with Julia (or other languages).  The most typical framework involves using an “Integrated Design Environment”.  These combine a code editor with tools to compile (if necessary), run, and debug the code.  They also typically have interfaces to connect to GitHub – where one can share your code.  They may have AI tools integrated.</p>
+<p>These are great.  We won’t be using them here, and I won’t teach you how to use an IDE.  If you do want to play with them, the most popular is “VSCode”.  It can handle Julia – and even work with Jupyter notebooks.  In the past I have had students use VSCode for this course, but I haven’t invested the time in learning the tricks, so I won’t be able to help you.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -490,12 +502,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Notebook Workflow</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-notebooks">Development notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-notebooks">Presentation notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-notebooks">Production notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">Scripts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">Jupyterlab</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#other-ides">Other IDEs</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
@@ -519,7 +536,7 @@ By Erich Mueller
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>

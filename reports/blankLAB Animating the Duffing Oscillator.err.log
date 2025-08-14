@@ -22,10 +22,10 @@ d1=duffing()
 UndefVarError: `ax` not defined
 
 Stacktrace:
- [1] duffing(; xv::Vector{Float64}, p::dp, t::Float64, dt::Float64, delay::Float64, step::Function, dxdt::Function)
-   @ Main ./In[4]:14
- [2] duffing()
-   @ Main ./In[4]:1
+ [1] [0m[1mduffing[22m[0m[1m([22m; [90mxv[39m::[0mVector[90m{Float64}[39m, [90mp[39m::[0mdp, [90mt[39m::[0mFloat64, [90mdt[39m::[0mFloat64, [90mdelay[39m::[0mFloat64, [90mstep[39m::[0mFunction, [90mdxdt[39m::[0mFunction[0m[1m)[22m
+[90m   @[39m [35mMain[39m [90m./[39m[90m[4mIn[4]:14[24m[39m
+ [2] [0m[1mduffing[22m[0m[1m([22m[0m[1m)[22m
+[90m   @[39m [35mMain[39m [90m./[39m[90m[4mIn[4]:1[24m[39m
  [3] top-level scope
-   @ In[5]:1
+[90m   @[39m [90m[4mIn[5]:1[24m[39m
 

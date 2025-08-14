@@ -28,5 +28,5 @@ UndefVarError: `rand_ising2d` not defined
 
 Stacktrace:
  [1] top-level scope
-   @ In[11]:1
+[90m   @[39m [90m[4mIn[11]:1[24m[39m
 
