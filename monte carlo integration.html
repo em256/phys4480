@@ -186,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
 
 </ul>
@@ -405,18 +406,18 @@ document.write(`
 <p>Last lecture we discussed how to sample from probability distributions, but we totally avoided the question of why we might want to do such sampling.  The obvious answer is that we want to understand spome property of the distribution.</p>
 <p>For example, when we were discussing the hard disc gas we argued that because of the ergodic dynamics all valid configurations were equally likely.  Thus we should be able to calculate the pair correlation functions by simply sampling all valid configurations.</p>
 <p>In the end, anything we end up calculating can be expressed as some sort of expectation value.  Suppose we have a set of states <span class="math notranslate nohighlight">\(j\)</span>, which occur with probability <span class="math notranslate nohighlight">\(p_j\)</span>.  We then have some quantity <span class="math notranslate nohighlight">\(X_j\)</span> which depends on the state.  The expectation value is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1f27e478-29ba-4d79-bf1e-8d2add10824f">
-<span class="eqno">(145)<a class="headerlink" href="#equation-1f27e478-29ba-4d79-bf1e-8d2add10824f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6d6bea0f-3e98-48f6-9a39-67aaf6e06e24">
+<span class="eqno">()<a class="headerlink" href="#equation-6d6bea0f-3e98-48f6-9a39-67aaf6e06e24" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle X\rangle = \sum_j p_j X_j.
 \end{equation}\]</div>
 <p>We can approximate this expectation value by taking a sample of <span class="math notranslate nohighlight">\(N\)</span> states,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0178478-bc0b-4737-8870-229709064802">
-<span class="eqno">(146)<a class="headerlink" href="#equation-e0178478-bc0b-4737-8870-229709064802" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-030f39b1-a8b4-48e8-8502-c802099d7112">
+<span class="eqno">()<a class="headerlink" href="#equation-030f39b1-a8b4-48e8-8502-c802099d7112" title="Permalink to this equation">#</a></span>\[\begin{equation}
 X^{\rm est}_N = \frac{1}{N} \sum_{\alpha=1}^N X_{j_\alpha}
 \end{equation}\]</div>
 <p>here <span class="math notranslate nohighlight">\(\alpha\)</span> labels the realizations, and <span class="math notranslate nohighlight">\(j_\alpha\)</span> is the state in that realization.  We will often shorten this to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-28a50935-e0b9-4069-9fc6-33fae3e6ca32">
-<span class="eqno">(147)<a class="headerlink" href="#equation-28a50935-e0b9-4069-9fc6-33fae3e6ca32" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2f43d3d2-6b8b-4556-a6b4-2c072020f808">
+<span class="eqno">()<a class="headerlink" href="#equation-2f43d3d2-6b8b-4556-a6b4-2c072020f808" title="Permalink to this equation">#</a></span>\[\begin{equation}
 X^{\rm est}_N = \frac{1}{N} \sum_{\alpha=1}^N X_\alpha.
 \end{equation}\]</div>
 <p>This notation is somewhat confusing, though, as the probability distribution doesn’t appear anywhere in it.  The point is, however, that the <span class="math notranslate nohighlight">\(j\)</span>’s are drawn from it.
@@ -528,8 +529,8 @@ One often calls <span class="math notranslate nohighlight">\(X^{\rm est}_N\)</sp
 </div></div>
 </div>
 <p>Lets now estimate</p>
-<div class="amsmath math notranslate nohighlight" id="equation-07b6ca3d-a93a-40a8-9bda-8e014e7467c2">
-<span class="eqno">(148)<a class="headerlink" href="#equation-07b6ca3d-a93a-40a8-9bda-8e014e7467c2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-92c925be-f370-4d84-bb6b-aa9c5aa9bdb0">
+<span class="eqno">()<a class="headerlink" href="#equation-92c925be-f370-4d84-bb6b-aa9c5aa9bdb0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle j\rangle &amp;= \sum_j p_j j\\
 &amp;= \frac{\sum_j j^2}{\sum_j j}\\
 \end{align}\]</div>
@@ -1039,28 +1040,28 @@ One often calls <span class="math notranslate nohighlight">\(X^{\rm est}_N\)</sp
 </div></div>
 </div>
 <p>We understand this result by looking at the expectation value and standard deviation of our sample estimator</p>
-<div class="amsmath math notranslate nohighlight" id="equation-178f19b8-1231-4020-a2b1-0cb2719c6107">
-<span class="eqno">(149)<a class="headerlink" href="#equation-178f19b8-1231-4020-a2b1-0cb2719c6107" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9d8a4bd8-5820-470b-8147-e3a385028714">
+<span class="eqno">()<a class="headerlink" href="#equation-9d8a4bd8-5820-470b-8147-e3a385028714" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle X^{\rm est}_N \rangle &amp;= \frac{1}{N} \sum_{\alpha=1}^N \langle X_\alpha\rangle\\
 &amp;= \langle X\rangle
 \end{align}\]</div>
 <p>Thus on average the estimator is a good approximation to the mean.  The spread is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d37a7aef-fedf-4323-856c-1a6f85e420f6">
-<span class="eqno">(150)<a class="headerlink" href="#equation-d37a7aef-fedf-4323-856c-1a6f85e420f6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1629fd50-ef73-4ff4-9a47-a3f6aa47dd65">
+<span class="eqno">()<a class="headerlink" href="#equation-1629fd50-ef73-4ff4-9a47-a3f6aa47dd65" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle (X^{\rm est}_N - \bar{X})^2 \rangle &amp;= \frac{1}{N^2} 
 \sum_{\alpha=1}^N \sum_{\beta=1}^N \langle (X_\alpha-\bar X)(X_\beta-\bar X\rangle
 \end{align}\]</div>
 <p>where for notational simplicity we have written <span class="math notranslate nohighlight">\(\bar{X}=\langle X\rangle\)</span>.</p>
 <p>Now if the samples are uncorrelated the only non-zero terms have <span class="math notranslate nohighlight">\(\alpha=\beta\)</span> and the sum becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2999545a-0dd3-44b9-90c5-bc3b3d7d250f">
-<span class="eqno">(151)<a class="headerlink" href="#equation-2999545a-0dd3-44b9-90c5-bc3b3d7d250f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f5135d99-df9c-4e13-a4d8-bd71e83d2c62">
+<span class="eqno">()<a class="headerlink" href="#equation-f5135d99-df9c-4e13-a4d8-bd71e83d2c62" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle (X^{\rm est}_N - \bar{X})^2 \rangle 
 &amp;=\frac{1}{N^2} \sum_{\alpha=1}^N \langle (X_\alpha-\bar X)^\rangle\\
 &amp;=\frac{\sigma^2}{N}
 \end{align}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c20b1eb-38c7-4d90-ae5a-92f140167a64">
-<span class="eqno">(152)<a class="headerlink" href="#equation-1c20b1eb-38c7-4d90-ae5a-92f140167a64" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d707eb7b-1c1f-4b93-8b28-e09a6c32cdc8">
+<span class="eqno">()<a class="headerlink" href="#equation-d707eb7b-1c1f-4b93-8b28-e09a6c32cdc8" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sigma^2 &amp;= \langle X^2\rangle-\langle X\rangle^2
 \end{align}\]</div>
 <p>is the population standard deviation.</p>
@@ -1383,8 +1384,8 @@ One often calls <span class="math notranslate nohighlight">\(X^{\rm est}_N\)</sp
 </div>
 <p>Now typically we don’t know what the population standard deviation is.  However, we can estimate it from the sample standard deviation.  Intuitively, it should be well approximated by the sample standard deviation.</p>
 <p>More precisely, however</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03dc4f18-7a0d-45fe-befd-beb5dedd1135">
-<span class="eqno">(153)<a class="headerlink" href="#equation-03dc4f18-7a0d-45fe-befd-beb5dedd1135" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dad2fe5a-5ab6-4798-b7f6-1ebe947996eb">
+<span class="eqno">()<a class="headerlink" href="#equation-dad2fe5a-5ab6-4798-b7f6-1ebe947996eb" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sigma_{\rm sample}^2&amp;= \frac{1}{N}\sum_\alpha (X_\alpha-X_N^{\rm est})^2\\
 &amp;=\frac{1}{N}\sum_\alpha (X_\alpha-\bar X)^2 
 + 2 X_\alpha (\bar X -X_N^{\rm est})
@@ -1393,21 +1394,21 @@ One often calls <span class="math notranslate nohighlight">\(X^{\rm est}_N\)</sp
 &amp;= \left(\frac{1}{N}\sum_\alpha (X_\alpha-\bar X)^2\right) +2 X_N^{\rm est}\bar X - (X_N^{\rm est})^2 - \bar X^2
 \end{align}\]</div>
 <p>On average we then have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-84de8295-5344-477a-8cc7-e4ad7eea5350">
-<span class="eqno">(154)<a class="headerlink" href="#equation-84de8295-5344-477a-8cc7-e4ad7eea5350" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-690f84dd-6276-4ded-aa9e-3ea635d6197c">
+<span class="eqno">()<a class="headerlink" href="#equation-690f84dd-6276-4ded-aa9e-3ea635d6197c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle \sigma_{\rm sample}^2\rangle &amp;= \sigma^2 +\bar X^2 - \langle (X_N^{\rm est})^2 \langle (X_N^{\rm est})^2\rangle-\bar X^2\\
 &amp;= \sigma^2 -\frac{\sigma^2}{N}.
 \end{align}\]</div>
 <p>Thus our best estimate of the population standard deviation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d928348f-ba89-440d-82c7-7e8e9a795c96">
-<span class="eqno">(155)<a class="headerlink" href="#equation-d928348f-ba89-440d-82c7-7e8e9a795c96" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bc04eb04-6bba-419d-98c3-5aab56945b30">
+<span class="eqno">()<a class="headerlink" href="#equation-bc04eb04-6bba-419d-98c3-5aab56945b30" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sigma^2&amp;=\langle\sigma_{\rm sample}^2\rangle\left(\frac{N}{N-1}\right)\\
 &amp;=\frac{1}{N-1} \sum_\alpha (X_\alpha-X_N^{\rm est})^2
 \end{align}\]</div>
 <p>We are always going to be using a large enough <span class="math notranslate nohighlight">\(N\)</span> that we don’t really need to worry about the difference between <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(N-1\)</span>.</p>
 <p>To reitterate, to estimate the error of our mean, we first calculate the standard deviation of our sample.  We then divide by the square root of the number of realizations (or <span class="math notranslate nohighlight">\(N-1\)</span>).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7fdf4fe0-8da6-40b8-80d1-e6b982c843be">
-<span class="eqno">(156)<a class="headerlink" href="#equation-7fdf4fe0-8da6-40b8-80d1-e6b982c843be" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7e540e7a-4e1f-4276-9c8b-df80b260b85a">
+<span class="eqno">()<a class="headerlink" href="#equation-7e540e7a-4e1f-4276-9c8b-df80b260b85a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mbox{estimated error in mean}\approx \frac{\sigma_{\rm{sample}}}{\sqrt{N-1}}
 \end{equation}\]</div>
 </section>
@@ -2412,8 +2413,8 @@ One often calls <span class="math notranslate nohighlight">\(X^{\rm est}_N\)</sp
 <p>We can quantify the correlations by the expectation value
 <span class="math notranslate nohighlight">\(C_{\alpha\beta}=\langle j_\alpha j_\beta\rangle\)</span>.  This means we run our Markov chain.  Multiply the <span class="math notranslate nohighlight">\(\alpha\)</span>’th value of <span class="math notranslate nohighlight">\(j\)</span> by the <span class="math notranslate nohighlight">\(\beta\)</span>’th.  We then repeat this numerical experiment over and over again.</p>
 <p>Once things are in steady state we expect <span class="math notranslate nohighlight">\(C_{\alpha\beta}=C(\alpha-\beta)\)</span> to only be a function of the difference between these times.  Thus it makes sense to average over multiple times</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e7734b07-e755-4710-b979-7e4088c5830e">
-<span class="eqno">(157)<a class="headerlink" href="#equation-e7734b07-e755-4710-b979-7e4088c5830e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3e6f0cf0-d1fb-4bda-81f0-38ca2c16cdb8">
+<span class="eqno">()<a class="headerlink" href="#equation-3e6f0cf0-d1fb-4bda-81f0-38ca2c16cdb8" title="Permalink to this equation">#</a></span>\[\begin{align}
 C(\delta)&amp;=\frac{1}{N}\sum_{\alpha} \langle j_{\alpha+\delta} j_\alpha\rangle\\
 &amp;\approx \frac{1}{N}\sum_{\alpha} j_{\alpha+\delta} j_\alpha
 \end{align}\]</div>
@@ -2549,13 +2550,13 @@ C(\delta)&amp;=\frac{1}{N}\sum_{\alpha} \langle j_{\alpha+\delta} j_\alpha\rangl
 </div></div>
 </div>
 <p>We could fit this to an exponential to extract the correlation time.  Here, however, is a slightly simpler strategy, which gives us a number even if the correlations are non-exponential.  We define</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9eb88c53-b856-4942-9fff-5f78a1e9db26">
-<span class="eqno">(158)<a class="headerlink" href="#equation-9eb88c53-b856-4942-9fff-5f78a1e9db26" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-02a03ad5-eacb-4b55-9524-f76690a725c7">
+<span class="eqno">()<a class="headerlink" href="#equation-02a03ad5-eacb-4b55-9524-f76690a725c7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \tau=\sum_{j=1}^\infty \frac{C_j-C_\infty}{C_0-C_\infty}
 \end{equation}\]</div>
 <p>which comes from thinking about exponential sequencey, where <span class="math notranslate nohighlight">\(m_j=A e^{-j/\tau}\)</span>.  These give</p>
-<div class="amsmath math notranslate nohighlight" id="equation-754e110b-d0c5-4551-be32-d8b0c0ff503d">
-<span class="eqno">(159)<a class="headerlink" href="#equation-754e110b-d0c5-4551-be32-d8b0c0ff503d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dbd4dd43-1233-4191-86ed-8e3d7193ab13">
+<span class="eqno">()<a class="headerlink" href="#equation-dbd4dd43-1233-4191-86ed-8e3d7193ab13" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{j=1}^\infty e^{j/\tau}=\frac{1}{e^{1/\tau}-1}\approx\tau.
 \end{equation}\]</div>
 <p>We are also implicitly assuming that for infinite time separation the samples are uncorrelated, so <span class="math notranslate nohighlight">\(C_\infty=\langle j\rangle^2\)</span>:</p>
@@ -3096,25 +3097,25 @@ C(\delta)&amp;=\frac{1}{N}\sum_{\alpha} \langle j_{\alpha+\delta} j_\alpha\rangl
 <section id="calculating-integrals">
 <h2>Calculating Integrals<a class="headerlink" href="#calculating-integrals" title="Permalink to this heading">#</a></h2>
 <p>We now have the background to begin thinking about evaluating integrals.  There are a number of different approaches, and we will not be able to touch on them all.  Suppose we want to calcuates</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2abbe896-8049-48de-9899-a02272ae9a76">
-<span class="eqno">(160)<a class="headerlink" href="#equation-2abbe896-8049-48de-9899-a02272ae9a76" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f59dbc53-ff86-4a5b-b43a-1883416f8386">
+<span class="eqno">()<a class="headerlink" href="#equation-f59dbc53-ff86-4a5b-b43a-1883416f8386" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=\int_\Omega f(\vec{r})\, d\vec{r}
 \end{equation}\]</div>
 <p>The typical strategy is to take a probability distribution on <span class="math notranslate nohighlight">\(\Omega\)</span>, <span class="math notranslate nohighlight">\(P_\Omega(\vec{r})\)</span>, and write</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6587402e-f722-457e-ae68-b77c6d4a8d75">
-<span class="eqno">(161)<a class="headerlink" href="#equation-6587402e-f722-457e-ae68-b77c6d4a8d75" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3124b1eb-1aac-4f1b-8edc-6d25cf008f4a">
+<span class="eqno">()<a class="headerlink" href="#equation-3124b1eb-1aac-4f1b-8edc-6d25cf008f4a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=\int_\Omega \frac{f(\vec{r})}{P_\Omega(\vec{r})}\,P_\Omega(\vec{r})\, d\vec{r}.
 \end{equation}\]</div>
 <p>One then notes that this is just</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c13c22e-edbf-4fbc-a2d6-60f51d362bc6">
-<span class="eqno">(162)<a class="headerlink" href="#equation-1c13c22e-edbf-4fbc-a2d6-60f51d362bc6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9f09d19f-6eb7-4b98-b198-a9fde3800a37">
+<span class="eqno">()<a class="headerlink" href="#equation-9f09d19f-6eb7-4b98-b198-a9fde3800a37" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I =\langle \frac{f(\vec{r})}{P_\Omega(\vec{r})}\rangle,
 \end{equation}\]</div>
 <p>which you then calculate using sampling.</p>
 <p>In the simplest examples, one just takes <span class="math notranslate nohighlight">\(P_\Omega\)</span> to be the uniform distribution,
 <span class="math notranslate nohighlight">\(P_\Omega(\vec{r})=1/V_\Omega\)</span>.  As a simple example, lets do</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f8ebfb8-d843-4cfc-8e62-e2f55ab1c585">
-<span class="eqno">(163)<a class="headerlink" href="#equation-0f8ebfb8-d843-4cfc-8e62-e2f55ab1c585" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dd39c7dc-e6a1-43d6-80f1-638f723dee33">
+<span class="eqno">()<a class="headerlink" href="#equation-dd39c7dc-e6a1-43d6-80f1-638f723dee33" title="Permalink to this equation">#</a></span>\[\begin{align}
 I&amp;= \int_{0}^\pi \sin(x) dx\\
 &amp;= \int_{0}^\pi \pi \sin(x)\,\frac{dx}{\pi}\\
 &amp;= \langle \pi \sin(x)\rangle
@@ -3152,18 +3153,18 @@ I&amp;= \int_{0}^\pi \sin(x) dx\\
 </div>
 <p>If <span class="math notranslate nohighlight">\(P_\Omega(\vec r)\propto f(\vec r)\)</span>, then all of the samples will have exactly the same value – and we get a <em>zero-variance</em> estimator – ie. the exact right answer.  This motivates trying to use a probability distribution which matches <span class="math notranslate nohighlight">\(f\)</span> as closely as possible: importance sampling.</p>
 <p>To make our life easier, lets write</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ccf23b2-8c0f-4d61-8938-5271b3237cd0">
-<span class="eqno">(164)<a class="headerlink" href="#equation-7ccf23b2-8c0f-4d61-8938-5271b3237cd0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1db8e8e-5151-4eae-a2ca-0642b92da408">
+<span class="eqno">()<a class="headerlink" href="#equation-d1db8e8e-5151-4eae-a2ca-0642b92da408" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=\int_0^{\pi/2} 2\sin(x)\,dx
 \end{equation}\]</div>
 <p>Lets then sample on <span class="math notranslate nohighlight">\([0,\pi/2]\)</span> with</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d72f482b-5b8f-4244-a6cb-f4ff24e16f6a">
-<span class="eqno">(165)<a class="headerlink" href="#equation-d72f482b-5b8f-4244-a6cb-f4ff24e16f6a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-733d2c91-450c-4f8d-871b-86388be8e4ae">
+<span class="eqno">()<a class="headerlink" href="#equation-733d2c91-450c-4f8d-871b-86388be8e4ae" title="Permalink to this equation">#</a></span>\[\begin{equation}
 P(x)= \frac{8x}{\pi^2}
 \end{equation}\]</div>
 <p>In which case</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46fcb238-b381-4713-a702-03d10b65de8a">
-<span class="eqno">(166)<a class="headerlink" href="#equation-46fcb238-b381-4713-a702-03d10b65de8a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-df978cb2-0cb4-4192-bbfe-5cc803a7a3c2">
+<span class="eqno">()<a class="headerlink" href="#equation-df978cb2-0cb4-4192-bbfe-5cc803a7a3c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=\int_0^{\pi/2} \frac{\pi^2\sin(x)}{4x}\,P(x)dx.
 \end{equation}\]</div>
 <p>We know we can sample a linear ramp by uniformly sampling <span class="math notranslate nohighlight">\(x^2\)</span>:</p>

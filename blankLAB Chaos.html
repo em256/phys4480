@@ -186,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
 
 </ul>
@@ -719,15 +720,15 @@ document.write(`
 <h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
 ## Activity 1
 </h2><p>We will consider a non-linear oscillator described by the equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-480be921-fcbe-4476-bdb3-3ec5cffc5725">
-<span class="eqno">(82)<a class="headerlink" href="#equation-480be921-fcbe-4476-bdb3-3ec5cffc5725" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-782148d7-3a5c-4cca-8956-5a2840034cd5">
+<span class="eqno">()<a class="headerlink" href="#equation-782148d7-3a5c-4cca-8956-5a2840034cd5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt}&amp;=v\\
 \frac{dv}{dt}&amp;=-2\gamma v-\alpha x-\beta x^3 +F \cos(\omega t).
 \end{align}\]</div>
 <p>Here <span class="math notranslate nohighlight">\(\gamma\)</span> is the damping rate, <span class="math notranslate nohighlight">\(F\)</span> is the strength of a periodic drive, with frequency <span class="math notranslate nohighlight">\(\omega\)</span>, and <span class="math notranslate nohighlight">\(\alpha,\beta\)</span> describe the potential.  For <span class="math notranslate nohighlight">\(\beta=0\)</span> we have a harmonic potential, resulting in a driven simple Harmonic Oscillator.</p>
 <p>An interesting case is when <span class="math notranslate nohighlight">\(\alpha&lt;0\)</span> and <span class="math notranslate nohighlight">\(\beta&gt;0\)</span>.  In that case the potential is a double well</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6020ecc0-949e-4a40-80fd-d2799fd21bb2">
-<span class="eqno">(83)<a class="headerlink" href="#equation-6020ecc0-949e-4a40-80fd-d2799fd21bb2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-383518eb-678e-4d74-81d1-e2766a57e18f">
+<span class="eqno">()<a class="headerlink" href="#equation-383518eb-678e-4d74-81d1-e2766a57e18f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V(x)=\frac{\alpha}{2} x^2+\frac{\beta}{4} x^4.
 \end{equation}\]</div>
 <p><strong>Write a function that takes the parameters <span class="math notranslate nohighlight">\(\alpha,\beta,\gamma,F,\omega\)</span> the initial conditions <span class="math notranslate nohighlight">\(x_0,v_0\)</span>, and the evolution time <span class="math notranslate nohighlight">\(T\)</span>.  It will return the solution to the differential equation, as found from <code class="docutils literal notranslate"><span class="pre">DifferentialEquations.jl</span></code>.</strong></p>

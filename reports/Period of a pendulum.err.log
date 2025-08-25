@@ -33,5 +33,5 @@ MethodError: no method matching -(::Tuple{Int64, Int64, Int64}, ::Float64)
 
 Stacktrace:
  [1] top-level scope
-[90m   @[39m [90m[4mIn[25]:1[24m[39m
+[90m   @[39m [90m[4mIn[24]:1[24m[39m
 

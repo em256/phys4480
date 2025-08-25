@@ -186,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
 
 </ul>
@@ -491,13 +492,13 @@ document.write(`
 </div>
 <p>That looks nicer, and indeed appears to be well approximated by an exponential – up until the time that it saturates.  The saturation is simple to understand:  The position is bounded, so the difference in positions can only get so big.</p>
 <p>We could fit the <span class="math notranslate nohighlight">\(\log(\delta x)\)</span> vs <span class="math notranslate nohighlight">\(t\)</span> graph to a straight line, and extract an exponent, which would be <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3a65c0e2-8201-4a79-84b1-6d7f027439fd">
-<span class="eqno">(84)<a class="headerlink" href="#equation-3a65c0e2-8201-4a79-84b1-6d7f027439fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1cac022b-617a-455f-97f0-f2c30ccd4ec1">
+<span class="eqno">()<a class="headerlink" href="#equation-1cac022b-617a-455f-97f0-f2c30ccd4ec1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta x \sim e^{\lambda t}
 \end{equation}\]</div>
 <p>One slightly more sophisticated thing we can do is take the limit where the difference between the starting positions of the two trajectories goes to zero.  That is we look at</p>
-<div class="amsmath math notranslate nohighlight" id="equation-43653e0f-9ac0-4172-8cc0-7f62a59a7b15">
-<span class="eqno">(85)<a class="headerlink" href="#equation-43653e0f-9ac0-4172-8cc0-7f62a59a7b15" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-73f2eba5-d2c6-418f-aa23-b26dd5556f3a">
+<span class="eqno">()<a class="headerlink" href="#equation-73f2eba5-d2c6-418f-aa23-b26dd5556f3a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{\partial x(t)}{\partial x_0} = \lim_{\delta x_0\to 0} \frac{\delta x(t)}{\delta x_0}
 \end{align}\]</div>
 <p>In fact, what we have now is a <em>finite differences</em> approximation to that derivative</p>
@@ -513,14 +514,14 @@ document.write(`
 </div>
 <p>Rather than this finite difference approach to calculate <span class="math notranslate nohighlight">\(\partial x/\partial x_0\)</span> we could use our automatic differentiation code.  In fact the routines in <code class="docutils literal notranslate"><span class="pre">DifferentialEquations.jl</span></code> are compatible with the automatic differentiation packages.  Or we could write our own integrator, which is compatible with our implementation of automatic differentiation.</p>
 <p>A somewhat simpler, but equivalent approach involves taking the derivative of our differential equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-687b1aab-373a-4597-94ba-5a582591acfc">
-<span class="eqno">(86)<a class="headerlink" href="#equation-687b1aab-373a-4597-94ba-5a582591acfc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ad65f425-4dfd-4853-8831-27d643a2dd81">
+<span class="eqno">()<a class="headerlink" href="#equation-ad65f425-4dfd-4853-8831-27d643a2dd81" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t x&amp;= v\\
 \partial_t v&amp;=-2\gamma v-\alpha x-\beta x^3 +F \cos(\omega t)
 \end{align}\]</div>
 <p>to get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f6968f35-2259-447c-97ab-73f7551a36f2">
-<span class="eqno">(87)<a class="headerlink" href="#equation-f6968f35-2259-447c-97ab-73f7551a36f2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5d4d647b-1b29-426f-ac03-81ecf18f93e5">
+<span class="eqno">()<a class="headerlink" href="#equation-5d4d647b-1b29-426f-ac03-81ecf18f93e5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t\frac{\partial x}{\partial x_0}&amp;= \frac{\partial v}{\partial x_0}\\
 \partial_t \frac{\partial v}{\partial x_0}&amp;=-2\gamma \frac{\partial v}{\partial x_0}-(\alpha +3\beta x^2)\frac{\partial x}{\partial x_0}
 \end{align}\]</div>
@@ -682,8 +683,8 @@ document.write(`
 <section id="generic-deviations">
 <h2>Generic Deviations<a class="headerlink" href="#generic-deviations" title="Permalink to this heading">#</a></h2>
 <p>For our initial conditions we need to specify both <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(v_0\)</span>.  Therefore the sensitivity to initial conditions is actually encoded in a tensor,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-266a4508-444f-4680-8bd4-a491898cfaa0">
-<span class="eqno">(88)<a class="headerlink" href="#equation-266a4508-444f-4680-8bd4-a491898cfaa0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4436d0c3-28ac-497b-97ee-4f9116f96a1e">
+<span class="eqno">()<a class="headerlink" href="#equation-4436d0c3-28ac-497b-97ee-4f9116f96a1e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 J=\left(
 \begin{array}{cc}
 \frac{\partial x}{\partial x_0}&amp;\frac{\partial x}{\partial v_0}\\
@@ -693,8 +694,8 @@ J=\left(
 \end{equation}\]</div>
 <p>This matrix encodes how much the phase space location <span class="math notranslate nohighlight">\((x,v)\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> changes when we change initial conditions <span class="math notranslate nohighlight">\((x_0,v_0)\)</span>.</p>
 <p>The determinant of <span class="math notranslate nohighlight">\(J\)</span> tells you how much the volume of phase space has changed from time <span class="math notranslate nohighlight">\(t=0\)</span> to time <span class="math notranslate nohighlight">\(t\)</span>.  IE.  the triangle of phase space bounded by <span class="math notranslate nohighlight">\((x_0,v_0),(x_0+\delta x_0,v_0),(x_0,v_0+\delta v_0)\)</span> maps onto the triangle <span class="math notranslate nohighlight">\((x,v),(x+\delta x_1,v+\delta v_1),(x+\delta x_2,v+\delta v_2)\)</span> where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e97e140d-8d78-423e-bc32-fc8b9dce9356">
-<span class="eqno">(89)<a class="headerlink" href="#equation-e97e140d-8d78-423e-bc32-fc8b9dce9356" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2a09fc74-a2c7-4c40-9097-5bf901f7539b">
+<span class="eqno">()<a class="headerlink" href="#equation-2a09fc74-a2c7-4c40-9097-5bf901f7539b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left(\begin{array}{c}
 \delta x_1\\\delta v_1
 \end{array}
@@ -714,8 +715,8 @@ J \left(\begin{array}{c}
 \end{align}\]</div>
 <p>The ratio of the areas of those two triangles is <span class="math notranslate nohighlight">\(\det J\)</span></p>
 <p>For a Hamiltonian (non-disipative system), this determinant will be <span class="math notranslate nohighlight">\(1\)</span>. When <span class="math notranslate nohighlight">\(\gamma\neq 0\)</span> our model is not Hamiltonian, and the phase space volume will not be conserved.  Nonetheless, one can write</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c0f9ae8-e4fd-45d5-8f2e-5b445fc11442">
-<span class="eqno">(90)<a class="headerlink" href="#equation-4c0f9ae8-e4fd-45d5-8f2e-5b445fc11442" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b0345258-2f99-4634-b34f-ac794b791170">
+<span class="eqno">()<a class="headerlink" href="#equation-b0345258-2f99-4634-b34f-ac794b791170" title="Permalink to this equation">#</a></span>\[\begin{align}
 \det J &amp;= \frac{\partial x}{\partial x_0}\frac{\partial v}{\partial v_0}-\frac{\partial x}{\partial v_0}\frac{\partial v}{\partial x_0}\\
 &amp;= \{x,v\}
 \end{align}\]</div>

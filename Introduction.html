@@ -184,6 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
 
 </ul>
@@ -460,6 +461,14 @@ document.write(`
 </li>
 <li><p>Visualization</p></li>
 <li><p>Machine Learning</p></li>
+<li><p>Computational Paradigms</p>
+<ul>
+<li><p>Procedural</p></li>
+<li><p>Functional</p></li>
+<li><p>Object Oriented</p></li>
+</ul>
+</li>
+<li><p>Algorithmic Complexity</p></li>
 </ul>
 </section>
 <section id="what-is-the-role-of-computers-in-physics">
@@ -477,9 +486,10 @@ document.write(`
 </section>
 <section id="what-computer-language-should-one-use-for-learning-computational-physics">
 <h2>What computer language should one use for learning computational physics?<a class="headerlink" href="#what-computer-language-should-one-use-for-learning-computational-physics" title="Permalink to this heading">#</a></h2>
-<p>Glib answer 1:  It doesn’t matter</p>
-<p>Glib answer 2: Whatever language you know</p>
-<p>Glib answer 3: Whatever language you think you will use in the future</p>
+<p><strong>Glib answer 1:</strong>  It doesn’t matter</p>
+<p><strong>Glib answer 2:</strong> Whatever language you know</p>
+<p><strong>Glib answer 3:</strong> Whatever language you think you will use in the future</p>
+<p><strong>Nuance:</strong>  <em>Want flexibility</em> – not all languages can be used to explain all approaches to computation.  <em>Want simplicity</em> – frustrating for student to spend too much time learning sytactic details.  <em>Want the experience to be fun.</em></p>
 <section id="options">
 <h3>Options:<a class="headerlink" href="#options" title="Permalink to this heading">#</a></h3>
 <p><strong>C++</strong></p>
@@ -628,11 +638,13 @@ document.write(`
 <p>Premature optimization is the root of all evil – Donald Knuth</p>
 <ul class="simple">
 <li><p>don’t waste your time trying to get performance out of a subroutine that is not the rate-limiting step in your calculation</p></li>
+<li><p>getting a working code is first priority – can always refactor it later</p></li>
+<li><p>optimization is hard</p></li>
 </ul>
 <p>Good strategy for scientific programing:</p>
 <ol class="arabic simple">
 <li><p>Make a precise goal</p></li>
-<li><p>Write out on paper the algorithm, data structures</p>
+<li><p>Write out on paper (or a chalk board) the algorithm, data structures</p>
 <ul class="simple">
 <li><p>give options:  what is simplest, what will be most efficient</p></li>
 <li><p>figure out strategy which will take the least programming time to get a working code</p></li>

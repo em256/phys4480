@@ -186,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
 
 </ul>
@@ -475,7 +476,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.065747 seconds (68.82 k allocations: 4.626 MiB, 99.82% compilation time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.050019 seconds (68.82 k allocations: 4.626 MiB, 99.82% compilation time)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1803405931478603, 1.537190156500909e-8)
@@ -729,19 +730,19 @@ document.write(`
 <h4>Magic behind Gaussian Quadratures<a class="headerlink" href="#magic-behind-gaussian-quadratures" title="Permalink to this heading">#</a></h4>
 <p>The idea is that if one evaluates the function at <strong>non-equally spaced</strong> points, one can accelerate convergence</p>
 <p>For example, suppose we want to calculate <span class="math notranslate nohighlight">\(\int_{-1}^1 f(x) dx\)</span> using only three function evaluations.  In trapezoid rule those evaluations would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>.  For midpoint rule they would be at <span class="math notranslate nohighlight">\(x=-2/3,0,2/3\)</span>.  In Simpson’s rule the would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>, but we would weight them unequally.  The most general quadrature rule is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c2a0fa0e-393f-4a1a-baf0-c41af8438b35">
-<span class="eqno">(25)<a class="headerlink" href="#equation-c2a0fa0e-393f-4a1a-baf0-c41af8438b35" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-74f15a16-d920-43db-9f00-e33b1bfdf569">
+<span class="eqno">()<a class="headerlink" href="#equation-74f15a16-d920-43db-9f00-e33b1bfdf569" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I\approx \sum_j w_j f(x_j).
 \end{equation}\]</div>
 <p>The most general 3-point symmetric quadrature rule would be</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6980bcd7-6cac-439b-bd80-9eef1b0d5fc1">
-<span class="eqno">(26)<a class="headerlink" href="#equation-6980bcd7-6cac-439b-bd80-9eef1b0d5fc1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8100eda7-ff35-47a5-a092-77bf0e93e30d">
+<span class="eqno">()<a class="headerlink" href="#equation-8100eda7-ff35-47a5-a092-77bf0e93e30d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=a f(0) + b f(s)+ b f(-s)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a,b,s\)</span> are parameters.</p>
 <p>We will choose these parameters so that we get the correct integral for various polynomials</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ea0df4b-ea62-42fe-bf1d-f361812ada03">
-<span class="eqno">(27)<a class="headerlink" href="#equation-2ea0df4b-ea62-42fe-bf1d-f361812ada03" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d7947ac0-f859-498b-93ad-10e9c7212bf2">
+<span class="eqno">()<a class="headerlink" href="#equation-d7947ac0-f859-498b-93ad-10e9c7212bf2" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_{-1}^1 x^0 dx &amp;\to a+2b &amp;=2\\
 \int_{-1}^1 x^1 dx &amp;\to 0 &amp;= 0\\
 \int_{-1}^1 x^2 dx &amp;\to 2b s^2 &amp;= 2/3\\
