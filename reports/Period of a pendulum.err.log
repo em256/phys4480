@@ -19,7 +19,8 @@ x-0.25
 ------------------
 
 
-MethodError: no method matching -(::Tuple{Int64, Int64, Int64}, ::Float64)
+MethodError: no method matching -(::Vector{Int64}, ::Float64)
+For element-wise subtraction, use broadcasting with dot syntax: array .- scalar
 
 [0mClosest candidates are:
 [0m  -([91m::Missing[39m, ::Number)

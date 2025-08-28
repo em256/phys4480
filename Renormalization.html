@@ -939,50 +939,50 @@ document.write(`
 <p>Here now comes the technical part.  Suppose we start with the Ising model at two different <span class="math notranslate nohighlight">\(\beta\)</span>’s, near <span class="math notranslate nohighlight">\(T_c\)</span>, and we coarse-grain them by a large scale <span class="math notranslate nohighlight">\(L=2^n\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the number of times we repeated our procedure.  If we started very very close to <span class="math notranslate nohighlight">\(T_c\)</span>, then we will end up near the fixed point.</p>
 <p>Let <span class="math notranslate nohighlight">\(\vec K\)</span> be a vector in the space of probability distributions, and <span class="math notranslate nohighlight">\(\vec K^*\)</span> be the fixed point of the coarse graining procedure.  The coarse graining is a map <span class="math notranslate nohighlight">\(\vec{K}_n= R(\vec{K}_{n-1})\)</span>.  The fixed points obey <span class="math notranslate nohighlight">\(\vec K^*=R(\vec K^*)\)</span>.</p>
 <p>Since we are going to end up near the critical point, we can linearize around it,  Let <span class="math notranslate nohighlight">\(\vec K=\vec K^*+\vec q\)</span>, where <span class="math notranslate nohighlight">\(\vec q\)</span> is small.  We can linearize,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f5b78fd8-6160-4aa8-bc8d-7031317011b7">
-<span class="eqno">()<a class="headerlink" href="#equation-f5b78fd8-6160-4aa8-bc8d-7031317011b7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ed2a0ea5-cccd-4fd7-a2c0-8766a69258ed">
+<span class="eqno">()<a class="headerlink" href="#equation-ed2a0ea5-cccd-4fd7-a2c0-8766a69258ed" title="Permalink to this equation">#</a></span>\[\begin{align}
 R(\vec K^*+\vec{q})&amp;= \vec K^*+ M \vec{q}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(M\)</span> is some matrix.  Lets diagonalize that matrix, finding <span class="math notranslate nohighlight">\(\vec k_j\)</span> and <span class="math notranslate nohighlight">\(\lambda_j\)</span> such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e03ff4c7-79e1-4712-a115-567e107759f2">
-<span class="eqno">()<a class="headerlink" href="#equation-e03ff4c7-79e1-4712-a115-567e107759f2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e7a783be-ff2a-4733-beb0-40486bfa5fff">
+<span class="eqno">()<a class="headerlink" href="#equation-e7a783be-ff2a-4733-beb0-40486bfa5fff" title="Permalink to this equation">#</a></span>\[\begin{align}
 M \vec{k}_j&amp;=\lambda_j \vec{k}_j.
 \end{align}\]</div>
 <p>We then expand</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b101ad34-c3c8-4e10-a772-80931bb51f5d">
-<span class="eqno">()<a class="headerlink" href="#equation-b101ad34-c3c8-4e10-a772-80931bb51f5d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-25c02d71-e941-4268-8305-c5b56f689125">
+<span class="eqno">()<a class="headerlink" href="#equation-25c02d71-e941-4268-8305-c5b56f689125" title="Permalink to this equation">#</a></span>\[\begin{align}
 \vec q=\sum_j q_j \vec{k_j}, 
 \end{align}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c32df524-2ee5-42cc-987e-d9919acd47a5">
-<span class="eqno">()<a class="headerlink" href="#equation-c32df524-2ee5-42cc-987e-d9919acd47a5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f1a3bba6-fc3d-476a-94cc-8474ca6156b2">
+<span class="eqno">()<a class="headerlink" href="#equation-f1a3bba6-fc3d-476a-94cc-8474ca6156b2" title="Permalink to this equation">#</a></span>\[\begin{align}
 R(\vec K^*+\vec{q})&amp;= \vec K^*+ M \vec{q}\\
 &amp;= \vec K^*+\sum_j \lambda_j q_j \vec{k}_j
 \end{align}\]</div>
 <p>Thus under renormalization <span class="math notranslate nohighlight">\(q_j\to \lambda_j q_j\)</span>.  If <span class="math notranslate nohighlight">\(|\eta_j|&gt;1\)</span>, then the perturbation grows:  These are the relevant directions.  If <span class="math notranslate nohighlight">\(|\lambda_j|&lt;1\)</span> the perturbation shrinks:  These are the irrelevant directions.</p>
 <p>Now imagine that you start with an Ising model with <span class="math notranslate nohighlight">\(\beta\)</span> near <span class="math notranslate nohighlight">\(\beta_c\)</span>.  After applying our coarse graining procedure many times we end up near the fixed point, with:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4851f7ef-74f0-4e4e-81d2-5d3fb374943a">
-<span class="eqno">()<a class="headerlink" href="#equation-4851f7ef-74f0-4e4e-81d2-5d3fb374943a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0d6121d1-5aa7-420c-9dc1-5c06492126d6">
+<span class="eqno">()<a class="headerlink" href="#equation-0d6121d1-5aa7-420c-9dc1-5c06492126d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \vec K= \vec K^* + \sum_j q_j(\beta-\beta_c,\mathcal{L}) \vec{k}_j,
 \end{equation}\]</div>
 <p>where the coefficients <span class="math notranslate nohighlight">\(q_j\)</span> are functions of <span class="math notranslate nohighlight">\(\beta-\beta_c\)</span> and <span class="math notranslate nohighlight">\(\mathcal{L}=2^n\)</span> is the scale over which we have coarse-grained.   If <span class="math notranslate nohighlight">\(\cal L\)</span> is large, then all of the <span class="math notranslate nohighlight">\(q_j\)</span> corresponding to irrelevant directions will be small, and can be neglected.  For simplicity, lets imagine that there is only a single relevant direction (which is reasonable for the Ising model in the absence of an external field.  Thus we can write</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c5a37f59-f0b2-4996-9cb6-65bb70cddc94">
-<span class="eqno">()<a class="headerlink" href="#equation-c5a37f59-f0b2-4996-9cb6-65bb70cddc94" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a12cbf2d-f51c-47cb-ba6b-0482980ba8d0">
+<span class="eqno">()<a class="headerlink" href="#equation-a12cbf2d-f51c-47cb-ba6b-0482980ba8d0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \vec K= \vec K^* + q_0(\beta-\beta_c,\mathcal{L}) \vec{k}_0,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\vec{k}_0\)</span> is the relevant direction.  We further know that if we double <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>, then <span class="math notranslate nohighlight">\(q_0\)</span> gets multiplied by <span class="math notranslate nohighlight">\(\lambda_0\)</span>.  Thus</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a214b0bf-77a2-4265-abfd-cca4b943bc10">
-<span class="eqno">()<a class="headerlink" href="#equation-a214b0bf-77a2-4265-abfd-cca4b943bc10" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2eb36039-331a-4e3b-9d06-a2b390f572c5">
+<span class="eqno">()<a class="headerlink" href="#equation-2eb36039-331a-4e3b-9d06-a2b390f572c5" title="Permalink to this equation">#</a></span>\[\begin{align}
 q_0(\beta-\beta_c,\mathcal{L})&amp;= q_0(\beta-\beta_c)\lambda_0^n
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n=\log_2 \mathcal{L}=\log \mathcal{L} /\log 2\)</span>.  Thus if we define <span class="math notranslate nohighlight">\(\eta_0=\log(\lambda_0)/\log(2)\)</span> we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d5d999f-6a4e-491d-90aa-2d8678160622">
-<span class="eqno">()<a class="headerlink" href="#equation-5d5d999f-6a4e-491d-90aa-2d8678160622" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9efcd1ca-c7cd-45d2-83d9-baa630438ac6">
+<span class="eqno">()<a class="headerlink" href="#equation-9efcd1ca-c7cd-45d2-83d9-baa630438ac6" title="Permalink to this equation">#</a></span>\[\begin{align}
 q_0(\beta-\beta_c,\mathcal{L})&amp;= q_0(\beta-\beta_c) \mathcal{L}^{\eta_0}.
 \end{align}\]</div>
 <p>Next, we know that <span class="math notranslate nohighlight">\(q_0\)</span> vanishes when <span class="math notranslate nohighlight">\(\beta=\beta_c\)</span>.  We can always choose our parameterization so that it vanishes linearly, in which case</p>
-<div class="amsmath math notranslate nohighlight" id="equation-11710f47-f062-4398-bf61-4f6c2b2c9c2f">
-<span class="eqno">()<a class="headerlink" href="#equation-11710f47-f062-4398-bf61-4f6c2b2c9c2f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a1d6a868-5a58-4b04-a46f-30e9b5b8510e">
+<span class="eqno">()<a class="headerlink" href="#equation-a1d6a868-5a58-4b04-a46f-30e9b5b8510e" title="Permalink to this equation">#</a></span>\[\begin{align}
 q_0(\beta-\beta_c,\mathcal{L})&amp;\propto (\beta-\beta_c) \mathcal{L}^{\eta_0}.
 \end{align}\]</div>
 <p>Finally we use the same argument that we considered for finite size scaling:  The physical properties can only depend on the correlation length <span class="math notranslate nohighlight">\(\xi\)</span>.  Under coarse graining by scale <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>, the correlation length goes as <span class="math notranslate nohighlight">\(\xi\to \xi/\mathcal{L}\)</span>, and hence we just have <span class="math notranslate nohighlight">\(\beta-\beta_c \sim \xi^{-\eta_0}\)</span>.</p>
@@ -1007,8 +1007,8 @@ q_0(\beta-\beta_c,\mathcal{L})&amp;\propto (\beta-\beta_c) \mathcal{L}^{\eta_0}.
 <p>The idea is that we will start with two different initial system sizes <span class="math notranslate nohighlight">\(L_1\)</span> and <span class="math notranslate nohighlight">\(L_2\)</span> – In our case we will take <span class="math notranslate nohighlight">\(L_2= L_1/2\)</span>.  We will then coarse-grain the first system <span class="math notranslate nohighlight">\(n\)</span> times, and the second system <span class="math notranslate nohighlight">\(n-1\)</span> times.  If we started at <span class="math notranslate nohighlight">\(\beta_1=\beta_c\)</span> and <span class="math notranslate nohighlight">\(\beta_2=\beta_c\)</span>, then these should scale to identical probability distributions.  Thus we can in principle find the critical point by comparing the resulting distributions.</p>
 <p>One challenge is how to compare distributions – especially because these are distributions on a large number of spins.  Our solution is that we will calculate some expectation value of the distribution.  We will use the difference between these expectation values as a surrogate for the difference between the distributions.  I like our Ising model energy as a good surrogate.</p>
 <p>Thus we will calculate <span class="math notranslate nohighlight">\(E(\beta,L,n)\)</span> which is the expectation value of the energy of the Ising model of size <span class="math notranslate nohighlight">\(L\)</span> after <span class="math notranslate nohighlight">\(n\)</span> coarse graining steps.  The critical point will be where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc6a6209-d458-4771-90fe-e5e13bee43c7">
-<span class="eqno">()<a class="headerlink" href="#equation-fc6a6209-d458-4771-90fe-e5e13bee43c7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-55a7c1f4-f5c9-4eff-b6e7-cbd2885cf3b4">
+<span class="eqno">()<a class="headerlink" href="#equation-55a7c1f4-f5c9-4eff-b6e7-cbd2885cf3b4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E(\beta,L,n)=E(\beta,L/2,n-1)
 \end{equation}\]</div>
 <p>This equation defines <span class="math notranslate nohighlight">\(\beta^*(L,n)\)</span>.  In the limit <span class="math notranslate nohighlight">\(L\to\infty, n\to \infty\)</span> we should have <span class="math notranslate nohighlight">\(\beta^*=\beta_c\)</span>.  In practice we don’t want to make <span class="math notranslate nohighlight">\(n\)</span> too large, as if we coarse grain too much we get trivial distrbutions.  Thus we probably want <span class="math notranslate nohighlight">\(n\)</span> to be moderate.</p>
@@ -1314,8 +1314,8 @@ We need average energy as a function of <span class="math notranslate nohighligh
 </div>
 </div>
 <p>We can then make a linear interpolation function.  If we want a function <span class="math notranslate nohighlight">\(y=y(x)\)</span> which passes through <span class="math notranslate nohighlight">\((x_1,y_1)\)</span> and <span class="math notranslate nohighlight">\((x_2,y_2)\)</span> we can use</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0e9540c5-f5f8-48ae-ad80-7f1f5356c5b7">
-<span class="eqno">()<a class="headerlink" href="#equation-0e9540c5-f5f8-48ae-ad80-7f1f5356c5b7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c845ef3a-dbb4-43dc-bbf7-b0649b7b6eff">
+<span class="eqno">()<a class="headerlink" href="#equation-c845ef3a-dbb4-43dc-bbf7-b0649b7b6eff" title="Permalink to this equation">#</a></span>\[\begin{align}
 y&amp;=\frac{x-x_1}{x_2-x_1} y_2+\frac{x-x_2}{x_1-x_2} y_1\\
 &amp;=\frac{x_2 y_1-x_1 y_2}{x_2-x_1} + \frac{y_2-y_1}{x_2-x_1} x
 \end{align}\]</div>
@@ -1577,59 +1577,59 @@ y&amp;=\frac{x-x_1}{x_2-x_1} y_2+\frac{x-x_2}{x_1-x_2} y_1\\
 <section class="tex2jax_ignore mathjax_ignore" id="critical-exponents">
 <h1>Critical Exponents<a class="headerlink" href="#critical-exponents" title="Permalink to this heading">#</a></h1>
 <p>In addition to finding the critical point, we can find the critical exponents.  The idea is that we can get a map between the temperatures of our two different finite size systems by solving the equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c41468c0-a3d1-402a-832d-b8934f407f71">
-<span class="eqno">()<a class="headerlink" href="#equation-c41468c0-a3d1-402a-832d-b8934f407f71" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-375ea1c4-2938-40df-9e26-05e74c95af92">
+<span class="eqno">()<a class="headerlink" href="#equation-375ea1c4-2938-40df-9e26-05e74c95af92" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E(\beta_1,L,n)=E(\beta_2,L/2,n-1)
 \end{equation}\]</div>
 <p>This gives us a function</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2bfba537-6af1-41a4-8ffb-c575de7d2596">
-<span class="eqno">()<a class="headerlink" href="#equation-2bfba537-6af1-41a4-8ffb-c575de7d2596" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb00d628-a02f-4cb9-80b6-2776159f73b5">
+<span class="eqno">()<a class="headerlink" href="#equation-cb00d628-a02f-4cb9-80b6-2776159f73b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \beta_2=f(\beta_1).
 \end{equation}\]</div>
 <p>The critical point is the fixed point</p>
-<div class="amsmath math notranslate nohighlight" id="equation-88af25cf-bb30-430f-8b5e-4d03b72b11dd">
-<span class="eqno">()<a class="headerlink" href="#equation-88af25cf-bb30-430f-8b5e-4d03b72b11dd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d34b0074-ee87-40c4-b56f-59a8d4b32183">
+<span class="eqno">()<a class="headerlink" href="#equation-d34b0074-ee87-40c4-b56f-59a8d4b32183" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \beta_c=f(\beta_c).
 \end{equation}\]</div>
 <p>If these two distributions coarse grain to the same place in distribution space, then we must have the correlation lengths related by <span class="math notranslate nohighlight">\(\xi_1=2 \xi_2\)</span>.  Thus this function <span class="math notranslate nohighlight">\(f\)</span> can be thought of as a map in function space that connects temperatures whose correlation lengths differ by a factor of 2.  IE</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8d2845c2-77af-4370-a770-b5682eedb082">
-<span class="eqno">()<a class="headerlink" href="#equation-8d2845c2-77af-4370-a770-b5682eedb082" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9f055a97-2f4d-4bdd-a711-7aa53d302bc1">
+<span class="eqno">()<a class="headerlink" href="#equation-9f055a97-2f4d-4bdd-a711-7aa53d302bc1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \xi(\beta)=2\xi(f(\beta)).
 \end{equation}\]</div>
 <p>Lets linearize this map about the fixed point:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e2837fea-9e79-4b08-9fbf-ea2c08a5153d">
-<span class="eqno">()<a class="headerlink" href="#equation-e2837fea-9e79-4b08-9fbf-ea2c08a5153d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8fb8ecb7-e1f7-46c2-9fa7-3bd2657645be">
+<span class="eqno">()<a class="headerlink" href="#equation-8fb8ecb7-e1f7-46c2-9fa7-3bd2657645be" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(\beta_c+\delta\beta)=\beta_c+ \lambda \delta\beta,
 \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-feca616d-82a2-4910-a94f-490d6c56b41f">
-<span class="eqno">()<a class="headerlink" href="#equation-feca616d-82a2-4910-a94f-490d6c56b41f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-59c8fd34-a157-46bb-a379-cea76ae4e0fa">
+<span class="eqno">()<a class="headerlink" href="#equation-59c8fd34-a157-46bb-a379-cea76ae4e0fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \lambda=\left.\frac{\partial f}{\partial\beta}\right|_{\beta=\beta_c}.
 \end{equation}\]</div>
 <p>It is convenient to rewrite this as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2929ad20-e2d9-4ea6-bc30-2c0a0e89e245">
-<span class="eqno">()<a class="headerlink" href="#equation-2929ad20-e2d9-4ea6-bc30-2c0a0e89e245" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cf06d737-f274-49a9-8cc3-b6cef7cbfb97">
+<span class="eqno">()<a class="headerlink" href="#equation-cf06d737-f274-49a9-8cc3-b6cef7cbfb97" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(\beta)=\beta+ (\lambda-1)\delta\beta
 \end{equation}\]</div>
 <p>We then have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d0e4121a-0112-4a42-91fe-0bde9cd3e090">
-<span class="eqno">()<a class="headerlink" href="#equation-d0e4121a-0112-4a42-91fe-0bde9cd3e090" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-92b015b2-452f-4de0-9eed-35d534b3ee3e">
+<span class="eqno">()<a class="headerlink" href="#equation-92b015b2-452f-4de0-9eed-35d534b3ee3e" title="Permalink to this equation">#</a></span>\[\begin{align}
 \xi(\beta)&amp;=2\xi(f(\beta))\\
 &amp;=2\xi(\beta)+2 \frac{\partial \xi}{\partial\beta} (\lambda-1) \delta\beta\\
 \end{align}\]</div>
 <p>which can be rearranged to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3b1d4a22-67c1-467a-a579-59e69ea464f1">
-<span class="eqno">()<a class="headerlink" href="#equation-3b1d4a22-67c1-467a-a579-59e69ea464f1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1a686ba4-985b-4e2c-a1ad-ec21a1e63c8d">
+<span class="eqno">()<a class="headerlink" href="#equation-1a686ba4-985b-4e2c-a1ad-ec21a1e63c8d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{1}{\xi} \frac{\partial \xi}{\partial\beta} &amp;=-\frac{1}{(\lambda-1) (\beta-\beta_c)}.
 \end{align}\]</div>
 <p>This can be integrated to give</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bea6b09c-10fc-4560-b801-098f94227c62">
-<span class="eqno">()<a class="headerlink" href="#equation-bea6b09c-10fc-4560-b801-098f94227c62" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4e981c7b-a102-4b9f-a575-846df23e2774">
+<span class="eqno">()<a class="headerlink" href="#equation-4e981c7b-a102-4b9f-a575-846df23e2774" title="Permalink to this equation">#</a></span>\[\begin{align}
 \log(\xi)=-\frac{1}{\lambda-1}\log(\beta-\beta_c)+c
 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-763d0046-3169-4b09-80d9-a99516410984">
-<span class="eqno">()<a class="headerlink" href="#equation-763d0046-3169-4b09-80d9-a99516410984" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1582143-723e-4edb-b65b-a5ce931ee21a">
+<span class="eqno">()<a class="headerlink" href="#equation-d1582143-723e-4edb-b65b-a5ce931ee21a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \xi \propto (\beta-\beta_c)^{1/(\lambda-1)}.
 \end{equation}\]</div>
 <p>Hence the critical exponent is <span class="math notranslate nohighlight">\(\nu=1/(\lambda-1)\)</span>.</p>

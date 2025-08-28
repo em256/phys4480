@@ -23,8 +23,8 @@ image(r1,interpolate=false,aspectratio=:equal)
 ------------------
 
 ----- stdout -----
-  0.005898 seconds (11.53 k allocations: 800.719 KiB, 98.52% compilation time)
-e1 = -0.0015869140625
+  0.006134 seconds (11.53 k allocations: 800.719 KiB, 98.51% compilation time)
+e1 = -0.00244140625
 ------------------
 
 Invalid attribute [31m[1maspectratio[22m[39m for plot type [34m[1mImage{Tuple{Makie.EndPoints{Float32}, Makie.EndPoints{Float32}, Matrix{Float32}}}[22m[39m.

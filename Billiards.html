@@ -819,13 +819,13 @@ document.write(`
 <section id="circular-walls">
 <h3>Circular Walls<a class="headerlink" href="#circular-walls" title="Permalink to this heading">#</a></h3>
 <p>We could then add another wall type.  Say a circle at the origin of radius <span class="math notranslate nohighlight">\(r\)</span>.  To find the impact time we first define the initial time as <span class="math notranslate nohighlight">\(t_0=\)</span> <code class="docutils literal notranslate"><span class="pre">b.t</span></code>, and the initial <span class="math notranslate nohighlight">\(x_0=\)</span> <code class="docutils literal notranslate"><span class="pre">b.x</span></code>, and so on.  We would then have <span class="math notranslate nohighlight">\(x(t)=x_0+(t-t_0) v_x\)</span> and <span class="math notranslate nohighlight">\(y(t)=y_0+(t-t_0) v_y\)</span>.  We then solve <span class="math notranslate nohighlight">\(x^2+y^2=r^2.\)</span>  This gives us a quadratic equation for <span class="math notranslate nohighlight">\(\delta t=t-t_0\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89ac81ae-a0ce-4eda-b6d6-f6ae420634b2">
-<span class="eqno">()<a class="headerlink" href="#equation-89ac81ae-a0ce-4eda-b6d6-f6ae420634b2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4a5f4042-5d91-4c4f-bbba-a3f419951caf">
+<span class="eqno">()<a class="headerlink" href="#equation-4a5f4042-5d91-4c4f-bbba-a3f419951caf" title="Permalink to this equation">#</a></span>\[\begin{align}
 r^2&amp;= x_0^2+y_0^2+ 2\delta t (v_x x_0+ v_y y_0) + \delta t^2 (v_x^2+v_y^2)
 \end{align}\]</div>
 <p>which gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d1e4802-0228-4dd8-bb4f-b2204b469cc0">
-<span class="eqno">()<a class="headerlink" href="#equation-4d1e4802-0228-4dd8-bb4f-b2204b469cc0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0c37adf6-8528-460b-952b-19bc9cfe4828">
+<span class="eqno">()<a class="headerlink" href="#equation-0c37adf6-8528-460b-952b-19bc9cfe4828" title="Permalink to this equation">#</a></span>\[\begin{align}
 \delta t&amp;= \frac{-\vec{v}\cdot \vec{r}_0\pm\sqrt{(\vec{v}\cdot \vec{r}_0)^2-(|r_0|^2-r^2)|v|^2}}{|v|^2}.
 \end{align}\]</div>
 <p>There are then a number of cases:</p>
@@ -1947,8 +1947,8 @@ r^2&amp;= x_0^2+y_0^2+ 2\delta t (v_x x_0+ v_y y_0) + \delta t^2 (v_x^2+v_y^2)
 <section id="sensitive-dependence-on-initial-condidtions">
 <h3>Sensitive dependence on initial condidtions<a class="headerlink" href="#sensitive-dependence-on-initial-condidtions" title="Permalink to this heading">#</a></h3>
 <p>As before, to explore chaos, we want to look at the Jacobian</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5140d6db-04ab-4324-aeb6-e12df535dd96">
-<span class="eqno">()<a class="headerlink" href="#equation-5140d6db-04ab-4324-aeb6-e12df535dd96" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a7a59e87-e722-4bfb-ab01-23b4025146a1">
+<span class="eqno">()<a class="headerlink" href="#equation-a7a59e87-e722-4bfb-ab01-23b4025146a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 J=\left(\begin{array}{cccc}
 \frac{\partial x}{\partial x_0}&amp;
 \frac{\partial x}{\partial y_0}&amp;
