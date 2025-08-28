@@ -1,0 +1,59 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Introduction
+  chapters:
+  - file: Introduction
+  - file: Notebook Workflow
+  - file: Logistics
+  - file: Install
+- caption: Quadratures -- Period of a Pendulum
+  chapters:
+  - file: Period of a pendulum
+  - file: blankLAB Period of a Pendulum
+  - file: Integration Followup
+- caption: Solving Ordinary Differential Equations
+  chapters:
+  - file: Pendulum dynamics
+  - file: blankLAB Projectile Motion
+  - file: Automatic Differentiation
+- caption: Advanced Classical Mechanics
+  chapters:
+  - file: Symplectic Integrators
+  - file: blankLAB Chaos
+  - file: Duffing Oscillator Followup
+  - file: Animating a Pendulum
+  - file: blankLAB Animating the Duffing Oscillator
+  - file: More Duffing
+- caption: Dynamical Systems without differential equations
+  chapters:
+  - file: Billiards
+  - file: blankLAB Interacting Hard Spheres
+  - file: ktheory
+  - file: Hard Sphere Correlation Functions
+- caption: Stochastic Methods
+  chapters:
+  - file: sampling
+  - file: monte carlo integration
+  - file: Metropolis Ising Model
+  - file: Correlation Times
+  - file: Cluster Algorithms
+  - file: blankLAB Wolff
+  - file: Phases and Phase Transitions
+  - file: Binder
+  - file: Renormalization
+# # - file: Spatial Correlations in the Ising Model
+# # - file: Renormalization Group
+# #- caption: Quantum Mechanics
+# #  - file: 2-level Systems
+# #  - file: 1D Schrodinger Equations
+# #  - file: many-body state: product spaces
+# #- caption: Electricity and Magnetism
+# #  - file: Finite Elements
+# #- caption: Working with Data
+# #  - file: Linear Regression
+# #  - file: Non-linear least squares
+# #  - file: Neural Nets
