@@ -24,13 +24,13 @@ DomainError with 0.9999999999990905:
 integrand produced Inf in the interval (0.999999999998181, 1.0)
 
 Stacktrace:
- [1] [0m[1mevalrule[22m[0m[1m([22m[90mf[39m::[0mvar"#11#12", [90ma[39m::[0mFloat64, [90mb[39m::[0mFloat64, [90mx[39m::[0mVector[90m{Float64}[39m, [90mw[39m::[0mVector[90m{Float64}[39m, [90mwg[39m::[0mVector[90m{Float64}[39m, [90mnrm[39m::[0mtypeof(LinearAlgebra.norm)[0m[1m)[22m
+ [1] [0m[1mevalrule[22m[0m[1m([22m[90mf[39m::[0mvar"#9#10", [90ma[39m::[0mFloat64, [90mb[39m::[0mFloat64, [90mx[39m::[0mVector[90m{Float64}[39m, [90mw[39m::[0mVector[90m{Float64}[39m, [90mwg[39m::[0mVector[90m{Float64}[39m, [90mnrm[39m::[0mtypeof(LinearAlgebra.norm)[0m[1m)[22m
 [90m   @[39m [35mQuadGK[39m [90m~/.julia/packages/QuadGK/7rND3/src/[39m[90m[4mevalrule.jl:39[24m[39m
- [2] [0m[1mrefine[22m[0m[1m([22m[90mf[39m::[0mvar"#11#12", [90msegs[39m::[0mVector[90m{QuadGK.Segment{Float64, Float64, Float64}}[39m, [90mI[39m::[0mFloat64, [90mE[39m::[0mFloat64, [90mnumevals[39m::[0mInt64, [90mx[39m::[0mVector[90m{Float64}[39m, [90mw[39m::[0mVector[90m{Float64}[39m, [90mwg[39m::[0mVector[90m{Float64}[39m, [90mn[39m::[0mInt64, [90matol[39m::[0mFloat64, [90mrtol[39m::[0mFloat64, [90mmaxevals[39m::[0mInt64, [90mnrm[39m::[0mtypeof(LinearAlgebra.norm)[0m[1m)[22m
+ [2] [0m[1mrefine[22m[0m[1m([22m[90mf[39m::[0mvar"#9#10", [90msegs[39m::[0mVector[90m{QuadGK.Segment{Float64, Float64, Float64}}[39m, [90mI[39m::[0mFloat64, [90mE[39m::[0mFloat64, [90mnumevals[39m::[0mInt64, [90mx[39m::[0mVector[90m{Float64}[39m, [90mw[39m::[0mVector[90m{Float64}[39m, [90mwg[39m::[0mVector[90m{Float64}[39m, [90mn[39m::[0mInt64, [90matol[39m::[0mFloat64, [90mrtol[39m::[0mFloat64, [90mmaxevals[39m::[0mInt64, [90mnrm[39m::[0mtypeof(LinearAlgebra.norm)[0m[1m)[22m
 [90m   @[39m [35mQuadGK[39m [90m~/.julia/packages/QuadGK/7rND3/src/[39m[90m[4madapt.jl:115[24m[39m
  [3] [0m[1madapt[22m
 [90m   @[39m [90m~/.julia/packages/QuadGK/7rND3/src/[39m[90m[4madapt.jl:96[24m[39m[90m [inlined][39m
- [4] [0m[1mdo_quadgk[22m[0m[1m([22m[90mf[39m::[0mvar"#11#12", [90ms[39m::[0mTuple[90m{Int64, Int64}[39m, [90mn[39m::[0mInt64, [90matol[39m::[0mNothing, [90mrtol[39m::[0mNothing, [90mmaxevals[39m::[0mInt64, [90mnrm[39m::[0mtypeof(LinearAlgebra.norm), [90m_segbuf[39m::[0mNothing, [90meval_segbuf[39m::[0mNothing[0m[1m)[22m
+ [4] [0m[1mdo_quadgk[22m[0m[1m([22m[90mf[39m::[0mvar"#9#10", [90ms[39m::[0mTuple[90m{Int64, Int64}[39m, [90mn[39m::[0mInt64, [90matol[39m::[0mNothing, [90mrtol[39m::[0mNothing, [90mmaxevals[39m::[0mInt64, [90mnrm[39m::[0mtypeof(LinearAlgebra.norm), [90m_segbuf[39m::[0mNothing, [90meval_segbuf[39m::[0mNothing[0m[1m)[22m
 [90m   @[39m [35mQuadGK[39m [90m~/.julia/packages/QuadGK/7rND3/src/[39m[90m[4madapt.jl:87[24m[39m
  [5] [0m[1m(::QuadGK.var"#50#51"{Nothing, Nothing, Int64, Int64, typeof(LinearAlgebra.norm), Nothing, Nothing})[22m[0m[1m([22m[90mf[39m::[0mFunction, [90ms[39m::[0mTuple[90m{Int64, Int64}[39m, ::[0mFunction[0m[1m)[22m
 [90m   @[39m [35mQuadGK[39m [90m~/.julia/packages/QuadGK/7rND3/src/[39m[90m[4mapi.jl:83[24m[39m
@@ -41,5 +41,5 @@ Stacktrace:
  [8] [0m[1mquadgk[22m[0m[1m([22m::[0mFunction, ::[0mInt64, ::[0mInt64[0m[1m)[22m
 [90m   @[39m [35mQuadGK[39m [90m~/.julia/packages/QuadGK/7rND3/src/[39m[90m[4mapi.jl:80[24m[39m
  [9] top-level scope
-[90m   @[39m [90m[4mIn[7]:2[24m[39m
+[90m   @[39m [90m[4mIn[6]:2[24m[39m
 

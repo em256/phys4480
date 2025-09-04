@@ -436,47 +436,47 @@ document.write(`
 <p>We begin our exploration of <em>computational physics</em> with an example from mechanics.  We will consider the motion of a pendulum.</p>
 <p>Imagine a pendulum of length <span class="math notranslate nohighlight">\(L\)</span> is pulled up to make an angle <span class="math notranslate nohighlight">\(\theta\)</span> with respect the the vertical.</p>
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vTwUJDECXEo0ZeyJ-i5zonaMAytMBHm8IfrIwfRnYMoiTKyvSUGirVm9lXpy63JJHaUsopfbYRRZ74J/pub?w=877&amp;h=718"><p>The component of the graviational force which is in the direction of motion is <span class="math notranslate nohighlight">\(F_\parallel=-m g \sin(\theta)\)</span>.  The speed of the bob is <span class="math notranslate nohighlight">\(v=L d\theta/dt\)</span>.  Thus we get equations of motion</p>
-<div class="amsmath math notranslate nohighlight" id="equation-69cfc4ac-b352-4a7f-a31c-aaa1c7376191">
-<span class="eqno">()<a class="headerlink" href="#equation-69cfc4ac-b352-4a7f-a31c-aaa1c7376191" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fc06a25e-31db-4cd4-95a3-8b1574453be6">
+<span class="eqno">()<a class="headerlink" href="#equation-fc06a25e-31db-4cd4-95a3-8b1574453be6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d \theta}{dt}&amp;= \frac{v}{L} \\
 m \frac{d v}{dt}&amp;=-m g \sin(\theta)
 \end{align}\]</div>
 <p>We know the pendulum will swing back and forth.  We want to calculate its period.</p>
 <p>The classic approach is to use energy arguments.  The kinetic energy of the pendulum is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5cfe228e-4eff-4990-93c8-15eeab723112">
-<span class="eqno">()<a class="headerlink" href="#equation-5cfe228e-4eff-4990-93c8-15eeab723112" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9321f8f3-883d-4634-b637-591df88b6f4c">
+<span class="eqno">()<a class="headerlink" href="#equation-9321f8f3-883d-4634-b637-591df88b6f4c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T=\frac{1}{2}m v^2.
 \end{equation}\]</div>
 <p>The potential energy is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b87735c-3aaf-4ee1-b5b4-09b0c9c48b0f">
-<span class="eqno">()<a class="headerlink" href="#equation-0b87735c-3aaf-4ee1-b5b4-09b0c9c48b0f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5eced593-4282-4bb8-9230-ca7c824f562f">
+<span class="eqno">()<a class="headerlink" href="#equation-5eced593-4282-4bb8-9230-ca7c824f562f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U=-mgL \cos(\theta).
 \end{equation}\]</div>
 <p>Then the total energy is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b9f1929c-030b-4bbd-aaae-0981ec3f12ca">
-<span class="eqno">()<a class="headerlink" href="#equation-b9f1929c-030b-4bbd-aaae-0981ec3f12ca" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4ab5904c-b623-4a88-8ca6-ced9ec935cd2">
+<span class="eqno">()<a class="headerlink" href="#equation-4ab5904c-b623-4a88-8ca6-ced9ec935cd2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E=\frac{1}{2}m v^2-mgL \cos(\theta).
 \end{equation}\]</div>
 <p>Since the total energy is conserved we can solve this for the velocity:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ea59563-7893-4c6e-afb9-c23dda743c61">
-<span class="eqno">()<a class="headerlink" href="#equation-2ea59563-7893-4c6e-afb9-c23dda743c61" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c7e69d0d-282a-4347-872e-7ce17c4018cb">
+<span class="eqno">()<a class="headerlink" href="#equation-c7e69d0d-282a-4347-872e-7ce17c4018cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v = \sqrt{\frac{2 E}{m} +2 gL \cos(\theta)}
 \end{equation}\]</div>
 <p>Our argument is slightly simpler if we note that the energy can be related to the maximum angle that the pendulum reaches, <span class="math notranslate nohighlight">\(\theta_m\)</span>, so:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f90e5fce-4c66-4a4d-8964-c6e7638a31ad">
-<span class="eqno">()<a class="headerlink" href="#equation-f90e5fce-4c66-4a4d-8964-c6e7638a31ad" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-91ad1f59-78fc-4a54-8a3f-7f02782bc654">
+<span class="eqno">()<a class="headerlink" href="#equation-91ad1f59-78fc-4a54-8a3f-7f02782bc654" title="Permalink to this equation">#</a></span>\[\begin{equation}
 v = \sqrt{2 g L}\sqrt{\cos(\theta)-\cos(\theta_m)}
 \end{equation}\]</div>
 <p>Next we note that <span class="math notranslate nohighlight">\(v=Ld\theta/dt\)</span> and hence</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5f51e8c7-5a08-4ce8-8340-bea8b4cbfbe7">
-<span class="eqno">()<a class="headerlink" href="#equation-5f51e8c7-5a08-4ce8-8340-bea8b4cbfbe7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9b1c90fd-8f79-4ea4-b631-1c86a307bb90">
+<span class="eqno">()<a class="headerlink" href="#equation-9b1c90fd-8f79-4ea4-b631-1c86a307bb90" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{d\theta}{dt}=
 \sqrt{\frac{2g}{L}}
 \sqrt{\cos(\theta)-\cos(\theta_m})
 \end{equation}\]</div>
 <p>We then note that a quarter period is the time it takes for the pendulum to rise from <span class="math notranslate nohighlight">\(\theta=0\)</span> to <span class="math notranslate nohighlight">\(\theta=\theta_m\)</span>, and hence</p>
-<div class="amsmath math notranslate nohighlight" id="equation-54cf48c6-97fd-4235-81db-b6b1ec34b1dc">
-<span class="eqno">()<a class="headerlink" href="#equation-54cf48c6-97fd-4235-81db-b6b1ec34b1dc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-da2acb7a-779d-4338-923b-061b22fae6eb">
+<span class="eqno">()<a class="headerlink" href="#equation-da2acb7a-779d-4338-923b-061b22fae6eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{T}{4}=\int_{t_0}^{t_m}\!dt=\sqrt{\frac{L}{2g}}\int_0^{\theta_m}\frac{d\theta}{\sqrt{\cos(\theta)-\cos(\theta_m)}}
 \end{equation}\]</div>
 <p>This integral is an <em>elliptic integral</em>.  It has no closed form in terms of more elementary functions.  Thus we need to develop numerical methods to evaluate it.</p>
@@ -486,13 +486,13 @@ v = \sqrt{2 g L}\sqrt{\cos(\theta)-\cos(\theta_m)}
 <h2>Adimensionalizing<a class="headerlink" href="#adimensionalizing" title="Permalink to this heading">#</a></h2>
 <p>A good first step in any numerical calculation is to <em>adimensionalize</em> your equations.  This is actually a good step in analytic work as well.</p>
 <p>We will learn how to systematically do this, but here I know that for small amplitudes the period of a pendulum is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9531abda-2f44-4f92-92d8-2c6b798f3bcf">
-<span class="eqno">()<a class="headerlink" href="#equation-9531abda-2f44-4f92-92d8-2c6b798f3bcf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a0995668-2037-40ac-8d7b-79302df0e2bf">
+<span class="eqno">()<a class="headerlink" href="#equation-a0995668-2037-40ac-8d7b-79302df0e2bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T_{0}=2\pi \sqrt{\frac{L}{g}}.
 \end{equation}\]</div>
 <p>This it makes sense for us to calculate</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9392e457-6124-4eb0-8612-d1e890664e19">
-<span class="eqno">()<a class="headerlink" href="#equation-9392e457-6124-4eb0-8612-d1e890664e19" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7264fa03-f523-4fc0-a987-fc50d4aae884">
+<span class="eqno">()<a class="headerlink" href="#equation-7264fa03-f523-4fc0-a987-fc50d4aae884" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \bar T =\frac{T}{T_0}=\frac{\sqrt{2}}{\pi}\int_0^{\theta_m}\frac{d\theta}{\sqrt{\cos(\theta)-\cos(\theta_m)}}
 \end{equation}\]</div>
 <p>The angle <span class="math notranslate nohighlight">\(\theta_m\)</span> is already dimensionless, so we can leave it as-is.</p>
@@ -1243,25 +1243,25 @@ T_{0}=2\pi \sqrt{\frac{L}{g}}.
 I_n=I_\infty+\epsilon n^{-2}
 \]</div>
 <p>We then multiply by <span class="math notranslate nohighlight">\(n^2\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f0cca0ae-3433-4615-ac5b-14c4e18f2a89">
-<span class="eqno">()<a class="headerlink" href="#equation-f0cca0ae-3433-4615-ac5b-14c4e18f2a89" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b205e0ea-54b5-4881-a5fd-e66b6e639fa0">
+<span class="eqno">()<a class="headerlink" href="#equation-b205e0ea-54b5-4881-a5fd-e66b6e639fa0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 n^2 I_n=n^2 I_\infty+\epsilon
 \end{equation}\]</div>
 <p>We then take two values of <span class="math notranslate nohighlight">\(n\)</span> – say
 <span class="math notranslate nohighlight">\(n=4\)</span> and <span class="math notranslate nohighlight">\(n=8\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ddf5cf18-ec1c-41c9-b179-1bf1bb3a8d51">
-<span class="eqno">()<a class="headerlink" href="#equation-ddf5cf18-ec1c-41c9-b179-1bf1bb3a8d51" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-adeef953-62fe-41eb-b894-193440a30654">
+<span class="eqno">()<a class="headerlink" href="#equation-adeef953-62fe-41eb-b894-193440a30654" title="Permalink to this equation">#</a></span>\[\begin{align}
 4^2 I_4 &amp;= 4^2 I_\infty+\epsilon\\
 8^2 I_8 &amp;= 8^2 I_\infty+\epsilon
 \end{align}\]</div>
 <p>Subtract these</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5abcc6f2-b9d3-451b-81c1-7e4298123674">
-<span class="eqno">()<a class="headerlink" href="#equation-5abcc6f2-b9d3-451b-81c1-7e4298123674" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b15b2205-5e99-4917-989e-9e00217d29e5">
+<span class="eqno">()<a class="headerlink" href="#equation-b15b2205-5e99-4917-989e-9e00217d29e5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 8^2 I_8-4^2 I_4= (8^2-4^2) I_\infty
 \end{equation}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3cee60cc-f0c1-44f7-8882-13121459ff02">
-<span class="eqno">()<a class="headerlink" href="#equation-3cee60cc-f0c1-44f7-8882-13121459ff02" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b06c0ebe-14da-4ee8-846c-4c3e76166c91">
+<span class="eqno">()<a class="headerlink" href="#equation-b06c0ebe-14da-4ee8-846c-4c3e76166c91" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I_\infty= \frac{8^2 I_8-4^2 I_4}{8^2-4^2} =\frac{2^2 I_8-I_4}{2^2-1}
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -1285,8 +1285,8 @@ I_\infty= \frac{8^2 I_8-4^2 I_4}{8^2-4^2} =\frac{2^2 I_8-I_4}{2^2-1}
 <h3>Euler-Maclaurin Summation formula<a class="headerlink" href="#euler-maclaurin-summation-formula" title="Permalink to this heading">#</a></h3>
 <p>A good framework for understanding these approximations in the <strong>Euler-Maclaurin Summation Formula</strong>.  Here is a somewhat formal derivation.  This is mostly for my own amusement – and this <em>derivation</em> contains one or two cheats.</p>
 <p>We will first remind you about series expansions.  Analytic functions can be written in series, such as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9167d01e-4c3c-4f70-bffe-955e74bdd649">
-<span class="eqno">()<a class="headerlink" href="#equation-9167d01e-4c3c-4f70-bffe-955e74bdd649" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9dd6ca48-b098-4ea1-80df-bacf4ad547e5">
+<span class="eqno">()<a class="headerlink" href="#equation-9dd6ca48-b098-4ea1-80df-bacf4ad547e5" title="Permalink to this equation">#</a></span>\[\begin{align}
 e^x&amp;=\sum_j \frac{x^j}{j!}\\
 \frac{1}{1-x}&amp;=\sum_j x^j.
 \end{align}\]</div>
@@ -1395,8 +1395,8 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <p>I claim that <span class="math notranslate nohighlight">\(\Delta\Sigma=I\)</span>, where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix.  To prove this one writes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fe3dfb41-8e6c-41ab-bba1-2b23446620e1">
-<span class="eqno">()<a class="headerlink" href="#equation-fe3dfb41-8e6c-41ab-bba1-2b23446620e1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c5f27c6d-62d3-4214-b6d0-4b4b6cd6d4e1">
+<span class="eqno">()<a class="headerlink" href="#equation-c5f27c6d-62d3-4214-b6d0-4b4b6cd6d4e1" title="Permalink to this equation">#</a></span>\[\begin{align}
 (\Delta\Sigma f)(x)&amp;=(\Sigma f)(x+1)-(\Sigma f)(x)\\
 &amp;=\sum_{n=0}^x f(n) - \sum_{n=0}^{x-1} f(n).
 \end{align}\]</div>
@@ -1435,41 +1435,41 @@ $<span class="math notranslate nohighlight">\(
 <div class="output text_html"><img src="data:image/png;base64,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" /></div></div>
 </div>
 <p>Next we introduce two more operators</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f603ea30-348e-400c-bdc9-9043d8b236a9">
-<span class="eqno">()<a class="headerlink" href="#equation-f603ea30-348e-400c-bdc9-9043d8b236a9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fbaa6965-2738-43d5-b49d-3d4d30bfd1b6">
+<span class="eqno">()<a class="headerlink" href="#equation-fbaa6965-2738-43d5-b49d-3d4d30bfd1b6" title="Permalink to this equation">#</a></span>\[\begin{align}
 (\partial f)(x)&amp;=f'(x)\\
 (\smallint  f)(x)&amp;=\int_0^x f(y)dy.
 \end{align}\]</div>
 <p>The fundamental theorem of calculus states that <span class="math notranslate nohighlight">\(\partial\smallint=  I.\)</span>  As with the <span class="math notranslate nohighlight">\(\Sigma\)</span> and <span class="math notranslate nohighlight">\(\Delta\)</span>, if we reverse the order we get <span class="math notranslate nohighlight">\((\smallint\partial f)(x)=f(x)-f(0)\)</span>.</p>
 <p>Later in the course we will develop the tools to make the functions (functionals?) <span class="math notranslate nohighlight">\(\partial\)</span> and <span class="math notranslate nohighlight">\(\smallint\)</span>.  They are clearly well defined, even if they are harder to construct than <span class="math notranslate nohighlight">\(\Sigma\)</span> and <span class="math notranslate nohighlight">\(\Delta\)</span>.</p>
 <p>We now turn to Taylor’s theorem,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3e30212c-c076-401f-b015-4a48b12e13f3">
-<span class="eqno">()<a class="headerlink" href="#equation-3e30212c-c076-401f-b015-4a48b12e13f3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b2ad4d97-679b-498a-b97b-54aac13f9bca">
+<span class="eqno">()<a class="headerlink" href="#equation-b2ad4d97-679b-498a-b97b-54aac13f9bca" title="Permalink to this equation">#</a></span>\[\begin{align}
 f(x+1)&amp;=f(x)+\sum_{n=1}^\infty \frac{(\partial^n f)(x)}{n!}\\
 &amp;= (e^\partial f)(x).
 \end{align}\]</div>
 <p>Thus Taylor’s theorem can be written as <span class="math notranslate nohighlight">\(\Delta=e^{\partial}-1\)</span></p>
 <p>Putting this together with our previous result, <span class="math notranslate nohighlight">\(\Delta\Sigma=I\)</span> yields</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6004dfb1-9fb0-4522-a5b5-f8a4c8266430">
-<span class="eqno">()<a class="headerlink" href="#equation-6004dfb1-9fb0-4522-a5b5-f8a4c8266430" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f8138983-f22c-4c33-b6ab-abf96a3ec345">
+<span class="eqno">()<a class="headerlink" href="#equation-f8138983-f22c-4c33-b6ab-abf96a3ec345" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Sigma=\frac{1}{e^\partial-1}.
 \end{align}\]</div>
 <p>We will now multiply the right hand side by <span class="math notranslate nohighlight">\(I=\smallint \partial \)</span> to find</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57f1fc90-b6f7-4e97-a47e-343c74832ba0">
-<span class="eqno">()<a class="headerlink" href="#equation-57f1fc90-b6f7-4e97-a47e-343c74832ba0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-319cae2a-feba-4f90-97d8-2f906a7f9cc4">
+<span class="eqno">()<a class="headerlink" href="#equation-319cae2a-feba-4f90-97d8-2f906a7f9cc4" title="Permalink to this equation">#</a></span>\[\begin{align}
 \Sigma=\smallint\frac{\partial}{e^\partial-1} .
 \end{align}\]</div>
 <p>Finally we expand the right hand side in a Taylor series:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d72e3bbb-fdf2-480c-bef9-10b61ba8991d">
-<span class="eqno">()<a class="headerlink" href="#equation-d72e3bbb-fdf2-480c-bef9-10b61ba8991d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ca419ef0-4e60-4b9a-b1ae-16e0d11727fc">
+<span class="eqno">()<a class="headerlink" href="#equation-ca419ef0-4e60-4b9a-b1ae-16e0d11727fc" title="Permalink to this equation">#</a></span>\[\begin{align}
 (\Sigma f)(x)&amp;=\left(\smallint\sum_{j=0}^\infty \frac{B_j}{j!} \partial^j f\right)(x)\\
 &amp;=(\smallint f)(x) + \sum_{j=1}^\infty  \frac{B_j}{j!} \left[(\partial^{j-1} f)(x)-
 (\partial^{j-1} f)(0)
 \right]
 \end{align}\]</div>
 <p>which can be reorganized into the Euler-Maclauren summation formula</p>
-<div class="amsmath math notranslate nohighlight" id="equation-42de9ef9-1d6b-4c6b-a636-1124c6844ef4">
-<span class="eqno">()<a class="headerlink" href="#equation-42de9ef9-1d6b-4c6b-a636-1124c6844ef4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e71f249f-f28c-49b3-890a-01cbec049404">
+<span class="eqno">()<a class="headerlink" href="#equation-e71f249f-f28c-49b3-890a-01cbec049404" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_0^x f(y) dy &amp;= \sum_{y=0}^{x-1} f(y) - \sum_{j=1}^\infty \frac{B_j}{j!} \left[(\partial^{j-1} f)(x)-
 (\partial^{j-1} f)(0)
 \right]\\
@@ -1478,8 +1478,8 @@ f(x+1)&amp;=f(x)+\sum_{n=1}^\infty \frac{(\partial^n f)(x)}{n!}\\
 <p>The first two terms give you the trapezoid rule.  Subsequent terms give you corrections in terms of derivatives of the function at the bounds.</p>
 <p>This may seem strange that knowledge about the behaviour of the function at the boundaries so strongly constrain the integral.  This is a peculiarity of analytic functions.</p>
 <p>Finally we rescale the axis, taking the bounds of the integral to go from <span class="math notranslate nohighlight">\(a\)</span> to <span class="math notranslate nohighlight">\(b\)</span>.  Thus we define <span class="math notranslate nohighlight">\(s=a+b y/n\)</span>, and <span class="math notranslate nohighlight">\(g(s)=f(n(s-a)/b)\)</span>.  Straightforward arithmetic then gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3190b749-ab36-4fc2-a9d6-e9856c6d38b3">
-<span class="eqno">()<a class="headerlink" href="#equation-3190b749-ab36-4fc2-a9d6-e9856c6d38b3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7317af94-56a4-46a6-b14a-9d7c88fe0781">
+<span class="eqno">()<a class="headerlink" href="#equation-7317af94-56a4-46a6-b14a-9d7c88fe0781" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_a^b g(s) ds &amp;= \frac{1}{n}\sum_{m=0}^{n-1} g(s_m) - \sum_{j=1}^\infty \frac{B_j}{j!}\frac{1}{n^j} \left[(\partial^{j-1} g)(b)-
 (\partial^{j-1} g)(a)
 \right]\\
@@ -1932,7 +1932,26 @@ f(x+1)&amp;=f(x)+\sum_{n=1}^\infty \frac{(\partial^n f)(x)}{n!}\\
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nrtrap
+</pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">7</span>
+<span class="s">&quot;x=</span><span class="si">$</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="s">&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;x=8&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><span style="color: red;">Thursday Aug 28 – Lecture End Point</span></strong></p>
 <p><strong>Question?</strong>  Why does it make sense to use that stopping criterion?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>abs(val-oldval)&lt;eps*abs(oldval)
 </pre></div>
@@ -1944,6 +1963,11 @@ f(x+1)&amp;=f(x)+\sum_{n=1}^\infty \frac{(\partial^n f)(x)}{n!}\\
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;ab&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1951,10 +1975,34 @@ f(x+1)&amp;=f(x)+\sum_{n=1}^\infty \frac{(\partial^n f)(x)}{n!}\\
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>converged after 18 iterations
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25000000000363815
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nrtrap</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">^</span><span class="mi">4</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">debug</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span><span class="n">max_divisions</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">eps</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Did</span> <span class="ow">not</span> <span class="n">converge</span> <span class="n">to</span> <span class="n">precision</span> <span class="mf">1.0e-12</span> <span class="n">after</span> <span class="mi">4</span> <span class="n">subdivisions</span><span class="o">.</span>
+<span class="n">Previous</span> <span class="mi">2</span> <span class="n">results</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.2052001953125</span><span class="p">,</span><span class="mf">0.20130157470703125</span><span class="p">)</span>
+
+<span class="n">Try</span> <span class="n">increasing</span> <span class="n">number</span> <span class="n">of</span> <span class="n">divisions</span> <span class="ow">or</span> <span class="n">applying</span> <span class="n">a</span> <span class="n">tranformation</span> <span class="n">to</span> <span class="n">integrand</span><span class="o">.</span>
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">error</span><span class="p">(::</span><span class="n">String</span><span class="p">,</span> <span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="p">::</span><span class="n">String</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">error</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">44</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">nrtrap</span><span class="p">(</span><span class="n">f</span><span class="p">::</span><span class="n">Function</span><span class="p">,</span> <span class="nb">range</span><span class="p">::</span><span class="n">Tuple</span><span class="p">{</span><span class="n">Int64</span><span class="p">,</span> <span class="n">Int64</span><span class="p">};</span> <span class="n">eps</span><span class="p">::</span><span class="n">Float64</span><span class="p">,</span> <span class="n">max_divisions</span><span class="p">::</span><span class="n">Int64</span><span class="p">,</span> <span class="n">debug</span><span class="p">::</span><span class="n">Bool</span><span class="p">)</span>
+   <span class="o">@</span> <span class="n">Main</span> <span class="o">./</span><span class="n">In</span><span class="p">[</span><span class="mi">104</span><span class="p">]:</span><span class="mi">28</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
+   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">109</span><span class="p">]:</span><span class="mi">1</span>
 </pre></div>
 </div>
 </div>
