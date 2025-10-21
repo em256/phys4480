@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 778, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
-    result = await obj
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_client/channels.py", line 315, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
   File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
@@ -20,18 +9,28 @@ Traceback (most recent call last):
     return future.result()
   File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1001, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 802, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 852, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-radlist=collect(0.01:0.0005:0.049)
-@time taulist=[collisiontime(radius=r) for r in radlist]
-scatter(radlist,taulist,xlabel="radius",ylabel="τ",label="")
--------------------
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+g_N100_r01=randomgrid(nx=10,ny=10,r=0.01,Lx=1,Ly=1)
+visualize(g_N100_r01)
+------------------
+
+----- stderr -----
+WARNING: both GLMakie and Plots export "plot"; uses of it in module Main must be qualified
+WARNING: both GLMakie and Plots export "plot!"; uses of it in module Main must be qualified
+------------------
+
+UndefVarError: `plot` not defined
+
+Stacktrace:
+ [1] [0m[1mvisualize[22m[0m[1m([22m[90mopts[39m::[0mBilliard; [90mnamedopts[39m::[0m@Kwargs[90m{}[39m[0m[1m)[22m
+[90m   @[39m [35mMain[39m [90m./[39m[90m[4mIn[1]:177[24m[39m
+ [2] [0m[1mvisualize[22m[0m[1m([22m[90mopts[39m::[0mBilliard[0m[1m)[22m
+[90m   @[39m [35mMain[39m [90m./[39m[90m[4mIn[1]:176[24m[39m
+ [3] top-level scope
+[90m   @[39m [90m[4mIn[3]:2[24m[39m
 
