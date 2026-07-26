@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Notebook Workflow &#8212; PHYS 4480-7680 Computational Physics</title>
   
@@ -17,45 +16,50 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebook Workflow';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -63,6 +67,7 @@
     <link rel="prev" title="Introduction" href="Introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -78,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -98,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -106,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -123,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -153,21 +147,17 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS 4480-7680 Computational Physics - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -181,9 +171,14 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Notebook Workflow</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
 <ul class="nav bd-sidenav">
@@ -228,6 +223,9 @@
 <li class="toctree-l1"><a class="reference internal" href="Cluster%20Algorithms.html">Cluster Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Wolff.html">Lab – Wolff Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Binder.html">Binder Cumulants and the Scaling Hypothesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Renormalization.html">The Renormalization group</a></li>
+
 </ul>
 
     </div>
@@ -236,9 +234,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -269,6 +272,21 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+<a href="https://github.com/em256/phys4480" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -335,24 +353,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -376,12 +386,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Notebook Workflow</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-notebooks">Development notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-notebooks">Presentation notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-notebooks">Production notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">Scripts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">Jupyterlab</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode">VSCode</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#other-ides">Other IDEs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-workflow">AI workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turning-off-ai-tab-completion-suggestions-in-vscode">Turning off AI “tab completion” suggestions in VSCode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-engineering">Prompt Engineering</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -393,33 +416,83 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="notebook-workflow">
-<h1>Notebook Workflow<a class="headerlink" href="#notebook-workflow" title="Permalink to this heading">#</a></h1>
+<h1>Notebook Workflow<a class="headerlink" href="#notebook-workflow" title="Link to this heading">#</a></h1>
 <p>In this course I set things up using <strong>Jupyter Notebooks</strong>.  I will use these for lectures and assignments.  I find that this is a good workflow for scientific computing.  For a big project I will use notebooks in several different ways.</p>
 <section id="development-notebooks">
-<h2>Development notebooks<a class="headerlink" href="#development-notebooks" title="Permalink to this heading">#</a></h2>
+<h2>Development notebooks<a class="headerlink" href="#development-notebooks" title="Link to this heading">#</a></h2>
 <p>These are like lab notebooks.  You use them as scratch space to try out ideas.  Once you have working code, you encapsulate it in functions.  You then leave a record of testing the functions.</p>
-<p>After the development is complete, and you are ready for production, you either copy the code into a new production notebook, or you copy it into a text file “whatever.jl”.  You can load that code into your production notebook with <code class="docutils literal notranslate"><span class="pre">include(&quot;whatever.jl&quot;)</span></code>.  If it is a more sophisticated set of tools, you can turn it into a <a href="https://docs.julialang.org/en/v1/manual/modules/#modules">package</a> and import using <code class="docutils literal notranslate"><span class="pre">typing</span> <span class="pre">whatever</span></code>.</p>
+<p>After the development is complete, and you are ready for production, you either copy the code into a new production notebook, or you copy it into a text file “whatever.jl”.  You can load that code into your production notebook with <code class="docutils literal notranslate"><span class="pre">include(&quot;whatever.jl&quot;)</span></code>.  If it is a more sophisticated set of tools, you can turn it into a <a href="https://docs.julialang.org/en/v1/manual/modules/#modules">package</a> and import by typing <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">whatever</span></code>.</p>
 <p>You can extract the code from a development notebook by clicking on <code class="docutils literal notranslate"><span class="pre">File</span></code>, and selecting <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">as</span> <span class="pre">.jl</span></code>.</p>
 <p>Some people like to have both a text editor and a notebook open at one time.  They make edits to the <code class="docutils literal notranslate"><span class="pre">.jl</span></code> file, and lode it in with <code class="docutils literal notranslate"><span class="pre">include</span></code>.  They then do all of their interactive debugging in the notebook.</p>
 <p>Every once and a while you need to clean up your development notebook – or even copy it over to a completely new notebook to get rid of all the dead ends.  It is good practice, however, to leave in place the work you did to verify that everything is working correctly.  That way if you make a change you can run the same tests.  This is an informal version of the “unit test” paradigm.</p>
 </section>
 <section id="presentation-notebooks">
-<h2>Presentation notebooks<a class="headerlink" href="#presentation-notebooks" title="Permalink to this heading">#</a></h2>
-<p>You often want to share your code and results with collaborators.  One strategy is to use <strong>presentation notebooks</strong>.  This is similar to my lectures.  You put fully debugged code (or <code class="docutils literal notranslate"><span class="pre">include</span></code> it from text files), and run the relevant parts of it to illustrate the physics.  One can tweak it on the fly to do further explorations.</p>
+<h2>Presentation notebooks<a class="headerlink" href="#presentation-notebooks" title="Link to this heading">#</a></h2>
+<p>You often want to share your code and results with collaborators.  One strategy is to use <strong>presentation notebooks</strong>.  This is similar to my lectures.  You put fully debugged code (or <code class="docutils literal notranslate"><span class="pre">include</span></code> it from text files), and run the relevant parts of it to illustrate the physics.  One can tweak it on the fly to do further explorations – and include dynamical GUI’s where you push sliders around.</p>
 <p>Static views of the notebook can be shared by using <a href="https://nbviewer.org">nbviewer</a>.  Dynamic views can be shared using web services like <a href="https://mybinder.org">binder</a>.</p>
 </section>
 <section id="production-notebooks">
-<h2>Production notebooks<a class="headerlink" href="#production-notebooks" title="Permalink to this heading">#</a></h2>
+<h2>Production notebooks<a class="headerlink" href="#production-notebooks" title="Link to this heading">#</a></h2>
 <p>Once you have working code, you often want to keep the production runs separate from the development work.  For code that runs relatively quickly (minutes to hours), you can comfortably do this from notebooks.  Make sure that any data which takes more than a couple minutes to produce is saved to disk.  Don’t rely on the notebook’s record as a way to save data.</p>
 <p>Either copy your development code to the production notebook, or load it in with <code class="docutils literal notranslate"><span class="pre">include</span></code>.</p>
 </section>
 <section id="scripts">
-<h2>Scripts<a class="headerlink" href="#scripts" title="Permalink to this heading">#</a></h2>
+<h2>Scripts<a class="headerlink" href="#scripts" title="Link to this heading">#</a></h2>
 <p>If you are going to be running code overnight, or you might be running on multiple machines, then it is convenient to use scripts instead of a notebook.  Put all of the code in a <code class="docutils literal notranslate"><span class="pre">whatever.jl</span></code> file, and run it with <code class="docutils literal notranslate"><span class="pre">julia</span> <span class="pre">whatever.jl</span></code>.  Make sure that any data is saved to a file.  If you are using a Unix environment (including linux or Mac OSX), you can redirect standard output and standard error into text files by <code class="docutils literal notranslate"><span class="pre">julia</span> <span class="pre">code.jl</span> <span class="pre">&gt;code.out</span> <span class="pre">2&gt;code.err</span></code>.  I would recommend against using standard output for results.</p>
 </section>
 <section id="jupyterlab">
-<h2>Jupyterlab<a class="headerlink" href="#jupyterlab" title="Permalink to this heading">#</a></h2>
-<p>We will often work with our notebooks within the environment called “Jupyterlab”.  It provides a graphical interface with Jupyter notebooks, text files, interactive sessions and output windows.</p>
+<h2>Jupyterlab<a class="headerlink" href="#jupyterlab" title="Link to this heading">#</a></h2>
+<p>In the past I have had students work with our notebooks within the environment called “Jupyterlab”.  It provides a graphical interface with Jupyter notebooks, text files, interactive sessions and output windows. It is a good cross-platform option for working with notebooks.</p>
+<p>This semester I would like to jump between <code class="docutils literal notranslate"><span class="pre">Jupyterlab</span></code> and <code class="docutils literal notranslate"><span class="pre">VSCode</span></code>.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vscode">
+<h1>VSCode<a class="headerlink" href="#vscode" title="Link to this heading">#</a></h1>
+<p>This semester I am going to sometimes use <code class="docutils literal notranslate"><span class="pre">VSCode</span></code> to present my notebooks, and at times encourage students to use it for working with them.  The main reason for doing this is that it integrates well with AI tools.</p>
+<div style="border: 1px solid #b8c2cc; border-radius: 8px; padding: 14px 16px; background-color: #f7f9fb;">
+<p><strong>Installing VSCode</strong></p>
+<p>Go to the <a href="https://code.visualstudio.com/Download">Visual Studio Code download page</a> and choose the version for your operating system (<code>macOS</code>, <code>Windows</code>, or <code>Linux</code>). Download the installer and run it.</p>
+<p>On a Mac, open the downloaded <code>.zip</code>, drag <code>Visual Studio Code.app</code> into your <code>Applications</code> folder, and then launch it. On Windows, run the installer and accept the default options. On Linux, install from the package provided for your distribution.</p>
+<p>After opening <code>VSCode</code>, install the <code>Jupyter</code> and <code>Julia</code> extensions from the Extensions panel so that you can open notebooks and run Julia code inside them.</p>
+<p><it><small>These instructions were written by AI (Copilot):  prompt "Create a markdown cell which explains how to download and install VSCode.  Display it as a box"</small></it></p>
+</div></section>
+<section class="tex2jax_ignore mathjax_ignore" id="other-ides">
+<h1>Other IDEs<a class="headerlink" href="#other-ides" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">VSCode</span></code> is a light-weight “Integrated Design Environment.”  There are, however, a large number of other options, and I encourage you to explore some of them.</p>
+<section id="ai-workflow">
+<h2>AI workflow<a class="headerlink" href="#ai-workflow" title="Link to this heading">#</a></h2>
+<p>We are going at times to work with <code class="docutils literal notranslate"><span class="pre">GitHub</span> <span class="pre">Copilot</span></code> which gives access to a range of AI models.</p>
+<div style="border: 1px solid #b8c2cc; border-radius: 8px; padding: 14px 16px; background-color: #f7f9fb;">
+<p><strong></strong></p>
+<p>Signing up for Copilot through GitHub Education.</p> <ol> <li> <strong>Create a GitHub account</strong><br> Go to <a href="https://github.com" target="_blank" rel="noopener noreferrer">github.com</a> and make an account if you do not already have one. </li> <li> <strong>Complete your GitHub profile</strong><br> Add your full name and a profile photo in account settings. This can help with student verification. </li> <li> <strong>Go to GitHub Education</strong><br> Open <a href="https://education.github.com" target="_blank" rel="noopener noreferrer">education.github.com</a> and find the student benefits application. </li> <li> <strong>Apply as a student</strong><br> Start the student application and sign in with your GitHub account. </li> <li> <strong>Submit proof of student status</strong><br> You may be asked for one or more of the following: <ul> <li>A school-issued email address</li> <li>A student ID</li> <li>A class schedule or enrollment letter showing the current term</li> </ul> </li> <li> <strong>Fill in all school details carefully</strong><br> Enter your school name and expected graduation date exactly as shown on your documents. If uploading images, make sure they are clear and readable. </li> <li> <strong>Wait for approval</strong><br> GitHub will email you when your application is approved. Approval is often quick, but it may take a few days. </li> <li> <strong>Activate your Copilot student benefit</strong><br> After approval, go to your GitHub account benefits or billing area and enable Copilot. </li> <li> <strong>Set up Copilot in VS Code</strong><br> Install the GitHub Copilot extension in VS Code and sign in with the same approved GitHub account. </li> <li> <strong>Verify it works</strong><br> Open a code file and check that Copilot is active by trying a suggestion or chat prompt. </li> </ol> <hr> <h3>Troubleshooting</h3> <ul> <li><strong>School email not accepted:</strong> Use document-based verification instead.</li> <li><strong>Application delayed:</strong> Recheck email (including spam) for messages from GitHub.</li> <li><strong>Copilot still locked after approval:</strong> Sign out and back in to GitHub in VS Code, then refresh account benefits.</li> <li><strong>Wrong account in VS Code:</strong> Make sure VS Code is signed into the same GitHub account that received student approval.</li> </ul>
+<p><it><small>These instructions were written by AI (Copilot):  prompt "Can you write instructions for signing up for github copilot's education plan?"  They look pretty low quality to me, but
+should be enough to get you started.</small></it></p>
+</div><p>You may want to install <code class="docutils literal notranslate"><span class="pre">Copilot</span> <span class="pre">CLI</span></code> which is the stand-alone client, so you can access copilot outside of VS Code.  You may find <code class="docutils literal notranslate"><span class="pre">Copilot</span> <span class="pre">CLI</span></code> good for general purpose computer debugging.  For example using a prompt like “I have and old Anaconda distribution that I use for Jupyter.  I installed IJulia, but the Julia kernel is not appearing in the notebook.  How can I fix this?”</p>
+<section id="turning-off-ai-tab-completion-suggestions-in-vscode">
+<h3>Turning off AI “tab completion” suggestions in VSCode<a class="headerlink" href="#turning-off-ai-tab-completion-suggestions-in-vscode" title="Link to this heading">#</a></h3>
+<p>Inside VSCode there are a number of ways to interact with the AI.  One is context based:  As you type it will make suggestions.  A second is that you can open a chat menu.  You open it by clicking on an icon at the top of the page.  Inside the chat you can select the type of interaction that you want:  Agent, Ask, or Plan.  You can also select which model you use.  The different models have varying degrees of competence and varying degrees of cost.  Getting a clear story about them is tough.  Roughly speaking the more expensive the model the more competent it is likely to be.  The models are also constantly changing, so it is not clear how useful any advice that I give you will be.</p>
+<p>When you install Copilot with VSCode it has an interesting feature where it does “tab completion”.  As you type it will make suggestions for the code.  You just type “tab” if you want to accept the suggestions.</p>
+<p>I find these inline AI suggestions to be impressive, but also distracting.  Sometimes I am amazed that it seems to know what I am going to type.  More often I find that it is just visual clutter.  To turn off these suggestions you can click on the button on the bottom right of the screen:</p>
+<p><img alt="Disable completion" src="https://raw.githubusercontent.com/em256/phys4480/main/diablecompletion.png" /></p>
+<p>I read somewhere that for the GitHub copilot education benefits you get unlimited tab completion, with no token use.  Again, I find this more anoying than helpful, but your mileage may vary.</p>
+</section>
+</section>
+<section id="prompt-engineering">
+<h2>Prompt Engineering<a class="headerlink" href="#prompt-engineering" title="Link to this heading">#</a></h2>
+<p>A good strategy for writing prompts is to start with giving the context.  Then give the general goal.  Finish up with details.</p>
+<p>You can try to tailor things exactly for your use case.  For example:</p>
+<blockquote>
+<div><p>I am a student in a computational physics class.  I am working through a structured Jupyter notebook which is guiding me through writing a program to simulate the kinetics of a gas of hard spheres.  I am stuck on a question which is asking me to find the time that it would take for a ball to reach the wall.  I am trying to figure out the best way to implement this.  Can you make suggestions?  I am trying to learn how to do this, so please do not simply give me the answer.</p>
+</div></blockquote>
+<p>The most common thing you might do is</p>
+<blockquote>
+<div><p>Can you explain the error message</p>
+</div></blockquote>
+<p>or</p>
+<blockquote>
+<div><p>Can you fix the error which lead to that error message</p>
+</div></blockquote>
+<p>The AI integrated into VSCode can edit your notebooks, and can find the error messages.</p>
 </section>
 </section>
 
@@ -478,7 +551,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -487,12 +561,25 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Notebook Workflow</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-notebooks">Development notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-notebooks">Presentation notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-notebooks">Production notebooks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts">Scripts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">Jupyterlab</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode">VSCode</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#other-ides">Other IDEs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-workflow">AI workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turning-off-ai-tab-completion-suggestions-in-vscode">Turning off AI “tab completion” suggestions in VSCode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-engineering">Prompt Engineering</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
@@ -516,7 +603,7 @@ By Erich Mueller
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -540,8 +627,8 @@ By Erich Mueller
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

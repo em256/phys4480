@@ -1,17 +1,24 @@
 Traceback (most recent call last):
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
   File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
     return loop.run_until_complete(inner)
   File "/Users/emueller/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
     return future.result()
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -24,22 +31,22 @@ DomainError with 0.9999999999990905:
 integrand produced Inf in the interval (0.999999999998181, 1.0)
 
 Stacktrace:
- [1] evalrule(f::var"#13#14", a::Float64, b::Float64, x::Vector{Float64}, w::Vector{Float64}, gw::Vector{Float64}, nrm::typeof(LinearAlgebra.norm))
-   @ QuadGK ~/.julia/packages/QuadGK/OtnWt/src/evalrule.jl:37
- [2] refine(f::var"#13#14", segs::Vector{QuadGK.Segment{Float64, Float64, Float64}}, I::Float64, E::Float64, numevals::Int64, x::Vector{Float64}, w::Vector{Float64}, gw::Vector{Float64}, n::Int64, atol::Float64, rtol::Float64, maxevals::Int64, nrm::typeof(LinearAlgebra.norm))
-   @ QuadGK ~/.julia/packages/QuadGK/OtnWt/src/adapt.jl:71
+ [1] evalrule(f::var"#11#12", a::Float64, b::Float64, x::Vector{Float64}, w::Vector{Float64}, wg::Vector{Float64}, nrm::typeof(LinearAlgebra.norm))
+   @ QuadGK ~/.julia/packages/QuadGK/rjZYB/src/evalrule.jl:39
+ [2] refine(f::var"#11#12", segs::Vector{QuadGK.Segment{Float64, Float64, Float64}}, I::Float64, E::Float64, numevals::Int64, x::Vector{Float64}, w::Vector{Float64}, wg::Vector{Float64}, n::Int64, atol::Float64, rtol::Float64, maxevals::Int64, nrm::typeof(LinearAlgebra.norm))
+   @ QuadGK ~/.julia/packages/QuadGK/rjZYB/src/adapt.jl:115
  [3] adapt
-   @ ~/.julia/packages/QuadGK/OtnWt/src/adapt.jl:52 [inlined]
- [4] do_quadgk(f::var"#13#14", s::Tuple{Int64, Int64}, n::Int64, atol::Nothing, rtol::Nothing, maxevals::Int64, nrm::typeof(LinearAlgebra.norm), segbuf::Nothing)
-   @ QuadGK ~/.julia/packages/QuadGK/OtnWt/src/adapt.jl:44
- [5] #50
-   @ ~/.julia/packages/QuadGK/OtnWt/src/adapt.jl:253 [inlined]
- [6] handle_infinities(workfunc::QuadGK.var"#50#51"{Nothing, Nothing, Int64, Int64, typeof(LinearAlgebra.norm), Nothing}, f::var"#13#14", s::Tuple{Int64, Int64})
-   @ QuadGK ~/.julia/packages/QuadGK/OtnWt/src/adapt.jl:145
- [7] quadgk(::Function, ::Int64, ::Vararg{Int64}; atol::Nothing, rtol::Nothing, maxevals::Int64, order::Int64, norm::Function, segbuf::Nothing)
-   @ QuadGK ~/.julia/packages/QuadGK/OtnWt/src/adapt.jl:252
- [8] quadgk(::Function, ::Int64, ::Vararg{Int64})
-   @ QuadGK ~/.julia/packages/QuadGK/OtnWt/src/adapt.jl:250
+   @ ~/.julia/packages/QuadGK/rjZYB/src/adapt.jl:96 [inlined]
+ [4] do_quadgk(f::var"#11#12", s::Tuple{Int64, Int64}, n::Int64, atol::Nothing, rtol::Nothing, maxevals::Int64, nrm::typeof(LinearAlgebra.norm), _segbuf::Nothing, eval_segbuf::Nothing)
+   @ QuadGK ~/.julia/packages/QuadGK/rjZYB/src/adapt.jl:87
+ [5] (::QuadGK.var"#50#51"{Nothing, Nothing, Int64, Int64, typeof(LinearAlgebra.norm), Nothing, Nothing})(f::Function, s::Tuple{Int64, Int64}, ::Function)
+   @ QuadGK ~/.julia/packages/QuadGK/rjZYB/src/api.jl:83
+ [6] handle_infinities
+   @ ~/.julia/packages/QuadGK/rjZYB/src/adapt.jl:189 [inlined]
+ [7] #quadgk#49
+   @ ~/.julia/packages/QuadGK/rjZYB/src/api.jl:82 [inlined]
+ [8] quadgk(::Function, ::Int64, ::Int64)
+   @ QuadGK ~/.julia/packages/QuadGK/rjZYB/src/api.jl:80
  [9] top-level scope
    @ In[7]:2
 

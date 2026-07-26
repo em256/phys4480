@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Stochastic approaches to integration &#8212; PHYS 4480-7680 Computational Physics</title>
   
@@ -17,45 +16,50 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'monte carlo integration';</script>
@@ -65,6 +69,7 @@
     <link rel="prev" title="Stochastic Methods" href="sampling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -80,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -100,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -108,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -125,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -155,21 +149,17 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS 4480-7680 Computational Physics - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -183,9 +173,14 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
 <ul class="nav bd-sidenav">
@@ -230,6 +225,9 @@
 <li class="toctree-l1"><a class="reference internal" href="Cluster%20Algorithms.html">Cluster Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Wolff.html">Lab – Wolff Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Binder.html">Binder Cumulants and the Scaling Hypothesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Renormalization.html">The Renormalization group</a></li>
+
 </ul>
 
     </div>
@@ -238,9 +236,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -271,6 +274,21 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+<a href="https://github.com/em256/phys4480" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -337,24 +355,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -393,25 +403,25 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="stochastic-approaches-to-integration">
-<h1>Stochastic approaches to integration<a class="headerlink" href="#stochastic-approaches-to-integration" title="Permalink to this heading">#</a></h1>
+<h1>Stochastic approaches to integration<a class="headerlink" href="#stochastic-approaches-to-integration" title="Link to this heading">#</a></h1>
 <p>Here we will revisit our discussion of numerical integration, and think about how we can use sampling to approximate integrals.</p>
 <section id="expectation-values-from-sampling">
-<h2>Expectation values from sampling<a class="headerlink" href="#expectation-values-from-sampling" title="Permalink to this heading">#</a></h2>
+<h2>Expectation values from sampling<a class="headerlink" href="#expectation-values-from-sampling" title="Link to this heading">#</a></h2>
 <p>Last lecture we discussed how to sample from probability distributions, but we totally avoided the question of why we might want to do such sampling.  The obvious answer is that we want to understand spome property of the distribution.</p>
 <p>For example, when we were discussing the hard disc gas we argued that because of the ergodic dynamics all valid configurations were equally likely.  Thus we should be able to calculate the pair correlation functions by simply sampling all valid configurations.</p>
 <p>In the end, anything we end up calculating can be expressed as some sort of expectation value.  Suppose we have a set of states <span class="math notranslate nohighlight">\(j\)</span>, which occur with probability <span class="math notranslate nohighlight">\(p_j\)</span>.  We then have some quantity <span class="math notranslate nohighlight">\(X_j\)</span> which depends on the state.  The expectation value is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b887b9f5-b3ac-4de3-aabd-a70fe50ca395">
-<span class="eqno">(147)<a class="headerlink" href="#equation-b887b9f5-b3ac-4de3-aabd-a70fe50ca395" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b0e68e79-8b91-4344-8ddc-e83c2c9ce4bf">
+<span class="eqno">(140)<a class="headerlink" href="#equation-b0e68e79-8b91-4344-8ddc-e83c2c9ce4bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle X\rangle = \sum_j p_j X_j.
 \end{equation}\]</div>
 <p>We can approximate this expectation value by taking a sample of <span class="math notranslate nohighlight">\(N\)</span> states,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-11a4dc88-e445-4332-a538-1917d9bcb1eb">
-<span class="eqno">(148)<a class="headerlink" href="#equation-11a4dc88-e445-4332-a538-1917d9bcb1eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6056b656-1e50-43a1-8823-83f62c82286b">
+<span class="eqno">(141)<a class="headerlink" href="#equation-6056b656-1e50-43a1-8823-83f62c82286b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 X^{\rm est}_N = \frac{1}{N} \sum_{\alpha=1}^N X_{j_\alpha}
 \end{equation}\]</div>
 <p>here <span class="math notranslate nohighlight">\(\alpha\)</span> labels the realizations, and <span class="math notranslate nohighlight">\(j_\alpha\)</span> is the state in that realization.  We will often shorten this to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8f80ac0-8cb0-44c6-a7b5-6ea1a8520bf9">
-<span class="eqno">(149)<a class="headerlink" href="#equation-f8f80ac0-8cb0-44c6-a7b5-6ea1a8520bf9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2f07cb7b-2913-480c-8aaa-cd49d4e56c23">
+<span class="eqno">(142)<a class="headerlink" href="#equation-2f07cb7b-2913-480c-8aaa-cd49d4e56c23" title="Permalink to this equation">#</a></span>\[\begin{equation}
 X^{\rm est}_N = \frac{1}{N} \sum_{\alpha=1}^N X_\alpha.
 \end{equation}\]</div>
 <p>This notation is somewhat confusing, though, as the probability distribution doesn’t appear anywhere in it.  The point is, however, that the <span class="math notranslate nohighlight">\(j\)</span>’s are drawn from it.
@@ -523,8 +533,8 @@ One often calls <span class="math notranslate nohighlight">\(X^{\rm est}_N\)</sp
 </div></div>
 </div>
 <p>Lets now estimate</p>
-<div class="amsmath math notranslate nohighlight" id="equation-df2dce12-2e3a-492f-96d4-3ec5d70fce08">
-<span class="eqno">(150)<a class="headerlink" href="#equation-df2dce12-2e3a-492f-96d4-3ec5d70fce08" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cf5595fe-97b9-4e02-8a57-cc01eac1b511">
+<span class="eqno">(143)<a class="headerlink" href="#equation-cf5595fe-97b9-4e02-8a57-cc01eac1b511" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle j\rangle &amp;= \sum_j p_j j\\
 &amp;= \frac{\sum_j j^2}{\sum_j j}\\
 \end{align}\]</div>
@@ -1034,28 +1044,28 @@ One often calls <span class="math notranslate nohighlight">\(X^{\rm est}_N\)</sp
 </div></div>
 </div>
 <p>We understand this result by looking at the expectation value and standard deviation of our sample estimator</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31a18aac-4187-415f-8f94-ad3bf43371ce">
-<span class="eqno">(151)<a class="headerlink" href="#equation-31a18aac-4187-415f-8f94-ad3bf43371ce" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-02eb7950-70c4-4346-b8ee-22960e5ccc99">
+<span class="eqno">(144)<a class="headerlink" href="#equation-02eb7950-70c4-4346-b8ee-22960e5ccc99" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle X^{\rm est}_N \rangle &amp;= \frac{1}{N} \sum_{\alpha=1}^N \langle X_\alpha\rangle\\
 &amp;= \langle X\rangle
 \end{align}\]</div>
 <p>Thus on average the estimator is a good approximation to the mean.  The spread is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-04692c2d-ff86-45f9-a6c8-8b08746e7be9">
-<span class="eqno">(152)<a class="headerlink" href="#equation-04692c2d-ff86-45f9-a6c8-8b08746e7be9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d7958ced-a2ca-4e7b-a053-980fef431832">
+<span class="eqno">(145)<a class="headerlink" href="#equation-d7958ced-a2ca-4e7b-a053-980fef431832" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle (X^{\rm est}_N - \bar{X})^2 \rangle &amp;= \frac{1}{N^2} 
 \sum_{\alpha=1}^N \sum_{\beta=1}^N \langle (X_\alpha-\bar X)(X_\beta-\bar X\rangle
 \end{align}\]</div>
 <p>where for notational simplicity we have written <span class="math notranslate nohighlight">\(\bar{X}=\langle X\rangle\)</span>.</p>
 <p>Now if the samples are uncorrelated the only non-zero terms have <span class="math notranslate nohighlight">\(\alpha=\beta\)</span> and the sum becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31abe7a8-10b4-44c2-a65f-0283b91b98c4">
-<span class="eqno">(153)<a class="headerlink" href="#equation-31abe7a8-10b4-44c2-a65f-0283b91b98c4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f8b4476a-bfe5-4c04-a3c5-c22b53feca64">
+<span class="eqno">(146)<a class="headerlink" href="#equation-f8b4476a-bfe5-4c04-a3c5-c22b53feca64" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle (X^{\rm est}_N - \bar{X})^2 \rangle 
 &amp;=\frac{1}{N^2} \sum_{\alpha=1}^N \langle (X_\alpha-\bar X)^\rangle\\
 &amp;=\frac{\sigma^2}{N}
 \end{align}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4848fcde-53d9-44b0-8ed6-fa854e8e0d5a">
-<span class="eqno">(154)<a class="headerlink" href="#equation-4848fcde-53d9-44b0-8ed6-fa854e8e0d5a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-be9623f4-0731-4c02-a616-7db2dc8af206">
+<span class="eqno">(147)<a class="headerlink" href="#equation-be9623f4-0731-4c02-a616-7db2dc8af206" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sigma^2 &amp;= \langle X^2\rangle-\langle X\rangle^2
 \end{align}\]</div>
 <p>is the population standard deviation.</p>
@@ -1378,8 +1388,8 @@ One often calls <span class="math notranslate nohighlight">\(X^{\rm est}_N\)</sp
 </div>
 <p>Now typically we don’t know what the population standard deviation is.  However, we can estimate it from the sample standard deviation.  Intuitively, it should be well approximated by the sample standard deviation.</p>
 <p>More precisely, however</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c22ccb4-53dc-435b-bc82-5e778750e7b8">
-<span class="eqno">(155)<a class="headerlink" href="#equation-9c22ccb4-53dc-435b-bc82-5e778750e7b8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b165760c-f8b2-4773-8516-bd9b9f88344d">
+<span class="eqno">(148)<a class="headerlink" href="#equation-b165760c-f8b2-4773-8516-bd9b9f88344d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sigma_{\rm sample}^2&amp;= \frac{1}{N}\sum_\alpha (X_\alpha-X_N^{\rm est})^2\\
 &amp;=\frac{1}{N}\sum_\alpha (X_\alpha-\bar X)^2 
 + 2 X_\alpha (\bar X -X_N^{\rm est})
@@ -1388,26 +1398,26 @@ One often calls <span class="math notranslate nohighlight">\(X^{\rm est}_N\)</sp
 &amp;= \left(\frac{1}{N}\sum_\alpha (X_\alpha-\bar X)^2\right) +2 X_N^{\rm est}\bar X - (X_N^{\rm est})^2 - \bar X^2
 \end{align}\]</div>
 <p>On average we then have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73efb23c-88b0-4945-a926-b4f4fdc5d137">
-<span class="eqno">(156)<a class="headerlink" href="#equation-73efb23c-88b0-4945-a926-b4f4fdc5d137" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-006a1f47-3190-4eac-b73b-4a155b4b0b08">
+<span class="eqno">(149)<a class="headerlink" href="#equation-006a1f47-3190-4eac-b73b-4a155b4b0b08" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle \sigma_{\rm sample}^2\rangle &amp;= \sigma^2 +\bar X^2 - \langle (X_N^{\rm est})^2 \langle (X_N^{\rm est})^2\rangle-\bar X^2\\
 &amp;= \sigma^2 -\frac{\sigma^2}{N}.
 \end{align}\]</div>
 <p>Thus our best estimate of the population standard deviation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d92935a7-390e-48a8-bcfe-27ee80ca76be">
-<span class="eqno">(157)<a class="headerlink" href="#equation-d92935a7-390e-48a8-bcfe-27ee80ca76be" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f9643d74-9b20-40be-a807-4e594f9f9cb0">
+<span class="eqno">(150)<a class="headerlink" href="#equation-f9643d74-9b20-40be-a807-4e594f9f9cb0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sigma^2&amp;=\langle\sigma_{\rm sample}^2\rangle\left(\frac{N}{N-1}\right)\\
 &amp;=\frac{1}{N-1} \sum_\alpha (X_\alpha-X_N^{\rm est})^2
 \end{align}\]</div>
 <p>We are always going to be using a large enough <span class="math notranslate nohighlight">\(N\)</span> that we don’t really need to worry about the difference between <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(N-1\)</span>.</p>
 <p>To reitterate, to estimate the error of our mean, we first calculate the standard deviation of our sample.  We then divide by the square root of the number of realizations (or <span class="math notranslate nohighlight">\(N-1\)</span>).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5edcb19b-eac1-4e31-a0bf-1c0be679047b">
-<span class="eqno">(158)<a class="headerlink" href="#equation-5edcb19b-eac1-4e31-a0bf-1c0be679047b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2dbd83da-1710-415f-a673-79c1e0ba1c00">
+<span class="eqno">(151)<a class="headerlink" href="#equation-2dbd83da-1710-415f-a673-79c1e0ba1c00" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mbox{estimated error in mean}\approx \frac{\sigma_{\rm{sample}}}{\sqrt{N-1}}
 \end{equation}\]</div>
 </section>
 <section id="correlated-sampling">
-<h2>Correlated Sampling<a class="headerlink" href="#correlated-sampling" title="Permalink to this heading">#</a></h2>
+<h2>Correlated Sampling<a class="headerlink" href="#correlated-sampling" title="Link to this heading">#</a></h2>
 <p>Now what happens if we have a correlated sample.  For example, we use a Markov chain to sample the same distribution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2407,8 +2417,8 @@ One often calls <span class="math notranslate nohighlight">\(X^{\rm est}_N\)</sp
 <p>We can quantify the correlations by the expectation value
 <span class="math notranslate nohighlight">\(C_{\alpha\beta}=\langle j_\alpha j_\beta\rangle\)</span>.  This means we run our Markov chain.  Multiply the <span class="math notranslate nohighlight">\(\alpha\)</span>’th value of <span class="math notranslate nohighlight">\(j\)</span> by the <span class="math notranslate nohighlight">\(\beta\)</span>’th.  We then repeat this numerical experiment over and over again.</p>
 <p>Once things are in steady state we expect <span class="math notranslate nohighlight">\(C_{\alpha\beta}=C(\alpha-\beta)\)</span> to only be a function of the difference between these times.  Thus it makes sense to average over multiple times</p>
-<div class="amsmath math notranslate nohighlight" id="equation-426dc58d-9c52-4716-8b22-34d3328c2d7c">
-<span class="eqno">(159)<a class="headerlink" href="#equation-426dc58d-9c52-4716-8b22-34d3328c2d7c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-83c1630c-e10e-4c6a-9de5-32973b454434">
+<span class="eqno">(152)<a class="headerlink" href="#equation-83c1630c-e10e-4c6a-9de5-32973b454434" title="Permalink to this equation">#</a></span>\[\begin{align}
 C(\delta)&amp;=\frac{1}{N}\sum_{\alpha} \langle j_{\alpha+\delta} j_\alpha\rangle\\
 &amp;\approx \frac{1}{N}\sum_{\alpha} j_{\alpha+\delta} j_\alpha
 \end{align}\]</div>
@@ -2544,13 +2554,13 @@ C(\delta)&amp;=\frac{1}{N}\sum_{\alpha} \langle j_{\alpha+\delta} j_\alpha\rangl
 </div></div>
 </div>
 <p>We could fit this to an exponential to extract the correlation time.  Here, however, is a slightly simpler strategy, which gives us a number even if the correlations are non-exponential.  We define</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c579f729-4569-4941-9f69-4611e563bfe9">
-<span class="eqno">(160)<a class="headerlink" href="#equation-c579f729-4569-4941-9f69-4611e563bfe9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5159adeb-2028-4c1f-b1b7-29abef9c123b">
+<span class="eqno">(153)<a class="headerlink" href="#equation-5159adeb-2028-4c1f-b1b7-29abef9c123b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \tau=\sum_{j=1}^\infty \frac{C_j-C_\infty}{C_0-C_\infty}
 \end{equation}\]</div>
 <p>which comes from thinking about exponential sequencey, where <span class="math notranslate nohighlight">\(m_j=A e^{-j/\tau}\)</span>.  These give</p>
-<div class="amsmath math notranslate nohighlight" id="equation-627789bb-09cd-4c1e-ba11-4c7fd7a3b7b2">
-<span class="eqno">(161)<a class="headerlink" href="#equation-627789bb-09cd-4c1e-ba11-4c7fd7a3b7b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c931463b-0147-4ec1-ad28-0bdd2da4cac7">
+<span class="eqno">(154)<a class="headerlink" href="#equation-c931463b-0147-4ec1-ad28-0bdd2da4cac7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{j=1}^\infty e^{j/\tau}=\frac{1}{e^{1/\tau}-1}\approx\tau.
 \end{equation}\]</div>
 <p>We are also implicitly assuming that for infinite time separation the samples are uncorrelated, so <span class="math notranslate nohighlight">\(C_\infty=\langle j\rangle^2\)</span>:</p>
@@ -3089,27 +3099,27 @@ C(\delta)&amp;=\frac{1}{N}\sum_{\alpha} \langle j_{\alpha+\delta} j_\alpha\rangl
 </div>
 </section>
 <section id="calculating-integrals">
-<h2>Calculating Integrals<a class="headerlink" href="#calculating-integrals" title="Permalink to this heading">#</a></h2>
+<h2>Calculating Integrals<a class="headerlink" href="#calculating-integrals" title="Link to this heading">#</a></h2>
 <p>We now have the background to begin thinking about evaluating integrals.  There are a number of different approaches, and we will not be able to touch on them all.  Suppose we want to calcuates</p>
-<div class="amsmath math notranslate nohighlight" id="equation-43cd2de5-db19-4824-ade8-30dddf3dcc24">
-<span class="eqno">(162)<a class="headerlink" href="#equation-43cd2de5-db19-4824-ade8-30dddf3dcc24" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d9b88ebc-31b0-4908-9f1f-8181ed4d6aa8">
+<span class="eqno">(155)<a class="headerlink" href="#equation-d9b88ebc-31b0-4908-9f1f-8181ed4d6aa8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=\int_\Omega f(\vec{r})\, d\vec{r}
 \end{equation}\]</div>
 <p>The typical strategy is to take a probability distribution on <span class="math notranslate nohighlight">\(\Omega\)</span>, <span class="math notranslate nohighlight">\(P_\Omega(\vec{r})\)</span>, and write</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2a209592-26ac-40e8-b3c5-75ec590fdf8c">
-<span class="eqno">(163)<a class="headerlink" href="#equation-2a209592-26ac-40e8-b3c5-75ec590fdf8c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2cb57f8a-6370-4edf-bb5c-90ceac7c431c">
+<span class="eqno">(156)<a class="headerlink" href="#equation-2cb57f8a-6370-4edf-bb5c-90ceac7c431c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=\int_\Omega \frac{f(\vec{r})}{P_\Omega(\vec{r})}\,P_\Omega(\vec{r})\, d\vec{r}.
 \end{equation}\]</div>
 <p>One then notes that this is just</p>
-<div class="amsmath math notranslate nohighlight" id="equation-089cebcf-e884-46b0-ae42-29e3ccc13537">
-<span class="eqno">(164)<a class="headerlink" href="#equation-089cebcf-e884-46b0-ae42-29e3ccc13537" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-72d7ddf1-fb18-4d44-8996-34d312ee08da">
+<span class="eqno">(157)<a class="headerlink" href="#equation-72d7ddf1-fb18-4d44-8996-34d312ee08da" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I =\langle \frac{f(\vec{r})}{P_\Omega(\vec{r})}\rangle,
 \end{equation}\]</div>
 <p>which you then calculate using sampling.</p>
 <p>In the simplest examples, one just takes <span class="math notranslate nohighlight">\(P_\Omega\)</span> to be the uniform distribution,
 <span class="math notranslate nohighlight">\(P_\Omega(\vec{r})=1/V_\Omega\)</span>.  As a simple example, lets do</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f14996f5-294f-4f2c-823b-cb1f66b8cec9">
-<span class="eqno">(165)<a class="headerlink" href="#equation-f14996f5-294f-4f2c-823b-cb1f66b8cec9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1438cb26-0fed-4eed-be5c-66e827669d50">
+<span class="eqno">(158)<a class="headerlink" href="#equation-1438cb26-0fed-4eed-be5c-66e827669d50" title="Permalink to this equation">#</a></span>\[\begin{align}
 I&amp;= \int_{0}^\pi \sin(x) dx\\
 &amp;= \int_{0}^\pi \pi \sin(x)\,\frac{dx}{\pi}\\
 &amp;= \langle \pi \sin(x)\rangle
@@ -3147,18 +3157,18 @@ I&amp;= \int_{0}^\pi \sin(x) dx\\
 </div>
 <p>If <span class="math notranslate nohighlight">\(P_\Omega(\vec r)\propto f(\vec r)\)</span>, then all of the samples will have exactly the same value – and we get a <em>zero-variance</em> estimator – ie. the exact right answer.  This motivates trying to use a probability distribution which matches <span class="math notranslate nohighlight">\(f\)</span> as closely as possible: importance sampling.</p>
 <p>To make our life easier, lets write</p>
-<div class="amsmath math notranslate nohighlight" id="equation-33e67ca6-9744-42ce-8ea4-ab093c27001e">
-<span class="eqno">(166)<a class="headerlink" href="#equation-33e67ca6-9744-42ce-8ea4-ab093c27001e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e59b70ce-33e3-4156-bc21-04dbf046f7cd">
+<span class="eqno">(159)<a class="headerlink" href="#equation-e59b70ce-33e3-4156-bc21-04dbf046f7cd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=\int_0^{\pi/2} 2\sin(x)\,dx
 \end{equation}\]</div>
 <p>Lets then sample on <span class="math notranslate nohighlight">\([0,\pi/2]\)</span> with</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00086103-f0e8-416f-b1e3-418f6ed42c3e">
-<span class="eqno">(167)<a class="headerlink" href="#equation-00086103-f0e8-416f-b1e3-418f6ed42c3e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bd36f06d-45de-4e02-9982-da15ab0c8586">
+<span class="eqno">(160)<a class="headerlink" href="#equation-bd36f06d-45de-4e02-9982-da15ab0c8586" title="Permalink to this equation">#</a></span>\[\begin{equation}
 P(x)= \frac{8x}{\pi^2}
 \end{equation}\]</div>
 <p>In which case</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c596a31-f2eb-4ced-aebd-5dbed2fa3a6b">
-<span class="eqno">(168)<a class="headerlink" href="#equation-4c596a31-f2eb-4ced-aebd-5dbed2fa3a6b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1c41a63f-2364-44fe-a9c1-fe6db09ab7df">
+<span class="eqno">(161)<a class="headerlink" href="#equation-1c41a63f-2364-44fe-a9c1-fe6db09ab7df" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=\int_0^{\pi/2} \frac{\pi^2\sin(x)}{4x}\,P(x)dx.
 \end{equation}\]</div>
 <p>We know we can sample a linear ramp by uniformly sampling <span class="math notranslate nohighlight">\(x^2\)</span>:</p>
@@ -3263,7 +3273,8 @@ I=\int_0^{\pi/2} \frac{\pi^2\sin(x)}{4x}\,P(x)dx.
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -3299,7 +3310,7 @@ By Erich Mueller
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -3323,8 +3334,8 @@ By Erich Mueller
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Introduction &#8212; PHYS 4480-7680 Computational Physics</title>
   
@@ -17,45 +16,50 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Introduction';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -63,6 +67,7 @@
     <link rel="prev" title="Physics 4480 / 7680 / Astronomy 7690" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -78,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -98,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -106,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -123,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -153,21 +147,17 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="PHYS 4480-7680 Computational Physics - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="PHYS 4480-7680 Computational Physics - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS 4480-7680 Computational Physics - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -181,9 +171,14 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Notebook%20Workflow.html">Notebook Workflow</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="Logistics.html">Logistics</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Installing Julia</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quadratures -- Period of a Pendulum</span></p>
 <ul class="nav bd-sidenav">
@@ -228,6 +223,9 @@
 <li class="toctree-l1"><a class="reference internal" href="Cluster%20Algorithms.html">Cluster Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Wolff.html">Lab – Wolff Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Binder.html">Binder Cumulants and the Scaling Hypothesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Renormalization.html">The Renormalization group</a></li>
+
 </ul>
 
     </div>
@@ -236,9 +234,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -269,6 +272,21 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+<a href="https://github.com/em256/phys4480" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
 
 
 
@@ -335,24 +353,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -376,8 +386,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-course">Overview of Course</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-role-of-computers-in-physics">What is the role of computers in physics?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-tools">AI Tools</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-computer-language-should-one-use-for-learning-computational-physics">What computer language should one use for learning computational physics?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options:</a></li>
 </ul>
@@ -385,6 +399,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-basic-principles">Some basic principles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -396,9 +413,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <section id="overview-of-course">
-<h2>Overview of Course<a class="headerlink" href="#overview-of-course" title="Permalink to this heading">#</a></h2>
+<h2>Overview of Course<a class="headerlink" href="#overview-of-course" title="Link to this heading">#</a></h2>
 <p>This is a course on <strong>Computational Physics</strong>.  That is, learning how to use computers to do physics.  I am still working on the course materials, but here is my <strong>Vision</strong> of where we are going.  The idea is to put the physics first, but along the way learn about computation and the interplay of computation and physics.</p>
 <p><strong>Physics Topics</strong></p>
 <ul class="simple">
@@ -427,6 +444,7 @@ document.write(`
 </ul>
 </li>
 </ul>
+<p>Last year we did not make it to the E&amp;M or QM stuff – which is probably fine, but we might do things a little differently this year – and could get to some of it.  I have some ideas about streamlining some topics.</p>
 <p><strong>Algorithms/Numerical Techniques</strong></p>
 <ul class="simple">
 <li><p>Quadratures (Numerical Integration)</p></li>
@@ -450,14 +468,23 @@ document.write(`
 <li><p>Validating</p></li>
 <li><p>Benchmarking</p></li>
 <li><p>Refactoring</p></li>
+<li><p>Using AI tools</p></li>
 </ul>
 </li>
 <li><p>Visualization</p></li>
 <li><p>Machine Learning</p></li>
+<li><p>Computational Paradigms</p>
+<ul>
+<li><p>Procedural</p></li>
+<li><p>Functional</p></li>
+<li><p>Object Oriented</p></li>
+</ul>
+</li>
+<li><p>Algorithmic Complexity</p></li>
 </ul>
 </section>
 <section id="what-is-the-role-of-computers-in-physics">
-<h2>What is the role of computers in physics?<a class="headerlink" href="#what-is-the-role-of-computers-in-physics" title="Permalink to this heading">#</a></h2>
+<h2>What is the role of computers in physics?<a class="headerlink" href="#what-is-the-role-of-computers-in-physics" title="Link to this heading">#</a></h2>
 <p>It is currently impossible to do physics without computers.  They play an essential role in all parts of the discipline.</p>
 <ul class="simple">
 <li><p><strong>Converting models into numbers</strong></p></li>
@@ -469,13 +496,21 @@ document.write(`
 <p>We hope to learn about how to do all of these.</p>
 <p>A key point is that computation is not about finding a number.  It is a process which gives us understanding.</p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ai-tools">
+<h1>AI Tools<a class="headerlink" href="#ai-tools" title="Link to this heading">#</a></h1>
+<p>One thing that I would like to work on this semester is teaching how to work with AI programming tools (Copilot, Codex, ChatGPT, Claude Code…)  This is a rapidly changing set of tools, so it is likely that the exact interfaces will be different in 5 years.  Nonetheless, skills built learning how to interact with these tools will likely be transferable.</p>
+<p>In this era of AI, good programming skills are imperative.  Current versions of these systems often give `almost correct’ results – and you need to know how things work in order to get the last 10 yards.  If you don’t know the programming paradigms used for a suggested solution, then you will forever be stuck in a loop where the AI suggests a solution, and you complain that it didn’t work.</p>
+<p>From the perspective of someone learning scientific computing, these tools are wonderful.  They are particularly good at helping you interpret error messages, and track down why things are not working.  They are excellent for ``looking up’’ syntax.</p>
+<p>I should caution, however, that writing a good prompt is a skill.  Hopefully we will develop the tools to do that, and practice using them to solve real scientific problems.</p>
 <section id="what-computer-language-should-one-use-for-learning-computational-physics">
-<h2>What computer language should one use for learning computational physics?<a class="headerlink" href="#what-computer-language-should-one-use-for-learning-computational-physics" title="Permalink to this heading">#</a></h2>
-<p>Glib answer 1:  It doesn’t matter</p>
-<p>Glib answer 2: Whatever language you know</p>
-<p>Glib answer 3: Whatever language you think you will use in the future</p>
+<h2>What computer language should one use for learning computational physics?<a class="headerlink" href="#what-computer-language-should-one-use-for-learning-computational-physics" title="Link to this heading">#</a></h2>
+<p><strong>Glib answer 1:</strong>  It doesn’t matter</p>
+<p><strong>Glib answer 2:</strong> Whatever language you know</p>
+<p><strong>Glib answer 3:</strong> Whatever language you think you will use in the future</p>
+<p><strong>Nuance:</strong>  <em>Want flexibility</em> – not all languages can be used to explain all approaches to computation.  <em>Want simplicity</em> – frustrating for student to spend too much time learning sytactic details.  <em>Want the experience to be fun.</em></p>
 <section id="options">
-<h3>Options:<a class="headerlink" href="#options" title="Permalink to this heading">#</a></h3>
+<h3>Options:<a class="headerlink" href="#options" title="Link to this heading">#</a></h3>
 <p><strong>C++</strong></p>
 <ul class="simple">
 <li><p>Very flexible – have full control of memory, and how things are passed.</p>
@@ -618,15 +653,17 @@ document.write(`
 </section>
 </section>
 <section id="some-basic-principles">
-<h2>Some basic principles<a class="headerlink" href="#some-basic-principles" title="Permalink to this heading">#</a></h2>
+<h2>Some basic principles<a class="headerlink" href="#some-basic-principles" title="Link to this heading">#</a></h2>
 <p>Premature optimization is the root of all evil – Donald Knuth</p>
 <ul class="simple">
 <li><p>don’t waste your time trying to get performance out of a subroutine that is not the rate-limiting step in your calculation</p></li>
+<li><p>getting a working code is first priority – can always refactor it later</p></li>
+<li><p>optimization is hard</p></li>
 </ul>
 <p>Good strategy for scientific programing:</p>
 <ol class="arabic simple">
 <li><p>Make a precise goal</p></li>
-<li><p>Write out on paper the algorithm, data structures</p>
+<li><p>Write out on paper (or a chalk board) the algorithm, data structures</p>
 <ul class="simple">
 <li><p>give options:  what is simplest, what will be most efficient</p></li>
 <li><p>figure out strategy which will take the least programming time to get a working code</p></li>
@@ -650,7 +687,7 @@ document.write(`
 <p>Throughout this, keep ease-of-use in mind.  A keystone idea in modern scientific programming is that you are not trying to adjust your thinking so that you can talk to the computer – rather you are trying to make the computer understand your language, so that you can effortlessly talk to the computer.</p>
 </section>
 <section id="packages">
-<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h2>
+<h2>Packages<a class="headerlink" href="#packages" title="Link to this heading">#</a></h2>
 <p>Modern scientific programming makes significant use of packages.  It is rare for anyone to write their own linear algebra routines, or graph plotting routines.</p>
 <ul class="simple">
 <li><p>don’t be afraid to use high-level packages</p></li>
@@ -723,7 +760,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -732,8 +770,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-course">Overview of Course</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-role-of-computers-in-physics">What is the role of computers in physics?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-tools">AI Tools</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-computer-language-should-one-use-for-learning-computational-physics">What computer language should one use for learning computational physics?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options:</a></li>
 </ul>
@@ -741,6 +783,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-basic-principles">Some basic principles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
@@ -764,7 +809,7 @@ By Erich Mueller
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -788,8 +833,8 @@ By Erich Mueller
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
