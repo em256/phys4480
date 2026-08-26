@@ -25,26 +25,25 @@ parts:
   - file: Symplectic Integrators
   - file: blankLAB Chaos
   - file: Duffing Oscillator Followup
-  - file: Animating a Pendulum
-  - file: blankLAB Animating the Duffing Oscillator
-  - file: More Duffing
-- caption: Dynamical Systems without differential equations
-  chapters:
-  - file: Billiards
-  - file: blankLAB Interacting Hard Spheres
-  - file: ktheory
-  - file: Hard Sphere Correlation Functions
-- caption: Stochastic Methods
-  chapters:
-  - file: sampling
-  - file: monte carlo integration
-  - file: Metropolis Ising Model
-  - file: Correlation Times
-  - file: Cluster Algorithms
-  - file: blankLAB Wolff
-  - file: Phases and Phase Transitions
-  - file: Binder
-  - file: Renormalization
+#   - file: Animating a Pendulum
+#   - file: blankLAB Animating the Duffing Oscillator
+#   - file: More Duffing
+# - caption: Dynamical Systems without differential equations
+#   chapters:
+#   - file: Billiards
+#   - file: blankLAB Interacting Hard Spheres
+#   - file: ktheory
+# - caption: Stochastic Methods
+#   chapters:
+#   - file: sampling
+#   - file: monte carlo integration
+#   - file: Metropolis Ising Model
+#   - file: Correlation Times
+#   - file: Cluster Algorithms
+#   - file: blankLAB Wolff
+#   - file: Phases and Phase Transitions
+#   - file: Binder
+#   - file: Renormalization
 # # - file: Spatial Correlations in the Ising Model
 # # - file: Renormalization Group
 # #- caption: Quantum Mechanics
