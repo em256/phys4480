@@ -1,24 +1,30 @@
 Traceback (most recent call last):
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
-    asyncio.get_running_loop()
-RuntimeError: no running event loop
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1319, in execute
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 1323, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/emueller/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
     return future.result()
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+           ~~~~~~~~~~~~~^^
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -31,22 +37,25 @@ DomainError with 0.9999999999990905:
 integrand produced Inf in the interval (0.999999999998181, 1.0)
 
 Stacktrace:
- [1] evalrule(f::var"#11#12", a::Float64, b::Float64, x::Vector{Float64}, w::Vector{Float64}, wg::Vector{Float64}, nrm::typeof(LinearAlgebra.norm))
-   @ QuadGK ~/.julia/packages/QuadGK/rjZYB/src/evalrule.jl:39
- [2] refine(f::var"#11#12", segs::Vector{QuadGK.Segment{Float64, Float64, Float64}}, I::Float64, E::Float64, numevals::Int64, x::Vector{Float64}, w::Vector{Float64}, wg::Vector{Float64}, n::Int64, atol::Float64, rtol::Float64, maxevals::Int64, nrm::typeof(LinearAlgebra.norm))
-   @ QuadGK ~/.julia/packages/QuadGK/rjZYB/src/adapt.jl:115
- [3] adapt
-   @ ~/.julia/packages/QuadGK/rjZYB/src/adapt.jl:96 [inlined]
- [4] do_quadgk(f::var"#11#12", s::Tuple{Int64, Int64}, n::Int64, atol::Nothing, rtol::Nothing, maxevals::Int64, nrm::typeof(LinearAlgebra.norm), _segbuf::Nothing, eval_segbuf::Nothing)
-   @ QuadGK ~/.julia/packages/QuadGK/rjZYB/src/adapt.jl:87
- [5] (::QuadGK.var"#50#51"{Nothing, Nothing, Int64, Int64, typeof(LinearAlgebra.norm), Nothing, Nothing})(f::Function, s::Tuple{Int64, Int64}, ::Function)
-   @ QuadGK ~/.julia/packages/QuadGK/rjZYB/src/api.jl:83
- [6] handle_infinities
-   @ ~/.julia/packages/QuadGK/rjZYB/src/adapt.jl:189 [inlined]
- [7] #quadgk#49
-   @ ~/.julia/packages/QuadGK/rjZYB/src/api.jl:82 [inlined]
- [8] quadgk(::Function, ::Int64, ::Int64)
-   @ QuadGK ~/.julia/packages/QuadGK/rjZYB/src/api.jl:80
- [9] top-level scope
-   @ In[7]:2
+  [1] [0m[1mevalrule[22m[0m[1m([22m[90mf[39m::[0mvar"#14#15", [90ma[39m::[0mFloat64, [90mb[39m::[0mFloat64, [90mx[39m::[0mVector[90m{…}[39m, [90mw[39m::[0mVector[90m{…}[39m, [90mwg[39m::[0mVector[90m{…}[39m, [90mnrm[39m::[0mtypeof(LinearAlgebra.norm)[0m[1m)[22m
+[90m    @[39m [35mQuadGK[39m [90m~/.julia/packages/QuadGK/5mgi5/src/[39m[90m[4mevalrule.jl:39[24m[39m
+  [2] [0m[1mrefine[22m[0m[1m([22m[90mf[39m::[0mvar"#14#15", [90msegs[39m::[0mVector[90m{…}[39m, [90mI[39m::[0mFloat64, [90mE[39m::[0mFloat64, [90mnumevals[39m::[0mInt64, [90mx[39m::[0mVector[90m{…}[39m, [90mw[39m::[0mVector[90m{…}[39m, [90mwg[39m::[0mVector[90m{…}[39m, [90mn[39m::[0mInt64, [90matol[39m::[0mFloat64, [90mrtol[39m::[0mFloat64, [90mmaxevals[39m::[0mInt64, [90mnrm[39m::[0mtypeof(LinearAlgebra.norm)[0m[1m)[22m
+[90m    @[39m [35mQuadGK[39m [90m~/.julia/packages/QuadGK/5mgi5/src/[39m[90m[4madapt.jl:115[24m[39m
+  [3] [0m[1madapt[22m
+[90m    @[39m [90m~/.julia/packages/QuadGK/5mgi5/src/[39m[90m[4madapt.jl:96[24m[39m[90m [inlined][39m
+  [4] [0m[1mdo_quadgk[22m[0m[1m([22m[90mf[39m::[0mvar"#14#15", [90ms[39m::[0mTuple[90m{…}[39m, [90mn[39m::[0mInt64, [90matol[39m::[0mNothing, [90mrtol[39m::[0mNothing, [90mmaxevals[39m::[0mInt64, [90mnrm[39m::[0mtypeof(LinearAlgebra.norm), [90m_segbuf[39m::[0mNothing, [90meval_segbuf[39m::[0mNothing[0m[1m)[22m
+[90m    @[39m [35mQuadGK[39m [90m~/.julia/packages/QuadGK/5mgi5/src/[39m[90m[4madapt.jl:87[24m[39m
+  [5] [0m[1m(::QuadGK.var"#29#30"{…})[22m[0m[1m([22m[90mf[39m::[0mFunction, [90ms[39m::[0mTuple[90m{…}[39m, ::[0mFunction[0m[1m)[22m
+[90m    @[39m [35mQuadGK[39m [90m~/.julia/packages/QuadGK/5mgi5/src/[39m[90m[4mapi.jl:83[24m[39m
+  [6] [0m[1mhandle_infinities[22m
+[90m    @[39m [90m~/.julia/packages/QuadGK/5mgi5/src/[39m[90m[4madapt.jl:189[24m[39m[90m [inlined][39m
+  [7] [0m[1m#quadgk#27[22m
+[90m    @[39m [90m~/.julia/packages/QuadGK/5mgi5/src/[39m[90m[4mapi.jl:82[24m[39m[90m [inlined][39m
+  [8] [0m[1mquadgk[22m[0m[1m([22m::[0mFunction, ::[0mInt64, ::[0mInt64[0m[1m)[22m
+[90m    @[39m [35mQuadGK[39m [90m~/.julia/packages/QuadGK/5mgi5/src/[39m[90m[4mapi.jl:80[24m[39m
+  [9] top-level scope
+[90m    @[39m [90m[4mIn[7]:2[24m[39m
+ [10] [0m[1meval[22m[0m[1m([22m[90mm[39m::[0mModule, [90me[39m::[0mAny[0m[1m)[22m
+[90m    @[39m [90mCore[39m [90m./[39m[90m[4mboot.jl:489[24m[39m
+Some type information was truncated. Use `show(err)` to see complete types.
 

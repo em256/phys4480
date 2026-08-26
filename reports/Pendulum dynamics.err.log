@@ -1,42 +1,49 @@
 Traceback (most recent call last):
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
-    asyncio.get_running_loop()
-RuntimeError: no running event loop
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1319, in execute
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 1323, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/emueller/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
     return future.result()
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+           ~~~~~~~~~~~~~^^
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/emueller/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-f=Figure()
-ax=Axis(f[1,1])
-scene = Makie.contour!(ax,θ_finelist,v_finelist,E_finegrid, levels = 10, linewidth = 3)
-Makie.arrows2d!(ax,θ_list,v_list,0.2 .*dθdt_grid,0.2 .*dvdt_grid,lengthscale=1)
-ax.xlabel="θ"
-ax.ylabel="v"
-display(f)
+plot([0,1,2],[4,3,2])
 ------------------
 
 
-UndefVarError: `arrows2d!` not defined
+UndefVarError: `plot` not defined in `Main`
+Hint: It looks like two or more modules export different bindings with this name, resulting in ambiguity. Try explicitly importing it from a particular module, or qualifying the name with the module it should come from.
+Hint: a global variable of this name also exists in GR.jlgr.
+    - Also exported by GR.
+Hint: a global variable of this name also exists in RecipesBase.
+    - Also exported by Plots.
+Hint: a global variable of this name also exists in Makie.
+    - Also exported by CairoMakie.
 
 Stacktrace:
- [1] getproperty(x::Module, f::Symbol)
-   @ Base ./Base.jl:31
- [2] top-level scope
-   @ In[5]:4
+ [1] top-level scope
+[90m   @[39m [90m[4mIn[9]:1[24m[39m
+ [2] [0m[1meval[22m[0m[1m([22m[90mm[39m::[0mModule, [90me[39m::[0mAny[0m[1m)[22m
+[90m   @[39m [90mCore[39m [90m./[39m[90m[4mboot.jl:489[24m[39m
 
