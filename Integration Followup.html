@@ -257,6 +257,13 @@
 <li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Chaos.html">LAB – Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Duffing%20Oscillator%20Followup.html">Followup on Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Animating%20a%20Pendulum.html">Interactive Animation of Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Animating%20the%20Duffing%20Oscillator.html">Lab – Animating the Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="More%20Duffing.html">Exploring Chaos with our Duffing Simulator</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamical Systems without differential equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Billiards.html">Billiards</a></li>
 </ul>
 
     </div>
@@ -531,7 +538,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.065869 seconds (152.24 k allocations: 7.465 MiB, 99.84% compilation time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.071024 seconds (152.24 k allocations: 7.465 MiB, 99.82% compilation time)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1803405931478603, 1.537190156500909e-8)
@@ -690,19 +697,19 @@
 <h4>Magic behind Gaussian Quadratures<a class="headerlink" href="#magic-behind-gaussian-quadratures" title="Link to this heading">#</a></h4>
 <p>The idea is that if one evaluates the function at <strong>non-equally spaced</strong> points, one can accelerate convergence</p>
 <p>For example, suppose we want to calculate <span class="math notranslate nohighlight">\(\int_{-1}^1 f(x) dx\)</span> using only three function evaluations.  In trapezoid rule those evaluations would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>.  For midpoint rule they would be at <span class="math notranslate nohighlight">\(x=-2/3,0,2/3\)</span>.  In Simpson’s rule the would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>, but we would weight them unequally.  The most general quadrature rule is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40b6cd13-031d-4861-ab7a-d7ee5dc239c2">
-<span class="eqno">(25)<a class="headerlink" href="#equation-40b6cd13-031d-4861-ab7a-d7ee5dc239c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6d7e9c4b-2ed1-48c9-b31c-0cc0e7d1d5c0">
+<span class="eqno">(25)<a class="headerlink" href="#equation-6d7e9c4b-2ed1-48c9-b31c-0cc0e7d1d5c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I\approx \sum_j w_j f(x_j).
 \end{equation}\]</div>
 <p>The most general 3-point symmetric quadrature rule would be</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9fa5bd6-2c1c-47b6-a8e5-5781c9e41b04">
-<span class="eqno">(26)<a class="headerlink" href="#equation-a9fa5bd6-2c1c-47b6-a8e5-5781c9e41b04" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fd4c0e93-74ad-4305-8e63-606c0fa40bcb">
+<span class="eqno">(26)<a class="headerlink" href="#equation-fd4c0e93-74ad-4305-8e63-606c0fa40bcb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=a f(0) + b f(s)+ b f(-s)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a,b,s\)</span> are parameters.</p>
 <p>We will choose these parameters so that we get the correct integral for various polynomials</p>
-<div class="amsmath math notranslate nohighlight" id="equation-537f2561-6eb8-48f0-acd5-3176f68b38af">
-<span class="eqno">(27)<a class="headerlink" href="#equation-537f2561-6eb8-48f0-acd5-3176f68b38af" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d82e9c88-2ac9-411a-b270-1f57567d4587">
+<span class="eqno">(27)<a class="headerlink" href="#equation-d82e9c88-2ac9-411a-b270-1f57567d4587" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_{-1}^1 x^0 dx &amp;\to a+2b &amp;=2\\
 \int_{-1}^1 x^1 dx &amp;\to 0 &amp;= 0\\
 \int_{-1}^1 x^2 dx &amp;\to 2b s^2 &amp;= 2/3\\

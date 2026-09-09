@@ -257,6 +257,13 @@
 <li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">LAB – Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Duffing%20Oscillator%20Followup.html">Followup on Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Animating%20a%20Pendulum.html">Interactive Animation of Pendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Animating%20the%20Duffing%20Oscillator.html">Lab – Animating the Duffing Oscillator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="More%20Duffing.html">Exploring Chaos with our Duffing Simulator</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamical Systems without differential equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Billiards.html">Billiards</a></li>
 </ul>
 
     </div>
@@ -577,15 +584,15 @@
 <h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
 ## Activity 1
 </h2><p>We will consider a non-linear oscillator described by the equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b8ddd5f-c44f-4ac0-a74d-86a547a854b9">
-<span class="eqno">(76)<a class="headerlink" href="#equation-9b8ddd5f-c44f-4ac0-a74d-86a547a854b9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8824c4b1-2e2d-4e8d-aab8-0b98f0a7b0c5">
+<span class="eqno">(76)<a class="headerlink" href="#equation-8824c4b1-2e2d-4e8d-aab8-0b98f0a7b0c5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt}&amp;=v\\
 \frac{dv}{dt}&amp;=-2\gamma v-\alpha x-\beta x^3 +F \cos(\omega t).
 \end{align}\]</div>
 <p>Here <span class="math notranslate nohighlight">\(\gamma\)</span> is the damping rate, <span class="math notranslate nohighlight">\(F\)</span> is the strength of a periodic drive, with frequency <span class="math notranslate nohighlight">\(\omega\)</span>, and <span class="math notranslate nohighlight">\(\alpha,\beta\)</span> describe the potential.  For <span class="math notranslate nohighlight">\(\beta=0\)</span> we have a harmonic potential, resulting in a driven simple Harmonic Oscillator.</p>
 <p>An interesting case is when <span class="math notranslate nohighlight">\(\alpha&lt;0\)</span> and <span class="math notranslate nohighlight">\(\beta&gt;0\)</span>.  In that case the potential is a double well</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dec9cf46-7bff-4d80-b5af-ade25dc725ca">
-<span class="eqno">(77)<a class="headerlink" href="#equation-dec9cf46-7bff-4d80-b5af-ade25dc725ca" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7ce907dd-3ad7-4bcb-8cf1-1c4c58894135">
+<span class="eqno">(77)<a class="headerlink" href="#equation-7ce907dd-3ad7-4bcb-8cf1-1c4c58894135" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V(x)=\frac{\alpha}{2} x^2+\frac{\beta}{4} x^4.
 \end{equation}\]</div>
 <p><strong>Write a function that takes the parameters <span class="math notranslate nohighlight">\(\alpha,\beta,\gamma,F,\omega\)</span> the initial conditions <span class="math notranslate nohighlight">\(x_0,v_0\)</span>, and the evolution time <span class="math notranslate nohighlight">\(T\)</span>.  It will return the solution to the differential equation, as found from <code class="docutils literal notranslate"><span class="pre">DifferentialEquations.jl</span></code>.</strong></p>

@@ -43,7 +43,7 @@ Hint: a global variable of this name also exists in Makie.
 
 Stacktrace:
  [1] top-level scope
-[90m   @[39m [90m[4mIn[9]:1[24m[39m
+[90m   @[39m [90m[4mIn[10]:1[24m[39m
  [2] [0m[1meval[22m[0m[1m([22m[90mm[39m::[0mModule, [90me[39m::[0mAny[0m[1m)[22m
 [90m   @[39m [90mCore[39m [90m./[39m[90m[4mboot.jl:489[24m[39m
 
