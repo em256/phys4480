@@ -25,12 +25,12 @@ parts:
   - file: Symplectic Integrators
   - file: blankLAB Chaos
   - file: Duffing Oscillator Followup
-#   - file: Animating a Pendulum
-#   - file: blankLAB Animating the Duffing Oscillator
-#   - file: More Duffing
-# - caption: Dynamical Systems without differential equations
-#   chapters:
-#   - file: Billiards
+  - file: Animating a Pendulum
+  - file: blankLAB Animating the Duffing Oscillator
+  - file: More Duffing
+- caption: Dynamical Systems without differential equations
+  chapters:
+  - file: Billiards
 #   - file: blankLAB Interacting Hard Spheres
 #   - file: ktheory
 # - caption: Stochastic Methods
