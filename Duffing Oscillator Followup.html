@@ -264,6 +264,22 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamical Systems without differential equations</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Billiards.html">Billiards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Interacting%20Hard%20Spheres.html">LAB – Interacting Hard Spheres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktheory.html">Kinetic Theory of Gases</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Stochastic Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Stochastic Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte%20carlo%20integration.html">Stochastic approaches to integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metropolis%20Ising%20Model.html">2D Ising Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Correlation%20Times.html">Correlation times</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cluster%20Algorithms.html">Cluster Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Wolff.html">Lab – Wolff Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Binder.html">Binder Cumulants and the Scaling Hypothesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Renormalization.html">The Renormalization group</a></li>
+
 </ul>
 
     </div>
@@ -554,13 +570,13 @@
 </div>
 <p>That looks nicer, and indeed appears to be well approximated by an exponential – up until the time that it saturates.  The saturation is simple to understand:  The position is bounded, so the difference in positions can only get so big.</p>
 <p>We could fit the <span class="math notranslate nohighlight">\(\log(\delta x)\)</span> vs <span class="math notranslate nohighlight">\(t\)</span> graph to a straight line, and extract an exponent, which would be <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b058c34c-6445-4af3-901d-23805443377f">
-<span class="eqno">(78)<a class="headerlink" href="#equation-b058c34c-6445-4af3-901d-23805443377f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7369f19f-0c91-4cfd-a6bb-3fcbdc10712d">
+<span class="eqno">(78)<a class="headerlink" href="#equation-7369f19f-0c91-4cfd-a6bb-3fcbdc10712d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta x \sim e^{\lambda t}
 \end{equation}\]</div>
 <p>One slightly more sophisticated thing we can do is take the limit where the difference between the starting positions of the two trajectories goes to zero.  That is we look at</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c57e5cdd-d6df-46a7-b55a-b214a45ff0a3">
-<span class="eqno">(79)<a class="headerlink" href="#equation-c57e5cdd-d6df-46a7-b55a-b214a45ff0a3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-391ee352-3648-480c-83ed-4c87606c718f">
+<span class="eqno">(79)<a class="headerlink" href="#equation-391ee352-3648-480c-83ed-4c87606c718f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{\partial x(t)}{\partial x_0} = \lim_{\delta x_0\to 0} \frac{\delta x(t)}{\delta x_0}
 \end{align}\]</div>
 <p>In fact, what we have now is a <em>finite differences</em> approximation to that derivative</p>
@@ -576,14 +592,14 @@
 </div>
 <p>Rather than this finite difference approach to calculate <span class="math notranslate nohighlight">\(\partial x/\partial x_0\)</span> we could use our automatic differentiation code.  In fact the routines in <code class="docutils literal notranslate"><span class="pre">DifferentialEquations.jl</span></code> are compatible with the automatic differentiation packages.  Or we could write our own integrator, which is compatible with our implementation of automatic differentiation.</p>
 <p>A somewhat simpler, but equivalent approach involves taking the derivative of our differential equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71dec25d-4777-4a66-99b4-ad9f43497979">
-<span class="eqno">(80)<a class="headerlink" href="#equation-71dec25d-4777-4a66-99b4-ad9f43497979" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-498406bf-3117-4c8d-b6b1-eb7c6efe9557">
+<span class="eqno">(80)<a class="headerlink" href="#equation-498406bf-3117-4c8d-b6b1-eb7c6efe9557" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t x&amp;= v\\
 \partial_t v&amp;=-2\gamma v-\alpha x-\beta x^3 +F \cos(\omega t)
 \end{align}\]</div>
 <p>to get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a5026ad-1b03-4569-b6b1-7cabe38a0a5e">
-<span class="eqno">(81)<a class="headerlink" href="#equation-1a5026ad-1b03-4569-b6b1-7cabe38a0a5e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-44dfa4f5-5a3b-4236-9f71-75cd028414c4">
+<span class="eqno">(81)<a class="headerlink" href="#equation-44dfa4f5-5a3b-4236-9f71-75cd028414c4" title="Permalink to this equation">#</a></span>\[\begin{align}
 \partial_t\frac{\partial x}{\partial x_0}&amp;= \frac{\partial v}{\partial x_0}\\
 \partial_t \frac{\partial v}{\partial x_0}&amp;=-2\gamma \frac{\partial v}{\partial x_0}-(\alpha +3\beta x^2)\frac{\partial x}{\partial x_0}
 \end{align}\]</div>
@@ -745,8 +761,8 @@
 <section id="generic-deviations">
 <h2>Generic Deviations<a class="headerlink" href="#generic-deviations" title="Link to this heading">#</a></h2>
 <p>For our initial conditions we need to specify both <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(v_0\)</span>.  Therefore the sensitivity to initial conditions is actually encoded in a tensor,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7676fb5f-8e63-4261-b2a6-494e38cef080">
-<span class="eqno">(82)<a class="headerlink" href="#equation-7676fb5f-8e63-4261-b2a6-494e38cef080" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5f087242-fd8a-4ae4-9774-0d32a1d0685e">
+<span class="eqno">(82)<a class="headerlink" href="#equation-5f087242-fd8a-4ae4-9774-0d32a1d0685e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 J=\left(
 \begin{array}{cc}
 \frac{\partial x}{\partial x_0}&amp;\frac{\partial x}{\partial v_0}\\
@@ -756,8 +772,8 @@ J=\left(
 \end{equation}\]</div>
 <p>This matrix encodes how much the phase space location <span class="math notranslate nohighlight">\((x,v)\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> changes when we change initial conditions <span class="math notranslate nohighlight">\((x_0,v_0)\)</span>.</p>
 <p>The determinant of <span class="math notranslate nohighlight">\(J\)</span> tells you how much the volume of phase space has changed from time <span class="math notranslate nohighlight">\(t=0\)</span> to time <span class="math notranslate nohighlight">\(t\)</span>.  IE.  the triangle of phase space bounded by <span class="math notranslate nohighlight">\((x_0,v_0),(x_0+\delta x_0,v_0),(x_0,v_0+\delta v_0)\)</span> maps onto the triangle <span class="math notranslate nohighlight">\((x,v),(x+\delta x_1,v+\delta v_1),(x+\delta x_2,v+\delta v_2)\)</span> where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aed81301-24ca-45d5-b782-7077ab505ce0">
-<span class="eqno">(83)<a class="headerlink" href="#equation-aed81301-24ca-45d5-b782-7077ab505ce0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1e937719-1148-4d36-9da2-c4ee383ef9da">
+<span class="eqno">(83)<a class="headerlink" href="#equation-1e937719-1148-4d36-9da2-c4ee383ef9da" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left(\begin{array}{c}
 \delta x_1\\\delta v_1
 \end{array}
@@ -777,8 +793,8 @@ J \left(\begin{array}{c}
 \end{align}\]</div>
 <p>The ratio of the areas of those two triangles is <span class="math notranslate nohighlight">\(\det J\)</span></p>
 <p>For a Hamiltonian (non-disipative system), this determinant will be <span class="math notranslate nohighlight">\(1\)</span>. When <span class="math notranslate nohighlight">\(\gamma\neq 0\)</span> our model is not Hamiltonian, and the phase space volume will not be conserved.  Nonetheless, one can write</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89c97a01-7993-4fb6-95f7-130f036f6dcf">
-<span class="eqno">(84)<a class="headerlink" href="#equation-89c97a01-7993-4fb6-95f7-130f036f6dcf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-99c7522b-cbb5-4842-935c-40066ada0975">
+<span class="eqno">(84)<a class="headerlink" href="#equation-99c7522b-cbb5-4842-935c-40066ada0975" title="Permalink to this equation">#</a></span>\[\begin{align}
 \det J &amp;= \frac{\partial x}{\partial x_0}\frac{\partial v}{\partial v_0}-\frac{\partial x}{\partial v_0}\frac{\partial v}{\partial x_0}\\
 &amp;= \{x,v\}
 \end{align}\]</div>

@@ -264,6 +264,22 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamical Systems without differential equations</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Billiards.html">Billiards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Interacting%20Hard%20Spheres.html">LAB – Interacting Hard Spheres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktheory.html">Kinetic Theory of Gases</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Stochastic Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Stochastic Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte%20carlo%20integration.html">Stochastic approaches to integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metropolis%20Ising%20Model.html">2D Ising Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Correlation%20Times.html">Correlation times</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cluster%20Algorithms.html">Cluster Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Wolff.html">Lab – Wolff Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Binder.html">Binder Cumulants and the Scaling Hypothesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Renormalization.html">The Renormalization group</a></li>
+
 </ul>
 
     </div>
@@ -473,6 +489,9 @@
 <span class=" -Color -Color-Bold -Color-Bold-Cyan">    Manifest</span> No packages added to or removed from `~/Documents/MacbookPro/PHYS 4480-7680 Computational Physics/git 2026/phys4480/Manifest.toml`
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Precompiling</span> packages...
+</pre></div>
+</div>
 </div>
 </div>
 <p><strong>Please write your name in this box</strong></p>
@@ -528,28 +547,28 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>search: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>search: <span class=" -Color -Color-Bold">length</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">length</span> <span class=" -Color -Color-Bold">le</span>t
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Integer</span>
 </pre></div>
 </div>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">s</span><span class="o">::</span><span class="kt">AbstractString</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
-<span class="n">length</span><span class="p">(</span><span class="n">s</span><span class="o">::</span><span class="kt">AbstractString</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">::</span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
-</pre></div>
-</div>
-<p>Return the number of characters in string <code class="docutils literal notranslate"><span class="pre">s</span></code> from indices <code class="docutils literal notranslate"><span class="pre">i</span></code> through <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p>
-<p>This is computed as the number of code unit indices from <code class="docutils literal notranslate"><span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">j</span></code> which are valid character indices. With only a single string argument, this computes the number of characters in the entire string. With <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> arguments it computes the number of indices between <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> inclusive that are valid indices in the string <code class="docutils literal notranslate"><span class="pre">s</span></code>. In addition to in-bounds values, <code class="docutils literal notranslate"><span class="pre">i</span></code> may take the out-of-bounds value <code class="docutils literal notranslate"><span class="pre">ncodeunits(s)</span> <span class="pre">+</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> may take the out-of-bounds value <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<p>!!! note
-The time complexity of this operation is linear in general. That is, it will take the time proportional to the number of bytes or characters in the string because it counts the value on the fly. This is in contrast to the method for arrays, which is a constant-time operation.</p>
-<p>See also <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">isvalid</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">ncodeunits</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">lastindex</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">thisind</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">nextind</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">prevind</span></code></a>.</p>
+<p>Return the number of elements in the collection.</p>
+<p>Use <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">lastindex</span></code></a> to get the last valid index of an indexable collection.</p>
+<p>See also: <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">size</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">ndims</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">eachindex</span></code></a>.</p>
 <h1 class="rubric" id="examples">Examples</h1>
-<div class="highlight-jldoctest notranslate"><div class="highlight"><pre><span></span>julia&gt; length(&quot;jμΛIα&quot;)
+<div class="highlight-jldoctest notranslate"><div class="highlight"><pre><span></span>julia&gt; length(1:5)
 5
+
+julia&gt; length([1, 2, 3, 4])
+4
+
+julia&gt; length([1 2; 3 4])
+4
 </pre></div>
 </div>
 <hr class="docutils" />
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="kt">AbstractArray</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">A</span><span class="p">::</span><span class="n">AbstractArray</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Return the number of elements in the array, defaults to <code class="docutils literal notranslate"><span class="pre">prod(size(A))</span></code>.</p>
@@ -562,21 +581,18 @@ julia&gt; length([1 2; 3 4])
 </pre></div>
 </div>
 <hr class="docutils" />
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Integer</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">s</span><span class="p">::</span><span class="n">AbstractString</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Int</span>
+<span class="n">length</span><span class="p">(</span><span class="n">s</span><span class="p">::</span><span class="n">AbstractString</span><span class="p">,</span> <span class="n">i</span><span class="p">::</span><span class="n">Integer</span><span class="p">,</span> <span class="n">j</span><span class="p">::</span><span class="n">Integer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Int</span>
 </pre></div>
 </div>
-<p>Return the number of elements in the collection.</p>
-<p>Use <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">lastindex</span></code></a> to get the last valid index of an indexable collection.</p>
-<p>See also: <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">size</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">ndims</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">eachindex</span></code></a>.</p>
+<p>Return the number of characters in string <code class="docutils literal notranslate"><span class="pre">s</span></code> from indices <code class="docutils literal notranslate"><span class="pre">i</span></code> through <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p>
+<p>This is computed as the number of code unit indices from <code class="docutils literal notranslate"><span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">j</span></code> which are valid character indices. With only a single string argument, this computes the number of characters in the entire string. With <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> arguments it computes the number of indices between <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> inclusive that are valid indices in the string <code class="docutils literal notranslate"><span class="pre">s</span></code>. In addition to in-bounds values, <code class="docutils literal notranslate"><span class="pre">i</span></code> may take the out-of-bounds value <code class="docutils literal notranslate"><span class="pre">ncodeunits(s)</span> <span class="pre">+</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> may take the out-of-bounds value <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>!!! note
+The time complexity of this operation is linear in general. That is, it will take the time proportional to the number of bytes or characters in the string because it counts the value on the fly. This is in contrast to the method for arrays, which is a constant-time operation.</p>
+<p>See also <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">isvalid</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">ncodeunits</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">lastindex</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">thisind</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">nextind</span></code></a>, <a class="reference external" href="&#64;ref"><code class="docutils literal notranslate"><span class="pre">prevind</span></code></a>.</p>
 <h1 class="rubric" id="id2">Examples</h1>
-<div class="highlight-jldoctest notranslate"><div class="highlight"><pre><span></span>julia&gt; length(1:5)
+<div class="highlight-jldoctest notranslate"><div class="highlight"><pre><span></span>julia&gt; length(&quot;jμΛIα&quot;)
 5
-
-julia&gt; length([1, 2, 3, 4])
-4
-
-julia&gt; length([1 2; 3 4])
-4
 </pre></div>
 </div>
 </div>
@@ -638,10 +654,10 @@ julia&gt; length([1 2; 3 4])
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">┌ Debug: </span>addnumbers called with arguments
 <span class=" -Color -Color-Bold -Color-Bold-Blue">│ </span>  a = 2
 <span class=" -Color -Color-Bold -Color-Bold-Blue">│ </span>  b = 3
-<span class=" -Color -Color-Bold -Color-Bold-Blue">└ </span>@ Main In[6]:2
+<span class=" -Color -Color-Bold -Color-Bold-Blue">└ </span>@ Main In[5]:2
 <span class=" -Color -Color-Bold -Color-Bold-Blue">┌ Debug: </span>calculated result as
 <span class=" -Color -Color-Bold -Color-Bold-Blue">│ </span>  result = 5
-<span class=" -Color -Color-Bold -Color-Bold-Blue">└ </span>@ Main In[6]:4
+<span class=" -Color -Color-Bold -Color-Bold-Blue">└ </span>@ Main In[5]:4
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
@@ -905,7 +921,7 @@ T_{0}=2\pi \frac{L}{g}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mid_data(var&quot;#19#20&quot;(), (1.0, 5.0), 36.0, 0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mid_data(var&quot;#13#14&quot;(), (1.0, 5.0), 36.0, 0)
 </pre></div>
 </div>
 </div>
@@ -923,14 +939,11 @@ T_{0}=2\pi \frac{L}{g}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">UndefVarError</span>: `naive_midpoint` not defined in `Main`
-<span class="ne">Suggestion</span>: check for spelling errors or missing imports.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">UndefVarError</span>: `naive_midpoint` not defined
 
 <span class="ne">Stacktrace</span>:
  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
-   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span><span class="mi">1</span>
- <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nb">eval</span><span class="p">(</span><span class="n">m</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="n">e</span><span class="p">::</span><span class="n">Any</span><span class="p">)</span>
-   <span class="o">@</span> <span class="n">Core</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">489</span>
+   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">]:</span><span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -1136,8 +1149,8 @@ T_{0}=2\pi \frac{L}{g}.
 \bar T =\frac{\sqrt{2}}{\pi}\int_0^{\theta_m}\frac{d\theta}{\sqrt{\cos(\theta)-\cos(\theta_m)}}
 \]</div>
 <p>The integrand scales as <span class="math notranslate nohighlight">\(1/\sqrt{\theta_m-\theta}\)</span> as <span class="math notranslate nohighlight">\(\theta\to\theta_m\)</span>.  Here are two different changes of variables which will eliminate that divergence:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2cf501f-ee58-4d58-9b84-0f23a10036ce">
-<span class="eqno">(24)<a class="headerlink" href="#equation-d2cf501f-ee58-4d58-9b84-0f23a10036ce" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ca18e4ff-0e85-4d75-8cc9-d45217af6df3">
+<span class="eqno">(24)<a class="headerlink" href="#equation-ca18e4ff-0e85-4d75-8cc9-d45217af6df3" title="Permalink to this equation">#</a></span>\[\begin{align}
 x &amp;= \frac{\sqrt{\theta_m-\theta}}{\sqrt{\theta_m}}\\
 \theta &amp;= \theta_m \sin(z)
 \end{align}\]</div>

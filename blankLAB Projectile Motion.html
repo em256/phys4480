@@ -264,6 +264,22 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamical Systems without differential equations</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Billiards.html">Billiards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Interacting%20Hard%20Spheres.html">LAB – Interacting Hard Spheres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktheory.html">Kinetic Theory of Gases</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Stochastic Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Stochastic Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte%20carlo%20integration.html">Stochastic approaches to integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metropolis%20Ising%20Model.html">2D Ising Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Correlation%20Times.html">Correlation times</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cluster%20Algorithms.html">Cluster Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Wolff.html">Lab – Wolff Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Phases%20and%20Phase%20Transitions.html">Phases and Phase Transitions</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Binder.html">Binder Cumulants and the Scaling Hypothesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Renormalization.html">The Renormalization group</a></li>
+
 </ul>
 
     </div>
@@ -464,6 +480,12 @@
 <span class=" -Color -Color-Bold -Color-Bold-Cyan">    Manifest</span> No packages added to or removed from `~/Documents/MacbookPro/PHYS 4480-7680 Computational Physics/git 2026/phys4480/Manifest.toml`
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Precompiling</span> packages...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              ✗ 
+</pre></div>
+</div>
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="lab-projectile-motion">
@@ -489,23 +511,23 @@
 <section id="physics">
 <h2>Physics<a class="headerlink" href="#physics" title="Link to this heading">#</a></h2>
 <p>A projectile obeys the second order differential equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bfcf6522-c1df-4837-8410-ee13a2124578">
-<span class="eqno">(42)<a class="headerlink" href="#equation-bfcf6522-c1df-4837-8410-ee13a2124578" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-50d6e079-adfe-491f-b529-5303e2fc5138">
+<span class="eqno">(42)<a class="headerlink" href="#equation-50d6e079-adfe-491f-b529-5303e2fc5138" title="Permalink to this equation">#</a></span>\[\begin{align}
 m\frac{d^2 {\bf \vec{r}}}{dt^2}&amp;=
 -m g {\bf\hat{y}}+{\bf\vec{F}}_d
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\({\bf\vec{F}}_d\)</span> is the drag force.
 In our approach to solving differential equations numerically, we need to write this as a set of coupled first order differential equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f636ddaa-4e88-43ab-9d18-929eef0f2410">
-<span class="eqno">(43)<a class="headerlink" href="#equation-f636ddaa-4e88-43ab-9d18-929eef0f2410" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ba6f0e4f-9a60-4334-9556-04d03256389d">
+<span class="eqno">(43)<a class="headerlink" href="#equation-ba6f0e4f-9a60-4334-9556-04d03256389d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d {\bf \vec{r}}}{dt}&amp;= {\bf \vec{v}}\\
 \frac{d {\bf \vec{v}}}{dt}&amp;=
 -g {\bf\hat{y}}+\frac{{\bf\vec{F}}_d}{m}
 \end{align}\]</div>
 <p>We create a length 4 vector whose components are <span class="math notranslate nohighlight">\((x,y,vx,vy)\)</span>, and update this vector at each time step.</p>
 <p>In a typical introductory physics course one introduces two different models for <span class="math notranslate nohighlight">\({\bf\vec{F}}_d\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-716414e5-2036-4b18-8e00-eb4ba9c15744">
-<span class="eqno">(44)<a class="headerlink" href="#equation-716414e5-2036-4b18-8e00-eb4ba9c15744" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-29f632e9-cd8a-47b8-827d-1a6abc2d918b">
+<span class="eqno">(44)<a class="headerlink" href="#equation-29f632e9-cd8a-47b8-827d-1a6abc2d918b" title="Permalink to this equation">#</a></span>\[\begin{align}
 {\bf\vec{F}}_d^{(1)}&amp;=-\alpha {\bf\vec{v}}\\
 {\bf\vec{F}}_d^{(2)}&amp;=-\beta |v|{\bf\vec{v}}.
 \end{align}\]</div>
@@ -622,15 +644,15 @@ The case \)</span>\delta=1<span class="math notranslate nohighlight">\( correspo
 <h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
 ## Activity 2
 </h2><p>Lets now try to integrate the differential equation for the projectile.  Lets start with the easy case, where we have no drag.  The equations are then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a8c29e54-b23c-4db9-9734-a911a1899324">
-<span class="eqno">(45)<a class="headerlink" href="#equation-a8c29e54-b23c-4db9-9734-a911a1899324" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3a06a9bd-66c3-4c19-b7a8-ae751564d745">
+<span class="eqno">(45)<a class="headerlink" href="#equation-3a06a9bd-66c3-4c19-b7a8-ae751564d745" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d {\bf \vec{r}}}{dt}&amp;= {\bf \vec{v}}\\
 \frac{d {\bf \vec{v}}}{dt}&amp;=
 -g {\bf\hat{y}}
 \end{align}\]</div>
 <p>We can understand this as 4 equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4ce02356-d738-4f08-a0af-7b581aa14457">
-<span class="eqno">(46)<a class="headerlink" href="#equation-4ce02356-d738-4f08-a0af-7b581aa14457" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-238a4aed-a7b5-47bf-84c1-ff84dddfa54a">
+<span class="eqno">(46)<a class="headerlink" href="#equation-238a4aed-a7b5-47bf-84c1-ff84dddfa54a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt}&amp;=v_x\\
 \frac{dy}{dt}&amp;=v_y\\
 \frac{dv_x}{dt}&amp;=0\\
@@ -735,7 +757,7 @@ The case \)</span>\delta=1<span class="math notranslate nohighlight">\( correspo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(::var&quot;#dxvdt#make_dxvdt##0&quot;{Float64}) (generic function with 1 method)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(::var&quot;#dxvdt#17&quot;{Float64}) (generic function with 1 method)
 </pre></div>
 </div>
 </div>
@@ -775,8 +797,8 @@ The case \)</span>\delta=1<span class="math notranslate nohighlight">\( correspo
 </div>
 <p>Now they lie on top of the Mars Values.</p>
 <p>We want to do the same thing, but include drag.  Our 4 equations are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8953ee5b-ad22-4373-9706-2225e5281308">
-<span class="eqno">(47)<a class="headerlink" href="#equation-8953ee5b-ad22-4373-9706-2225e5281308" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d75832ff-9d96-474e-a57c-b8cc02070662">
+<span class="eqno">(47)<a class="headerlink" href="#equation-d75832ff-9d96-474e-a57c-b8cc02070662" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt} &amp;= v_x\\
 \frac{dy}{dt} &amp;= v_y\\
 \frac{dv_x}{dt} &amp;= -\gamma |v|^{\delta-1} v_x\\
@@ -819,20 +841,6 @@ tstdvxdt3=make_dvxdt(0.,1.,2.)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="w"> </span><span class="s">&quot;Pendulumlab.jl&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">ParseError</span>:
-<span class="c1"># Error @ ]8;;file:///Users/emueller/Documents/MacbookPro/PHYS 4480-7680 Computational Physics/git 2026/phys4480/In[14]#1:8\In[14]:1:8]8;;\</span>
-<span class="n">include</span> <span class="s2">&quot;Pendulumlab.jl&quot;</span>
-<span class="c1">#      └───────────────┘ ── extra tokens after end of expression</span>
-
-<span class="ne">Stacktrace</span>:
- <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
-   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span><span class="mi">1</span>
- <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nb">eval</span><span class="p">(</span><span class="n">m</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="n">e</span><span class="p">::</span><span class="n">Any</span><span class="p">)</span>
-   <span class="o">@</span> <span class="n">Core</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">489</span>
 </pre></div>
 </div>
 </div>
@@ -1044,8 +1052,8 @@ lst[end - 1] = 4
 </div>
 <p><strong>Use your distance function to create a graph of distance vs <span class="math notranslate nohighlight">\(\theta\)</span> for a projectile launched with initial conditions <span class="math notranslate nohighlight">\(xv=(0.,0.,\cos(\theta),\sin(\theta))\)</span>, and parameters <span class="math notranslate nohighlight">\(m=1,g=1,\gamma=0,\delta=2\)</span>.  That is, the case of no drag.  You know that the maximum distance should occur at an angle of <span class="math notranslate nohighlight">\(\pi/4\)</span>.</strong></p>
 <p>Compare with the analytic expression:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-44c51164-799f-4a50-a022-9f5f991c78be">
-<span class="eqno">(48)<a class="headerlink" href="#equation-44c51164-799f-4a50-a022-9f5f991c78be" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d1bc6623-58ba-4298-b488-27bf4a225f9a">
+<span class="eqno">(48)<a class="headerlink" href="#equation-d1bc6623-58ba-4298-b488-27bf4a225f9a" title="Permalink to this equation">#</a></span>\[\begin{align}
 d=\sin(2\theta)
 \end{align}\]</div>
 <p><strong>Repeat, but with strong air drag: <span class="math notranslate nohighlight">\(\gamma=4\)</span>. What happens to the optimal angle?  Does adding drag make it larger or smaller than <span class="math notranslate nohighlight">\(\pi/2\)</span>?</strong></p>
