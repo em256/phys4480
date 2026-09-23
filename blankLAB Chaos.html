@@ -66,7 +66,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Followup on Duffing Oscillator" href="Duffing%20Oscillator%20Followup.html" />
+    <link rel="next" title="Bonus LAB – Dynamics" href="blankLAB%20Bonus%20Dynamics.html" />
     <link rel="prev" title="Symmetry Constraints" href="Symplectic%20Integrators.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -256,6 +256,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">LAB – Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Bonus%20Dynamics.html">Bonus LAB – Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Duffing%20Oscillator%20Followup.html">Followup on Duffing Oscillator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Animating%20a%20Pendulum.html">Interactive Animation of Pendulum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Animating%20the%20Duffing%20Oscillator.html">Lab – Animating the Duffing Oscillator</a></li>
@@ -600,15 +601,15 @@
 <h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
 ## Activity 1
 </h2><p>We will consider a non-linear oscillator described by the equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-456451ae-1e55-47c3-adf4-0a45d2af8b0b">
-<span class="eqno">(76)<a class="headerlink" href="#equation-456451ae-1e55-47c3-adf4-0a45d2af8b0b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-22bf91ef-7df5-44a9-ac2f-78afcfff84bb">
+<span class="eqno">(76)<a class="headerlink" href="#equation-22bf91ef-7df5-44a9-ac2f-78afcfff84bb" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt}&amp;=v\\
 \frac{dv}{dt}&amp;=-2\gamma v-\alpha x-\beta x^3 +F \cos(\omega t).
 \end{align}\]</div>
 <p>Here <span class="math notranslate nohighlight">\(\gamma\)</span> is the damping rate, <span class="math notranslate nohighlight">\(F\)</span> is the strength of a periodic drive, with frequency <span class="math notranslate nohighlight">\(\omega\)</span>, and <span class="math notranslate nohighlight">\(\alpha,\beta\)</span> describe the potential.  For <span class="math notranslate nohighlight">\(\beta=0\)</span> we have a harmonic potential, resulting in a driven simple Harmonic Oscillator.</p>
 <p>An interesting case is when <span class="math notranslate nohighlight">\(\alpha&lt;0\)</span> and <span class="math notranslate nohighlight">\(\beta&gt;0\)</span>.  In that case the potential is a double well</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2f882603-4c20-4ab3-8909-e6ee4e4650bd">
-<span class="eqno">(77)<a class="headerlink" href="#equation-2f882603-4c20-4ab3-8909-e6ee4e4650bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-62599714-75e8-43ef-8e19-930572ebd1e2">
+<span class="eqno">(77)<a class="headerlink" href="#equation-62599714-75e8-43ef-8e19-930572ebd1e2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V(x)=\frac{\alpha}{2} x^2+\frac{\beta}{4} x^4.
 \end{equation}\]</div>
 <p><strong>Write a function that takes the parameters <span class="math notranslate nohighlight">\(\alpha,\beta,\gamma,F,\omega\)</span> the initial conditions <span class="math notranslate nohighlight">\(x_0,v_0\)</span>, and the evolution time <span class="math notranslate nohighlight">\(T\)</span>.  It will return the solution to the differential equation, as found from <code class="docutils literal notranslate"><span class="pre">DifferentialEquations.jl</span></code>.</strong></p>
@@ -688,11 +689,11 @@ duffing([1.5,0],10;params...)
       </div>
     </a>
     <a class="right-next"
-       href="Duffing%20Oscillator%20Followup.html"
+       href="blankLAB%20Bonus%20Dynamics.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Followup on Duffing Oscillator</p>
+        <p class="prev-next-title">Bonus LAB – Dynamics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -256,6 +256,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Chaos.html">LAB – Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blankLAB%20Bonus%20Dynamics.html">Bonus LAB – Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Duffing%20Oscillator%20Followup.html">Followup on Duffing Oscillator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Animating%20a%20Pendulum.html">Interactive Animation of Pendulum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Animating%20the%20Duffing%20Oscillator.html">Lab – Animating the Duffing Oscillator</a></li>
@@ -483,9 +484,6 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Precompiling</span> packages...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              ✗ 
-</pre></div>
-</div>
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="lab-projectile-motion">
@@ -511,23 +509,23 @@
 <section id="physics">
 <h2>Physics<a class="headerlink" href="#physics" title="Link to this heading">#</a></h2>
 <p>A projectile obeys the second order differential equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50d6e079-adfe-491f-b529-5303e2fc5138">
-<span class="eqno">(42)<a class="headerlink" href="#equation-50d6e079-adfe-491f-b529-5303e2fc5138" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c8a057ff-d216-4e0a-be20-9364dee4d14f">
+<span class="eqno">(42)<a class="headerlink" href="#equation-c8a057ff-d216-4e0a-be20-9364dee4d14f" title="Permalink to this equation">#</a></span>\[\begin{align}
 m\frac{d^2 {\bf \vec{r}}}{dt^2}&amp;=
 -m g {\bf\hat{y}}+{\bf\vec{F}}_d
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\({\bf\vec{F}}_d\)</span> is the drag force.
 In our approach to solving differential equations numerically, we need to write this as a set of coupled first order differential equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba6f0e4f-9a60-4334-9556-04d03256389d">
-<span class="eqno">(43)<a class="headerlink" href="#equation-ba6f0e4f-9a60-4334-9556-04d03256389d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1e6ead17-b657-4da1-94bb-53d486388a77">
+<span class="eqno">(43)<a class="headerlink" href="#equation-1e6ead17-b657-4da1-94bb-53d486388a77" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d {\bf \vec{r}}}{dt}&amp;= {\bf \vec{v}}\\
 \frac{d {\bf \vec{v}}}{dt}&amp;=
 -g {\bf\hat{y}}+\frac{{\bf\vec{F}}_d}{m}
 \end{align}\]</div>
 <p>We create a length 4 vector whose components are <span class="math notranslate nohighlight">\((x,y,vx,vy)\)</span>, and update this vector at each time step.</p>
 <p>In a typical introductory physics course one introduces two different models for <span class="math notranslate nohighlight">\({\bf\vec{F}}_d\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29f632e9-cd8a-47b8-827d-1a6abc2d918b">
-<span class="eqno">(44)<a class="headerlink" href="#equation-29f632e9-cd8a-47b8-827d-1a6abc2d918b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ed88a4bc-70c7-4102-9abd-33012eee018d">
+<span class="eqno">(44)<a class="headerlink" href="#equation-ed88a4bc-70c7-4102-9abd-33012eee018d" title="Permalink to this equation">#</a></span>\[\begin{align}
 {\bf\vec{F}}_d^{(1)}&amp;=-\alpha {\bf\vec{v}}\\
 {\bf\vec{F}}_d^{(2)}&amp;=-\beta |v|{\bf\vec{v}}.
 \end{align}\]</div>
@@ -644,15 +642,15 @@ The case \)</span>\delta=1<span class="math notranslate nohighlight">\( correspo
 <h2 style="border: 2px solid #000; border-radius: 10px; padding: 20px; background-color:red; color:white;" >
 ## Activity 2
 </h2><p>Lets now try to integrate the differential equation for the projectile.  Lets start with the easy case, where we have no drag.  The equations are then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3a06a9bd-66c3-4c19-b7a8-ae751564d745">
-<span class="eqno">(45)<a class="headerlink" href="#equation-3a06a9bd-66c3-4c19-b7a8-ae751564d745" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9de5fbe1-cf89-4f46-b05b-1756032ba66f">
+<span class="eqno">(45)<a class="headerlink" href="#equation-9de5fbe1-cf89-4f46-b05b-1756032ba66f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{d {\bf \vec{r}}}{dt}&amp;= {\bf \vec{v}}\\
 \frac{d {\bf \vec{v}}}{dt}&amp;=
 -g {\bf\hat{y}}
 \end{align}\]</div>
 <p>We can understand this as 4 equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-238a4aed-a7b5-47bf-84c1-ff84dddfa54a">
-<span class="eqno">(46)<a class="headerlink" href="#equation-238a4aed-a7b5-47bf-84c1-ff84dddfa54a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d331108b-5fd7-4bae-94ca-b0d40ad5925d">
+<span class="eqno">(46)<a class="headerlink" href="#equation-d331108b-5fd7-4bae-94ca-b0d40ad5925d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt}&amp;=v_x\\
 \frac{dy}{dt}&amp;=v_y\\
 \frac{dv_x}{dt}&amp;=0\\
@@ -797,8 +795,8 @@ The case \)</span>\delta=1<span class="math notranslate nohighlight">\( correspo
 </div>
 <p>Now they lie on top of the Mars Values.</p>
 <p>We want to do the same thing, but include drag.  Our 4 equations are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d75832ff-9d96-474e-a57c-b8cc02070662">
-<span class="eqno">(47)<a class="headerlink" href="#equation-d75832ff-9d96-474e-a57c-b8cc02070662" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-967836a2-d39f-4181-94cc-7a783f8e864a">
+<span class="eqno">(47)<a class="headerlink" href="#equation-967836a2-d39f-4181-94cc-7a783f8e864a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dx}{dt} &amp;= v_x\\
 \frac{dy}{dt} &amp;= v_y\\
 \frac{dv_x}{dt} &amp;= -\gamma |v|^{\delta-1} v_x\\
@@ -1052,8 +1050,8 @@ lst[end - 1] = 4
 </div>
 <p><strong>Use your distance function to create a graph of distance vs <span class="math notranslate nohighlight">\(\theta\)</span> for a projectile launched with initial conditions <span class="math notranslate nohighlight">\(xv=(0.,0.,\cos(\theta),\sin(\theta))\)</span>, and parameters <span class="math notranslate nohighlight">\(m=1,g=1,\gamma=0,\delta=2\)</span>.  That is, the case of no drag.  You know that the maximum distance should occur at an angle of <span class="math notranslate nohighlight">\(\pi/4\)</span>.</strong></p>
 <p>Compare with the analytic expression:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d1bc6623-58ba-4298-b488-27bf4a225f9a">
-<span class="eqno">(48)<a class="headerlink" href="#equation-d1bc6623-58ba-4298-b488-27bf4a225f9a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-004ac3e6-e3f9-4c27-8c24-64989c6a5048">
+<span class="eqno">(48)<a class="headerlink" href="#equation-004ac3e6-e3f9-4c27-8c24-64989c6a5048" title="Permalink to this equation">#</a></span>\[\begin{align}
 d=\sin(2\theta)
 \end{align}\]</div>
 <p><strong>Repeat, but with strong air drag: <span class="math notranslate nohighlight">\(\gamma=4\)</span>. What happens to the optimal angle?  Does adding drag make it larger or smaller than <span class="math notranslate nohighlight">\(\pi/2\)</span>?</strong></p>
