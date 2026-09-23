@@ -24,6 +24,7 @@ parts:
   chapters:
   - file: Symplectic Integrators
   - file: blankLAB Chaos
+  - file: blankLAB Bonus Dynamics
   - file: Duffing Oscillator Followup
   - file: Animating a Pendulum
   - file: blankLAB Animating the Duffing Oscillator
