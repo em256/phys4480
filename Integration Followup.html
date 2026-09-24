@@ -257,6 +257,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Chaos.html">LAB – Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Bonus%20Dynamics.html">Bonus LAB – Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Closures.html">Closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Duffing%20Oscillator%20Followup.html">Followup on Duffing Oscillator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Animating%20a%20Pendulum.html">Interactive Animation of Pendulum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Animating%20the%20Duffing%20Oscillator.html">Lab – Animating the Duffing Oscillator</a></li>
@@ -500,12 +501,6 @@
 <span class=" -Color -Color-Bold -Color-Bold-Cyan">    Manifest</span> No packages added to or removed from `~/Documents/MacbookPro/PHYS 4480-7680 Computational Physics/git 2026/phys4480/Manifest.toml`
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Precompiling</span> 
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>packages...
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -561,7 +556,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.067874 seconds (152.24 k allocations: 7.465 MiB, 99.81% compilation time)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.076720 seconds (152.24 k allocations: 7.465 MiB, 99.83% compilation time)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1803405931478603, 1.537190156500909e-8)
@@ -720,19 +715,19 @@
 <h4>Magic behind Gaussian Quadratures<a class="headerlink" href="#magic-behind-gaussian-quadratures" title="Link to this heading">#</a></h4>
 <p>The idea is that if one evaluates the function at <strong>non-equally spaced</strong> points, one can accelerate convergence</p>
 <p>For example, suppose we want to calculate <span class="math notranslate nohighlight">\(\int_{-1}^1 f(x) dx\)</span> using only three function evaluations.  In trapezoid rule those evaluations would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>.  For midpoint rule they would be at <span class="math notranslate nohighlight">\(x=-2/3,0,2/3\)</span>.  In Simpson’s rule the would be at <span class="math notranslate nohighlight">\(x=-1,0,1\)</span>, but we would weight them unequally.  The most general quadrature rule is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b42c5d5c-f5d5-4488-af05-cbde1f5969a8">
-<span class="eqno">(25)<a class="headerlink" href="#equation-b42c5d5c-f5d5-4488-af05-cbde1f5969a8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ca1a637e-582c-4980-9e0c-4843907d29fa">
+<span class="eqno">(25)<a class="headerlink" href="#equation-ca1a637e-582c-4980-9e0c-4843907d29fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I\approx \sum_j w_j f(x_j).
 \end{equation}\]</div>
 <p>The most general 3-point symmetric quadrature rule would be</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d6a4c22-c736-4861-8fd7-e9aea3f90916">
-<span class="eqno">(26)<a class="headerlink" href="#equation-7d6a4c22-c736-4861-8fd7-e9aea3f90916" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de825222-154d-4cca-be4e-bb57af8a84ff">
+<span class="eqno">(26)<a class="headerlink" href="#equation-de825222-154d-4cca-be4e-bb57af8a84ff" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I=a f(0) + b f(s)+ b f(-s)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a,b,s\)</span> are parameters.</p>
 <p>We will choose these parameters so that we get the correct integral for various polynomials</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e3594a9-24a4-48b9-ba91-2d0dffae0711">
-<span class="eqno">(27)<a class="headerlink" href="#equation-1e3594a9-24a4-48b9-ba91-2d0dffae0711" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d2a6b300-680c-453b-ae18-b93b89aa8636">
+<span class="eqno">(27)<a class="headerlink" href="#equation-d2a6b300-680c-453b-ae18-b93b89aa8636" title="Permalink to this equation">#</a></span>\[\begin{align}
 \int_{-1}^1 x^0 dx &amp;\to a+2b &amp;=2\\
 \int_{-1}^1 x^1 dx &amp;\to 0 &amp;= 0\\
 \int_{-1}^1 x^2 dx &amp;\to 2b s^2 &amp;= 2/3\\

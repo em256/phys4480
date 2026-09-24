@@ -1,17 +1,4 @@
 Traceback (most recent call last):
-  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 782, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
-    result = await obj
-             ^^^^^^^^^
-  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/jupyter_client/channels.py", line 330, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/Users/emueller/anaconda3/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
     ~~~~~~~~~^
@@ -35,25 +22,66 @@ Traceback (most recent call last):
     await self.async_execute_cell(
         cell, index, execution_count=self.code_cells_executed + 1
     )
-  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 1005, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-        "Cell execution timed out", timeout, cell
-    )
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-import Pkg
-Pkg.activate(".")
-Pkg.add(["Makie","GLMakie","CairoMakie","OffsetArrays",
-        "ProgressMeter","Statistics","BenchmarkTools",
-        "LaTeXStrings","HDF5","Polynomials"]) 
-Pkg.instantiate() 
--------------------
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/emueller/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Load Data
+# Here is our original dataset
+# generated with
+#for j in 3:10
+#    println("generating data for j="*string(j))
+#    @time data=tempsweep(2^j,2^j,0.2,0.8,0.02,10,1000)
+#    filename="swp"*string(j)*".h5"
+#    savesweep(data,filename)
+#    println("saved data in file "*string(filename))
+#    println()
+#end
+
+sdatafile=["swp"*string(j)*".h5" for j in 3:10]
+data=[loadsweep(file) for file in sdatafile];
+
+# Now load data zoomed in near transition:
+#
+#for j in 3:8
+#    println("generating data for j="*string(j))
+#    @time data=tempsweep(2^j,2^j,0.4,0.5,0.01,10,100000)
+#    filename="hr"*string(j)*".h5"
+#    savesweep(data,filename)
+#    println("saved data in file "*string(filename))
+#    println()
+#end
+#
+hrdatafile=["hr"*string(j)*".h5" for j in 3:8]
+hrdata=[loadsweep(file) for file in hrdatafile];
+------------------
+
+
+unable to determine if swp3.h5 is accessible in the HDF5 format (file may not exist)
+
+Stacktrace:
+  [1] [0m[1merror[22m[0m[1m([22m[90ms[39m::[0mString[0m[1m)[22m
+[90m    @[39m [90mBase[39m [90m./[39m[90m[4merror.jl:44[24m[39m
+  [2] [0m[1mh5open[22m[0m[1m([22m[90mfilename[39m::[0mString, [90mmode[39m::[0mString, [90mfapl[39m::[0mHDF5.FileAccessProperties, [90mfcpl[39m::[0mHDF5.FileCreateProperties; [90mswmr[39m::[0mBool[0m[1m)[22m
+[90m    @[39m [35mHDF5[39m [90m~/.julia/packages/HDF5/8g5ny/src/[39m[90m[4mfile.jl:48[24m[39m
+  [3] [0m[1mh5open[22m
+[90m    @[39m [90m~/.julia/packages/HDF5/8g5ny/src/[39m[90m[4mfile.jl:20[24m[39m[90m [inlined][39m
+  [4] [0m[1mh5open[22m[0m[1m([22m[90mfilename[39m::[0mString, [90mmode[39m::[0mString; [90mswmr[39m::[0mBool, [90mfapl[39m::[0mHDF5.FileAccessProperties, [90mfcpl[39m::[0mHDF5.FileCreateProperties, [90mpv[39m::[0m@Kwargs[90m{}[39m[0m[1m)[22m
+[90m    @[39m [35mHDF5[39m [90m~/.julia/packages/HDF5/8g5ny/src/[39m[90m[4mfile.jl:75[24m[39m
+  [5] [0m[1mh5open[22m[0m[1m([22m[90mfilename[39m::[0mString, [90mmode[39m::[0mString[0m[1m)[22m
+[90m    @[39m [35mHDF5[39m [90m~/.julia/packages/HDF5/8g5ny/src/[39m[90m[4mfile.jl:63[24m[39m
+  [6] [0m[1mloadsweep[22m[0m[1m([22m[90mfilename[39m::[0mString[0m[1m)[22m
+[90m    @[39m [36mMain[39m [90m./[39m[90m[4mIn[3]:20[24m[39m
+  [7] [0m[1m#11[22m
+[90m    @[39m [90m./[39m[90m[4mnone:-1[24m[39m[90m [inlined][39m
+  [8] [0m[1miterate[22m
+[90m    @[39m [90m./[39m[90m[4mgenerator.jl:48[24m[39m[90m [inlined][39m
+  [9] [0m[1mcollect[22m[0m[1m([22m[90mitr[39m::[0mBase.Generator[90m{Vector{String}, var"#11#12"}[39m[0m[1m)[22m
+[90m    @[39m [90mBase[39m [90m./[39m[90m[4marray.jl:790[24m[39m
+ [10] top-level scope
+[90m    @[39m [90m[4mIn[4]:14[24m[39m
+ [11] [0m[1meval[22m[0m[1m([22m[90mm[39m::[0mModule, [90me[39m::[0mAny[0m[1m)[22m
+[90m    @[39m [90mCore[39m [90m./[39m[90m[4mboot.jl:489[24m[39m
 

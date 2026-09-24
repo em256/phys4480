@@ -257,6 +257,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Symplectic%20Integrators.html">Symmetry Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Chaos.html">LAB – Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Bonus%20Dynamics.html">Bonus LAB – Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Closures.html">Closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Duffing%20Oscillator%20Followup.html">Followup on Duffing Oscillator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Animating%20a%20Pendulum.html">Interactive Animation of Pendulum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blankLAB%20Animating%20the%20Duffing%20Oscillator.html">Lab – Animating the Duffing Oscillator</a></li>
@@ -482,12 +483,6 @@
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">     Project</span> No packages added to or removed from `~/Documents/MacbookPro/PHYS 4480-7680 Computational Physics/git 2026/phys4480/Project.toml`
 <span class=" -Color -Color-Bold -Color-Bold-Cyan">    Manifest</span> No packages added to or removed from `~/Documents/MacbookPro/PHYS 4480-7680 Computational Physics/git 2026/phys4480/Manifest.toml`
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Precompiling</span> 
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>packages...
 </pre></div>
 </div>
 </div>
@@ -804,6 +799,35 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="nn">unable to determine if swp3.h5 is accessible</span> in <span class="ni">the HDF5 format </span><span class="nt">(file may not exist)</span>
+
+<span class="ne">Stacktrace</span>:
+  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">error</span><span class="p">(</span><span class="n">s</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">error</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">44</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">h5open</span><span class="p">(</span><span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">mode</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">fapl</span><span class="p">::</span><span class="n">HDF5</span><span class="o">.</span><span class="n">FileAccessProperties</span><span class="p">,</span> <span class="n">fcpl</span><span class="p">::</span><span class="n">HDF5</span><span class="o">.</span><span class="n">FileCreateProperties</span><span class="p">;</span> <span class="n">swmr</span><span class="p">::</span><span class="n">Bool</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">HDF5</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">HDF5</span><span class="o">/</span><span class="mi">8</span><span class="n">g5ny</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">48</span>
+  <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">h5open</span>
+    <span class="o">@</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">HDF5</span><span class="o">/</span><span class="mi">8</span><span class="n">g5ny</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">20</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">h5open</span><span class="p">(</span><span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">mode</span><span class="p">::</span><span class="n">String</span><span class="p">;</span> <span class="n">swmr</span><span class="p">::</span><span class="n">Bool</span><span class="p">,</span> <span class="n">fapl</span><span class="p">::</span><span class="n">HDF5</span><span class="o">.</span><span class="n">FileAccessProperties</span><span class="p">,</span> <span class="n">fcpl</span><span class="p">::</span><span class="n">HDF5</span><span class="o">.</span><span class="n">FileCreateProperties</span><span class="p">,</span> <span class="n">pv</span><span class="p">::</span><span class="nd">@Kwargs</span><span class="p">{})</span>
+    <span class="o">@</span> <span class="n">HDF5</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">HDF5</span><span class="o">/</span><span class="mi">8</span><span class="n">g5ny</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">75</span>
+  <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">h5open</span><span class="p">(</span><span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">mode</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">HDF5</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">HDF5</span><span class="o">/</span><span class="mi">8</span><span class="n">g5ny</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">63</span>
+  <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="n">loadsweep</span><span class="p">(</span><span class="n">filename</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">Main</span> <span class="o">./</span><span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="mi">20</span>
+  <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="c1">#11</span>
+    <span class="o">@</span> <span class="o">./</span><span class="n">none</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="n">iterate</span>
+    <span class="o">@</span> <span class="o">./</span><span class="n">generator</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">48</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="n">collect</span><span class="p">(</span><span class="n">itr</span><span class="p">::</span><span class="n">Base</span><span class="o">.</span><span class="n">Generator</span><span class="p">{</span><span class="n">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">},</span> <span class="n">var</span><span class="s2">&quot;#11#12&quot;</span><span class="p">})</span>
+    <span class="o">@</span> <span class="n">Base</span> <span class="o">./</span><span class="n">array</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">790</span>
+ <span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
+    <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="mi">14</span>
+ <span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="nb">eval</span><span class="p">(</span><span class="n">m</span><span class="p">::</span><span class="n">Module</span><span class="p">,</span> <span class="n">e</span><span class="p">::</span><span class="n">Any</span><span class="p">)</span>
+    <span class="o">@</span> <span class="n">Core</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">489</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here is what the magnetization data looks like.  The black dots is the largest system size, which we only calculated on a coarse temperature grid.  The other points are our smaller system sizes, but on a finer grid</p>
 <div class="cell docutils container">
@@ -937,33 +961,33 @@
 <p>The defining feature of the paramagnet is that in the limit <span class="math notranslate nohighlight">\(N\to\infty\)</span>, the probability distribution is a Gaussian centered at the origin.  The defining feature of the ferromagnet is that in the limit <span class="math notranslate nohighlight">\(N\to\infty\)</span> it is two Gaussians, centered at finite magnetizations.</p>
 <p>In some sense <span class="math notranslate nohighlight">\(\langle |m|\rangle\)</span> distinguishes these two distributions through its <span class="math notranslate nohighlight">\(N\)</span> dependence:  In the paramagnetic phase <span class="math notranslate nohighlight">\(\langle |m|\rangle \sim N^{-1/2}\)</span>.  In the ferromagnet it approaches a constant.  There is, however a more direct way to asses the shape of the probability distribution, taking moments.</p>
 <p>To reiterate, above <span class="math notranslate nohighlight">\(T_c\)</span> we see that <span class="math notranslate nohighlight">\(P(m)\)</span> is a Gaussian centered at the origin with a width that scales with <span class="math notranslate nohighlight">\(1/\sqrt{N}\)</span>.  Thus we write</p>
-<div class="amsmath math notranslate nohighlight" id="equation-500a3ac1-343e-4986-a8b2-16dbfbe0a6d1">
-<span class="eqno">(201)<a class="headerlink" href="#equation-500a3ac1-343e-4986-a8b2-16dbfbe0a6d1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-51fa758c-c883-4bfb-b6c3-106be3c370d9">
+<span class="eqno">(202)<a class="headerlink" href="#equation-51fa758c-c883-4bfb-b6c3-106be3c370d9" title="Permalink to this equation">#</a></span>\[\begin{align}
 P(m)&amp;\propto \exp\left(-\frac{N m^2}{2\lambda^2}\right).
 \end{align}\]</div>
 <p>If we take moments we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd91ff01-b1e8-47f7-a7fc-64636a0adb43">
-<span class="eqno">(202)<a class="headerlink" href="#equation-fd91ff01-b1e8-47f7-a7fc-64636a0adb43" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-564e5466-86b8-46cb-b850-42a73db4edbd">
+<span class="eqno">(203)<a class="headerlink" href="#equation-564e5466-86b8-46cb-b850-42a73db4edbd" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle m^2\rangle &amp;= \frac{\lambda^2}{N}\\
 \langle m^4 \rangle &amp;= 3 \left(\frac{\lambda^2}{N}\right)^2.
 \end{align}\]</div>
 <p>Below <span class="math notranslate nohighlight">\(T_c\)</span> we instead see that <span class="math notranslate nohighlight">\(P(m)\)</span> is two Gaussians, centered at <span class="math notranslate nohighlight">\(\pm m_0\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b680801-00b1-4b1e-986f-39da1cdd9051">
-<span class="eqno">(203)<a class="headerlink" href="#equation-9b680801-00b1-4b1e-986f-39da1cdd9051" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7196bff7-fa5d-4b4c-82a3-be7154079e15">
+<span class="eqno">(204)<a class="headerlink" href="#equation-7196bff7-fa5d-4b4c-82a3-be7154079e15" title="Permalink to this equation">#</a></span>\[\begin{align}
 P(m)&amp;\propto \exp\left(-\frac{N (m-m_0)^2}{2\lambda^2}\right)
 +\exp\left(-\frac{N (m+m_0)^2}{2\lambda^2}\right)
 .
 \end{align}\]</div>
 <p>And hence the moments are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-65d661ac-f8c9-47e3-b71f-ff2d4ce1faff">
-<span class="eqno">(204)<a class="headerlink" href="#equation-65d661ac-f8c9-47e3-b71f-ff2d4ce1faff" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-af775983-c8a7-4434-b875-46f3c95181c2">
+<span class="eqno">(205)<a class="headerlink" href="#equation-af775983-c8a7-4434-b875-46f3c95181c2" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle m^2\rangle &amp;=m_0^2+ \frac{\lambda^2}{N}\\
 \langle m^4\rangle &amp;=m_0^4+\cdots
 \end{align}\]</div>
 <p>I didn’t bother calculating the rest of the second expression, but it scales as <span class="math notranslate nohighlight">\(1/N\)</span>.</p>
 <p>The interesting feature is we can distinguish the shapes of these distributions by looking at</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5daf0352-cdbb-42d0-bab2-991639091a1c">
-<span class="eqno">(205)<a class="headerlink" href="#equation-5daf0352-cdbb-42d0-bab2-991639091a1c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-606823bb-c07c-4593-a314-bdabd3a7a921">
+<span class="eqno">(206)<a class="headerlink" href="#equation-606823bb-c07c-4593-a314-bdabd3a7a921" title="Permalink to this equation">#</a></span>\[\begin{equation}
 b=\frac{\langle m^4\rangle}{\langle m^2\rangle^2}
 \end{equation}\]</div>
 <p>Above <span class="math notranslate nohighlight">\(T_c\)</span>,  <span class="math notranslate nohighlight">\(b\to 3\)</span>, while below <span class="math notranslate nohighlight">\(T_c\)</span>, <span class="math notranslate nohighlight">\(b\to 1\)</span>. <strong>In the thermodynamic limit, the only temperature at which <span class="math notranslate nohighlight">\(b\neq 1,3\)</span> is <span class="math notranslate nohighlight">\(T_c\)</span>.</strong><br />
@@ -1343,8 +1367,8 @@ A convenient way to find that temperature is to look at where curves of <span cl
 <section id="scaling">
 <h2>Scaling<a class="headerlink" href="#scaling" title="Link to this heading">#</a></h2>
 <p>One consequence of this analysis is that as <span class="math notranslate nohighlight">\(L\to\infty\)</span>, at <span class="math notranslate nohighlight">\(T_c\)</span> the shape of <span class="math notranslate nohighlight">\(P(m)\)</span> is independent of system size:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2fcfec06-4080-447d-b091-7d16f9a8d0bf">
-<span class="eqno">(206)<a class="headerlink" href="#equation-2fcfec06-4080-447d-b091-7d16f9a8d0bf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-31c087f0-6258-4bd1-9f00-d85e20c62b3c">
+<span class="eqno">(207)<a class="headerlink" href="#equation-31c087f0-6258-4bd1-9f00-d85e20c62b3c" title="Permalink to this equation">#</a></span>\[\begin{align}
 P_{\beta_c,L}(m)&amp;\propto
 \exp\left(
 -\beta_c F_{\beta_c}(m,L)
@@ -1594,8 +1618,8 @@ P_{\beta_c,L}(m)&amp;\propto
 <section id="scaling-away-from-the-critical-point">
 <h2>Scaling away from the critical point<a class="headerlink" href="#scaling-away-from-the-critical-point" title="Link to this heading">#</a></h2>
 <p>We have empirically established that at the critical point, as <span class="math notranslate nohighlight">\(L\to\infty\)</span> the Binder cumulant approaches a constant, and the magnetization scales as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-831afee8-0b57-43ca-a728-cc894e84b2ec">
-<span class="eqno">(207)<a class="headerlink" href="#equation-831afee8-0b57-43ca-a728-cc894e84b2ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bb30dbec-2e29-4a10-bfd8-f273163bf17d">
+<span class="eqno">(208)<a class="headerlink" href="#equation-bb30dbec-2e29-4a10-bfd8-f273163bf17d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle|m|\rangle_{\beta=\beta_c} \sim L^{-\delta},
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(\delta\approx 1/8\)</span>.</p>
@@ -1626,49 +1650,49 @@ P_{\beta_c,L}(m)&amp;\propto
 </div>
 </div>
 <p>We will quantify that a little better in a future lecture.  Nonetheless, at finite <span class="math notranslate nohighlight">\(\beta-\beta_c\)</span> there is a correlation length <span class="math notranslate nohighlight">\(\xi\)</span>, and patches smaller than <span class="math notranslate nohighlight">\(\xi\)</span> are independent.  In a region small compared to <span class="math notranslate nohighlight">\(\xi\)</span> the system looks critical.  Thus we expect</p>
-<div class="amsmath math notranslate nohighlight" id="equation-696831d8-6c25-4152-941e-670dadea41c3">
-<span class="eqno">(208)<a class="headerlink" href="#equation-696831d8-6c25-4152-941e-670dadea41c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b955ddb6-53e8-46d8-90eb-a0ecdc991366">
+<span class="eqno">(209)<a class="headerlink" href="#equation-b955ddb6-53e8-46d8-90eb-a0ecdc991366" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle |m|\rangle= L^{-\delta} w(L/\xi)
 \end{equation}\]</div>
 <p>Here <span class="math notranslate nohighlight">\(w(x)\)</span> is a function for which <span class="math notranslate nohighlight">\(w(0)\)</span> is a constant.</p>
 <p>On the ferromagnetic side of resonance, as <span class="math notranslate nohighlight">\(L\to\infty\)</span>, the magnetization approaches a constant.  Therefore,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-55f65cf6-da14-4bbe-85e3-ba859c101814">
-<span class="eqno">(209)<a class="headerlink" href="#equation-55f65cf6-da14-4bbe-85e3-ba859c101814" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a6c9b299-cd91-481b-93fa-6db8aa971d1b">
+<span class="eqno">(210)<a class="headerlink" href="#equation-a6c9b299-cd91-481b-93fa-6db8aa971d1b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 w(x)\sim x^{-\delta}
 \end{equation}\]</div>
 <p>as <span class="math notranslate nohighlight">\(x\to\infty\)</span>.</p>
 <p>IE.  In the thermodynamic limit, near the critical point</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d07ec637-3c30-4193-8f4e-d42bb37cda23">
-<span class="eqno">(210)<a class="headerlink" href="#equation-d07ec637-3c30-4193-8f4e-d42bb37cda23" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c5f2ff9b-b5ae-4bb7-b654-2a6a4138060f">
+<span class="eqno">(211)<a class="headerlink" href="#equation-c5f2ff9b-b5ae-4bb7-b654-2a6a4138060f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle |m|\rangle \sim \xi^{-\delta}.
 \end{equation}\]</div>
 <p>We will see this behavior whenever <span class="math notranslate nohighlight">\(L\gg \xi \gg 1\)</span>.</p>
 <p>In a later lecture we will extract the correlation length from our data.  Since the correlation length diverges at the critical point we expect</p>
-<div class="amsmath math notranslate nohighlight" id="equation-146b8bcc-42e2-4096-b22b-2ec22149bdd2">
-<span class="eqno">(211)<a class="headerlink" href="#equation-146b8bcc-42e2-4096-b22b-2ec22149bdd2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-91e55d90-bc1d-4cff-a54a-e7bbec000836">
+<span class="eqno">(212)<a class="headerlink" href="#equation-91e55d90-bc1d-4cff-a54a-e7bbec000836" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \xi \sim |\beta-\beta_c|^{-\nu}
 \end{equation}\]</div>
 <p>and hence in the thermodynamic limit</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c10290ab-9bd8-45cb-ab56-2aab74785853">
-<span class="eqno">(212)<a class="headerlink" href="#equation-c10290ab-9bd8-45cb-ab56-2aab74785853" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9a5d23bf-7001-4ffd-9cf1-ccd29b7df3d9">
+<span class="eqno">(213)<a class="headerlink" href="#equation-9a5d23bf-7001-4ffd-9cf1-ccd29b7df3d9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \langle |m|\rangle &amp;\sim |\beta-\beta_c|^{\nu\delta}
 &amp;= |\beta-\beta_c|^\beta.
 \end{align}\]</div>
 <p>For the finite size system we instead expect</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3f0ffe75-8b3e-44fe-a4fc-38ab5c489d3d">
-<span class="eqno">(213)<a class="headerlink" href="#equation-3f0ffe75-8b3e-44fe-a4fc-38ab5c489d3d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0df7e8e4-19e7-46cf-be93-230b26aac7cf">
+<span class="eqno">(214)<a class="headerlink" href="#equation-0df7e8e4-19e7-46cf-be93-230b26aac7cf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle |m|\rangle= L^{-\delta} w(L|\beta-\beta_c|^\nu).
 \end{equation}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(w\)</span> is well behaved as <span class="math notranslate nohighlight">\(\beta\to \beta_c\)</span> (for finite <span class="math notranslate nohighlight">\(L\)</span>, the small <span class="math notranslate nohighlight">\(|\beta-\beta_c|\)</span> expansion must be</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa43780f-b57c-4704-a4f8-36c9fd9c8f29">
-<span class="eqno">(214)<a class="headerlink" href="#equation-fa43780f-b57c-4704-a4f8-36c9fd9c8f29" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6cb6e449-a945-49aa-823e-50e791fbafc7">
+<span class="eqno">(215)<a class="headerlink" href="#equation-6cb6e449-a945-49aa-823e-50e791fbafc7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \langle |m|\rangle\sim  c_1 L^{-\delta} +  c_2 L^{1/\nu-\delta}(\beta-\beta_c)+\cdots,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span> are constants.
 Thus we can extract <span class="math notranslate nohighlight">\(\nu\)</span> from our data by looking at the <span class="math notranslate nohighlight">\(L\)</span> dependence of <span class="math notranslate nohighlight">\(\partial \langle |m|\rangle/\partial \beta\)</span> at <span class="math notranslate nohighlight">\(\beta_c\)</span>.</p>
 <p>Just to make your head hurt harder, it turns out there is a better way to extract <span class="math notranslate nohighlight">\(\nu\)</span>.  That is from the <span class="math notranslate nohighlight">\(\beta\)</span> dependence of the Binder cumulant.  The same argument about the scaling of <span class="math notranslate nohighlight">\(\langle |m|\rangle\)</span> says that near the phase transition the binder cumulant should have the scaling form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-296f472b-78cc-4f7e-8140-654db9ca3ad7">
-<span class="eqno">(215)<a class="headerlink" href="#equation-296f472b-78cc-4f7e-8140-654db9ca3ad7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8503a037-4c45-4bf3-85aa-36a6273d52e0">
+<span class="eqno">(216)<a class="headerlink" href="#equation-8503a037-4c45-4bf3-85aa-36a6273d52e0" title="Permalink to this equation">#</a></span>\[\begin{align}
 b=b_c+ c_3 L^{1/\nu} (\beta-\beta_c)+\cdots
 \end{align}\]</div>
 <p>Thus if we find the slope <span class="math notranslate nohighlight">\(\partial b/\partial \beta\)</span> at <span class="math notranslate nohighlight">\(\beta_c\)</span>, it should be a power law in the system size.</p>
