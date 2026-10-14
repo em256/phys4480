@@ -28,6 +28,7 @@ parts:
   - file: Closures
   - file: Duffing Oscillator Followup
   - file: Animating a Pendulum
+  - file: PythonJulia
   - file: blankLAB Animating the Duffing Oscillator
   - file: More Duffing
 - caption: Dynamical Systems without differential equations
